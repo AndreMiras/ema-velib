@@ -9,7 +9,7 @@ package velib.model;
  *
  * @author fteysseire and andre
  */
-public class Client extends User {
+public class Client extends User implements IModel {
     private String firstname;
     private String lastname;
 
