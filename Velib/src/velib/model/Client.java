@@ -7,14 +7,14 @@ package velib.model;
 
 /**
  *
- * @author fteysseire
+ * @author fteysseire and andre
  */
 public class Client extends User {
     private String firstname;
     private String lastname;
 
     public Client() {
-        // TODO: hardcoded value, ident envoyé de la BDD (DAO)
+        // TODO: hardcoded value, ident envoye de la BDD (DAO)
         super(1);
         
     }
