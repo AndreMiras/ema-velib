@@ -9,6 +9,6 @@ package velib.model;
  *
  * @author fteysseire
  */
-public class CourteDuree {
+public class CourteDuree extends Abonnement {
 
 }
