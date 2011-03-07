@@ -21,7 +21,7 @@ public class Client extends User {
 
     
 
-    public Client(String firstname, String last) {
+    public Client(String firstname, String lastname) {
         this();
         this.firstname = firstname;
         this.lastname = lastname;
