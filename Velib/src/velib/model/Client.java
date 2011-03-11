@@ -10,6 +10,7 @@ package velib.model;
  * @author fteysseire and andre
  */
 public class Client extends User implements IModel {
+    private long id;
     private String firstname;
     private String lastname;
 
@@ -21,11 +22,27 @@ public class Client extends User implements IModel {
 
     
 
-    public Client(String firstname, String lastname) {
+    public Client(long id, String firstname, String lastname) {
         this();
+        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         //
+    }
+
+    public String getFirstname()
+    {
+        return firstname;
+    }
+
+    public String getLastname()
+    {
+        return lastname;
+    }
+
+    public int getId()
+    {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 
 
