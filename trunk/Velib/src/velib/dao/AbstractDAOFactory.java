@@ -11,9 +11,8 @@ package velib.dao;
  */
 public abstract class AbstractDAOFactory {
 
-	public abstract DAO getSocieteDAO();
-	public abstract DAO getDeveloppeurDAO();
-	public abstract DAO getLangageDAO();
+	public abstract DAO getClientDAO();
+	public abstract DAO getAbonnementDAO();
 
 	/**
 	 * Méthode nous permettant de récupérer une factory de DAO
