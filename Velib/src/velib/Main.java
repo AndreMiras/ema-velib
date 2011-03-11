@@ -31,7 +31,6 @@ public class Main {
         // Create the controller
         MainController controller =  new MainController(null, view);
         view.setVisible(true);
-
     }
 
 }
