@@ -7,11 +7,12 @@ package velib.model;
 
 /**
  *
- * @author fteysseire
+ * @author Nicolas
  */
-public class Bornette {
+public class Borne {
 
     private long id;
-    private Borne idBorne;
-    private Velo idVelo;
+    private String nomBorne;
+    private int positionX;
+    private int positionY;
 }
