@@ -11,13 +11,14 @@ import velib.model.Abonnement;
  *
  * @author andre
  */
-public class DAOFactory {
+public class DAOFactory extends AbstractDAOFactory
+{
 
-	public static DAO<Client> getClientDAO(){
+	public DAO<Client> getClientDAO(){
 		return new ClientDAO();
 	}
 
-	public static DAO<Abonnement> getAbonnementDAO(){
+	public DAO<Abonnement> getAbonnementDAO(){
 		return new AbonnementDAO();
 	}
 
