@@ -11,7 +11,9 @@ package velib.model;
  */
 public class TypeAbonnement {
 
+        private long id;
         private float prix;
+        private int duree;
 
     public TypeAbonnement () {
         // TODO: hardcoded value, ident envoyé de la BDD (DAO)
