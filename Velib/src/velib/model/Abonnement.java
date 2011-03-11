@@ -13,8 +13,6 @@ public class Abonnement {
   
     public Abonnement () {
         // TODO: hardcoded value, ident envoyé de la BDD (DAO)
-
-
     }
 
 }
