@@ -9,7 +9,7 @@ package velib.model;
  *
  * @author fteysseire
  */
-public class User {
+public class User implements IModel {
 
 private int ident;
 
