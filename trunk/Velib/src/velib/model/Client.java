@@ -23,7 +23,6 @@ public class Client extends User {
     private String reponseSecrete;
     private Abonnement idAbonnement;
 
-
     
 
     public Client(long id, String firstname, String lastname) {
@@ -48,9 +47,4 @@ public class Client extends User {
     {
         throw new UnsupportedOperationException("Not yet implemented");
     }
-
-
-
-
-
 }
