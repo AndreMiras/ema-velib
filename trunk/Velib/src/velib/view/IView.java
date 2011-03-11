@@ -5,6 +5,7 @@
 
 package velib.view;
 
+import java.awt.Dimension;
 import velib.model.IModel;
 
 /**
@@ -12,6 +13,7 @@ import velib.model.IModel;
  * @author andre
  * TODO: finish off
  */
-public interface IView {
-
+public interface IView
+{
+    final static Dimension windowDimension = new Dimension(700,500);
 }
