@@ -15,11 +15,13 @@ package velib.view;
  *
  * @author fteysseire
  */
-public class ChoixIdentification extends javax.swing.JFrame {
+public class ChoixIdentificationFrame extends javax.swing.JFrame implements IView {
 
     /** Creates new form ChoixIdentification */
-    public ChoixIdentification() {
+    public ChoixIdentificationFrame()
+    {
         initComponents();
+        this.setPreferredSize(windowDimension);
     }
 
     /** This method is called from within the constructor to
@@ -46,6 +48,11 @@ public class ChoixIdentification extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         LouerVeloButton.setText("Louer un velo");
+        LouerVeloButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LouerVeloButtonActionPerformed(evt);
+            }
+        });
 
         RestituerVeloButton.setText("Restituer un velo");
 
@@ -89,7 +96,7 @@ public class ChoixIdentification extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)
                             .addComponent(jLabel5))))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(329, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,32 +122,36 @@ public class ChoixIdentification extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(RechargerButton)
-                    .addComponent(RestituerVeloButton)
-                    .addComponent(LouerVeloButton))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(RestituerVeloButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LouerVeloButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(RechargerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(210, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(LouerVeloButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(RestituerVeloButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(RechargerButton)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(133, 133, 133))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void LouerVeloButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LouerVeloButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LouerVeloButtonActionPerformed
 
     /**
     * @param args the command line arguments
@@ -148,7 +159,7 @@ public class ChoixIdentification extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ChoixIdentification().setVisible(true);
+                new ChoixIdentificationFrame().setVisible(true);
             }
         });
     }
