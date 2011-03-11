@@ -11,4 +11,8 @@ package velib.model;
  */
 public class Velo {
 
+    private long id;
+    private boolean etat;
+    private Bornette idBornette;
+
 }
