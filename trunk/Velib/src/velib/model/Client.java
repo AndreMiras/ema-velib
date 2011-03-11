@@ -6,6 +6,7 @@
 package velib.model;
 
 import java.util.Date;
+import sun.security.util.Password;
 
 /**
  *
@@ -22,16 +23,11 @@ public class Client extends User {
     private String reponseSecrete;
     private Abonnement idAbonnement;
 
-    public Client() {
-        // TODO: hardcoded value, ident envoyé de la BDD (DAO)
-        super(1);
-        
-    }
 
     
 
     public Client(long id, String firstname, String lastname) {
-        this();
+        super(1, new Password()); // TODO: hardcoded
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
