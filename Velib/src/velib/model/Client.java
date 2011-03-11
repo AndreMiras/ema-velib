@@ -5,6 +5,8 @@
 
 package velib.model;
 
+import java.util.Date;
+
 /**
  *
  * @author fteysseire and andre
@@ -13,6 +15,12 @@ public class Client extends User implements IModel {
     private long id;
     private String firstname;
     private String lastname;
+    private Date dateNaissance;
+    private String adresse;
+    private long codePostal;
+    private String questionSecrete;
+    private String reponseSecrete;
+    private Abonnement idAbonnement;
 
     public Client() {
         // TODO: hardcoded value, ident envoye de la BDD (DAO)
