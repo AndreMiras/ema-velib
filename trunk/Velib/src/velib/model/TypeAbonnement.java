@@ -7,14 +7,22 @@ package velib.model;
 
 /**
  *
- * @author fteysseire
+ * @author Nicolas
  */
-public class Abonnement {
-  
-    public Abonnement () {
+public class TypeAbonnement {
+
+        private float prix;
+
+    public TypeAbonnement () {
         // TODO: hardcoded value, ident envoyé de la BDD (DAO)
 
 
     }
+
+ public TypeAbonnement (Float prix) {
+        this();
+        this.prix = prix;
+    }
+
 
 }
