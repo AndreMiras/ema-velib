@@ -9,9 +9,9 @@ import java.util.Date;
 
 /**
  *
- * @author fteysseire and andre
+ * @author fteysseire
  */
-public class Client extends User implements IModel {
+public class Client extends User {
     private long id;
     private String firstname;
     private String lastname;
@@ -23,7 +23,7 @@ public class Client extends User implements IModel {
     private Abonnement idAbonnement;
 
     public Client() {
-        // TODO: hardcoded value, ident envoye de la BDD (DAO)
+        // TODO: hardcoded value, ident envoyé de la BDD (DAO)
         super(1);
         
     }
