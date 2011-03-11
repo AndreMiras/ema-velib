@@ -5,8 +5,12 @@
 
 package velib.controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import velib.model.IModel;
 import velib.view.IView;
+import velib.view.LoginScreenFrame;
+import velib.view.WelcomeScreenFrame;
 
 /**
  *
@@ -15,12 +19,19 @@ import velib.view.IView;
 public class MainController implements IController {
     
     private IModel model;
-    private IView view;
+    private WelcomeScreenFrame view;
 
-    public MainController(IModel model, IView view)
+    public MainController(IModel model, WelcomeScreenFrame view)
     {
         this.model = model;
         this.view = view;
+
+        addListeners();
+    }
+
+    private void addListeners()
+    {
+        view.addIdentifierButtonListener(new IdentifierButtonListener());
     }
 
     
@@ -35,6 +46,15 @@ public class MainController implements IController {
         return view;
     }
 
+    class IdentifierButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            System.out.println("next window");
+            LoginScreenFrame loginScreenFrame = new LoginScreenFrame();
+            loginScreenFrame.setVisible(true);
+        }
+    }//end inner class MultiplyListener
     
 
 }

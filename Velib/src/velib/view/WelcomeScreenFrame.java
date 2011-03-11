@@ -11,6 +11,7 @@
 
 package velib.view;
 
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import velib.model.IModel;
 
@@ -27,11 +28,11 @@ public class WelcomeScreenFrame extends javax.swing.JFrame implements IView {
         initComponents();
     }
 
-    public WelcomeScreenFrame(IModel model)
+    public void addIdentifierButtonListener(ActionListener al)
     {
-        this();
-        this.model = model;
+        identifierButton.addActionListener(al);
     }
+
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -52,11 +53,6 @@ public class WelcomeScreenFrame extends javax.swing.JFrame implements IView {
         abonnerButton.setText("S'abonner");
 
         identifierButton.setText("S'identifier");
-        identifierButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                identifierButtonActionPerformed(evt);
-            }
-        });
 
         aideButton.setText("Aide");
 
@@ -85,18 +81,13 @@ public class WelcomeScreenFrame extends javax.swing.JFrame implements IView {
                 .addComponent(aideButton)
                 .addContainerGap(86, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addComponent(mapPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void identifierButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_identifierButtonActionPerformed
-    {//GEN-HEADEREND:event_identifierButtonActionPerformed
-        JOptionPane.showMessageDialog(this, "Salut");
-    }//GEN-LAST:event_identifierButtonActionPerformed
 
     /**
     * @param args the command line arguments

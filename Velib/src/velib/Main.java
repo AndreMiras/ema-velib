@@ -21,15 +21,12 @@ public class Main {
      */
     public static void main(String[] args) {
        
-        // model for tests
-        Client client = new Client(1, "foo", "bar");
-        // TODO: give it the model instead of null
-        // Create the main view
-        WelcomeScreenFrame view = new WelcomeScreenFrame(client);
+        // Creating the main view
+        WelcomeScreenFrame view = new WelcomeScreenFrame();
         view.setVisible(true);
 
         // Create the controller
-        MainController controller =  new MainController(null, view);
+        MainController controller = new MainController(null, view);
         view.setVisible(true);
     }
 
