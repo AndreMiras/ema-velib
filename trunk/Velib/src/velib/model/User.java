@@ -5,16 +5,20 @@
 
 package velib.model;
 
+import sun.security.util.Password;
+
 /**
  *
  * @author fteysseire
  */
 public class User implements IModel {
 
-private int ident;
+    private long id;
+    private Password password;
 
-    public User(int ident) {
-        this.ident = ident;
+    public User(long id, Password password) {
+        this.id = id;
+        this.password = password;
     }
 
 
