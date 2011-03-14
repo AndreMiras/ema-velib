@@ -7,6 +7,7 @@ package velib.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.text.DefaultEditorKit.InsertTabAction;
 import velib.dao.IDatabaseManagementDAO;
 import velib.view.DatabaseManagementFrame;
 
@@ -41,6 +42,10 @@ public class DatabaseManagementController
 
         view.addDropTablesButtonListener(
                 new DropTablesButtonListener());
+
+        view.addInsertTablesDataButtonListener(
+                new InsertTablesDataButtonListener());
+        
     }
 
 
@@ -73,6 +78,14 @@ public class DatabaseManagementController
         public void actionPerformed(ActionEvent e)
         {
             databaseManagement.dropTables();
+        }
+    }
+
+    class InsertTablesDataButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            databaseManagement.fillUpTables();
         }
     }
 
