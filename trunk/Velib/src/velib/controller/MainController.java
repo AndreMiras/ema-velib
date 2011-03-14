@@ -7,8 +7,8 @@ package velib.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import velib.dao.DatabaseManagement;
-import velib.dao.IDatabaseManagement;
+import velib.dao.DatabaseManagementDAO;
+import velib.dao.IDatabaseManagementDAO;
 import velib.model.IModel;
 import velib.view.DatabaseManagementFrame;
 import velib.view.IView;
@@ -28,7 +28,7 @@ public class MainController implements IController {
     private LoginScreenFrame loginScreenFrame;
 
     // Database Management mvc
-    private IDatabaseManagement databaseManagement;
+    private IDatabaseManagementDAO databaseManagement;
     private DatabaseManagementFrame databaseManagementFrame;
     private DatabaseManagementController databaseManagementController;
 
@@ -74,7 +74,7 @@ public class MainController implements IController {
     {
         public void actionPerformed(ActionEvent e)
         {
-            databaseManagement = new DatabaseManagement();
+            databaseManagement = new DatabaseManagementDAO();
             databaseManagementFrame = new DatabaseManagementFrame();
             databaseManagementController = new DatabaseManagementController(
                     databaseManagement, databaseManagementFrame);
