@@ -9,7 +9,7 @@ package velib.dao;
  *
  * @author andre
  */
-public class DatabaseManagement implements IDatabaseManagement
+public class DatabaseManagementDAO implements IDatabaseManagementDAO
 {
 
     public void createDatabase()

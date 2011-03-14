@@ -10,7 +10,7 @@ package velib.dao;
  * @author andre
  *  Helper for creading/deleting database and tables
  */
-public interface IDatabaseManagement
+public interface IDatabaseManagementDAO
 {
 
     public void createDatabase();

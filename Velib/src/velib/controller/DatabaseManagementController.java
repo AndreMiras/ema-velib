@@ -7,7 +7,7 @@ package velib.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import velib.dao.IDatabaseManagement;
+import velib.dao.IDatabaseManagementDAO;
 import velib.view.DatabaseManagementFrame;
 
 /**
@@ -17,10 +17,10 @@ import velib.view.DatabaseManagementFrame;
 public class DatabaseManagementController
 {
 
-    private IDatabaseManagement databaseManagement;
+    private IDatabaseManagementDAO databaseManagement;
     private DatabaseManagementFrame view;
 
-    public DatabaseManagementController(IDatabaseManagement databaseManagement, DatabaseManagementFrame view)
+    public DatabaseManagementController(IDatabaseManagementDAO databaseManagement, DatabaseManagementFrame view)
     {
         this.databaseManagement = databaseManagement;
         this.view = view;
