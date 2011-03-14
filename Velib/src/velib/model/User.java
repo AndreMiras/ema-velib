@@ -16,6 +16,12 @@ public class User implements IModel {
     private long id;
     private Password password;
 
+    public User()
+    {
+    }
+
+    
+
     public User(long id, Password password) {
         this.id = id;
         this.password = password;
