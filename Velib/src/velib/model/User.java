@@ -14,7 +14,7 @@ import sun.security.util.Password;
 public class User implements IModel {
 
     private long id;
-    private Password password;
+    private String password;
 
     public User()
     {
@@ -22,7 +22,7 @@ public class User implements IModel {
 
     
 
-    public User(long id, Password password) {
+    public User(long id, String password) {
         this.id = id;
         this.password = password;
     }
