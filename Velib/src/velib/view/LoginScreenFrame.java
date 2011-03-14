@@ -11,6 +11,8 @@
 
 package velib.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author andre
@@ -22,6 +24,11 @@ public class LoginScreenFrame extends javax.swing.JFrame implements IView {
     {
         initComponents();
         this.setSize(windowDimension);
+    }
+
+    public void addValiderButtonListener(ActionListener al)
+    {
+        this.validerButton.addActionListener(al);
     }
 
     /** This method is called from within the constructor to
