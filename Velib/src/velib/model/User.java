@@ -27,5 +27,12 @@ public class User implements IModel {
         this.password = password;
     }
 
+    public long getId()
+    {
+        return id;
+    }
+
+    
+
 
 }
