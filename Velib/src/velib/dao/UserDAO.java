@@ -11,7 +11,8 @@ import velib.model.User;
  * @author andre
  */
 // TODO: finish up
-public class UserDAO extends DAO<User> {
+public class UserDAO extends DAO<User>
+{
     public User create(User obj)
     {
         return null;
