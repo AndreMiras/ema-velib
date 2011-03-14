@@ -52,7 +52,6 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
     }
 
 
-    // TODO: add keys and constraints
     private void createUserTable()
     {
         String tableName = "user";
@@ -65,7 +64,8 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
             String sql =
                     String.format("CREATE TABLE %s" +
                     "(id INTEGER, " +
-                    "password VARCHAR)", tableName);
+                    "password VARCHAR, " +
+                    "PRIMARY KEY (id))", tableName);
 
             System.out.println("SQL: " + sql);
 
