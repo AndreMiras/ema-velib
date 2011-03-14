@@ -76,7 +76,7 @@ public class ClientDAO extends DAO<Client>
                                     	ResultSet.TYPE_SCROLL_INSENSITIVE,
                                         ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                        "SELECT * FROM client WHERE dev_id = " + id
+                                        "SELECT * FROM client WHERE id = " + id
                                      );
             if(result.first())
             {

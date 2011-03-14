@@ -4,6 +4,8 @@
  */
 
 package velib.dao;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import velib.model.User;
 
 /**
@@ -21,7 +23,30 @@ public class UserDAO extends DAO<User>
     @Override
     public User find(long id)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        User user = new User();
+        
+	try
+        {
+        ResultSet result =
+                this.connect.createStatement(
+                                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                    ResultSet.CONCUR_READ_ONLY
+                                 ).executeQuery(
+                                    "SELECT * FROM user WHERE id = " + id
+                                 );
+        if(result.first())
+        {
+            user = new User(
+                    id,
+                    result.getString("password"));
+        }
+
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+               return user;
     }
 
     @Override
