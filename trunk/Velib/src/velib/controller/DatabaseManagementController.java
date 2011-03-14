@@ -39,7 +39,7 @@ public class DatabaseManagementController
         view.addCreateTablesButtonListener(
                 new CreateTablesButtonListener());
 
-        view.addCreateDatabaseButtonListener(
+        view.addDropTablesButtonListener(
                 new DropTablesButtonListener());
     }
 
@@ -64,7 +64,7 @@ public class DatabaseManagementController
     {
         public void actionPerformed(ActionEvent e)
         {
-            databaseManagement.dropTables();
+            databaseManagement.createTables();
         }
     }
 
