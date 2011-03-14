@@ -48,7 +48,7 @@ public class DatabaseManagementController
     {
         public void actionPerformed(ActionEvent e)
         {
-            // TODO: call DatabaseManagement methods
+            databaseManagement.createDatabase();
         }
     }
 
@@ -56,7 +56,7 @@ public class DatabaseManagementController
     {
         public void actionPerformed(ActionEvent e)
         {
-            // TODO: call DatabaseManagement methods
+            databaseManagement.dropDatabase();
         }
     }
 
@@ -64,7 +64,7 @@ public class DatabaseManagementController
     {
         public void actionPerformed(ActionEvent e)
         {
-            // TODO: call DatabaseManagement methods
+            databaseManagement.createTables();
         }
     }
 
@@ -72,7 +72,7 @@ public class DatabaseManagementController
     {
         public void actionPerformed(ActionEvent e)
         {
-            // TODO: call DatabaseManagement methods
+            databaseManagement.dropTables();
         }
     }
 
