@@ -21,6 +21,8 @@ public class MainController implements IController {
     private IModel model;
     private WelcomeScreenFrame view;
 
+    private LoginScreenController loginScreenController;
+
     public MainController(IModel model, WelcomeScreenFrame view)
     {
         this.model = model;
@@ -50,8 +52,9 @@ public class MainController implements IController {
     {
         public void actionPerformed(ActionEvent e)
         {
-            System.out.println("next window");
             LoginScreenFrame loginScreenFrame = new LoginScreenFrame();
+            loginScreenController = new LoginScreenController(
+                    model, loginScreenFrame);
             loginScreenFrame.setVisible(true);
         }
     }//end inner class MultiplyListener
