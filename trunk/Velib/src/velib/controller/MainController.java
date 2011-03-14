@@ -22,6 +22,7 @@ public class MainController implements IController {
     private WelcomeScreenFrame view;
 
     private LoginScreenController loginScreenController;
+    private LoginScreenFrame loginScreenFrame;
 
     public MainController(IModel model, WelcomeScreenFrame view)
     {
@@ -52,7 +53,7 @@ public class MainController implements IController {
     {
         public void actionPerformed(ActionEvent e)
         {
-            LoginScreenFrame loginScreenFrame = new LoginScreenFrame();
+            loginScreenFrame = new LoginScreenFrame();
             loginScreenController = new LoginScreenController(
                     model, loginScreenFrame);
             loginScreenFrame.setVisible(true);

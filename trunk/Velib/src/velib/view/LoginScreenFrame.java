@@ -31,6 +31,17 @@ public class LoginScreenFrame extends javax.swing.JFrame implements IView {
         this.validerButton.addActionListener(al);
     }
 
+    
+    public String getIdentifyTextField()
+    {
+        return identifyTextField.getText();
+    }
+
+    public void loginErrorPopup()
+    {
+        System.out.println("TODO: error popup, wrong login");
+    }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
