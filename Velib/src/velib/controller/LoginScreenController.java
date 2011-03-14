@@ -55,7 +55,9 @@ public class LoginScreenController {
 
             // FIXME: we should later use the password field to find
             // the client rather than the id;
-            Integer idTest = Integer.parseInt(userPassword);
+            
+            // Integer idTest = Integer.parseInt(userPassword);
+            Integer idTest = 1; // TODO: testing purpose, to be removed
             user = userDAO.find(idTest);
 
             /*
