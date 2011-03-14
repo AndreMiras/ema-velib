@@ -15,27 +15,31 @@ public class ConnectionHSQL2 {
 	 //Objet Connection
 	private static Connection connect;
 
-	public static Connection getInstance(){
-		if(connect == null){
-			try {
-					connect = DriverManager.getConnection(url, user, passwd);
-				}
-			catch (SQLException e) {
-				System.out.println("sql exception");
-			    while (e!=null)
-			    {
-			    	System.out.println(e.getErrorCode());
-			    	System.out.println(e.getMessage());
-			    	System.out.println(e.getSQLState());
-			    	e.printStackTrace();
-			    	e=e.getNextException();}
-			    }
-				catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-			}
-		return connect;
+	public static Connection getInstance()
+        {
+            if(connect == null)
+            {
+                try
+                {
+                    connect = DriverManager.getConnection(url, user, passwd);
+                }
+                catch (SQLException e)
+                {
+                    System.out.println("sql exception");
+                    while (e!=null)
+                    {
+                        System.out.println(e.getErrorCode());
+                        System.out.println(e.getMessage());
+                        System.out.println(e.getSQLState());
+                        e.printStackTrace();
+                        e=e.getNextException();}
+                    }
+                        catch(Exception e)
+                        {
+                                e.printStackTrace();
+                        }
+                    }
+            return connect;
 	}
 }
 
