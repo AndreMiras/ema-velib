@@ -33,6 +33,11 @@ public class WelcomeScreenFrame extends javax.swing.JFrame implements IView {
         identifierButton.addActionListener(al);
     }
 
+    public void addEditDatabaseButtonListener(ActionListener al)
+    {
+        editDatabaseMenuItem.addActionListener(al);
+    }
+
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -47,6 +52,10 @@ public class WelcomeScreenFrame extends javax.swing.JFrame implements IView {
         identifierButton = new javax.swing.JButton();
         aideButton = new javax.swing.JButton();
         mapPanel1 = new velib.view.MapPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        editDatabaseMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,6 +64,18 @@ public class WelcomeScreenFrame extends javax.swing.JFrame implements IView {
         identifierButton.setText("S'identifier");
 
         aideButton.setText("Aide");
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+
+        editDatabaseMenuItem.setText("Edit DB");
+        jMenu2.add(editDatabaseMenuItem);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,9 +100,9 @@ public class WelcomeScreenFrame extends javax.swing.JFrame implements IView {
                 .addComponent(identifierButton)
                 .addGap(18, 18, 18)
                 .addComponent(aideButton)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(mapPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -103,7 +124,11 @@ public class WelcomeScreenFrame extends javax.swing.JFrame implements IView {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton abonnerButton;
     private javax.swing.JButton aideButton;
+    private javax.swing.JMenuItem editDatabaseMenuItem;
     private javax.swing.JButton identifierButton;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private velib.view.MapPanel mapPanel1;
     // End of variables declaration//GEN-END:variables
 
