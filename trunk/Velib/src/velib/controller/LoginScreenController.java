@@ -73,6 +73,7 @@ public class LoginScreenController {
                 choixIdentificationController =
                         new ChoixIdentificationController(
                         model, choixIdentificationFrame);
+                choixIdentificationFrame.setVisible(true);
             }
             else
             {
