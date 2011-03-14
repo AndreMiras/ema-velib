@@ -21,4 +21,6 @@ public interface IDatabaseManagementDAO
     
     public void dropTables();
 
+    public void fillUpTables();
+
 }

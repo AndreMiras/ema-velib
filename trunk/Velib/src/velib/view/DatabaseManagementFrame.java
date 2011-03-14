@@ -45,6 +45,11 @@ public class DatabaseManagementFrame extends javax.swing.JFrame {
         dropTablesButton.addActionListener(al);
     }
 
+    public void addInsertTablesDataButtonListener(ActionListener al)
+    {
+        insertDataButton.addActionListener(al);
+    }
+
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -59,6 +64,7 @@ public class DatabaseManagementFrame extends javax.swing.JFrame {
         dropDatabaseButton = new javax.swing.JButton();
         createTablesButton = new javax.swing.JButton();
         dropTablesButton = new javax.swing.JButton();
+        insertDataButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Database Management");
@@ -71,21 +77,25 @@ public class DatabaseManagementFrame extends javax.swing.JFrame {
 
         dropTablesButton.setText("Drop Tables");
 
+        insertDataButton.setText("Insert Data");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(dropDatabaseButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(dropTablesButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(createDatabaseButton)
-                        .addGap(62, 62, 62)
-                        .addComponent(createTablesButton)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(insertDataButton)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(dropDatabaseButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dropTablesButton))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(createDatabaseButton)
+                            .addGap(62, 62, 62)
+                            .addComponent(createTablesButton))))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -99,7 +109,9 @@ public class DatabaseManagementFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dropDatabaseButton)
                     .addComponent(dropTablesButton))
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(insertDataButton)
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         pack();
@@ -121,6 +133,7 @@ public class DatabaseManagementFrame extends javax.swing.JFrame {
     private javax.swing.JButton createTablesButton;
     private javax.swing.JButton dropDatabaseButton;
     private javax.swing.JButton dropTablesButton;
+    private javax.swing.JButton insertDataButton;
     // End of variables declaration//GEN-END:variables
 
 }
