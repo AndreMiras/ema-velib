@@ -64,7 +64,7 @@ public class DatabaseManagementController
     {
         public void actionPerformed(ActionEvent e)
         {
-            databaseManagement.createTables();
+            databaseManagement.dropTables();
         }
     }
 
