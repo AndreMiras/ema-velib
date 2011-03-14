@@ -23,7 +23,10 @@ public class Client extends User {
     private String reponseSecrete;
     private Abonnement idAbonnement;
 
-    
+
+    public Client()
+    {
+    }
 
     public Client(long id, String firstname, String lastname) {
         super(1, new Password()); // TODO: hardcoded
