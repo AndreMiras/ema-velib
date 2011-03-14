@@ -19,7 +19,8 @@ import velib.dao.AbstractDAOFactory;
 import velib.dao.DAO;
 import velib.dao.FactoryType;
 
-public class ClientDAO extends DAO<Client> {
+public class ClientDAO extends DAO<Client>
+{
 
 	public Client create(Client obj) {
 
@@ -42,15 +43,15 @@ public class ClientDAO extends DAO<Client> {
                                     		ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     		ResultSet.CONCUR_UPDATABLE
                                     ).executeQuery(
-                                    		"SELECT NEXTVAL('developpeur_dev_id_seq') as id"
+                                    		"SELECT NEXTVAL('user_id_seq') as id"
                                     );
 			if(result.first())
                         {
                             long id = result.getLong("id");
                             PreparedStatement prepare = this.connect
                                                     .prepareStatement(
-                                            			"INSERT INTO developpeur (dev_id, dev_nom, dev_prenom, dev_lan_k)"+
-                                            			"VALUES(?, ?, ?, ?)"
+                                            			"INSERT INTO user (id, firstname, lastname)"+
+                                            			"VALUES(?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
 				prepare.setString(2, obj.getLastname());
@@ -75,14 +76,14 @@ public class ClientDAO extends DAO<Client> {
                                     	ResultSet.TYPE_SCROLL_INSENSITIVE,
                                         ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                        "SELECT * FROM developpeur WHERE dev_id = " + id
+                                        "SELECT * FROM client WHERE dev_id = " + id
                                      );
             if(result.first())
             {
                 client = new Client(
                                     id,
-                                    result.getString("dev_nom"),
-                                    result.getString("dev_prenom"));
+                                    result.getString("firstname"),
+                                    result.getString("lastname"));
             }
 
 		    } catch (SQLException e) {
@@ -113,9 +114,9 @@ public class ClientDAO extends DAO<Client> {
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                 ResultSet.CONCUR_UPDATABLE
              ).executeUpdate(
-                    "UPDATE developpeur SET dev_nom = '" + obj.getLastname() + "',"+
-                    " dev_prenom = '" + obj.getFirstname() + "',"+
-                    " WHERE dev_id = " + obj.getId()
+                    "UPDATE developpeur SET firstname = '" + obj.getLastname() + "',"+
+                    " lastname = '" + obj.getFirstname() + "',"+
+                    " WHERE id = " + obj.getId()
              );
 
                 obj = this.find(obj.getId());
@@ -138,7 +139,7 @@ public class ClientDAO extends DAO<Client> {
                 	ResultSet.TYPE_SCROLL_INSENSITIVE,
                 	ResultSet.CONCUR_UPDATABLE
                  ).executeUpdate(
-                	"DELETE FROM developpeur WHERE dev_id = " + obj.getId()
+                	"DELETE FROM client WHERE dev_id = " + obj.getId()
                  );
 
 	    } catch (SQLException e) {
