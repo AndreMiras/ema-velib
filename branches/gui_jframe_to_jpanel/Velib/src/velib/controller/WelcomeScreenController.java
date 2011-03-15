@@ -30,8 +30,11 @@ public class WelcomeScreenController
     public WelcomeScreenController(
             MainWindowFrame mainWindow, IModel model, WelcomeScreenPanel view)
     {
+        this.mainWindow = mainWindow;
         this.model = model;
         this.view = view;
+
+        addListeners();
     }
 
 
