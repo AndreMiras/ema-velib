@@ -136,6 +136,7 @@ public class ClientDAO extends DAO<Client>
                 	ResultSet.TYPE_SCROLL_INSENSITIVE,
                 	ResultSet.CONCUR_UPDATABLE
                  ).executeUpdate(
+                 //TODO remove that shit, man
                 	"DELETE FROM client WHERE dev_id = " + obj.getId()
                  );
 
