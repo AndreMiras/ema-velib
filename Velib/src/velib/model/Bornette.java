@@ -14,4 +14,10 @@ public class Bornette {
     private long id;
     private Borne idBorne;
     private Velo idVelo;
+
+    public long getId() {
+        return id;
+    }
+
+    
 }

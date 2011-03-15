@@ -31,7 +31,7 @@ public class BanqueDAO extends DAO<Banque>
                                 ResultSet.TYPE_SCROLL_INSENSITIVE,
                       		ResultSet.CONCUR_UPDATABLE
                                     ).executeQuery(
-                                       "SELECT NEXT VALUE FOR sequence_banque FROM client as id"
+                                       "SELECT NEXT VALUE FOR sequence_banque FROM banque as id"
                                     );
             if(result.first()){
             long id = result.getLong(1);
@@ -53,7 +53,6 @@ public class BanqueDAO extends DAO<Banque>
 	    }
 	    return obj;
     }
-
 
     @Override
     public Banque find(long id) {
