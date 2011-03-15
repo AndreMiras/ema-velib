@@ -4,40 +4,32 @@
  */
 
 /*
- * WelcomeScreenFrame.java
+ * WelcomeScreenPanel.java
  *
- * Created on Mar 7, 2011, 9:57:41 AM
+ * Created on Mar 15, 2011, 5:03:52 PM
  */
 
 package velib.view;
 
 import java.awt.event.ActionListener;
-import javax.swing.*;
-import velib.model.IModel;
 
 /**
  *
  * @author andre
  */
-public class WelcomeScreenFrame extends javax.swing.JPanel implements IView {
+public class WelcomeScreenPanel extends javax.swing.JPanel {
 
-    IModel model;
-
-    /** Creates new form WelcomeScreenFrame */
-    public WelcomeScreenFrame() {
+    /** Creates new form WelcomeScreenPanel */
+    public WelcomeScreenPanel() {
         initComponents();
     }
+
+
 
     public void addIdentifierButtonListener(ActionListener al)
     {
         identifierButton.addActionListener(al);
     }
-
-    public void addEditDatabaseButtonListener(ActionListener al)
-    {
-        editDatabaseMenuItem.addActionListener(al);
-    }
-
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -51,10 +43,6 @@ public class WelcomeScreenFrame extends javax.swing.JPanel implements IView {
         abonnerButton = new javax.swing.JButton();
         identifierButton = new javax.swing.JButton();
         aideButton = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        editDatabaseMenuItem = new javax.swing.JMenuItem();
 
         abonnerButton.setText("S'abonner");
 
@@ -62,32 +50,22 @@ public class WelcomeScreenFrame extends javax.swing.JPanel implements IView {
 
         aideButton.setText("Aide");
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-
-        editDatabaseMenuItem.setText("Edit DB");
-        jMenu2.add(editDatabaseMenuItem);
-
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(identifierButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(aideButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(abonnerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(345, Short.MAX_VALUE))
+                .addContainerGap(276, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(127, 127, 127)
                 .addComponent(abonnerButton)
@@ -97,29 +75,13 @@ public class WelcomeScreenFrame extends javax.swing.JPanel implements IView {
                 .addComponent(aideButton)
                 .addContainerGap())
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-    * @param args the command line arguments
-    */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new WelcomeScreenFrame().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton abonnerButton;
     private javax.swing.JButton aideButton;
-    private javax.swing.JMenuItem editDatabaseMenuItem;
     private javax.swing.JButton identifierButton;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 
 }

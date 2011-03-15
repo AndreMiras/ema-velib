@@ -11,15 +11,24 @@
 
 package velib.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author andre
  */
-public class MainWindowFrame extends javax.swing.JFrame {
+public class MainWindowFrame extends javax.swing.JFrame implements IView
+{
 
     /** Creates new form MainWindow */
     public MainWindowFrame() {
         initComponents();
+    }
+
+
+    public void addEditDatabaseButtonListener(ActionListener al)
+    {
+        editDatabaseMenuItem.addActionListener(al);
     }
 
     /** This method is called from within the constructor to
@@ -31,7 +40,21 @@ public class MainWindowFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        editDatabaseMenuItem = new javax.swing.JMenuItem();
         middleContentPanel = new javax.swing.JPanel();
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+
+        editDatabaseMenuItem.setText("Edit DB");
+        jMenu2.add(editDatabaseMenuItem);
+
+        jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,6 +103,10 @@ public class MainWindowFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem editDatabaseMenuItem;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel middleContentPanel;
     // End of variables declaration//GEN-END:variables
 
