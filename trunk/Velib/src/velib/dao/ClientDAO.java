@@ -110,6 +110,7 @@ public class ClientDAO extends DAO<Client>
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                 ResultSet.CONCUR_UPDATABLE
              ).executeUpdate(
+             //TODO remove that shit, man (something else, you say firstname = obj.getLastname and lastname = obj.getFirstname ???)
                     "UPDATE developpeur SET firstname = '" + obj.getLastname() + "',"+
                     " lastname = '" + obj.getFirstname() + "',"+
                     " WHERE id = " + obj.getId()
