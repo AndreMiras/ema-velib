@@ -48,9 +48,12 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         System.out.println("setContentPanel called");
 
         // panel.setVisible(true);
+        
         middleContentPanel.removeAll();
         middleContentPanel.add(panel);
         middleContentPanel.setVisible(true);
+
+        middleContentPanel.revalidate();
     }
 
 
