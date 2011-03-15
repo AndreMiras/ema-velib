@@ -29,10 +29,11 @@ public class UserDAO extends DAO<User>
             long id = result.getLong(1);
             System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
-                                                    	"INSERT INTO user (id, password) VALUES(?, ?)"
+                                                    	"INSERT INTO user (id, identifiant, password) VALUES(?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
-				prepare.setString(2, obj.getPassword());
+                                prepare.setString(2, obj.getIdentifiant());
+				prepare.setString(3, obj.getPassword());
 
 				prepare.executeUpdate();
 				obj = this.find(id);
