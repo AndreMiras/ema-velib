@@ -64,7 +64,7 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
             String sql =
                     String.format("CREATE TABLE %s" +
                     "(id INTEGER, " +
-                    "password VARCHAR, " +
+                    "password VARCHAR(40), " +
                     "PRIMARY KEY (id))", tableName);
 
             System.out.println("SQL: " + sql);

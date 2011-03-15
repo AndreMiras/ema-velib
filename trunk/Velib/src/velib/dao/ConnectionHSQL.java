@@ -4,7 +4,7 @@ import java.sql.*;
 public class ConnectionHSQL {
 
 	//URL de connection
-	private static String url = "jdbc:hsqldb:hsql://localhost";
+	private static String url = "jdbc:hsqldb:hsql://localhost/";
 
 	//Nom du user
 	private static String user = "sa";
@@ -23,7 +23,7 @@ public class ConnectionHSQL {
                 {
                     // http://www.willamaze.eu/2009/02/running-hsqldb-in-process-no-suitable-driver-found/
                     // Class.forName("org.hsqldb.jdbcDriver");
-                    Class.forName("org.hsqldb.jdbcDriver");
+                    //Class.forName("org.hsqldb.jdbcDriver");
                     connect = DriverManager.getConnection(url, user, passwd);
                 }
                 catch (SQLException e)
