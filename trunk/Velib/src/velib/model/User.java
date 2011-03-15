@@ -14,13 +14,12 @@ import sun.security.util.Password;
 public class User implements IModel {
 
     private long id;
+    private String identifiant;
     private String password;
 
     public User()
     {
-    }
-
-    
+    }   
 
     public User(long id, String password) {
         this.id = id;
@@ -32,10 +31,15 @@ public class User implements IModel {
         return id;
     }
 
-      public String getPassword()
+    public String getIdentifiant() {
+        return identifiant;
+    }
+
+    public String getPassword()
     {
         return password;
     }
+
 
     
 
