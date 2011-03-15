@@ -22,6 +22,7 @@ public class Client extends User {
     private String questionSecrete;
     private String reponseSecrete;
     private Abonnement idAbonnement;
+    private Banque idBanque;
 
 
     public Client()
@@ -82,9 +83,9 @@ public class Client extends User {
         return reponseSecrete;
     }
 
-  
-
-
+    public Banque getIdBanque() {
+        return idBanque;
+    }
 
     /*
     @Override
