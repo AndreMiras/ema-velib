@@ -30,7 +30,6 @@ public class WelcomeScreenController
     {
         view.addIdentifierButtonListener(new IdentifierButtonListener());
 
-        // view.addEditDatabaseButtonListener(new EditDatabaseButtonListener());
     }
 
       class IdentifierButtonListener implements ActionListener
@@ -47,19 +46,5 @@ public class WelcomeScreenController
         }
     }
 
-    class EditDatabaseButtonListener implements ActionListener
-    {
-        public void actionPerformed(ActionEvent e)
-        {
-            /*
-            databaseManagement = new DatabaseManagementDAO();
-            databaseManagementFrame = new DatabaseManagementFrame();
-            databaseManagementController = new DatabaseManagementController(
-                    databaseManagement, databaseManagementFrame);
-            databaseManagementFrame.setVisible(true);
-             * 
-             */
-        }
-    }
     
 }

@@ -43,6 +43,7 @@ public class MainController implements IController {
 
         // addListeners();
         mainWindowFrameSetup();
+        addListeners();
     }
 
     /*
@@ -56,7 +57,11 @@ public class MainController implements IController {
         view.setContentPanel(welcomeScreenPanel);
         
     }
-
+    
+    private void addListeners()
+    {
+        view.addEditDatabaseButtonListener(new EditDatabaseButtonListener());
+    }
 
     public IModel getModel()
     {
@@ -68,7 +73,18 @@ public class MainController implements IController {
         return view;
     }
 
-  
+
+    class EditDatabaseButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            databaseManagement = new DatabaseManagementDAO();
+            databaseManagementFrame = new DatabaseManagementFrame();
+            databaseManagementController = new DatabaseManagementController(
+                    databaseManagement, databaseManagementFrame);
+            databaseManagementFrame.setVisible(true);
+        }
+    }
     
 
 }
