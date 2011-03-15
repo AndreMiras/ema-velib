@@ -12,7 +12,6 @@ import velib.dao.IDatabaseManagementDAO;
 import velib.model.IModel;
 import velib.view.DatabaseManagementFrame;
 import velib.view.IView;
-import velib.view.LoginScreenFrame;
 import velib.view.MainWindowFrame;
 import velib.view.WelcomeScreenPanel;
 
@@ -29,7 +28,6 @@ public class MainController implements IController {
     private WelcomeScreenController welcomeScreenController;
 
     private LoginScreenController loginScreenController;
-    private LoginScreenFrame loginScreenFrame;
 
     // Database Management mvc
     private IDatabaseManagementDAO databaseManagement;
@@ -52,7 +50,7 @@ public class MainController implements IController {
     public void mainWindowFrameSetup()
     {
         welcomeScreenPanel = new WelcomeScreenPanel();
-        welcomeScreenController = new WelcomeScreenController(
+        welcomeScreenController = new WelcomeScreenController(view,
                 model, welcomeScreenPanel);
         view.setContentPanel(welcomeScreenPanel);
         
