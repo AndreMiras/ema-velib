@@ -26,5 +26,8 @@ public class TypeAbonnement {
         this.prix = prix;
     }
 
+    public long getId() {
+        return id;
+    }
 
-}
+ }

@@ -25,6 +25,34 @@ public class Abonnement {
     public long getId() {
         return id;
     }
+
+    public Date getDateDebut() {
+        return dateDebut;
+    }
+
+    public Date getDateFin() {
+        return dateFin;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public TypeAbonnement getType() {
+        return type;
+    }
+    
+    public java.sql.Date getDateDebutSQL() {
+        long t = dateDebut.getTime();
+        java.sql.Date dateDebutSql = new java.sql.Date(t);
+        return dateDebutSql;
+    }
+
+    public java.sql.Date getDateFinSQL() {
+        long t = dateFin.getTime();
+        java.sql.Date dateFinSql = new java.sql.Date(t);
+        return dateFinSql;
+    }
     
 
 }
