@@ -12,6 +12,7 @@
 package velib.view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 
 /**
  *
@@ -38,9 +39,17 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     /*
      * Replace the current content panel by the given one
      */
+    // TODO: see CardLayout
+    // See http://stackoverflow.com/questions/218155/how-do-i-change-jpanel-inside-a-jframe-on-the-fly
+    //
     public void setContentPanel(javax.swing.JPanel panel)
     {
-        middleContentPanel = panel;
+        System.out.println("setContentPanel called");
+
+        // panel.setVisible(true);
+        middleContentPanel.removeAll();
+        middleContentPanel.add(panel);
+        middleContentPanel.setVisible(true);
     }
 
 
@@ -58,11 +67,15 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        middleContentPanel = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         editDatabaseMenuItem = new javax.swing.JMenuItem();
-        middleContentPanel = new javax.swing.JPanel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        middleContentPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Content"));
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -74,20 +87,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
 
         jMenuBar1.add(jMenu2);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        middleContentPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Content"));
-
-        javax.swing.GroupLayout middleContentPanelLayout = new javax.swing.GroupLayout(middleContentPanel);
-        middleContentPanel.setLayout(middleContentPanelLayout);
-        middleContentPanelLayout.setHorizontalGroup(
-            middleContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
-        );
-        middleContentPanelLayout.setVerticalGroup(
-            middleContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 278, Short.MAX_VALUE)
-        );
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,14 +95,14 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(middleContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(middleContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addComponent(middleContentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(middleContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
