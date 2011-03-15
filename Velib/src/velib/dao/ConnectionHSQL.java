@@ -1,50 +1,49 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package velib.dao;
+import java.sql.*;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
-/**
- *
- * @author andre
- */
 public class ConnectionHSQL {
 
-    /**
-	 * URL de connection
-	 */
-	private static String url = "jdbc:hsqldb:hsql://localhost/TODO";
-	/**
-	 * Nom du user
-	 */
-	private static String user = "user";
-	/**
-	 * Mot de passe du user
-	 */
-	private static String passwd = "passwd";
-	/**
-	 * Objet Connection
-	 */
+	//URL de connection
+	private static String url = "jdbc:hsqldb:hsql://localhost";
+
+	//Nom du user
+	private static String user = "sa";
+
+	 // Mot de passe du user
+	private static String passwd = "";
+
+	 //Objet Connection
 	private static Connection connect;
 
-	/**
-	 * Méthode qui va nous retourner notre instance
-	 * et la créer si elle n'existe pas...
-	 * @return
-	 */
-	public static Connection getInstance(){
-		if(connect == null){
-			try {
-				connect = DriverManager.getConnection(url, user, passwd);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return connect;
-	}	
+	public static Connection getInstance()
+        {
+            if(connect == null)
+            {
+                try
+                {
+                    // http://www.willamaze.eu/2009/02/running-hsqldb-in-process-no-suitable-driver-found/
+                    // Class.forName("org.hsqldb.jdbcDriver");
+                    Class.forName("org.hsqldb.jdbcDriver");
+                    connect = DriverManager.getConnection(url, user, passwd);
+                }
+                catch (SQLException e)
+                {
+                    System.out.println("sql exception");
+                    while (e!=null)
+                    {
+                        System.out.println(e.getErrorCode());
+                        System.out.println(e.getMessage());
+                        System.out.println(e.getSQLState());
+                        e.printStackTrace();
+                        e=e.getNextException();}
+                    }
+                        catch(Exception e)
+                        {
+                                e.printStackTrace();
+                        }
+                    }
+            return connect;
+	}
 }
+
+
