@@ -11,7 +11,7 @@ import velib.dao.UserDAO;
 import velib.model.IModel;
 import velib.model.User;
 import velib.view.ChoixIdentificationFrame;
-import velib.view.LoginScreenFrame;
+import velib.view.LoginScreenPanel;
 
 /**
  *
@@ -20,7 +20,7 @@ import velib.view.LoginScreenFrame;
 public class LoginScreenController {
 
     private IModel model;
-    private LoginScreenFrame view;
+    private LoginScreenPanel view;
 
     private ChoixIdentificationFrame choixIdentificationFrame;
     private ChoixIdentificationController choixIdentificationController;
@@ -29,7 +29,7 @@ public class LoginScreenController {
     private User user;
 
     // TODO: actually I think we will path it a DAO rather than a model
-    public LoginScreenController(IModel model, LoginScreenFrame view)
+    public LoginScreenController(IModel model, LoginScreenPanel view)
     {
         this.model = model;
         this.view = view;
