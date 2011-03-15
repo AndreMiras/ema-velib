@@ -36,12 +36,13 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     {
     }
 
-    /*
-     * Replace the current content panel by the given one
-     */
+
     // TODO: see CardLayout
     // See http://stackoverflow.com/questions/218155/how-do-i-change-jpanel-inside-a-jframe-on-the-fly
     //
+    /*
+     * Replaces the current content panel by the given one
+     */
     public void setContentPanel(javax.swing.JPanel panel)
     {
         System.out.println("setContentPanel called");
