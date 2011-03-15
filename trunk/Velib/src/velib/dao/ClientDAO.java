@@ -24,8 +24,6 @@ public class ClientDAO extends DAO<Client>
 
     public Client create(Client obj)
     {
-        try
-        {
             // If the user doesn't exist
             /*
             if(obj.getUser().getId() == 0)
@@ -36,32 +34,40 @@ public class ClientDAO extends DAO<Client>
             }
             *
             */
-            ResultSet result =
-                    this.connect.createStatement(
-                        ResultSet.TYPE_SCROLL_INSENSITIVE,
-                        ResultSet.CONCUR_UPDATABLE).executeQuery(
-                            "SELECT NEXTVAL('user_id_seq') as id");
-            if(result.first())
-            {
-                long id = result.getLong("id");
-                PreparedStatement prepare =
-                        this.connect.prepareStatement(
-                            "INSERT INTO user (id, firstname, lastname)"+
-                            "VALUES(?, ?, ?)");
-                prepare.setLong(1, id);
-                prepare.setString(2, obj.getLastname());
-                prepare.setString(3, obj.getFirstname());
+         try {
+             ResultSet result = this.connect.createStatement(
+                                ResultSet.TYPE_SCROLL_INSENSITIVE,
+                      		ResultSet.CONCUR_UPDATABLE
+                                    ).executeQuery(
+                                       "SELECT NEXT VALUE FOR sequence_client FROM user as id"
+                                    );
+            if(result.first()){
+            long id = result.getLong(1);
+            System.out.println("id :" + id);
+            PreparedStatement prepare = this.connect.prepareStatement(
+                                                    	"INSERT INTO user (idclient, nomclient, prenomclient, datenaissance, adresse, codepostal, questionsecrete, reponsesecrete, idabonnement, idbanque) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                                                    );
+				prepare.setLong(1, id);
+				prepare.setString(2, obj.getLastname());
+                                prepare.setString(3, obj.getFirstname());
+                                prepare.setDate(4, obj.getDateNaissanceSQL());
+                                prepare.setString(5, obj.getAdresse());
+                                prepare.setLong(6, obj.getCodePostal());
+                                prepare.setString(7, obj.getQuestionSecrete());
+                                prepare.setString(8, obj.getReponseSecrete());
+                                prepare.setLong(9, obj.getIdAbonnement().getId());
 
-                prepare.executeUpdate();
-                obj = this.find(id);
-            }
-        }
-        catch (SQLException e)
-        {
-            e.printStackTrace();
-        }
-        return obj;
+
+				prepare.executeUpdate();
+				obj = this.find(2);
+			}
+	    }
+            catch (SQLException e) {
+	            e.printStackTrace();
+	    }
+	    return obj;
     }
+
 
 	public Client find(long id) {
 
