@@ -46,6 +46,46 @@ public class Client extends User {
         return lastname;
     }
 
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public long getCodePostal() {
+        return codePostal;
+    }
+
+    public Date getDateNaissance() {
+        return dateNaissance;
+    }
+
+    //To insert the data in the database
+    public java.sql.Date getDateNaissanceSQL() {
+        long t = dateNaissance.getTime();
+        java.sql.Date dateNaissanceSql = new java.sql.Date(t);
+        return dateNaissanceSql;
+    }
+
+    @Override
+    public long getId() {
+        return super.getId();
+    }
+
+    public Abonnement getIdAbonnement() {
+        return idAbonnement;
+    }
+
+    public String getQuestionSecrete() {
+        return questionSecrete;
+    }
+
+    public String getReponseSecrete() {
+        return reponseSecrete;
+    }
+
+  
+
+
+
     /*
     @Override
     public int getId()

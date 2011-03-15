@@ -22,4 +22,9 @@ public class Abonnement {
         // TODO: hardcoded value, ident envoyé de la BDD (DAO)
     }
 
+    public long getId() {
+        return id;
+    }
+    
+
 }
