@@ -35,7 +35,7 @@ public class UserDAO extends DAO<User>
 				prepare.setString(2, obj.getPassword());
 
 				prepare.executeUpdate();
-				obj = this.find(2);
+				obj = this.find(id);
 			}
 	    }
             catch (SQLException e) {

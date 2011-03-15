@@ -39,13 +39,13 @@ public class ClientDAO extends DAO<Client>
                                 ResultSet.TYPE_SCROLL_INSENSITIVE,
                       		ResultSet.CONCUR_UPDATABLE
                                     ).executeQuery(
-                                       "SELECT NEXT VALUE FOR sequence_client FROM user as id"
+                                       "SELECT NEXT VALUE FOR sequence_client FROM client as id"
                                     );
             if(result.first()){
             long id = result.getLong(1);
             System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
-                                                    	"INSERT INTO user (idclient, nomclient, prenomclient, datenaissance, adresse, codepostal, questionsecrete, reponsesecrete, idabonnement, idbanque) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                                                    	"INSERT INTO client (idclient, nomclient, prenomclient, datenaissance, adresse, codepostal, questionsecrete, reponsesecrete, idabonnement, idbanque) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
 				prepare.setString(2, obj.getLastname());
@@ -58,7 +58,7 @@ public class ClientDAO extends DAO<Client>
                                 prepare.setLong(9, obj.getIdAbonnement().getId());
                                 prepare.setLong(10, obj.getIdBanque().getId());
 				prepare.executeUpdate();
-				obj = this.find(2);
+				obj = this.find(id);
 			}
 	    }
             catch (SQLException e) {
