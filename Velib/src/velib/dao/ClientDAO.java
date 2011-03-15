@@ -40,22 +40,20 @@ public class ClientDAO extends DAO<Client>
                     this.connect.createStatement(
                         ResultSet.TYPE_SCROLL_INSENSITIVE,
                         ResultSet.CONCUR_UPDATABLE).executeQuery(
-                            "SELECT NEXTVAL('user_id_seq') as id"
-                            );
+                            "SELECT NEXTVAL('user_id_seq') as id");
             if(result.first())
             {
                 long id = result.getLong("id");
-                PreparedStatement prepare = this.connect
-                                        .prepareStatement(
-                                                    "INSERT INTO user (id, firstname, lastname)"+
-                                                    "VALUES(?, ?, ?)"
-                                        );
-                    prepare.setLong(1, id);
-                    prepare.setString(2, obj.getLastname());
-                    prepare.setString(3, obj.getFirstname());
+                PreparedStatement prepare =
+                        this.connect.prepareStatement(
+                            "INSERT INTO user (id, firstname, lastname)"+
+                            "VALUES(?, ?, ?)");
+                prepare.setLong(1, id);
+                prepare.setString(2, obj.getLastname());
+                prepare.setString(3, obj.getFirstname());
 
-                    prepare.executeUpdate();
-                    obj = this.find(id);
+                prepare.executeUpdate();
+                obj = this.find(id);
             }
         }
         catch (SQLException e)
