@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public class DatabaseManagementDAO implements IDatabaseManagementDAO
 {
 
-    public Connection connect = ConnectionHSQL2.getInstance();
+    public Connection connect = ConnectionHSQL.getInstance();
 
     public void createDatabase()
     {

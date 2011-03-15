@@ -16,7 +16,7 @@ import java.sql.Connection;
 public abstract class DAO<T> {
 
         // TODO: use Nicolas's object
-	public Connection connect = ConnectionHSQL2.getInstance();
+	public Connection connect = ConnectionHSQL.getInstance();
 
 	/**
 	 * Permet de récupérer un objet via son ID
