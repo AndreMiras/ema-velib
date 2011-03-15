@@ -13,16 +13,20 @@ import velib.model.IModel;
 import velib.view.DatabaseManagementFrame;
 import velib.view.IView;
 import velib.view.LoginScreenFrame;
-import velib.view.WelcomeScreenFrame;
+import velib.view.MainWindowFrame;
+import velib.view.WelcomeScreenPanel;
 
 /**
  *
  * @author andre
  */
+// TODO: to be renamed as MainWindowFrameController
 public class MainController implements IController {
     
     private IModel model;
-    private WelcomeScreenFrame view;
+    private MainWindowFrame view;
+    private WelcomeScreenPanel welcomeScreenPanel;
+    private WelcomeScreenController welcomeScreenController;
 
     private LoginScreenController loginScreenController;
     private LoginScreenFrame loginScreenFrame;
@@ -32,20 +36,36 @@ public class MainController implements IController {
     private DatabaseManagementFrame databaseManagementFrame;
     private DatabaseManagementController databaseManagementController;
 
-    public MainController(IModel model, WelcomeScreenFrame view)
+    public MainController(IModel model, MainWindowFrame view)
     {
         this.model = model;
         this.view = view;
 
-        addListeners();
+        // addListeners();
+        mainWindowFrameSetup();
     }
 
+    /*
+     * Add first WelcomeScreenPanel and register associated controller
+     */
+    public void mainWindowFrameSetup()
+    {
+        welcomeScreenPanel = new WelcomeScreenPanel();
+        welcomeScreenController = new WelcomeScreenController(
+                model, welcomeScreenPanel);
+        view.setContentPanel(welcomeScreenPanel);
+        
+    }
+
+    /*
     private void addListeners()
     {
         view.addIdentifierButtonListener(new IdentifierButtonListener());
 
         view.addEditDatabaseButtonListener(new EditDatabaseButtonListener());
     }
+     * 
+     */
 
     
 
