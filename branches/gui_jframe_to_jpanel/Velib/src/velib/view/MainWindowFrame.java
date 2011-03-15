@@ -23,6 +23,24 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     /** Creates new form MainWindow */
     public MainWindowFrame() {
         initComponents();
+        
+        setUpMainWindow();
+    }
+
+    /*
+     * Set up the first screen which is the WelcomeScreen
+     * TODO: shouldn't some of this handled in the controller?
+     */
+    private void setUpMainWindow()
+    {
+    }
+
+    /*
+     * Replace the current content panel by the given one
+     */
+    public void setContentPanel(javax.swing.JPanel panel)
+    {
+        middleContentPanel = panel;
     }
 
 
