@@ -19,7 +19,7 @@ import velib.model.IModel;
  *
  * @author andre
  */
-public class WelcomeScreenFrame extends javax.swing.JFrame implements IView {
+public class WelcomeScreenFrame extends javax.swing.JPanel implements IView {
 
     IModel model;
 
@@ -51,13 +51,10 @@ public class WelcomeScreenFrame extends javax.swing.JFrame implements IView {
         abonnerButton = new javax.swing.JButton();
         identifierButton = new javax.swing.JButton();
         aideButton = new javax.swing.JButton();
-        mapPanel1 = new velib.view.MapPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         editDatabaseMenuItem = new javax.swing.JMenuItem();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         abonnerButton.setText("S'abonner");
 
@@ -87,24 +84,17 @@ public class WelcomeScreenFrame extends javax.swing.JFrame implements IView {
                     .addComponent(identifierButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(aideButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(abonnerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(mapPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(345, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(abonnerButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(identifierButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(aideButton))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(mapPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(127, 127, 127)
+                .addComponent(abonnerButton)
+                .addGap(18, 18, 18)
+                .addComponent(identifierButton)
+                .addGap(18, 18, 18)
+                .addComponent(aideButton)
                 .addContainerGap())
         );
 
@@ -130,7 +120,6 @@ public class WelcomeScreenFrame extends javax.swing.JFrame implements IView {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private velib.view.MapPanel mapPanel1;
     // End of variables declaration//GEN-END:variables
 
 }
