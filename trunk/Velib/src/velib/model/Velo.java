@@ -15,4 +15,16 @@ public class Velo {
     private boolean etat;
     private Bornette idBornette;
 
+    public long getId() {
+        return id;
+    }
+
+    public Bornette getIdBornette() {
+        return idBornette;
+    }
+
+    public boolean getEtat() {
+        return etat;
+    }
+
 }
