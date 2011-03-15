@@ -25,7 +25,8 @@ public class UserDAO extends DAO<User>
                                     ).executeQuery(
                                        "SELECT NEXT VALUE FOR sequenceuser FROM user as id"
                                     );
-            if(result.first()){
+            if(result.first())
+            {
             long id = result.getLong(1);
             System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
@@ -37,7 +38,7 @@ public class UserDAO extends DAO<User>
 
 				prepare.executeUpdate();
 				obj = this.find(id);
-			}
+            }
 	    }
             catch (SQLException e) {
 	            e.printStackTrace();
@@ -45,33 +46,32 @@ public class UserDAO extends DAO<User>
 	    return obj;
     }
 
-    @Override
-    public User find(long id)
+
+    public User find(String identifiant, String password)
     {
         User user = new User();
         
 	try
         {
-        ResultSet result =
-                this.connect.createStatement(
+            ResultSet result = this.connect.createStatement(
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
-                                 ).executeQuery(
-                                    "SELECT * FROM user WHERE id = " + id
-                                 );
-        if(result.first())
-        {
-            user = new User(
-                    id,
-                    result.getString("password"));
-        }
-
+                                     ).executeQuery(
+                                    "SELECT * FROM user WHERE identifiant = " + identifiant + "AND password = " + password
+                                    );
+            if(result.first())
+            {
+                String passwordDB = result.getString("password");
+                Long id = result.getLong("id");
+                user = new User(id, passwordDB);
+            }
         }
         catch (SQLException e)
         {
             e.printStackTrace();
         }
-               return user;
+
+        return user;
     }
 
     @Override
@@ -83,6 +83,11 @@ public class UserDAO extends DAO<User>
     @Override
     public void delete(User obj)
     {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public User find(long id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
