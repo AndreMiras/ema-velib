@@ -15,7 +15,8 @@ import velib.model.Client;
 public class testUnitaire
 {
 
-    public testUnitaire() {
+    /*public testUnitaire()
+    {
         Client client = new Client(0, "firstname", "lastname");
         System.out.println("Id should be 0: " + client.getId());
 
@@ -24,6 +25,11 @@ public class testUnitaire
         System.out.println("Id shouldn't be 0: " + client.getId());
         
         clientDAO.create(client);
+    }*/
+
+    public void testJUnit()
+    {
+        System.out.println("TESTING THE MATRIX...");
     }
     
 }
