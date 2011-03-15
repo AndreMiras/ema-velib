@@ -32,6 +32,11 @@ public class User implements IModel {
         return id;
     }
 
+      public String getPassword()
+    {
+        return password;
+    }
+
     
 
 

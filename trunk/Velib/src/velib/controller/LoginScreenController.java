@@ -59,7 +59,7 @@ public class LoginScreenController {
             // Integer idTest = Integer.parseInt(userPassword);
             Integer idTest = 1; // TODO: testing purpose, to be removed
             user = userDAO.find(idTest);
-
+             
             /*
              * If the User exists
              * Create window and associated controller

@@ -4,6 +4,7 @@
  */
 
 package velib.dao;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import velib.model.User;
@@ -17,7 +18,30 @@ public class UserDAO extends DAO<User>
 {
     public User create(User obj)
     {
-        return null;
+         try {
+             ResultSet result = this.connect.createStatement(
+                                ResultSet.TYPE_SCROLL_INSENSITIVE,
+                      		ResultSet.CONCUR_UPDATABLE
+                                    ).executeQuery(
+                                       "SELECT NEXT VALUE FOR sequenceuser FROM user as id"
+                                    );
+            if(result.first()){
+            long id = result.getLong(1);
+            System.out.println("id :" + id);
+            PreparedStatement prepare = this.connect.prepareStatement(
+                                                    	"INSERT INTO user (id, password) VALUES(?, ?)"
+                                                    );
+				prepare.setLong(1, id);
+				prepare.setString(2, obj.getPassword());
+
+				prepare.executeUpdate();
+				obj = this.find(2);
+			}
+	    }
+            catch (SQLException e) {
+	            e.printStackTrace();
+	    }
+	    return obj;
     }
 
     @Override
