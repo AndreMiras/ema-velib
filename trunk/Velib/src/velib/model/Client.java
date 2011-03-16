@@ -7,7 +7,6 @@ package velib.model;
 
 import java.util.Date;
 import sun.security.util.Password;
-
 /**
  *
  * @author fteysseire
@@ -34,7 +33,6 @@ public class Client extends User {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
-        //
     }
 
     public String getFirstname()
