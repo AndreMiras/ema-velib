@@ -89,4 +89,16 @@ public class VeloDAO extends DAO<Velo>
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @Override
+    public void createTable()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void dropTable()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 }
