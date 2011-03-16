@@ -62,6 +62,8 @@ public class LoginScreenController {
             
             // Integer idTest = Integer.parseInt(userPassword);
             Integer idTest = 1; // TODO: testing purpose, to be removed
+            String password = "azerty";
+            String identifiant ="toto";
             user = userDAO.find(idTest);
              
             /*
