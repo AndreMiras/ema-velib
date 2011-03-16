@@ -60,9 +60,11 @@ public class UserDAO extends DAO<User>
                                     );
             if(result.first())
             {
-                String passwordDB = result.getString("password");
                 Long id = result.getLong("id");
-                user = new User(id, passwordDB);
+                String identifiantDB = result.getString("identifiant");
+                String passwordDB = result.getString("password");
+
+                user = new User(id, identifiantDB, passwordDB);
             }
         }
         catch (SQLException e)
