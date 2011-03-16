@@ -46,8 +46,6 @@ public class LocationDAO extends DAO<Location>
 	    return obj;
     }
 
-
-
     @Override
     public Location update(Location obj)
     {
