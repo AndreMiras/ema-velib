@@ -7,7 +7,9 @@ package velib.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import velib.dao.ClientDAO;
 import velib.dao.UserDAO;
+import velib.model.Client;
 import velib.model.IModel;
 import velib.model.User;
 import velib.view.LoggedInWelcomePanel;
@@ -31,6 +33,9 @@ public class LoginScreenController extends AbstractController
     private UserDAO userDAO;
     private User user;
 
+    private ClientDAO clientDAO;
+    private Client client;
+
     // TODO: actually I think we will path it a DAO rather than a model
     public LoginScreenController(MainWindowFrame mainWindowFrame, IModel model, LoginScreenPanel view)
     {
@@ -39,6 +44,7 @@ public class LoginScreenController extends AbstractController
         this.view = view;
 
         userDAO = new UserDAO();
+        clientDAO = new ClientDAO();
 
         addListeners();
     }
@@ -73,8 +79,9 @@ public class LoginScreenController extends AbstractController
              */
             if(user.getId() != 0)
             {
-                // TODO: Open the next screen
-                choixIdentificationPanel = new LoggedInWelcomePanel();
+                // Get the client associated to the given user
+                client = clientDAO.find(user);
+                choixIdentificationPanel = new LoggedInWelcomePanel(client);
                 choixIdentificationController =
                         new LoggedInWelcomeController(mainWindowFrame,
                         model, choixIdentificationPanel);

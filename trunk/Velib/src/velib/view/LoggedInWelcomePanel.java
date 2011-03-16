@@ -11,15 +11,35 @@
 
 package velib.view;
 
+import velib.model.Client;
+import velib.model.User;
+
 /**
  *
  * @author andre
  */
-public class LoggedInWelcomePanel extends javax.swing.JPanel {
+public class LoggedInWelcomePanel extends javax.swing.JPanel
+{
+    private Client client;
 
     /** Creates new form ChoixIdenticationPanel */
     public LoggedInWelcomePanel() {
         initComponents();
+
+        setUpLoggedInWelcomePanel();
+    }
+
+    public LoggedInWelcomePanel(Client client)
+    {
+        this.client = client;
+    }
+
+    /*
+     * Setup the window based on user model values
+     */
+    private void setUpLoggedInWelcomePanel()
+    {
+        fullNameLabel.setText(client.getFullName());
     }
 
     /** This method is called from within the constructor to
@@ -33,12 +53,11 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        fullNameLabel = new javax.swing.JLabel();
         RechargerButton = new javax.swing.JButton();
         RestituerVeloButton = new javax.swing.JButton();
         LouerVeloButton = new javax.swing.JButton();
@@ -49,12 +68,6 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel {
 
         jLabel1.setText("Bonjour");
 
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("Nom");
-
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField2.setText("Prenom");
-
         jLabel2.setText("Il vous est possible de :");
 
         jLabel3.setText("Louer un velo");
@@ -63,26 +76,26 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel {
 
         jLabel5.setText("Recharger votre abonnement");
 
+        fullNameLabel.setText("FullName");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel5))))
+                            .addComponent(jLabel5)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(fullNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -91,8 +104,7 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fullNameLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -157,14 +169,13 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel {
     private javax.swing.JButton LouerVeloButton;
     private javax.swing.JButton RechargerButton;
     private javax.swing.JButton RestituerVeloButton;
+    private javax.swing.JLabel fullNameLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 
 }
