@@ -20,6 +20,7 @@ public class Abonnement {
   
     public Abonnement () {
         // TODO: hardcoded value, ident envoyé de la BDD (DAO)
+        this.id=0;
     }
 
     public long getId() {
