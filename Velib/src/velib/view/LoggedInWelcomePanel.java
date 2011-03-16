@@ -58,9 +58,9 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         fullNameLabel = new javax.swing.JLabel();
-        RechargerButton = new javax.swing.JButton();
-        RestituerVeloButton = new javax.swing.JButton();
-        LouerVeloButton = new javax.swing.JButton();
+        rechargerButton = new javax.swing.JButton();
+        restituerVeloButton = new javax.swing.JButton();
+        louerVeloButton = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(0, 0));
 
@@ -116,14 +116,14 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        RechargerButton.setText("Recharger");
+        rechargerButton.setText("Recharger");
 
-        RestituerVeloButton.setText("Restituer un velo");
+        restituerVeloButton.setText("Restituer un velo");
 
-        LouerVeloButton.setText("Louer un velo");
-        LouerVeloButton.addActionListener(new java.awt.event.ActionListener() {
+        louerVeloButton.setText("Louer un velo");
+        louerVeloButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LouerVeloButtonActionPerformed(evt);
+                louerVeloButtonActionPerformed(evt);
             }
         });
 
@@ -134,9 +134,9 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(RestituerVeloButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LouerVeloButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(RechargerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(restituerVeloButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(louerVeloButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rechargerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -150,25 +150,22 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(LouerVeloButton)
+                        .addComponent(louerVeloButton)
                         .addGap(18, 18, 18)
-                        .addComponent(RestituerVeloButton)
+                        .addComponent(restituerVeloButton)
                         .addGap(18, 18, 18)
-                        .addComponent(RechargerButton)
+                        .addComponent(rechargerButton)
                         .addGap(180, 180, 180))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LouerVeloButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_LouerVeloButtonActionPerformed
-    {//GEN-HEADEREND:event_LouerVeloButtonActionPerformed
+    private void louerVeloButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_louerVeloButtonActionPerformed
+    {//GEN-HEADEREND:event_louerVeloButtonActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_LouerVeloButtonActionPerformed
+}//GEN-LAST:event_louerVeloButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton LouerVeloButton;
-    private javax.swing.JButton RechargerButton;
-    private javax.swing.JButton RestituerVeloButton;
     private javax.swing.JLabel fullNameLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -176,6 +173,9 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton louerVeloButton;
+    private javax.swing.JButton rechargerButton;
+    private javax.swing.JButton restituerVeloButton;
     // End of variables declaration//GEN-END:variables
 
 }
