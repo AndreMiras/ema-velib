@@ -48,14 +48,13 @@ public class WelcomeScreenController
     {
         public void actionPerformed(ActionEvent e)
         {
-            /*
-            loginScreenFrame = new LoginScreenFrame();
-            loginScreenController = new LoginScreenController(
-                    model, loginScreenFrame);
-            loginScreenFrame.setVisible(true);
-             * 
-             */
-            mainWindow.setContentPanel(new LoginScreenPanel());
+            // TODO: does it really need to be kept as a private attribute?
+            LoginScreenPanel loginScreenPanel = new LoginScreenPanel();
+            LoginScreenController loginScreenController =
+                    new LoginScreenController(
+                    model, loginScreenPanel);
+            // loginScreenPanel.setVisible(true);
+            mainWindow.setContentPanel(loginScreenPanel);
         }
     }
 
