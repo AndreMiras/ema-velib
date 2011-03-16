@@ -1,1 +1,2 @@
-findPassword(String passowrd) might be a problem if the password is not key
+ - findPassword(String passowrd) might be a problem if the password is not key
+ - all controllers to have a MainWindowFrame instance, code refacto/inherit using the IView

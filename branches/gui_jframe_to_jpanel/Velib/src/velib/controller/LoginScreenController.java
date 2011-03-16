@@ -10,8 +10,9 @@ import java.awt.event.ActionListener;
 import velib.dao.UserDAO;
 import velib.model.IModel;
 import velib.model.User;
-import velib.view.ChoixIdentificationFrame;
+import velib.view.LoggedInWelcomePanel;
 import velib.view.LoginScreenPanel;
+import velib.view.MainWindowFrame;
 
 /**
  *
@@ -22,17 +23,20 @@ public class LoginScreenController {
     private IModel model;
     private LoginScreenPanel view;
 
-    private ChoixIdentificationFrame choixIdentificationFrame;
+    // TODO: does it really need to be kept as an attribute
+    private LoggedInWelcomePanel choixIdentificationPanel;
     private ChoixIdentificationController choixIdentificationController;
+    private MainWindowFrame mainWindow;
 
     private UserDAO userDAO;
     private User user;
 
     // TODO: actually I think we will path it a DAO rather than a model
-    public LoginScreenController(IModel model, LoginScreenPanel view)
+    public LoginScreenController(MainWindowFrame mainWindow, IModel model, LoginScreenPanel view)
     {
         this.model = model;
         this.view = view;
+        this.mainWindow = mainWindow;
 
         userDAO = new UserDAO();
 
@@ -69,11 +73,11 @@ public class LoginScreenController {
             if(true)
             {
                 // TODO: Open the next screen
-                choixIdentificationFrame = new ChoixIdentificationFrame();
+                choixIdentificationPanel = new LoggedInWelcomePanel();
                 choixIdentificationController =
-                        new ChoixIdentificationController(
-                        model, choixIdentificationFrame);
-                choixIdentificationFrame.setVisible(true);
+                        new ChoixIdentificationController(mainWindow,
+                        model, choixIdentificationPanel);
+                mainWindow.setContentPanel(choixIdentificationPanel);
             }
             else
             {
