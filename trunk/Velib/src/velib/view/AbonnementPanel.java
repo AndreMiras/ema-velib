@@ -60,6 +60,7 @@ public class AbonnementPanel extends javax.swing.JPanel {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Courte duree"));
 
         oneDay.setText("1 Journee");
+        oneDay.setActionCommand(AbonnementType.ONE_DAY.value());
         buttonGroup1.add(oneDay);
         oneDay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +69,7 @@ public class AbonnementPanel extends javax.swing.JPanel {
         });
 
         halfDayButton.setText("1/2 Journee");
+        halfDayButton.setActionCommand(AbonnementType.HALF_DAY.value());
         buttonGroup1.add(halfDayButton);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -98,9 +100,11 @@ public class AbonnementPanel extends javax.swing.JPanel {
         buttonGroup1.add(oneWeekButton);
 
         oneMonthButton.setText("1 Mois");
+        oneMonthButton.setActionCommand(AbonnementType.ONE_MONTH.value());
         buttonGroup1.add(oneMonthButton);
 
         oneYearButton.setText("1 An");
+        oneYearButton.setActionCommand(AbonnementType.ONE_YEAR.value());
         buttonGroup1.add(oneYearButton);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
