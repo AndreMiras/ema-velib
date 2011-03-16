@@ -4,7 +4,6 @@
  */
 
 package velib.model;
-
 /**
  *
  * @author fteysseire
@@ -12,12 +11,37 @@ package velib.model;
 public class Bornette {
 
     private long id;
-    private Borne idBorne;
+    private boolean libre;
+    private long numero;
+    private Borne idBorne; 
     private Velo idVelo;
 
     public long getId() {
         return id;
     }
+
+    public long getNumero() {
+        return numero;
+    }
+
+    public Borne getIdBorne() {
+        return idBorne;
+    }
+
+    public Velo getIdVelo() {
+        return idVelo;
+    }
+
+    public boolean getLibre(){
+        return libre;
+    }
+
+
+
+
+    
+
+
 
     
 }
