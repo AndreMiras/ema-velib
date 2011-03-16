@@ -9,6 +9,7 @@ package velib.dao;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -68,7 +69,8 @@ public abstract class DAO<T> {
          */
         public void createTables()
         {
-            System.out.println("Creating table(s):" + tableNames);
+            System.out.println("Creating table(s):" +
+                    Arrays.toString(tableNames));
             try
             {
                 Statement statement = connect.createStatement();
@@ -81,7 +83,7 @@ public abstract class DAO<T> {
             }
             catch (SQLException ex)
             {
-                System.out.println("Error creating user table: " + ex);
+                System.out.println("Error creating table: " + ex);
                 Logger.getLogger(DatabaseManagementDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
