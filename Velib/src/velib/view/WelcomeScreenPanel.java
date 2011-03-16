@@ -25,6 +25,10 @@ public class WelcomeScreenPanel extends javax.swing.JPanel {
     }
 
 
+    public void addAbonnerButtonListener(ActionListener al)
+    {
+        abonnerButton.addActionListener(al);
+    }
 
     public void addIdentifierButtonListener(ActionListener al)
     {

@@ -8,6 +8,7 @@ package velib.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import velib.model.IModel;
+import velib.view.AbonnementPanel;
 import velib.view.LoginScreenPanel;
 import velib.view.MainWindowFrame;
 import velib.view.WelcomeScreenPanel;
@@ -39,10 +40,24 @@ public class WelcomeScreenController extends AbstractController
 
     private void addListeners()
     {
+        view.addAbonnerButtonListener(new AbonnerButtonListener());
         view.addIdentifierButtonListener(new IdentifierButtonListener());
 
     }
 
+    class AbonnerButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            // TODO: does it really need to be kept as a private attribute?
+            AbonnementPanel abonnementPanel = new AbonnementPanel();
+            AbonnementController abonnementController =
+                    new AbonnementController(mainWindowFrame, abonnementPanel);
+            // loginScreenPanel.setVisible(true);
+            mainWindowFrame.setContentPanel(abonnementPanel);
+        }
+    }
+    
     class IdentifierButtonListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
