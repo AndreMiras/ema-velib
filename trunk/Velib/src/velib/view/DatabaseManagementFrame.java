@@ -66,7 +66,7 @@ public class DatabaseManagementFrame extends javax.swing.JFrame {
         dropTablesButton = new javax.swing.JButton();
         insertDataButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Database Management");
 
         createDatabaseButton.setText("Create DB");
