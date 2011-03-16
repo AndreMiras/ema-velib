@@ -80,12 +80,12 @@ public class LoginScreenController {
                         model, choixIdentificationPanel);
                 mainWindow.setContentPanel(choixIdentificationPanel);
                 System.out.println("Users ok");
+                // mainWindow.showMessage("User ok");
             }
             else
             {
                 // display an error message
-                System.out.println("Bad users");
-                //view.loginErrorPopup();
+                view.loginErrorPopup();
 
             }
         }
