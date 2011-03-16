@@ -11,6 +11,11 @@
 
 package velib.view;
 
+import java.awt.event.ActionListener;
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
+import velib.model.AbonnementType;
+
 /**
  *
  * @author andre
@@ -20,6 +25,18 @@ public class AbonnementPanel extends javax.swing.JPanel {
     /** Creates new form AbonnementPanel */
     public AbonnementPanel() {
         initComponents();
+    }
+
+    // Add action listener to every buttons in the group
+    public void addAbonnementGroupButtonListener(ActionListener actionListener)
+    {
+        Enumeration elements = buttonGroup1.getElements();
+
+        while (elements.hasMoreElements())
+        {
+            AbstractButton button = (AbstractButton)elements.nextElement();
+            button.addActionListener(actionListener);
+        }
     }
 
     /** This method is called from within the constructor to
@@ -77,6 +94,7 @@ public class AbonnementPanel extends javax.swing.JPanel {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Longue duree"));
 
         oneWeekButton.setText("1 Semaine");
+        oneWeekButton.setActionCommand(AbonnementType.ONE_WEEK.value());
         buttonGroup1.add(oneWeekButton);
 
         oneMonthButton.setText("1 Mois");
