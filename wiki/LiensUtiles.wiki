@@ -7,9 +7,9 @@ Add your content here.
 
 = DAO =
 
- - http://cyrille-herby.developpez.com/tutoriels/java/mapper-sa-base-donnees-avec-pattern-dao/
- - http://www.ibm.com/developerworks/java/library/j-genericdao.html
- - http://java.sun.com/blueprints/corej2eepatterns/Patterns/DataAccessObject.html
+ * http://cyrille-herby.developpez.com/tutoriels/java/mapper-sa-base-donnees-avec-pattern-dao/
+ * http://www.ibm.com/developerworks/java/library/j-genericdao.html
+ * http://java.sun.com/blueprints/corej2eepatterns/Patterns/DataAccessObject.html
 
 = Free GPL Icons =
 
