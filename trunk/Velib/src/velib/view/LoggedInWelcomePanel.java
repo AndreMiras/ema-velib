@@ -11,6 +11,7 @@
 
 package velib.view;
 
+import java.awt.event.ActionListener;
 import velib.model.Client;
 import velib.model.User;
 
@@ -32,6 +33,21 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel
     public LoggedInWelcomePanel(Client client)
     {
         this.client = client;
+    }
+
+    public void addLouerUnVeloButtonListener(ActionListener al)
+    {
+        this.louerVeloButton.addActionListener(al);
+    }
+
+    public void addRestituerUnVeloButtonListener(ActionListener al)
+    {
+        this.restituerVeloButton.addActionListener(al);
+    }
+
+    public void addRechargerButtonListener(ActionListener al)
+    {
+        this.rechargerButton.addActionListener(al);
     }
 
     /*
