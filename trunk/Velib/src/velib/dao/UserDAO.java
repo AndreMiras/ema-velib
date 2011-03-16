@@ -46,7 +46,6 @@ public class UserDAO extends DAO<User>
 	    return obj;
     }
 
-
     public User find(String identifiant, String password)
     {
         User user = new User();
@@ -77,7 +76,22 @@ public class UserDAO extends DAO<User>
     @Override
     public User update(User obj)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+                this .connect.createStatement(
+                    	ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_UPDATABLE
+                     ).executeUpdate(
+                    	"UPDATE user SET password = '" + obj.getPassword() + "'"+
+                    	" WHERE id = " + obj.getId()
+                     );
+
+	obj = this.find(obj.getId());
+	    }
+        catch (SQLException e)
+        {
+	  e.printStackTrace();
+	}
+        return obj;
     }
 
     @Override
