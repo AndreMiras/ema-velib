@@ -24,9 +24,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="RestituerVeloButton" alignment="1" max="32767" attributes="1"/>
-                  <Component id="LouerVeloButton" alignment="1" max="32767" attributes="1"/>
-                  <Component id="RechargerButton" alignment="1" max="32767" attributes="1"/>
+                  <Component id="restituerVeloButton" alignment="1" max="32767" attributes="1"/>
+                  <Component id="louerVeloButton" alignment="1" max="32767" attributes="1"/>
+                  <Component id="rechargerButton" alignment="1" max="32767" attributes="1"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jPanel1" max="32767" attributes="0"/>
@@ -44,11 +44,11 @@
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="LouerVeloButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="louerVeloButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="RestituerVeloButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="restituerVeloButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="RechargerButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="rechargerButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -147,22 +147,22 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="RechargerButton">
+    <Component class="javax.swing.JButton" name="rechargerButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Recharger"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="RestituerVeloButton">
+    <Component class="javax.swing.JButton" name="restituerVeloButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Restituer un velo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="LouerVeloButton">
+    <Component class="javax.swing.JButton" name="louerVeloButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Louer un velo"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LouerVeloButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="louerVeloButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
