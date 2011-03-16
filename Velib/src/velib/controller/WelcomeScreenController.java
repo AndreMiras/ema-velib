@@ -25,7 +25,6 @@ public class WelcomeScreenController extends AbstractController
     // TODO: controller might not be needed
     private IModel model;
     private WelcomeScreenPanel view;
-    private MainWindowFrame mainWindow;
 
     public WelcomeScreenController(
             MainWindowFrame mainWindowFrame, IModel model, WelcomeScreenPanel view)
@@ -51,10 +50,10 @@ public class WelcomeScreenController extends AbstractController
             // TODO: does it really need to be kept as a private attribute?
             LoginScreenPanel loginScreenPanel = new LoginScreenPanel();
             LoginScreenController loginScreenController =
-                    new LoginScreenController(mainWindow,
+                    new LoginScreenController(mainWindowFrame,
                     model, loginScreenPanel);
             // loginScreenPanel.setVisible(true);
-            mainWindow.setContentPanel(loginScreenPanel);
+            mainWindowFrame.setContentPanel(loginScreenPanel);
         }
     }
 
