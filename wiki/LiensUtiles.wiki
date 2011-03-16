@@ -8,6 +8,7 @@ Add your content here.
 = DAO =
 
 http://cyrille-herby.developpez.com/tutoriels/java/mapper-sa-base-donnees-avec-pattern-dao/
+http://www.ibm.com/developerworks/java/library/j-genericdao.html
 
 = Free GPL Icons =
 
