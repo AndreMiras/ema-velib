@@ -13,19 +13,19 @@ import velib.view.MainWindowFrame;
  *
  * @author andre
  */
-class ChoixIdentificationController {
+class ChoixIdentificationController extends AbstractController
+{
 
     private IModel model ;
     private LoggedInWelcomePanel view;
-    private MainWindowFrame mainWindowFrame;
 
     public ChoixIdentificationController(
-            MainWindowFrame mainWindow, IModel model,
+            MainWindowFrame mainWindowFrame, IModel model,
             LoggedInWelcomePanel view)
     {
+        super(mainWindowFrame);
         this.model = model;
         this.view = view;
-        this.mainWindowFrame = mainWindow;
     }
 
 

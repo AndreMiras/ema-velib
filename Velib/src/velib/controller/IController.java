@@ -12,10 +12,8 @@ import velib.model.IModel;
  *
  * @author andre
  */
-public interface IController {
-
-
-
+public interface IController
+{
     IModel getModel();
     
     IView getView();

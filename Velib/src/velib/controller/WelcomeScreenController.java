@@ -20,7 +20,7 @@ import velib.view.WelcomeScreenPanel;
  * basically this controller doesn't do any Model changes
  * just delegates
  */
-public class WelcomeScreenController
+public class WelcomeScreenController extends AbstractController
 {
     // TODO: controller might not be needed
     private IModel model;
@@ -28,9 +28,9 @@ public class WelcomeScreenController
     private MainWindowFrame mainWindow;
 
     public WelcomeScreenController(
-            MainWindowFrame mainWindow, IModel model, WelcomeScreenPanel view)
+            MainWindowFrame mainWindowFrame, IModel model, WelcomeScreenPanel view)
     {
-        this.mainWindow = mainWindow;
+        super(mainWindowFrame);
         this.model = model;
         this.view = view;
 

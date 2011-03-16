@@ -20,10 +20,10 @@ import velib.view.WelcomeScreenPanel;
  * @author andre
  */
 // TODO: to be renamed as MainWindowFrameController
-public class MainController implements IController {
+public class MainController extends AbstractController implements IController
+{
     
     private IModel model;
-    private MainWindowFrame view;
     private WelcomeScreenPanel welcomeScreenPanel;
     private WelcomeScreenController welcomeScreenController;
 
@@ -36,8 +36,8 @@ public class MainController implements IController {
 
     public MainController(IModel model, MainWindowFrame view)
     {
+        super(view);
         this.model = model;
-        this.view = view;
 
         // addListeners();
         mainWindowFrameSetup();
@@ -50,15 +50,15 @@ public class MainController implements IController {
     public void mainWindowFrameSetup()
     {
         welcomeScreenPanel = new WelcomeScreenPanel();
-        welcomeScreenController = new WelcomeScreenController(view,
+        welcomeScreenController = new WelcomeScreenController(mainWindowFrame,
                 model, welcomeScreenPanel);
-        view.setContentPanel(welcomeScreenPanel);
+        mainWindowFrame.setContentPanel(welcomeScreenPanel);
         
     }
     
     private void addListeners()
     {
-        view.addEditDatabaseButtonListener(new EditDatabaseButtonListener());
+        mainWindowFrame.addEditDatabaseButtonListener(new EditDatabaseButtonListener());
     }
 
     public IModel getModel()
@@ -68,7 +68,7 @@ public class MainController implements IController {
 
     public IView getView()
     {
-        return view;
+        return mainWindowFrame;
     }
 
 
