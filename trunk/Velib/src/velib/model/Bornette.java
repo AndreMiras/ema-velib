@@ -16,6 +16,23 @@ public class Bornette {
     private Borne idBorne; 
     private Velo idVelo;
 
+    public Bornette()
+    {
+        this.id = 0;
+        this.libre = false;
+        this.numero = 0;
+        this.idBorne = null;
+        this.idVelo = null;
+    }
+
+    public Bornette(long id, boolean libre, long numero, Borne idBorne, Velo idVelo) {
+        this.id = id;
+        this.libre=libre;
+        this.numero = numero;
+        this.idBorne = idBorne;
+        this.idVelo = idVelo;
+    }
+    
     public long getId() {
         return id;
     }
