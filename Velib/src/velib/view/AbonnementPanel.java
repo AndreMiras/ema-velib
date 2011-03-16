@@ -31,6 +31,7 @@ public class AbonnementPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         oneDay = new javax.swing.JButton();
         halfDayButton = new javax.swing.JButton();
@@ -42,6 +43,7 @@ public class AbonnementPanel extends javax.swing.JPanel {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Courte duree"));
 
         oneDay.setText("1 Journee");
+        buttonGroup1.add(oneDay);
         oneDay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 oneDayActionPerformed(evt);
@@ -49,6 +51,7 @@ public class AbonnementPanel extends javax.swing.JPanel {
         });
 
         halfDayButton.setText("1/2 Journee");
+        buttonGroup1.add(halfDayButton);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -74,10 +77,13 @@ public class AbonnementPanel extends javax.swing.JPanel {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Longue duree"));
 
         oneWeekButton.setText("1 Semaine");
+        buttonGroup1.add(oneWeekButton);
 
         oneMonthButton.setText("1 Mois");
+        buttonGroup1.add(oneMonthButton);
 
         oneYearButton.setText("1 An");
+        buttonGroup1.add(oneYearButton);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -132,6 +138,7 @@ public class AbonnementPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton halfDayButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
