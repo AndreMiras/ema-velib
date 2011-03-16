@@ -51,31 +51,10 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
         fillUpUserTable();
     }
 
-
     private void createUserTable()
     {
-        String tableName = "user";
-
-        System.out.println("Creating table user");
-        try
-        {
-            Statement statement = connect.createStatement();
-
-            String sql =
-                    String.format("CREATE TABLE %s" +
-                    "(id INTEGER, " +
-                    "password VARCHAR(40), " +
-                    "PRIMARY KEY (id))", tableName);
-
-            System.out.println("SQL: " + sql);
-
-            statement.executeUpdate(sql);
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Error creating user table: " + ex);
-            Logger.getLogger(DatabaseManagementDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        UserDAO userDAO = new UserDAO();
+        userDAO.createTables();
     }
 
     private void fillUpUserTable()
@@ -107,21 +86,8 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
 
     private void dropUserTable()
     {
-        String tableName = "user";
-
-        System.out.println("Dropping table user");
-        try
-        {
-            Statement statement = connect.createStatement();
-
-            String sql = "DROP TABLE " + tableName;
-
-            statement.executeUpdate(sql);
-        }
-        catch (SQLException e)
-        {
-            System.out.println("Error dropping user table: " + e);
-        }
+        UserDAO userDAO = new UserDAO();
+        userDAO.dropTables();
     }
 
 }
