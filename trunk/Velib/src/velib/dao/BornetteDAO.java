@@ -93,4 +93,16 @@ public class BornetteDAO extends DAO<Bornette>
     public Bornette find(long id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public void createTable()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void dropTable()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
