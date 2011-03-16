@@ -12,6 +12,7 @@
 package velib.view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,9 +25,14 @@ public class LoginScreenPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-      public void addValiderButtonListener(ActionListener al)
+    public void addValiderButtonListener(ActionListener al)
     {
         this.validerButton.addActionListener(al);
+    }
+
+    public void loginErrorPopup()
+    {
+        JOptionPane.showMessageDialog(this, "Wrong user");
     }
 
 

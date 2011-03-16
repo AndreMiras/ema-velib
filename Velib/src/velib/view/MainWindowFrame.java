@@ -13,6 +13,7 @@ package velib.view;
 
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,6 +35,11 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
      */
     private void setUpMainWindow()
     {
+    }
+
+    public void showMessage(String message)
+    {
+        JOptionPane.showMessageDialog(this, message);
     }
 
 
