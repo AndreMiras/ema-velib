@@ -84,7 +84,8 @@ public class LoginScreenController {
             else
             {
                 // display an error message
-                view.loginErrorPopup();
+                // view.loginErrorPopup();
+                System.out.println("Can't login");
             }
         }
     }
