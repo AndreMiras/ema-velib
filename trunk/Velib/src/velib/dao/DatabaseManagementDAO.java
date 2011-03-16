@@ -63,18 +63,24 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
         try
         {
             // INSERT INTO Test (Id, Name) VALUES (NULL,'Test');
-            PreparedStatement prepare = this.connect.prepareStatement("INSERT INTO user (id, password) VALUES(?, ?)");
+            PreparedStatement prepare = this.connect.prepareStatement(
+                    "INSERT INTO users (id, identifiant, password) VALUES(?,?,?)");
             // user1
             prepare.setLong(1, 1);
-            prepare.setString(2, "pwd1");
+            prepare.setString(2, "user1");
+            prepare.setString(3, "pwd1");
             prepare.executeUpdate();
+            
             // user2
             prepare.setLong(1, 2);
-            prepare.setString(2, "pwd2");
+            prepare.setString(2, "user2");
+            prepare.setString(3, "pwd2");
             prepare.executeUpdate();
+
             // user3
             prepare.setLong(1, 3);
-            prepare.setString(2, "pwd3");
+            prepare.setString(2, "user3");
+            prepare.setString(3, "pwd3");
             prepare.executeUpdate();
         }
         catch (SQLException ex)
