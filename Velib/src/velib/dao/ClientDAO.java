@@ -18,9 +18,16 @@ import velib.model.Client;
 import velib.dao.AbstractDAOFactory;
 import velib.dao.DAO;
 import velib.dao.FactoryType;
+import velib.model.User;
 
 public class ClientDAO extends DAO<Client>
 {
+
+        public ClientDAO()
+    {
+        tableNames = new String[] { "clients" };
+    }
+
 
     public Client create(Client obj)
     {
@@ -84,7 +91,7 @@ public class ClientDAO extends DAO<Client>
                 client = new Client(
                                     id,
                                     result.getString("firstname"),
-                                    result.getString("lastname"));
+                                    result.getString("lastname"), result.getLong("iduser"));
             }
 
 		    } catch (SQLException e) {
@@ -93,6 +100,43 @@ public class ClientDAO extends DAO<Client>
 		   return client;
 
 	}
+
+        public Client findByUser(User user)
+        {
+            String clientsTable = tableNames[0];
+            Client client = new Client();
+
+	try
+        {
+            ResultSet result = this.connect.createStatement(
+                                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                    ResultSet.CONCUR_READ_ONLY
+                                     ).executeQuery(
+                                    "SELECT * FROM " +  clientsTable +
+                                    " WHERE userID = '" + user.getId() +
+                                    "'"
+                                    );
+            if(result.first())
+            {
+             
+                Long idClient = result.getLong("idclient");
+                Long idUser = result.getLong("iduser");
+                String nomClient = result.getString("nomclient");
+                String prenomClient = result.getString("prenomclient");
+                //System.out.println("id =" + id);
+
+                client = new Client(idClient, prenomClient, nomClient, idUser);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return client;
+
+        }
+
 	public Client update(Client obj)
         {
             try
