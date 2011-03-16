@@ -16,21 +16,32 @@ import velib.model.User;
 // TODO: finish up
 public class UserDAO extends DAO<User>
 {
+
+    public UserDAO()
+    {
+        tableNames = new String[] { "users" };
+    }
+
     public User create(User obj)
     {
+        String usersTable = tableNames[0];
          try {
              ResultSet result = this.connect.createStatement(
                                 ResultSet.TYPE_SCROLL_INSENSITIVE,
                       		ResultSet.CONCUR_UPDATABLE
                                     ).executeQuery(
-                                       "SELECT NEXT VALUE FOR sequenceuser FROM users as id"
+                                       "SELECT NEXT VALUE FOR sequenceuser FROM " +
+                                       usersTable +
+                                       " as id"
                                     );
             if(result.first())
             {
             long id = result.getLong(1);
             System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
-                                                    	"INSERT INTO users (id, identifiant, password) VALUES(?, ?, ?)"
+                                                    	"INSERT INTO " +
+                                                        usersTable +
+                                                        " (id, identifiant, password) VALUES(?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
                                 prepare.setString(2, obj.getIdentifiant());
@@ -49,16 +60,18 @@ public class UserDAO extends DAO<User>
     public User find(String identifiant, String password)
     {
         User user = new User();
-        //System.out.println("I'm in the find");
+        String usersTable = tableNames[0];
         
 	try
         {
-            //System.out.println("I'm in the try");
             ResultSet result = this.connect.createStatement(
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                    "SELECT * FROM users WHERE identifiant = '" + identifiant + "' AND password = '" + password + "'"
+                                    "SELECT * FROM " +
+                                    usersTable +
+                                    " WHERE identifiant = '" + identifiant +
+                                    "' AND password = '" + password + "'"
                                     );
             if(result.first())
             {
@@ -82,12 +95,15 @@ public class UserDAO extends DAO<User>
     @Override
     public User update(User obj)
     {
+        String usersTable = tableNames[0];
         try {
                 this .connect.createStatement(
                     	ResultSet.TYPE_SCROLL_INSENSITIVE,
                         ResultSet.CONCUR_UPDATABLE
                      ).executeUpdate(
-                    	"UPDATE user SET password = '" + obj.getPassword() + "'"+
+                    	"UPDATE " +
+                        usersTable +
+                        " SET password = '" + obj.getPassword() + "'"+
                     	" WHERE id = " + obj.getId()
                      );
 
@@ -108,6 +124,18 @@ public class UserDAO extends DAO<User>
 
     @Override
     public User find(long id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void createTable()
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void dropTable()
+    {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

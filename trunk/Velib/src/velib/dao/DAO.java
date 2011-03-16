@@ -15,8 +15,13 @@ import java.sql.Connection;
  */
 public abstract class DAO<T> {
 
-        // TODO: use Nicolas's object
+        // TODO shouln't this be protected?
 	public Connection connect = ConnectionHSQL.getInstance();
+
+        /*
+         * list of used tables for this object
+         */
+        protected String[] tableNames;
 
 	/**
 	 * Permet de récupérer un objet via son ID
@@ -43,5 +48,25 @@ public abstract class DAO<T> {
 	 * @param obj
 	 */
 	public abstract void delete(T obj);
+
+
+        /*      Database management     */
+
+
+        
+        /*
+         * Creates required tables
+         */
+        public abstract void createTable();
+
+        public abstract void dropTable();
+
+        /*
+         * Returns the list of tables
+         */
+        public String[] getTableNames()
+        {
+            return tableNames;
+        }
 }
 
