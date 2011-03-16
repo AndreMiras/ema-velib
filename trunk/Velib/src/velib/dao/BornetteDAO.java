@@ -21,7 +21,7 @@ public class BornetteDAO extends DAO<Bornette>
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public Bornette findLibre(String identifiant, String password)
+    public Bornette findLibre(Long idBorne)
     {
         Bornette bornette = new Bornette();
 
@@ -31,13 +31,42 @@ public class BornetteDAO extends DAO<Bornette>
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                    "SELECT * FROM bornette WHERE "
+                                    "SELECT * FROM bornette WHERE etat=false AND idborne='" + idBorne + "'"
                                     );
             if(result.first())
             {
-                String passwordDB = result.getString("password");
-                Long id = result.getLong("id");
+
                 bornette = new Bornette();
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return bornette;
+    }
+
+    public Bornette findOccupe(Long idBorne)
+    {
+        Bornette bornette = new Bornette();
+
+	try
+        {
+            ResultSet result = this.connect.createStatement(
+                                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                    ResultSet.CONCUR_READ_ONLY
+                                     ).executeQuery(
+                                    "SELECT * FROM bornette WHERE etat=true AND idborne='" + idBorne + "'"
+                                    );
+            if(result.first())
+            {
+                long id = result.getLong("idbornette");
+                long idborneDB = result.getLong("idborne");
+                long idveloDB = result.getLong("idvelo");
+                boolean libre = result.getBoolean("libre");
+                bornette = new Bornette();
+
             }
         }
         catch (SQLException e)
