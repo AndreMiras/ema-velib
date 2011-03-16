@@ -101,6 +101,11 @@ public class ClientDAO extends DAO<Client>
 
 	}
 
+        public Client find(User user)
+        {
+            return findByUser(user);
+        }
+
         public Client findByUser(User user)
         {
             String clientsTable = tableNames[0];
