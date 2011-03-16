@@ -30,7 +30,7 @@ public class Client extends User {
     }
 
     public Client(long id, String firstname, String lastname) {
-        super(1, new String()); // TODO: hardcoded
+        super(1, new String(), new String()); // TODO: hardcoded
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;

@@ -19,10 +19,14 @@ public class User implements IModel {
 
     public User()
     {
+        this.id = 0;
+        this.password = "";
+        this.identifiant="";
     }   
 
-    public User(long id, String password) {
+    public User(long id, String identifiant, String password) {
         this.id = id;
+        this.identifiant=identifiant;
         this.password = password;
     }
 
