@@ -49,20 +49,24 @@ public class UserDAO extends DAO<User>
     public User find(String identifiant, String password)
     {
         User user = new User();
+        //System.out.println("I'm in the find");
         
 	try
         {
+            //System.out.println("I'm in the try");
             ResultSet result = this.connect.createStatement(
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                    "SELECT * FROM users WHERE identifiant = " + identifiant + "AND password = " + password
+                                    "SELECT * FROM users WHERE identifiant = '" + identifiant + "' AND password = '" + password + "'"
                                     );
             if(result.first())
             {
+                //System.out.println("I'm in the result");
                 Long id = result.getLong("id");
                 String identifiantDB = result.getString("identifiant");
                 String passwordDB = result.getString("password");
+                //System.out.println("id =" + id);
 
                 user = new User(id, identifiantDB, passwordDB);
             }
