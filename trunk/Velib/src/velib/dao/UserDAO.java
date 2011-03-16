@@ -23,14 +23,14 @@ public class UserDAO extends DAO<User>
                                 ResultSet.TYPE_SCROLL_INSENSITIVE,
                       		ResultSet.CONCUR_UPDATABLE
                                     ).executeQuery(
-                                       "SELECT NEXT VALUE FOR sequenceuser FROM user as id"
+                                       "SELECT NEXT VALUE FOR sequenceuser FROM users as id"
                                     );
             if(result.first())
             {
             long id = result.getLong(1);
             System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
-                                                    	"INSERT INTO user (id, identifiant, password) VALUES(?, ?, ?)"
+                                                    	"INSERT INTO users (id, identifiant, password) VALUES(?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
                                 prepare.setString(2, obj.getIdentifiant());
@@ -56,7 +56,7 @@ public class UserDAO extends DAO<User>
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                    "SELECT * FROM user WHERE identifiant = " + identifiant + "AND password = " + password
+                                    "SELECT * FROM users WHERE identifiant = " + identifiant + "AND password = " + password
                                     );
             if(result.first())
             {
