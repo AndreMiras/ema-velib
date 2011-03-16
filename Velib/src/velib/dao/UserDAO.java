@@ -133,6 +133,7 @@ public class UserDAO extends DAO<User>
         String statementString =
                     String.format("CREATE TABLE %s" +
                     "(id INTEGER, " +
+                    "identifiant VARCHAR(40), " +
                     "password VARCHAR(40), " +
                     "PRIMARY KEY (id))", tableNames[0]);
         return statementString;
