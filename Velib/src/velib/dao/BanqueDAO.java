@@ -70,13 +70,7 @@ public class BanqueDAO extends DAO<Banque>
     }
 
     @Override
-    public void createTable()
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void dropTable()
+    public String createTableStatementString()
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }

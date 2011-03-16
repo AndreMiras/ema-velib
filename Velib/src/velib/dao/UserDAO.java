@@ -128,14 +128,13 @@ public class UserDAO extends DAO<User>
     }
 
     @Override
-    public void createTable()
+    public String createTableStatementString()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void dropTable()
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String statementString =
+                    String.format("CREATE TABLE %s" +
+                    "(id INTEGER, " +
+                    "password VARCHAR(40), " +
+                    "PRIMARY KEY (id))", tableNames[0]);
+        return statementString;
     }
 }
