@@ -140,6 +140,9 @@
         <Component class="javax.swing.JButton" name="oneWeekButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="1 Semaine"/>
+            <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="AbonnementType.ONE_WEEK.value()" type="code"/>
+            </Property>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
             </Property>
