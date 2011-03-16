@@ -26,7 +26,7 @@ public class LoginScreenController extends AbstractController
 
     // TODO: does it really need to be kept as an attribute
     private LoggedInWelcomePanel choixIdentificationPanel;
-    private ChoixIdentificationController choixIdentificationController;
+    private LoggedInWelcomeController choixIdentificationController;
 
     private UserDAO userDAO;
     private User user;
@@ -76,7 +76,7 @@ public class LoginScreenController extends AbstractController
                 // TODO: Open the next screen
                 choixIdentificationPanel = new LoggedInWelcomePanel();
                 choixIdentificationController =
-                        new ChoixIdentificationController(mainWindowFrame,
+                        new LoggedInWelcomeController(mainWindowFrame,
                         model, choixIdentificationPanel);
                 mainWindowFrame.setContentPanel(choixIdentificationPanel);
                 System.out.println("Users ok");
