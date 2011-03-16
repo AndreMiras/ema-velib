@@ -72,7 +72,6 @@ public class LoginScreenController {
              * TODO: move this to a dedicated function for readability
              */
             if(user.getId() != 0)
-            //if(true)
             {
                 // TODO: Open the next screen
                 choixIdentificationPanel = new LoggedInWelcomePanel();
@@ -85,12 +84,8 @@ public class LoginScreenController {
             else
             {
                 // display an error message
-
                 System.out.println("Bad users");
                 //view.loginErrorPopup();
-
-                // view.loginErrorPopup();
-                System.out.println("Can't login");
 
             }
         }
