@@ -51,7 +51,7 @@ public class WelcomeScreenController
             // TODO: does it really need to be kept as a private attribute?
             LoginScreenPanel loginScreenPanel = new LoginScreenPanel();
             LoginScreenController loginScreenController =
-                    new LoginScreenController(
+                    new LoginScreenController(mainWindow,
                     model, loginScreenPanel);
             // loginScreenPanel.setVisible(true);
             mainWindow.setContentPanel(loginScreenPanel);
