@@ -12,7 +12,7 @@ import sun.security.util.Password;
  * @author fteysseire
  */
 public class Client extends User {
-    private long id;
+    private long client_id;
     private String firstname;
     private String lastname;
     private Date dateNaissance;
@@ -28,11 +28,13 @@ public class Client extends User {
     {
     }
 
-    public Client(long id, String firstname, String lastname) {
-        super(1, new String(), new String()); // TODO: hardcoded
-        this.id = id;
+    public Client(long idClient, String firstname, String lastname, long idUser) {
+        super(idUser, new String(), new String()); // TODO: hardcoded
+        this.client_id = idClient;
         this.firstname = firstname;
         this.lastname = lastname;
+        
+
     }
 
     public String getFirstname()
