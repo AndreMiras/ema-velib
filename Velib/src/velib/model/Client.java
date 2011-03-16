@@ -45,6 +45,11 @@ public class Client extends User {
         return lastname;
     }
 
+    public String getFullName()
+    {
+        return firstname + " " + lastname;
+    }
+
     public String getAdresse() {
         return adresse;
     }
