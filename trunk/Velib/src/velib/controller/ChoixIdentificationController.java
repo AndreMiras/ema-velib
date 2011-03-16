@@ -6,7 +6,8 @@
 package velib.controller;
 
 import velib.model.IModel;
-import velib.view.ChoixIdentificationFrame;
+import velib.view.LoggedInWelcomePanel;
+import velib.view.MainWindowFrame;
 
 /**
  *
@@ -15,12 +16,16 @@ import velib.view.ChoixIdentificationFrame;
 class ChoixIdentificationController {
 
     private IModel model ;
-    private ChoixIdentificationFrame view;
+    private LoggedInWelcomePanel view;
+    private MainWindowFrame mainWindowFrame;
 
-    public ChoixIdentificationController(IModel model, ChoixIdentificationFrame view)
+    public ChoixIdentificationController(
+            MainWindowFrame mainWindow, IModel model,
+            LoggedInWelcomePanel view)
     {
         this.model = model;
         this.view = view;
+        this.mainWindowFrame = mainWindow;
     }
 
 

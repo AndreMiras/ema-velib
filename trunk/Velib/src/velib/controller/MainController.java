@@ -12,42 +12,54 @@ import velib.dao.IDatabaseManagementDAO;
 import velib.model.IModel;
 import velib.view.DatabaseManagementFrame;
 import velib.view.IView;
-import velib.view.LoginScreenFrame;
-import velib.view.WelcomeScreenFrame;
+import velib.view.MainWindowFrame;
+import velib.view.WelcomeScreenPanel;
 
 /**
  *
  * @author andre
  */
+// TODO: to be renamed as MainWindowFrameController
 public class MainController implements IController {
     
     private IModel model;
-    private WelcomeScreenFrame view;
+    private MainWindowFrame view;
+    private WelcomeScreenPanel welcomeScreenPanel;
+    private WelcomeScreenController welcomeScreenController;
 
     private LoginScreenController loginScreenController;
-    private LoginScreenFrame loginScreenFrame;
 
     // Database Management mvc
     private IDatabaseManagementDAO databaseManagement;
     private DatabaseManagementFrame databaseManagementFrame;
     private DatabaseManagementController databaseManagementController;
 
-    public MainController(IModel model, WelcomeScreenFrame view)
+    public MainController(IModel model, MainWindowFrame view)
     {
         this.model = model;
         this.view = view;
 
+        // addListeners();
+        mainWindowFrameSetup();
         addListeners();
     }
 
+    /*
+     * Add first WelcomeScreenPanel and register associated controller
+     */
+    public void mainWindowFrameSetup()
+    {
+        welcomeScreenPanel = new WelcomeScreenPanel();
+        welcomeScreenController = new WelcomeScreenController(view,
+                model, welcomeScreenPanel);
+        view.setContentPanel(welcomeScreenPanel);
+        
+    }
+    
     private void addListeners()
     {
-        view.addIdentifierButtonListener(new IdentifierButtonListener());
-
         view.addEditDatabaseButtonListener(new EditDatabaseButtonListener());
     }
-
-    
 
     public IModel getModel()
     {
@@ -59,16 +71,6 @@ public class MainController implements IController {
         return view;
     }
 
-    class IdentifierButtonListener implements ActionListener
-    {
-        public void actionPerformed(ActionEvent e)
-        {
-            loginScreenFrame = new LoginScreenFrame();
-            loginScreenController = new LoginScreenController(
-                    model, loginScreenFrame);
-            loginScreenFrame.setVisible(true);
-        }
-    }
 
     class EditDatabaseButtonListener implements ActionListener
     {
