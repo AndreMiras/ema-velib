@@ -18,7 +18,8 @@ import velib.view.MainWindowFrame;
  *
  * @author andre
  */
-public class LoginScreenController {
+public class LoginScreenController extends AbstractController
+{
 
     private IModel model;
     private LoginScreenPanel view;
@@ -26,17 +27,16 @@ public class LoginScreenController {
     // TODO: does it really need to be kept as an attribute
     private LoggedInWelcomePanel choixIdentificationPanel;
     private ChoixIdentificationController choixIdentificationController;
-    private MainWindowFrame mainWindow;
 
     private UserDAO userDAO;
     private User user;
 
     // TODO: actually I think we will path it a DAO rather than a model
-    public LoginScreenController(MainWindowFrame mainWindow, IModel model, LoginScreenPanel view)
+    public LoginScreenController(MainWindowFrame mainWindowFrame, IModel model, LoginScreenPanel view)
     {
+        super(mainWindowFrame);
         this.model = model;
         this.view = view;
-        this.mainWindow = mainWindow;
 
         userDAO = new UserDAO();
 
@@ -76,9 +76,9 @@ public class LoginScreenController {
                 // TODO: Open the next screen
                 choixIdentificationPanel = new LoggedInWelcomePanel();
                 choixIdentificationController =
-                        new ChoixIdentificationController(mainWindow,
+                        new ChoixIdentificationController(mainWindowFrame,
                         model, choixIdentificationPanel);
-                mainWindow.setContentPanel(choixIdentificationPanel);
+                mainWindowFrame.setContentPanel(choixIdentificationPanel);
                 System.out.println("Users ok");
                 // mainWindow.showMessage("User ok");
             }
