@@ -13,26 +13,26 @@ import sun.security.util.Password;
  */
 public class User implements IModel {
 
-    private long id;
+    private long user_id;
     private String identifiant;
     private String password;
 
     public User()
     {
-        this.id = 0;
+        this.user_id = 0;
         this.password = "";
         this.identifiant="";
     }   
 
     public User(long id, String identifiant, String password) {
-        this.id = id;
+        this.user_id = id;
         this.identifiant=identifiant;
         this.password = password;
     }
 
     public long getId()
     {
-        return id;
+        return user_id;
     }
 
     public String getIdentifiant() {
