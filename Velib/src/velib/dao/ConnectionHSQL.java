@@ -19,10 +19,20 @@ public class ConnectionHSQL {
         {
             if(connect == null)
             {
+                // TODO: get this fixed
                 try
                 {
                     // http://www.willamaze.eu/2009/02/running-hsqldb-in-process-no-suitable-driver-found/
-                    // Class.forName("org.hsqldb.jdbcDriver");
+                    // comment/uncomment this line if you get errors on connect
+                    Class.forName("org.hsqldb.jdbcDriver");
+                }
+                catch (java.lang.ClassNotFoundException ex)
+                {
+                    System.out.println("Whatever");
+                }
+                
+                try
+                {
                     connect = DriverManager.getConnection(url, user, passwd);
                 }
                 catch (SQLException e)
