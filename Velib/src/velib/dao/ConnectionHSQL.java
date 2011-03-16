@@ -22,8 +22,7 @@ public class ConnectionHSQL {
                 try
                 {
                     // http://www.willamaze.eu/2009/02/running-hsqldb-in-process-no-suitable-driver-found/
-                    // Class.forName("org.hsqldb.jdbcDriver");
-                    //Class.forName("org.hsqldb.jdbcDriver");
+                    Class.forName("org.hsqldb.jdbcDriver");
                     connect = DriverManager.getConnection(url, user, passwd);
                 }
                 catch (SQLException e)

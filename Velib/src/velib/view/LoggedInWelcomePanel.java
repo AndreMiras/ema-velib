@@ -4,24 +4,22 @@
  */
 
 /*
- * ChoixIdentification.java
+ * ChoixIdenticationPanel.java
  *
- * Created on 7 mars 2011, 11:47:18
+ * Created on Mar 16, 2011, 12:53:32 PM
  */
 
 package velib.view;
 
 /**
  *
- * @author fteysseire
+ * @author andre
  */
-public class ChoixIdentificationFrame extends javax.swing.JFrame implements IView {
+public class LoggedInWelcomePanel extends javax.swing.JPanel {
 
-    /** Creates new form ChoixIdentification */
-    public ChoixIdentificationFrame()
-    {
+    /** Creates new form ChoixIdenticationPanel */
+    public LoggedInWelcomePanel() {
         initComponents();
-        this.setPreferredSize(windowDimension);
     }
 
     /** This method is called from within the constructor to
@@ -33,9 +31,6 @@ public class ChoixIdentificationFrame extends javax.swing.JFrame implements IVie
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        LouerVeloButton = new javax.swing.JButton();
-        RestituerVeloButton = new javax.swing.JButton();
-        RechargerButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -44,21 +39,11 @@ public class ChoixIdentificationFrame extends javax.swing.JFrame implements IVie
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        RechargerButton = new javax.swing.JButton();
+        RestituerVeloButton = new javax.swing.JButton();
+        LouerVeloButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        LouerVeloButton.setText("Louer un velo");
-        LouerVeloButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LouerVeloButtonActionPerformed(evt);
-            }
-        });
-
-        RestituerVeloButton.setText("Restituer un velo");
-
-        RechargerButton.setText("Recharger");
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Possibilités", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Possibilités", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
         jLabel1.setText("Bonjour");
 
@@ -117,10 +102,22 @@ public class ChoixIdentificationFrame extends javax.swing.JFrame implements IVie
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        RechargerButton.setText("Recharger");
+
+        RestituerVeloButton.setText("Restituer un velo");
+
+        LouerVeloButton.setText("Louer un velo");
+        LouerVeloButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LouerVeloButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 776, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -129,12 +126,13 @@ public class ChoixIdentificationFrame extends javax.swing.JFrame implements IVie
                     .addComponent(RechargerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 303, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(210, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -145,24 +143,13 @@ public class ChoixIdentificationFrame extends javax.swing.JFrame implements IVie
                         .addComponent(RechargerButton)))
                 .addGap(133, 133, 133))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LouerVeloButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LouerVeloButtonActionPerformed
+    private void LouerVeloButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_LouerVeloButtonActionPerformed
+    {//GEN-HEADEREND:event_LouerVeloButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_LouerVeloButtonActionPerformed
+}//GEN-LAST:event_LouerVeloButtonActionPerformed
 
-    /**
-    * @param args the command line arguments
-    */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ChoixIdentificationFrame().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LouerVeloButton;
