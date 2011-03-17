@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import velib.model.Client;
+import velib.model.User;
 
 /**
  *
@@ -50,7 +51,7 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
      */
     public void fillUpTables()
     {
-        fillUpUserTable();
+        // fillUpUserTable();
         fillUpClientTable();
     }
 
@@ -104,7 +105,10 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
      */
     private void fillUpClientTable()
     {
+
+       User user;
        Client client;
+       UserDAO userDAO;
        ClientDAO clientDAO;
        int id = 0;
        long idUser = 0; // TODO: I think this shoulnd't have to be providen
@@ -112,14 +116,21 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
        String firstname;
        String lastname;
                
-
+       System.out.println("Filling up clients table");
        for (int i=0; i<3; i++)
        {
            firstname = "firstname" + i;
            lastname = "lastname" + i;
-           client = new Client(id, firstname, lastname, idUser);
+
+           userDAO = new UserDAO();
+           user = new User(id, "user", "pwd");
+           user = userDAO.create(user);
+           
+           client = new Client(id, firstname, lastname, user);
            clientDAO = new ClientDAO();
-           clientDAO.create(client);
+           client = clientDAO.create(client);
+
+           System.out.println("created client: " + client);
        }
     }
 
