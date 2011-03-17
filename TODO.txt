@@ -1,3 +1,4 @@
  - findPassword(String passowrd) might be a problem if the password is not key
  - all controllers to have a MainWindowFrame instance, code refacto/inherit using the IView
  - s'abonner button in the welcome screen isn't so meaningful, I'd go for "recharger"
+ - password hash to be used rather than plain text strings
