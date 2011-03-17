@@ -55,8 +55,9 @@ public class MainController extends AbstractController implements IController
     private void mainWindowFrameSetup()
     {
         welcomeScreenPanel = new WelcomeScreenPanel();
-        welcomeScreenController = new WelcomeScreenController(mainWindowFrame,
-                model, welcomeScreenPanel);
+        welcomeScreenController = new WelcomeScreenController(
+                mainWindowFrame, model, welcomeScreenPanel);
+        
         mainWindowFrame.setContentPanel(welcomeScreenPanel);
         
     }
@@ -100,6 +101,23 @@ public class MainController extends AbstractController implements IController
             editBornController = new EditBornController(mainWindowFrame,
                     editBornFrame);
             editBornFrame.setVisible(true);
+        }
+    }
+
+    /*
+     * Might not be needed
+     */
+    class PreviousButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+        }
+    }
+
+    class NextButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
         }
     }
     
