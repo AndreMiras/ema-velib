@@ -10,6 +10,7 @@ import velib.view.MainWindowFrame;
 /**
  *
  * @author andre
+ * TODO: add an instance to the currentBorn singleton
  */
 public class AbstractController
 {
