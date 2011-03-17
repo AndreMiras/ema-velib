@@ -31,6 +31,7 @@ public class ClientDAO extends DAO<Client>
 
     public Client create(Client obj)
     {
+        String clientTable = tableNames[0];
         /*
          * TODO: work on this use case:
          * trying to create a Client with an empty user reference
@@ -52,14 +53,17 @@ public class ClientDAO extends DAO<Client>
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
                         ).executeQuery(
-                           "SELECT NEXT VALUE FOR sequence_client FROM client as id"
+                           "SELECT NEXT VALUE FOR sequence_client FROM "
+                           + clientTable
+                           + " as id"
                         );
             if(result.first()){
             long id = result.getLong(1);
             System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
-                                            "INSERT INTO client "
-                                            + "(idclient, "
+                                            "INSERT INTO "
+                                            + clientTable
+                                            + " (idclient, "
                                             + "nomclient, "
                                             + "prenomclient, "
                                             + "datenaissance, "
@@ -92,8 +96,9 @@ public class ClientDAO extends DAO<Client>
     }
 
 
-	public Client find(long id) {
-
+	public Client find(long id)
+        {
+                String clientTable = tableNames[0];
 		Client client = new Client();
 		try {
             ResultSet result = this .connect
@@ -101,7 +106,9 @@ public class ClientDAO extends DAO<Client>
                                     	ResultSet.TYPE_SCROLL_INSENSITIVE,
                                         ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                        "SELECT * FROM client WHERE id = " + id
+                                        "SELECT * FROM "
+                                        + clientTable
+                                        + " WHERE id = " + id
                                      );
             if(result.first())
             {
@@ -125,7 +132,7 @@ public class ClientDAO extends DAO<Client>
 
         public Client findByUser(User user)
         {
-            String clientsTable = tableNames[0];
+            String clientTable = tableNames[0];
             Client client = new Client();
 
 	try
@@ -134,9 +141,11 @@ public class ClientDAO extends DAO<Client>
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                    "SELECT * FROM " +  clientsTable +
-                                    " WHERE iduser = '" + user.getId() +
-                                    "'"
+                                    "SELECT * FROM "
+                                    +  clientTable
+                                    + " WHERE iduser = '"
+                                    + user.getId()
+                                    + "'"
                                     );
             if(result.first())
             {
@@ -161,6 +170,7 @@ public class ClientDAO extends DAO<Client>
 
 	public Client update(Client obj)
         {
+            String clientTable = tableNames[0];
             try
             {
                 /*
@@ -182,9 +192,11 @@ public class ClientDAO extends DAO<Client>
                 ResultSet.CONCUR_UPDATABLE
              ).executeUpdate(
              //TODO remove that shit, man (something else, you say firstname = obj.getLastname and lastname = obj.getFirstname ???)
-                    "UPDATE client SET firstname = '" + obj.getLastname() + "',"+
-                    " lastname = '" + obj.getFirstname() + "',"+
-                    " WHERE id = " + obj.getId()
+                    "UPDATE"
+                    + clientTable
+                    + " SET firstname = '" + obj.getLastname() + "',"
+                    + " lastname = '" + obj.getFirstname() + "',"
+                    + " WHERE id = " + obj.getId()
              );
 
                 obj = this.find(obj.getId());
@@ -200,20 +212,25 @@ public class ClientDAO extends DAO<Client>
 
 	public void delete(Client obj)
         {
-		try {
+            String clientTable = tableNames[0];
+            try
+            {
 
-			this.connect
-                .createStatement(
-                	ResultSet.TYPE_SCROLL_INSENSITIVE,
-                	ResultSet.CONCUR_UPDATABLE
-                 ).executeUpdate(
-                 //TODO remove that shit, man
-                	"DELETE FROM client WHERE id = " + obj.getId()
-                 );
+                this.connect.createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE
+             ).executeUpdate(
+             //TODO remove that shit, man
+                    "DELETE FROM "
+                     + clientTable
+                     + "WHERE id = " + obj.getId()
+             );
 
-	    } catch (SQLException e) {
-	            e.printStackTrace();
 	    }
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
 	}
 
     @Override
