@@ -136,8 +136,8 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField1" alignment="0" pref="270" max="32767" attributes="0"/>
-                              <Component id="jToggleButton1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="delBikeTextField" alignment="0" pref="270" max="32767" attributes="0"/>
+                              <Component id="supprimerVelo" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -147,29 +147,29 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField1" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="delBikeTextField" min="-2" pref="33" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jToggleButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="supprimerVelo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="36" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+                <Component class="javax.swing.JToggleButton" name="supprimerVelo">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Supprimer"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="supprimerVeloActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="delBikeTextField">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="num v&#xe9;lo"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="delBikeTextFieldActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -189,8 +189,8 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jToggleButton4" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
-                              <Component id="jTextField3" alignment="0" pref="270" max="32767" attributes="0"/>
+                              <Component id="ajouterVelo" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="addBikeTextField" alignment="0" pref="270" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -199,27 +199,30 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jTextField3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="addBikeTextField" min="-2" pref="34" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jToggleButton4" min="-2" max="-2" attributes="0"/>
+                          <Component id="ajouterVelo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="38" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="jTextField3">
+                <Component class="javax.swing.JTextField" name="addBikeTextField">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="num v&#xe9;lo"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBikeTextFieldActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JToggleButton" name="jToggleButton4">
+                <Component class="javax.swing.JToggleButton" name="ajouterVelo">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ajouter"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ajouterVeloActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -269,8 +272,8 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField2" alignment="0" pref="266" max="32767" attributes="0"/>
-                              <Component id="jToggleButton2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="delUserTextField" alignment="0" pref="266" max="32767" attributes="0"/>
+                              <Component id="supprimerUtilisateur" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -280,21 +283,21 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField2" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="delUserTextField" min="-2" pref="32" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jToggleButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="supprimerUtilisateur" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="39" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JToggleButton" name="jToggleButton2">
+                <Component class="javax.swing.JToggleButton" name="supprimerUtilisateur">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Supprimer"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField2">
+                <Component class="javax.swing.JTextField" name="delUserTextField">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="nom utilisateur"/>
                   </Properties>
@@ -316,8 +319,8 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField4" alignment="0" pref="266" max="32767" attributes="0"/>
-                              <Component id="jToggleButton3" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                              <Component id="addUserTextField" alignment="0" pref="266" max="32767" attributes="0"/>
+                              <Component id="ajouterUtilisateur" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -326,24 +329,27 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jTextField4" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="addUserTextField" min="-2" pref="36" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jToggleButton3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ajouterUtilisateur" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="35" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="jTextField4">
+                <Component class="javax.swing.JTextField" name="addUserTextField">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="nom utilisateur"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JToggleButton" name="jToggleButton3">
+                <Component class="javax.swing.JToggleButton" name="ajouterUtilisateur">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ajouter"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ajouterUtilisateurActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -364,10 +370,15 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel2" min="-2" pref="306" max="-2" attributes="0"/>
-                      <Component id="jToggleButton5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" pref="306" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="checkDefects" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace pref="352" max="32767" attributes="0"/>
               </Group>
@@ -379,13 +390,13 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabel2" min="-2" pref="21" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jToggleButton5" min="-2" max="-2" attributes="0"/>
+                  <Component id="checkDefects" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton5">
+        <Component class="javax.swing.JToggleButton" name="checkDefects">
           <Properties>
             <Property name="text" type="java.lang.String" value="Visualiser"/>
           </Properties>
