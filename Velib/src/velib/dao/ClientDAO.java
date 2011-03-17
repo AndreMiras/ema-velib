@@ -100,6 +100,9 @@ public class ClientDAO extends DAO<Client>
         {
                 String clientTable = tableNames[0];
 		Client client = new Client();
+                UserDAO userDAO = new UserDAO();
+                User user;
+
 		try {
             ResultSet result = this .connect
                                     .createStatement(
@@ -112,10 +115,11 @@ public class ClientDAO extends DAO<Client>
                                      );
             if(result.first())
             {
+                user = userDAO.find(result.getLong("iduser"));
                 client = new Client(
                                     id,
                                     result.getString("firstname"),
-                                    result.getString("lastname"), result.getLong("iduser"));
+                                    result.getString("lastname"), user);
             }
 
 		    } catch (SQLException e) {
@@ -156,7 +160,7 @@ public class ClientDAO extends DAO<Client>
                 String prenomClient = result.getString("prenomclient");
                 //System.out.println("id =" + id);
 
-                client = new Client(idClient, prenomClient, nomClient, idUser);
+                client = new Client(idClient, prenomClient, nomClient, user);
             }
         }
         catch (SQLException e)

@@ -9,3 +9,4 @@
  - Perhaps the admin interface will be accessible through the normal user login interface rather than the Menu
  - Question secrete to be part of user objects instead of client
  - DB var naming convention to be discussed
+ - CREATE OR REPLACE sequences and tables http://sourceforge.net/tracker/?func=detail&aid=3109520&group_id=23316&atid=378134

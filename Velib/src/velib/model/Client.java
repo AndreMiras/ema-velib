@@ -28,8 +28,9 @@ public class Client extends User {
     {
     }
 
-    public Client(long idClient, String firstname, String lastname, long idUser) {
-        super(idUser, new String(), new String()); // TODO: hardcoded
+    public Client(long idClient, String firstname, String lastname, User user)
+    {
+        super(user.getId(), user.getIdentifiant(), user.getPassword());
         this.client_id = idClient;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -91,6 +92,13 @@ public class Client extends User {
     public Banque getIdBanque() {
         return idBanque;
     }
+
+    @Override
+    public String toString()
+    {
+        return getFullName();
+    }
+
 
     /*
     @Override
