@@ -26,13 +26,15 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel
     /** Creates new form ChoixIdenticationPanel */
     public LoggedInWelcomePanel() {
         initComponents();
-
-        setUpLoggedInWelcomePanel();
     }
 
     public LoggedInWelcomePanel(Client client)
     {
+        super();
         this.client = client;
+
+
+        setUpLoggedInWelcomePanel();
     }
 
     public void addLouerUnVeloButtonListener(ActionListener al)
