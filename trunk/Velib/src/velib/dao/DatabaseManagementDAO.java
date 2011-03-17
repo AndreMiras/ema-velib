@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import velib.model.Client;
 
 /**
  *
@@ -50,6 +51,7 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
     public void fillUpTables()
     {
         fillUpUserTable();
+        fillUpClientTable();
     }
 
     private void createUserTable()
@@ -95,6 +97,30 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
             System.out.println("Error inserting to user table: " + ex);
             Logger.getLogger(DatabaseManagementDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    /*
+     * TODO: get it cleaner
+     */
+    private void fillUpClientTable()
+    {
+       Client client;
+       ClientDAO clientDAO;
+       int id = 0;
+       long idUser = 0; // TODO: I think this shoulnd't have to be providen
+
+       String firstname;
+       String lastname;
+               
+
+       for (int i=0; i<3; i++)
+       {
+           firstname = "firstname" + i;
+           lastname = "lastname" + i;
+           client = new Client(id, firstname, lastname, idUser);
+           clientDAO = new ClientDAO();
+           clientDAO.create(client);
+       }
     }
 
     private void dropUserTable()
