@@ -2,3 +2,8 @@
  - all controllers to have a MainWindowFrame instance, code refacto/inherit using the IView
  - s'abonner button in the welcome screen isn't so meaningful, I'd go for "recharger"
  - password hash to be used rather than plain text strings
+ - code cleaning: controller var type and order consistency (model then view)
+ - Why would someone have to login to put back a bike, we can guess who gave a bike bike from the bike object
+ - Should everything written in english and translated using translation files or first in french and then translated
+ - Use a singleton for the current born
+ - Perhaps the admin interface will be accessible through the normal user login interface rather than the Menu
