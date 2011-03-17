@@ -68,6 +68,11 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         editDatabaseMenuItem.addActionListener(al);
     }
 
+    public void addEditBornButtonListener(ActionListener al)
+    {
+        editBornMenuItem.addActionListener(al);
+    }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -82,8 +87,10 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         editDatabaseMenuItem = new javax.swing.JMenuItem();
+        editBornMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("NemoVelo");
 
         middleContentPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Content"));
 
@@ -94,6 +101,9 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
 
         editDatabaseMenuItem.setText("Edit DB");
         jMenu2.add(editDatabaseMenuItem);
+
+        editBornMenuItem.setText("Edit Born");
+        jMenu2.add(editBornMenuItem);
 
         jMenuBar1.add(jMenu2);
 
@@ -131,6 +141,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem editBornMenuItem;
     private javax.swing.JMenuItem editDatabaseMenuItem;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
