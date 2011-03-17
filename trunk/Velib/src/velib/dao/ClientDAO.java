@@ -49,17 +49,28 @@ public class ClientDAO extends DAO<Client>
             */
          try {
              ResultSet result = this.connect.createStatement(
-                                ResultSet.TYPE_SCROLL_INSENSITIVE,
-                      		ResultSet.CONCUR_UPDATABLE
-                                    ).executeQuery(
-                                       "SELECT NEXT VALUE FOR sequence_client FROM client as id"
-                                    );
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE
+                        ).executeQuery(
+                           "SELECT NEXT VALUE FOR sequence_client FROM client as id"
+                        );
             if(result.first()){
             long id = result.getLong(1);
             System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
-                                                    	"INSERT INTO client (idclient, nomclient, prenomclient, datenaissance, adresse, codepostal, questionsecrete, reponsesecrete, idabonnement, idbanque) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-                                                    );
+                                            "INSERT INTO client "
+                                            + "(idclient, "
+                                            + "nomclient, "
+                                            + "prenomclient, "
+                                            + "datenaissance, "
+                                            + "adresse, "
+                                            + "codepostal, "
+                                            + "questionsecrete, "
+                                            + "reponsesecrete, "
+                                            + "idabonnement, "
+                                            + "idbanque) "
+                                            + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                                        );
 				prepare.setLong(1, id);
 				prepare.setString(2, obj.getLastname());
                                 prepare.setString(3, obj.getFirstname());
@@ -211,8 +222,10 @@ public class ClientDAO extends DAO<Client>
         /*
          * TODO: see below
          */
-        String[] statementStrings = new String[1];
+        String[] statementStrings = new String[2];
         statementStrings[0] =
+                "CREATE SEQUENCE sequence_client START WITH 1 INCREMENT BY 1";
+        statementStrings[1] =
             String.format("CREATE TABLE %s" +
             "(id INTEGER, " +
             "nomclient VARCHAR(40), " +
