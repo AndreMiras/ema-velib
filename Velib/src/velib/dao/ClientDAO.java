@@ -118,7 +118,7 @@ public class ClientDAO extends DAO<Client>
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
                                     "SELECT * FROM " +  clientsTable +
-                                    " WHERE userID = '" + user.getId() +
+                                    " WHERE iduser = '" + user.getId() +
                                     "'"
                                     );
             if(result.first())
@@ -165,7 +165,7 @@ public class ClientDAO extends DAO<Client>
                 ResultSet.CONCUR_UPDATABLE
              ).executeUpdate(
              //TODO remove that shit, man (something else, you say firstname = obj.getLastname and lastname = obj.getFirstname ???)
-                    "UPDATE developpeur SET firstname = '" + obj.getLastname() + "',"+
+                    "UPDATE client SET firstname = '" + obj.getLastname() + "',"+
                     " lastname = '" + obj.getFirstname() + "',"+
                     " WHERE id = " + obj.getId()
              );
@@ -191,7 +191,7 @@ public class ClientDAO extends DAO<Client>
                 	ResultSet.CONCUR_UPDATABLE
                  ).executeUpdate(
                  //TODO remove that shit, man
-                	"DELETE FROM client WHERE dev_id = " + obj.getId()
+                	"DELETE FROM client WHERE id = " + obj.getId()
                  );
 
 	    } catch (SQLException e) {
@@ -202,7 +202,23 @@ public class ClientDAO extends DAO<Client>
     @Override
     public String createTableStatementString()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        /*
+         * TODO: see below
+         */
+        String statementString =
+            String.format("CREATE TABLE %s" +
+            "(id INTEGER, " +
+            "nomclient VARCHAR(40), " +
+            "prenomclient VARCHAR(40), " +
+            "datenaissance DATE, " +
+            "adresse VARCHAR(40), " +
+            "codepostal VARCHAR(40), " +
+            "reponsesecrete INTEGER, " + // TODO: to me this should be part of the user model, not the client
+            "idabonnement INTEGER, " + // TODO: to be foreign key
+            "iduser INTEGER, " + // TODO: to be foreign key
+            "idbanque VARCHAR(40), " + // TODO: foreign key
+            "PRIMARY KEY (id))", tableNames[0]);
+        return statementString;
     }
 
 
