@@ -84,7 +84,7 @@ public class LoginScreenController extends AbstractController
                 choixIdentificationPanel = new LoggedInWelcomePanel(client);
                 choixIdentificationController =
                         new LoggedInWelcomeController(mainWindowFrame,
-                        model, choixIdentificationPanel);
+                        client, choixIdentificationPanel);
                 mainWindowFrame.setContentPanel(choixIdentificationPanel);
                 System.out.println("Users ok");
                 // mainWindow.showMessage("User ok");
