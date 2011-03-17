@@ -11,9 +11,12 @@
 
 package velib.view;
 
+import java.awt.Component;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -22,11 +25,18 @@ import javax.swing.JOptionPane;
 public class MainWindowFrame extends javax.swing.JFrame implements IView
 {
 
+    // Register middleContentPanels ref for previous button
+    // TODO: this is public at the moment for testing purpose only
+    // We actually might move all of this to the dedicated controller
+    public Vector<JPanel> middleContentPanelsVector;
+
     /** Creates new form MainWindow */
     public MainWindowFrame() {
         initComponents();
         
         setUpMainWindow();
+
+        middleContentPanelsVector = new Vector<JPanel>();
     }
 
     /*
@@ -48,19 +58,56 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     //
     /*
      * Replaces the current content panel by the given one
+     * TODO: the previous panel content doesn't seem to cleanup with the
+     * removeAll()
      */
-    public void setContentPanel(javax.swing.JPanel panel)
+    public void setContentPanel(JPanel panel)
     {
-        System.out.println("setContentPanel called");
-
         // panel.setVisible(true);
-        
+
+        middleContentPanelsVector.add(panel);
+       
         middleContentPanel.removeAll();
-        middleContentPanel.add(panel);
-        middleContentPanel.setVisible(true);
+
 
         middleContentPanel.revalidate();
+        middleContentPanel.add(panel);
+
+        middleContentPanel.revalidate();
+
+        // set previous/next buttons states
+        // TODO: we can auto update previous/next status by creating
+        // a widget that listen on middleContentPanelsVector events
+        if (middleContentPanelsVector.size() > 1)
+        {
+            enablePreviousButton(true);
+        }
     }
+
+    private void enablePreviousButton(boolean enable)
+    {
+        previousButton.setEnabled(enable);
+    }
+
+    private void enableNextButton(boolean enable)
+    {
+        nextButton.setEnabled(enable);
+    }
+
+
+    /*
+     * might not be necessary
+     */
+    public void addPreviousButtonListener(ActionListener al)
+    {
+        previousButton.addActionListener(al);
+    }
+
+      public void addNextButtonListener(ActionListener al)
+    {
+        nextButton.addActionListener(al);
+    }
+
 
 
     public void addEditDatabaseButtonListener(ActionListener al)
@@ -83,6 +130,9 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     private void initComponents() {
 
         middleContentPanel = new javax.swing.JPanel();
+        footersPanel = new javax.swing.JPanel();
+        previousButton = new javax.swing.JButton();
+        nextButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -93,6 +143,35 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         setTitle("NemoVelo");
 
         middleContentPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Content"));
+
+        footersPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Footers (broken)"));
+
+        previousButton.setText("Previous");
+        previousButton.setEnabled(false);
+
+        nextButton.setText("Next");
+        nextButton.setEnabled(false);
+
+        javax.swing.GroupLayout footersPanelLayout = new javax.swing.GroupLayout(footersPanel);
+        footersPanel.setLayout(footersPanelLayout);
+        footersPanelLayout.setHorizontalGroup(
+            footersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(footersPanelLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(previousButton)
+                .addGap(18, 18, 18)
+                .addComponent(nextButton)
+                .addContainerGap(280, Short.MAX_VALUE))
+        );
+        footersPanelLayout.setVerticalGroup(
+            footersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(footersPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(footersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nextButton)
+                    .addComponent(previousButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -113,17 +192,21 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(middleContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(footersPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(middleContentPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(middleContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(middleContentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(footersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -143,10 +226,13 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem editBornMenuItem;
     private javax.swing.JMenuItem editDatabaseMenuItem;
+    private javax.swing.JPanel footersPanel;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel middleContentPanel;
+    private javax.swing.JButton nextButton;
+    private javax.swing.JButton previousButton;
     // End of variables declaration//GEN-END:variables
 
 }
