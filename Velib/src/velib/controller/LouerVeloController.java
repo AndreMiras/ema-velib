@@ -11,6 +11,8 @@ import velib.view.MainWindowFrame;
 /**
  *
  * @author andre
+ * TODO:
+ * dispose when the velo is taken or when the time out is reached
  */
 public class LouerVeloController extends AbstractController
 {
@@ -21,7 +23,11 @@ public class LouerVeloController extends AbstractController
             LouerVeloPanel louerVeloPanel)
     {
         super(mainWindowFrame);
+
+        this.louerVeloPanel = louerVeloPanel;
     }
+
+
 
     
 }
