@@ -31,6 +31,12 @@ public class ClientDAO extends DAO<Client>
 
     public Client create(Client obj)
     {
+        /*
+         * TODO: work on this use case:
+         * trying to create a Client with an empty user reference
+         * should lead to the DAO creating it automatically for us
+         * see developpez article
+         */
             // If the user doesn't exist
             /*
             if(obj.getUser().getId() == 0)
