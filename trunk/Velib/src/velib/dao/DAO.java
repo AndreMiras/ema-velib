@@ -62,24 +62,29 @@ public abstract class DAO<T> {
         /*
          * Creates required tables
          */
-        public abstract String createTableStatementString();
+        public abstract String[] createTablesStatementStrings();
 
         /*
          * Actually creates the tables from the createTableStatementString()
          */
         public void createTables()
         {
+            String[] sqlStrings = createTablesStatementStrings();
+            String sqlString;
+            Statement statement;
+
             System.out.println("Creating table(s):" +
                     Arrays.toString(tableNames));
+            for (int i=0; i<sqlStrings.length; i++)
             try
             {
-                Statement statement = connect.createStatement();
+                statement = connect.createStatement();
 
-                String sql = createTableStatementString();
+                sqlString = sqlStrings[i];
 
-                System.out.println("SQL: " + sql);
+                System.out.println("SQL: " + sqlString);
 
-                statement.executeUpdate(sql);
+                statement.executeUpdate(sqlString);
             }
             catch (SQLException ex)
             {

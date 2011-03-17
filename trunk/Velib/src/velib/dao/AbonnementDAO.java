@@ -64,7 +64,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
     }
 
     @Override
-    public String createTableStatementString()
+    public String[] createTablesStatementStrings()
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }

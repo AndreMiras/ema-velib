@@ -95,7 +95,7 @@ public class BornetteDAO extends DAO<Bornette>
     }
 
     @Override
-    public String createTableStatementString()
+    public String[] createTablesStatementStrings()
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
