@@ -64,7 +64,7 @@ public class LocationDAO extends DAO<Location>
     }
 
     @Override
-    public String createTableStatementString()
+    public String[] createTablesStatementStrings()
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }

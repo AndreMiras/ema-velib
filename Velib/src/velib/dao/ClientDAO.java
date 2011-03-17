@@ -206,12 +206,13 @@ public class ClientDAO extends DAO<Client>
 	}
 
     @Override
-    public String createTableStatementString()
+    public String[] createTablesStatementStrings()
     {
         /*
          * TODO: see below
          */
-        String statementString =
+        String[] statementStrings = new String[1];
+        statementStrings[0] =
             String.format("CREATE TABLE %s" +
             "(id INTEGER, " +
             "nomclient VARCHAR(40), " +
@@ -224,7 +225,7 @@ public class ClientDAO extends DAO<Client>
             "iduser INTEGER, " + // TODO: to be foreign key
             "idbanque VARCHAR(40), " + // TODO: foreign key
             "PRIMARY KEY (id))", tableNames[0]);
-        return statementString;
+        return statementStrings;
     }
 
 

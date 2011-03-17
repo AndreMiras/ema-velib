@@ -90,7 +90,7 @@ public class VeloDAO extends DAO<Velo>
     }
 
     @Override
-    public String createTableStatementString()
+    public String[] createTablesStatementStrings()
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }

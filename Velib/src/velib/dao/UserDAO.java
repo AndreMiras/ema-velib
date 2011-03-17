@@ -128,14 +128,15 @@ public class UserDAO extends DAO<User>
     }
 
     @Override
-    public String createTableStatementString()
+    public String[] createTablesStatementStrings()
     {
-        String statementString =
+        String[] statementStrings = new String[1];
+        statementStrings[0] =
                     String.format("CREATE TABLE %s" +
                     "(id INTEGER, " +
                     "identifiant VARCHAR(40), " +
                     "password VARCHAR(40), " +
                     "PRIMARY KEY (id))", tableNames[0]);
-        return statementString;
+        return statementStrings;
     }
 }
