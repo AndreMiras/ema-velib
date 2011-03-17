@@ -8,7 +8,6 @@ package velib.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -34,11 +33,13 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
     public void createTables()
     {
         createUserTable();
+        createClientTable();
     }
 
     public void dropTables()
     {
         dropUserTable();
+        dropClientTable();
     }
 
 
@@ -55,6 +56,12 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
     {
         UserDAO userDAO = new UserDAO();
         userDAO.createTables();
+    }
+
+    private void createClientTable()
+    {
+        ClientDAO clientDAO = new ClientDAO();
+        clientDAO.createTables();
     }
 
     private void fillUpUserTable()
@@ -94,6 +101,12 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
     {
         UserDAO userDAO = new UserDAO();
         userDAO.dropTables();
+    }
+
+    private void dropClientTable()
+    {
+        ClientDAO clientDAO = new ClientDAO();
+        clientDAO.dropTables();
     }
 
 }

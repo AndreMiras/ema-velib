@@ -7,3 +7,5 @@
  - Should everything written in english and translated using translation files or first in french and then translated
  - Use a singleton for the current born
  - Perhaps the admin interface will be accessible through the normal user login interface rather than the Menu
+ - Question secrete to be part of user objects instead of client
+ - DB var naming convention to be discussed
