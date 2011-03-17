@@ -11,6 +11,7 @@ import velib.dao.DatabaseManagementDAO;
 import velib.dao.IDatabaseManagementDAO;
 import velib.model.IModel;
 import velib.view.DatabaseManagementFrame;
+import velib.view.EditBornFrame;
 import velib.view.IView;
 import velib.view.MainWindowFrame;
 import velib.view.WelcomeScreenPanel;
@@ -34,6 +35,10 @@ public class MainController extends AbstractController implements IController
     private DatabaseManagementFrame databaseManagementFrame;
     private DatabaseManagementController databaseManagementController;
 
+    // Born Management mvc
+    private EditBornFrame editBornFrame;
+    private EditBornController editBornController;
+
     public MainController(IModel model, MainWindowFrame view)
     {
         super(view);
@@ -47,7 +52,7 @@ public class MainController extends AbstractController implements IController
     /*
      * Add first WelcomeScreenPanel and register associated controller
      */
-    public void mainWindowFrameSetup()
+    private void mainWindowFrameSetup()
     {
         welcomeScreenPanel = new WelcomeScreenPanel();
         welcomeScreenController = new WelcomeScreenController(mainWindowFrame,
@@ -58,7 +63,10 @@ public class MainController extends AbstractController implements IController
     
     private void addListeners()
     {
-        mainWindowFrame.addEditDatabaseButtonListener(new EditDatabaseButtonListener());
+        mainWindowFrame.addEditDatabaseButtonListener(
+                new EditDatabaseButtonListener());
+        mainWindowFrame.addEditBornButtonListener(
+                new EditBornButtonListener());
     }
 
     public IModel getModel()
@@ -81,6 +89,17 @@ public class MainController extends AbstractController implements IController
             databaseManagementController = new DatabaseManagementController(
                     databaseManagement, databaseManagementFrame);
             databaseManagementFrame.setVisible(true);
+        }
+    }
+
+    class EditBornButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            editBornFrame = new EditBornFrame();
+            editBornController = new EditBornController(mainWindowFrame,
+                    editBornFrame);
+            editBornFrame.setVisible(true);
         }
     }
     

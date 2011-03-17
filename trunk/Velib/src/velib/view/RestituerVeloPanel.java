@@ -11,6 +11,8 @@
 
 package velib.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author andre
@@ -20,6 +22,13 @@ public class RestituerVeloPanel extends javax.swing.JPanel {
     /** Creates new form RestituerVeloPanel */
     public RestituerVeloPanel() {
         initComponents();
+    }
+
+
+
+    public void addDeclarerProblemeButtonListener(ActionListener actionListener)
+    {
+        declarerProblemeButton.addActionListener(actionListener);
     }
 
     /** This method is called from within the constructor to
@@ -71,9 +80,9 @@ public class RestituerVeloPanel extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(fullNameLabel)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(320, Short.MAX_VALUE)
+                .addContainerGap(278, Short.MAX_VALUE)
                 .addComponent(declarerProblemeButton)
                 .addContainerGap())
         );
