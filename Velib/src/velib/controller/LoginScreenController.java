@@ -27,8 +27,8 @@ public class LoginScreenController extends AbstractController
     private LoginScreenPanel view;
 
     // TODO: does it really need to be kept as an attribute
-    private LoggedInWelcomePanel choixIdentificationPanel;
-    private LoggedInWelcomeController choixIdentificationController;
+    private LoggedInWelcomePanel loggedInWelcomePanel;
+    private LoggedInWelcomeController loggedInWelcomeController;
 
     private UserDAO userDAO;
     private User user;
@@ -81,11 +81,11 @@ public class LoginScreenController extends AbstractController
             {
                 // Get the client associated to the given user
                 client = clientDAO.find(user);
-                choixIdentificationPanel = new LoggedInWelcomePanel(client);
-                choixIdentificationController =
+                loggedInWelcomePanel = new LoggedInWelcomePanel(client);
+                loggedInWelcomeController =
                         new LoggedInWelcomeController(mainWindowFrame,
-                        client, choixIdentificationPanel);
-                mainWindowFrame.setContentPanel(choixIdentificationPanel);
+                        client, loggedInWelcomePanel);
+                mainWindowFrame.setContentPanel(loggedInWelcomePanel);
                 System.out.println("Users ok");
                 // mainWindow.showMessage("User ok");
             }
