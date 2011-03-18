@@ -45,7 +45,7 @@ public class VeloDAO extends DAO<Velo>
                                                     );
 				prepare.setLong(1, id);
                                 prepare.setBoolean(2, obj.getEtat());
-                                prepare.setLong(3, obj.getIdBornette().getId());
+                                prepare.setLong(3, obj.getBornette().getId());
                 }
 	    }
             catch (SQLException e) {

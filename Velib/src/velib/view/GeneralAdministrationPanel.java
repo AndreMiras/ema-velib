@@ -17,21 +17,34 @@ import java.awt.event.ActionListener;
  *
  * @author G
  */
-public class GeneralAdministration extends javax.swing.JPanel {
+public class GeneralAdministrationPanel extends javax.swing.JPanel {
 
     /** Creates new form GeneralAdministration */
-    public GeneralAdministration()
+    public GeneralAdministrationPanel()
     {
         initComponents();
     }
 
-    public void addValiderButtonListener(ActionListener al)
+    public void addAjouterVeloButtonListener(ActionListener al)
     {
-        this.ajouterVelo.addActionListener(al);
+
+        this.ajouterVeloButton.addActionListener(al);
         this.supprimerVelo.addActionListener(al);
+        
+        /*
         this.ajouterUtilisateur.addActionListener(al);
         this.supprimerUtilisateur.addActionListener(al);
         this.checkDefects.addActionListener(al);
+         *
+         */
+    }
+
+    /*
+     * TODO to be renmaed
+     */
+    public String getInput()
+    {
+        return addBikeTextField.getText();
     }
     
     public String getAddBikeTextField()
@@ -71,7 +84,7 @@ public class GeneralAdministration extends javax.swing.JPanel {
         delBikeTextField = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         addBikeTextField = new javax.swing.JTextField();
-        ajouterVelo = new javax.swing.JToggleButton();
+        ajouterVeloButton = new javax.swing.JToggleButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         supprimerUtilisateur = new javax.swing.JToggleButton();
@@ -136,10 +149,10 @@ public class GeneralAdministration extends javax.swing.JPanel {
             }
         });
 
-        ajouterVelo.setText("Ajouter");
-        ajouterVelo.addActionListener(new java.awt.event.ActionListener() {
+        ajouterVeloButton.setText("Ajouter");
+        ajouterVeloButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ajouterVeloActionPerformed(evt);
+                ajouterVeloButtonActionPerformed(evt);
             }
         });
 
@@ -150,7 +163,7 @@ public class GeneralAdministration extends javax.swing.JPanel {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ajouterVelo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ajouterVeloButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addBikeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -159,7 +172,7 @@ public class GeneralAdministration extends javax.swing.JPanel {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(addBikeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(ajouterVelo)
+                .addComponent(ajouterVeloButton)
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
@@ -348,9 +361,9 @@ public class GeneralAdministration extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_addBikeTextFieldActionPerformed
 
-    private void ajouterVeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterVeloActionPerformed
+    private void ajouterVeloButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterVeloButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ajouterVeloActionPerformed
+    }//GEN-LAST:event_ajouterVeloButtonActionPerformed
 
     private void ajouterUtilisateurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterUtilisateurActionPerformed
         // TODO add your handling code here:
@@ -361,7 +374,7 @@ public class GeneralAdministration extends javax.swing.JPanel {
     private javax.swing.JTextField addBikeTextField;
     private javax.swing.JTextField addUserTextField;
     private javax.swing.JToggleButton ajouterUtilisateur;
-    private javax.swing.JToggleButton ajouterVelo;
+    private javax.swing.JToggleButton ajouterVeloButton;
     private javax.swing.JToggleButton checkDefects;
     private javax.swing.JTextField delBikeTextField;
     private javax.swing.JTextField delUserTextField;

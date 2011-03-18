@@ -11,6 +11,7 @@ import velib.view.MainWindowFrame;
 /**
  *
  * @author andre
+ * TODO/ to be removed (replaced by Gaetan controller)
  */
 public class EditBornController extends AbstractController
 {

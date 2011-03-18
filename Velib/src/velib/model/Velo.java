@@ -9,21 +9,46 @@ package velib.model;
  *
  * @author fteysseire
  */
-public class Velo {
+public class Velo
+{
 
     private long id;
     private boolean etat;
-    private Bornette idBornette;
+    private Bornette bornette;
 
-    public long getId() {
+    public Velo()
+    {
+    }
+
+    
+
+    public Velo(long id)
+    {
+        this.id = id;
+        etat = true;
+    }
+
+
+
+    public long getId()
+    {
         return id;
     }
 
-    public Bornette getIdBornette() {
-        return idBornette;
+    public Bornette getBornette()
+    {
+        return bornette;
     }
 
-    public boolean getEtat() {
+    public void setBornette(Bornette bornette)
+    {
+        this.bornette = bornette;
+    }
+
+    
+
+    public boolean getEtat()
+    {
         return etat;
     }
 

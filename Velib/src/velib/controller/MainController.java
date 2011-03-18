@@ -97,9 +97,15 @@ public class MainController extends AbstractController implements IController
     {
         public void actionPerformed(ActionEvent e)
         {
+            // TODO: two controllers ... not needed
             editBornFrame = new EditBornFrame();
             editBornController = new EditBornController(mainWindowFrame,
                     editBornFrame);
+            
+            GeneralAdministrationController generalAdministrationController =
+                    new GeneralAdministrationController(
+            editBornFrame.getGeneralAdministrationPanel());
+            
             editBornFrame.setVisible(true);
         }
     }
