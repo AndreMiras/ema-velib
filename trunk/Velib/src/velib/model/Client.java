@@ -34,7 +34,6 @@ public class Client extends User {
         this.client_id = idClient;
         this.firstname = firstname;
         this.lastname = lastname;
-        
 
     }
 
