@@ -178,7 +178,7 @@ public class UserDAO extends DAO<User>
          statementStrings[2] =
                 "ALTER TABLE "
                 + tableNames[0]
-                + " ADD CONSTRAINT primary_key_users (iduser)";
+                + " ADD CONSTRAINT primary_key_users PRIMARY KEY (iduser)";
       
         return statementStrings;
     }
