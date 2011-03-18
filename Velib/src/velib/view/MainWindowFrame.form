@@ -24,6 +24,14 @@
                 <Property name="text" type="java.lang.String" value="Edit Born"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="connectToDatabaseMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Connect to DB"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="connectToDatabaseMenuItemActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>
@@ -103,7 +111,7 @@
                   <Component id="previousButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="nextButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="280" max="32767" attributes="0"/>
+                  <EmptySpace pref="311" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

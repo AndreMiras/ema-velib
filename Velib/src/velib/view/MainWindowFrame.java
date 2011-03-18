@@ -31,11 +31,10 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     public Vector<JPanel> middleContentPanelsVector;
 
     /** Creates new form MainWindow */
-    public MainWindowFrame() {
+    public MainWindowFrame()
+    {
         initComponents();
-        
         setUpMainWindow();
-
         middleContentPanelsVector = new Vector<JPanel>();
     }
 
@@ -94,7 +93,6 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         nextButton.setEnabled(enable);
     }
 
-
     /*
      * might not be necessary
      */
@@ -120,6 +118,10 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         editBornMenuItem.addActionListener(al);
     }
 
+    public void connectToDatabaseButtonListener(ActionListener al)
+    {
+        connectToDatabaseMenuItem.addActionListener(al);
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -138,6 +140,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         jMenu2 = new javax.swing.JMenu();
         editDatabaseMenuItem = new javax.swing.JMenuItem();
         editBornMenuItem = new javax.swing.JMenuItem();
+        connectToDatabaseMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("NemoVelo");
@@ -161,7 +164,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
                 .addComponent(previousButton)
                 .addGap(18, 18, 18)
                 .addComponent(nextButton)
-                .addContainerGap(280, Short.MAX_VALUE))
+                .addContainerGap(311, Short.MAX_VALUE))
         );
         footersPanelLayout.setVerticalGroup(
             footersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,6 +186,14 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
 
         editBornMenuItem.setText("Edit Born");
         jMenu2.add(editBornMenuItem);
+
+        connectToDatabaseMenuItem.setText("Connect to DB");
+        connectToDatabaseMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                connectToDatabaseMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu2.add(connectToDatabaseMenuItem);
 
         jMenuBar1.add(jMenu2);
 
@@ -212,6 +223,11 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void connectToDatabaseMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_connectToDatabaseMenuItemActionPerformed
+    {//GEN-HEADEREND:event_connectToDatabaseMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_connectToDatabaseMenuItemActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -224,6 +240,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem connectToDatabaseMenuItem;
     private javax.swing.JMenuItem editBornMenuItem;
     private javax.swing.JMenuItem editDatabaseMenuItem;
     private javax.swing.JPanel footersPanel;
