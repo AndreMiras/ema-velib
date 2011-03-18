@@ -22,5 +22,12 @@ public class Borne {
         this.nomBorne=nomBorne;
     }
 
+    public Borne() {
+        this.idBorne=0;
+        this.nomBorne="";
+    }
+
+
+
 
 }

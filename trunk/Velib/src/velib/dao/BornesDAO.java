@@ -24,7 +24,6 @@ public class BornesDAO  extends DAO<Borne>{
 
     public ArrayList<Borne> findBorneLibre ()
     {
-
         String bornesTable = tableNames[0];
         ArrayList<Borne> tableauBorne = new ArrayList<Borne>();
         Borne borne;
@@ -57,7 +56,32 @@ public class BornesDAO  extends DAO<Borne>{
     }
     @Override
     public Borne find(long id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
+        String bornesTable = tableNames[0];
+        Borne borne = new Borne();
+	try
+        {
+            ResultSet result = this.connect.createStatement(
+                                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                    ResultSet.CONCUR_READ_ONLY
+                                     ).executeQuery(
+                                    "SELECT * FROM " +
+                                    bornesTable +
+                                    " WHERE idBorne="+id
+                                    );
+           if(result.first())
+            {
+                String nom = result.getString("nomBorne");
+                borne = new Borne(id, nom);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return borne;
+
     }
 
     @Override
