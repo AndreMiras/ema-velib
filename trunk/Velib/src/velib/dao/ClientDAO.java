@@ -53,9 +53,7 @@ public class ClientDAO extends DAO<Client>
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
                         ).executeQuery(
-                           "SELECT NEXT VALUE FOR sequence_clients FROM "
-                           + clientTable
-                           + " as id"
+                           "CALL NEXT VALUE FOR sequence_clients"
                         );
             if(result.first()){
             long id = result.getLong(1);
