@@ -20,12 +20,36 @@ public class Borne {
     public Borne(long id, String nomBorne) {
         this.idBorne=id;
         this.nomBorne=nomBorne;
+        this.positionX=0;
+        this.positionY=0;
+        this.etat=false;
     }
 
     public Borne() {
         this.idBorne=0;
         this.nomBorne="";
     }
+
+    public long getIdBorne() {
+        return idBorne;
+    }
+
+    public String getNomBorne() {
+        return nomBorne;
+    }
+
+    public int getPositionX() {
+        return positionX;
+    }
+
+    public int getPositionY() {
+        return positionY;
+    }
+
+    public boolean getEtat() {
+        return etat;
+    }
+
 
 
 

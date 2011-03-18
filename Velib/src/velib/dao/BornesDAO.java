@@ -5,6 +5,7 @@
 package velib.dao;
 
 import java.lang.String;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -116,7 +117,37 @@ public class BornesDAO  extends DAO<Borne>{
 
     @Override
     public Borne create(Borne obj) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String borneTable = tableNames[0];
+         try {
+            ResultSet result = this.connect.createStatement(
+                                ResultSet.TYPE_SCROLL_INSENSITIVE,
+                      		ResultSet.CONCUR_UPDATABLE
+                                    ).executeQuery(
+                                       "CALL NEXT VALUE FOR sequence_bornes"
+                                    );
+            if(result.first())
+            {
+            long id = result.getLong(1);
+            System.out.println("id :" + id);
+            PreparedStatement prepare = this.connect.prepareStatement(
+                                                    	"INSERT INTO " +
+                                                        borneTable +
+                                                        " (idborne, nomBorne, positionX, positionY, etat) VALUES(?, ?, ?, ?, ?)"
+                                                    );
+				prepare.setLong(1, id);
+                                prepare.setString(2, obj.getNomBorne());
+                                prepare.setLong(3, obj.getPositionX());
+                                prepare.setLong(4, obj.getPositionY());
+                                prepare.setBoolean(5, obj.getEtat());
+
+				prepare.executeUpdate();
+				obj = this.find(id);
+            }
+	    }
+            catch (SQLException e) {
+	            e.printStackTrace();
+	    }
+	    return obj;
     }
 
     @Override
