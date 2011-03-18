@@ -64,11 +64,11 @@ public class ClientDAOTest {
         
         ClientDAO clientDAO = new ClientDAO();
         Client client = new Client(0, "fistname", "lastname", user);
-        assertEquals(0, client.getId());
+        assertEquals(0, client.getClientId());
 
         client = clientDAO.create(client);
         
-        assertEquals(1, client.getId());
+        assertEquals(1, client.getClientId());
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
