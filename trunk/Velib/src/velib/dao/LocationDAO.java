@@ -79,7 +79,7 @@ public class LocationDAO extends DAO<Location>
                     "(idlocation INTEGER, " +
                     "date DATE, " +
                     "idClient INTEGER, " +
-                    "idVelo INTEGER, " , tableNames[0]);
+                    "idVelo INTEGER) " , tableNames[0]);
         statementStrings[2] =
                 "ALTER TABLE"
                 + tableNames[0]

@@ -261,7 +261,7 @@ public class ClientDAO extends DAO<Client>
             "reponsesecrete VARCHAR(200), " + // TODO: to me this should be part of the user model, not the client
             "idabonnement INTEGER, " + // TODO: to be foreign key
             "iduser INTEGER, " + // TODO: to be foreign key
-            "idbanque INTEGER, " , tableNames[0]); // TODO: foreign key
+            "idbanque INTEGER) " , tableNames[0]); // TODO: foreign key
          statementStrings[2] =
                  "ALTER TABLE"
                  + tableNames[0]
