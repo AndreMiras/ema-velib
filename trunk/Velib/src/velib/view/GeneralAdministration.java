@@ -281,7 +281,7 @@ public class GeneralAdministration extends javax.swing.JPanel {
 
         checkDefects.setText("Visualiser");
 
-        jLabel2.setText("Visualiser les déclarations de matériel défectueux");
+        jLabel2.setText("Cliquez pour visualiser les déclarations de matériel défectueux");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
