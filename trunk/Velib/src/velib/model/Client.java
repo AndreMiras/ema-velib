@@ -65,13 +65,6 @@ public class Client extends User {
         return dateNaissance;
     }
 
-    //To insert the data in the database
-    public java.sql.Date getDateNaissanceSQL() {
-        long t = dateNaissance.getTime();
-        java.sql.Date dateNaissanceSql = new java.sql.Date(t);
-        return dateNaissanceSql;
-    }
-
     public long getClientId() {
         return client_id;
     }
