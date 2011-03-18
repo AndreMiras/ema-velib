@@ -37,7 +37,7 @@ public class BornetteDAO extends DAO<Bornette>
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                    "SELECT * FROM"+bornetteTable+" WHERE libre=false AND idborne='" + idBorne + "'"
+                                    "SELECT * FROM"+bornetteTable+" WHERE libre=true AND idborne='" + idBorne + "'"
                                     );
             if(result.first())
             {
@@ -64,7 +64,7 @@ public class BornetteDAO extends DAO<Bornette>
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                    "SELECT * FROM"+bornetteTable+" WHERE libre=true AND idborne='" + idBorne + "'"
+                                    "SELECT * FROM"+bornetteTable+" WHERE libre=false AND idborne='" + idBorne + "'"
                                     );
             if(result.first())
             {
@@ -126,7 +126,7 @@ public class BornetteDAO extends DAO<Bornette>
         statementStrings[4] =
                 "ALTER TABLE "
                 + tableNames[0]
-                + " ADD CONSTRAINT foreign_key_bornettes_velo FOREIGN KEY (idvelo) REFERENCES velos (idvelos)";
+                + "  ADD CONSTRAINT foreign_key_bornettes_velo FOREIGN KEY (idvelo) REFERENCES velos (idvelos)";
         return statementStrings;
     }
 

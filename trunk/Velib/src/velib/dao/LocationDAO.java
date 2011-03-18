@@ -65,7 +65,7 @@ public class LocationDAO extends DAO<Location>
 
     @Override
     public Location find(long id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+         throw new UnsupportedOperationException("Not supported yet.");
     }
 
      @Override

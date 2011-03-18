@@ -5,6 +5,7 @@
 
 package velib.dao;
 
+import java.sql.ResultSet;
 import velib.model.Borne;
 
 /**
@@ -18,6 +19,35 @@ public class BornesDAO  extends DAO<Borne>{
         tableNames = new String[] { "bornes" };
     }
 
+    public Borne findBorneLibre ()
+    {
+
+        /*String bornesTable = tableNames[0];
+
+	try
+        {
+            ResultSet result = this.connect.createStatement(
+                                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                    ResultSet.CONCUR_READ_ONLY
+                                     ).executeQuery(
+                                    "SELECT * FROM " +
+                                    bornesTable +
+                                    " WHERE  = "
+
+                                    );
+            if(result.first())
+            {
+
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return ;*/
+    throw new UnsupportedOperationException("Not supported yet.");
+    }
     @Override
     public Borne find(long id) {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -47,8 +77,8 @@ public class BornesDAO  extends DAO<Borne>{
         statementStrings[1] =
                     String.format("CREATE TABLE %s" +
                     "(idborne INTEGER, " +
-                    "(numeroborne INTEGER, " +
-                    "(nomBorne VARCHAR(100), " +
+                    "numeroborne INTEGER, " +
+                    "nomBorne VARCHAR(100), " +
                     "positionX INTEGER, " +
                     "positionY INTEGER) " , tableNames[0]);
       statementStrings[2] =
