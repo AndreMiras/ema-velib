@@ -8,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import velib.model.Bornette;
-
 /**
  *
  * @author Nicolas
@@ -29,6 +28,7 @@ public class BornetteDAO extends DAO<Bornette>
 
     public Bornette findLibre(Long idBorne)
     {
+        String bornetteTable = tableNames[0];
         Bornette bornette = new Bornette();
 
 	try
@@ -37,7 +37,7 @@ public class BornetteDAO extends DAO<Bornette>
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                    "SELECT * FROM bornette WHERE etat=false AND idborne='" + idBorne + "'"
+                                    "SELECT * FROM"+bornetteTable+" WHERE libre=false AND idborne='" + idBorne + "'"
                                     );
             if(result.first())
             {
@@ -55,6 +55,7 @@ public class BornetteDAO extends DAO<Bornette>
 
     public Bornette findOccupe(Long idBorne)
     {
+        String bornetteTable = tableNames[0];
         Bornette bornette = new Bornette();
 
 	try
@@ -63,7 +64,7 @@ public class BornetteDAO extends DAO<Bornette>
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                    "SELECT * FROM bornette WHERE etat=true AND idborne='" + idBorne + "'"
+                                    "SELECT * FROM"+bornetteTable+" WHERE libre=true AND idborne='" + idBorne + "'"
                                     );
             if(result.first())
             {
@@ -71,6 +72,7 @@ public class BornetteDAO extends DAO<Bornette>
                 long idborneDB = result.getLong("idborne");
                 long idveloDB = result.getLong("idvelo");
                 boolean libre = result.getBoolean("libre");
+                long numero = result.getLong("numero");
                 bornette = new Bornette();
 
             }

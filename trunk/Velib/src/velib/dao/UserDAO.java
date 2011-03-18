@@ -51,7 +51,7 @@ public class UserDAO extends DAO<User>
             PreparedStatement prepare = this.connect.prepareStatement(
                                                     	"INSERT INTO " +
                                                         usersTable +
-                                                        " (id, identifiant, password) VALUES(?, ?, ?)"
+                                                        " (iduser, identifiant, password) VALUES(?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
                                 prepare.setString(2, obj.getIdentifiant());
@@ -114,10 +114,10 @@ public class UserDAO extends DAO<User>
                     	"UPDATE " +
                         usersTable +
                         " SET password = '" + obj.getPassword() + "'"+
-                    	" WHERE id = " + obj.getId()
+                    	" WHERE id = " + obj.getUserId()
                      );
 
-	obj = this.find(obj.getId());
+	obj = this.find(obj.getUserId());
 	    }
         catch (SQLException e)
         {
@@ -146,15 +146,13 @@ public class UserDAO extends DAO<User>
                                      ).executeQuery(
                                     "SELECT * FROM " +
                                     usersTable +
-                                    " WHERE id = '" + id + "'"
+                                    " WHERE iduser = '" + id + "'"
                                     );
             if(result.first())
             {
-                //System.out.println("I'm in the result");
                 String identifiantDB = result.getString("identifiant");
                 String passwordDB = result.getString("password");
-                //System.out.println("id =" + id);
-
+              
                 user = new User(id, identifiantDB, passwordDB);
             }
         }

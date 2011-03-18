@@ -30,7 +30,7 @@ public class User implements IModel {
         this.password = password;
     }
 
-    public long getId()
+    public long getUserId()
     {
         return user_id;
     }
