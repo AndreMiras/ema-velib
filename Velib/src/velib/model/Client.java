@@ -34,8 +34,10 @@ public class Client extends User {
         this.client_id = idClient;
         this.firstname = firstname;
         this.lastname = lastname;
+        
         this.dateNaissance = new Date();
         this.abonnement = new Abonnement();
+        this.banque = new Banque();
     }
 
     public String getFirstname()
