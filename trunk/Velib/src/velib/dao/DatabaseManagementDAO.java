@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import velib.model.Borne;
 import velib.model.Client;
 import velib.model.User;
 
@@ -70,6 +71,7 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
     {
         // fillUpUserTable();
         fillUpClientTable();
+        fillUpBorneTable();
     }
 
     private void createUserTable()
@@ -119,10 +121,24 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
        veloDAO.createTables();
     }
 
-    private void fillUpUserTable()
+    private void fillUpBorneTable()
     {
-        System.out.println("Filling up user table");
-        
+        Borne borne;
+        BornesDAO borneDAO;
+        String nomBorne;
+        int id = 0;
+        System.out.println("Filling up borne table");
+
+       for (int i=0; i<3; i++)
+       {
+           nomBorne = "firstname" + i;
+
+           borneDAO = new BornesDAO();
+           borne = new Borne(id, nomBorne);
+           borne = borneDAO.create(borne);
+
+           System.out.println("created client: " + borne);
+       }
     }
 
     /*
