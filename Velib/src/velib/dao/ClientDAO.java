@@ -62,8 +62,8 @@ public class ClientDAO extends DAO<Client>
                                             "INSERT INTO "
                                             + clientTable
                                             + " (idclient, "
-                                            + "nomclient, "
-                                            + "prenomclient, "
+                                            + "firstname, "
+                                            + "lastname, "
                                             + "datenaissance, "
                                             + "adresse, "
                                             + "codepostal, "
@@ -158,11 +158,11 @@ public class ClientDAO extends DAO<Client>
              
                 Long idClient = result.getLong("idclient");
                 Long idUser = result.getLong("iduser");
-                String nomClient = result.getString("nomclient");
-                String prenomClient = result.getString("prenomclient");
+                String firstname = result.getString("firstname");
+                String lastname = result.getString("lastname");
                 //System.out.println("id =" + id);
 
-                client = new Client(idClient, prenomClient, nomClient, user);
+                client = new Client(idClient, firstname, lastname, user);
             }
         }
         catch (SQLException e)
@@ -252,8 +252,8 @@ public class ClientDAO extends DAO<Client>
         statementStrings[1] =
             String.format("CREATE TABLE %s" +
             "(idclient INTEGER, " +
-            "nomclient VARCHAR(40), " +
-            "prenomclient VARCHAR(40), " +
+            "firstname VARCHAR(40), " +
+            "lastname VARCHAR(40), " +
             "datenaissance DATE, " +
             "adresse VARCHAR(40), " +
             "codepostal VARCHAR(40), " +
