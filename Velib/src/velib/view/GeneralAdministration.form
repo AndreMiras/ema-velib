@@ -403,7 +403,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Visualiser les d&#xe9;clarations de mat&#xe9;riel d&#xe9;fectueux"/>
+            <Property name="text" type="java.lang.String" value="Cliquez pour visualiser les d&#xe9;clarations de mat&#xe9;riel d&#xe9;fectueux"/>
           </Properties>
         </Component>
       </SubComponents>
