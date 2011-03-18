@@ -34,15 +34,17 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
 
     public void createTables()
     {
+        createBornesTable();
         createUserTable();
         createClientTable();
+        createVeloTable();
+        createBanquesTable();
+        createTypeAbonnementTable();
         createAbonnementsTable();
         createBanquesTable();
-        createBornesTable();
         createBornetteTable();
         createLocationTable();
-        createTypeAbonnementTable();
-        createVeloTable();
+              
     }
 
     public void dropTables()
