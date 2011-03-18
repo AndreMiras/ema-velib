@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import velib.model.Borne;
+import velib.model.Bornette;
 import velib.model.Client;
 import velib.model.User;
 
@@ -126,6 +127,9 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
         Borne borne;
         BornesDAO borneDAO;
         String nomBorne;
+        Bornette bornette;
+        BornetteDAO bornetteDAO;
+        long numero = 0;
         int id = 0;
         System.out.println("Filling up borne table");
 
@@ -137,9 +141,16 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
            borne = new Borne(id, nomBorne);
            borne = borneDAO.create(borne);
 
+           numero = i+1;
+           bornetteDAO = new BornetteDAO();
+           bornette = new Bornette(id, numero, borne);
+           bornette = bornetteDAO.create(bornette);
+
            System.out.println("created client: " + borne);
+           System.out.println("created client: " + bornette);
        }
     }
+
 
     /*
      * TODO: get it cleaner
