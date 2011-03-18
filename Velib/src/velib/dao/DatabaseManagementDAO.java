@@ -29,7 +29,16 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
 
     public void dropDatabase()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try
+        {
+        PreparedStatement prepare = this.connect.prepareStatement(
+                    "DROP SCHEMA PUBLIC CASCADE ");
+        prepare.execute();
+        }
+        catch (SQLException e)
+        {
+             e.printStackTrace();
+        }
     }
 
     public void createTables()
@@ -113,34 +122,7 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
     private void fillUpUserTable()
     {
         System.out.println("Filling up user table");
-        try
-        {
-            // INSERT INTO Test (Id, Name) VALUES (NULL,'Test');
-            PreparedStatement prepare = this.connect.prepareStatement(
-                    "INSERT INTO users (id, identifiant, password) VALUES(?,?,?)");
-            // user1
-            prepare.setLong(1, 1);
-            prepare.setString(2, "user1");
-            prepare.setString(3, "pwd1");
-            prepare.executeUpdate();
-            
-            // user2
-            prepare.setLong(1, 2);
-            prepare.setString(2, "user2");
-            prepare.setString(3, "pwd2");
-            prepare.executeUpdate();
-
-            // user3
-            prepare.setLong(1, 3);
-            prepare.setString(2, "user3");
-            prepare.setString(3, "pwd3");
-            prepare.executeUpdate();
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Error inserting to user table: " + ex);
-            Logger.getLogger(DatabaseManagementDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }
 
     /*

@@ -61,6 +61,7 @@ public class DatabaseManagementController
     {
         public void actionPerformed(ActionEvent e)
         {
+            System.out.println("test");
             databaseManagement.dropDatabase();
         }
     }
