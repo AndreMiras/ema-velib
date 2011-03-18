@@ -23,23 +23,24 @@ public class AbonnementDAO extends DAO<Abonnement> {
 
     public Abonnement create(Abonnement obj)
     {
+        String abonnementTable = tableNames[0];
          try {
              ResultSet result = this.connect.createStatement(
                                 ResultSet.TYPE_SCROLL_INSENSITIVE,
                       		ResultSet.CONCUR_UPDATABLE
                                     ).executeQuery(
-                                       "SELECT NEXT VALUE FOR sequence_abonnement FROM abonnement as id"
+                                       "SELECT NEXT VALUE FOR sequence_abonnements FROM"+ abonnementTable+" as id"
                                     );
             if(result.first()){
             long id = result.getLong(1);
             System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
-                                                    	"INSERT INTO abonnement (idabonnement, datedebut, datefin, idclient, idtype) VALUES(?, ?, ?, ?, ?)"
+                                                    	"INSERT INTO"+abonnementTable+"(idabonnement, datedebut, datefin, idclient, idtype) VALUES(?, ?, ?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
 				prepare.setDate(2, obj.getDateDebutSQL());
                                 prepare.setDate(3, obj.getDateFinSQL());
-                                prepare.setLong(4, obj.getClient().getId());
+                                prepare.setLong(4, obj.getClient().getClientId());
                                 prepare.setLong(5, obj.getType().getId());
 				prepare.executeUpdate();
 				obj = this.find(id);
@@ -72,7 +73,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
     @Override
     public String[] createTablesStatementStrings()
     {
-        String[] statementStrings = new String[2];
+        String[] statementStrings = new String[5];
         statementStrings[0] =
                 "CREATE SEQUENCE sequence_abonnements START WITH 1 INCREMENT BY 1";
         statementStrings[1] =

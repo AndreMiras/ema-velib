@@ -77,7 +77,7 @@ public class LoginScreenController extends AbstractController
              * Create window and associated controller
              * TODO: move this to a dedicated function for readability
              */
-            if(user.getId() != 0)
+            if(user.getUserId() != 0)
             {
                 // Get the client associated to the given user
                 client = clientDAO.find(user);

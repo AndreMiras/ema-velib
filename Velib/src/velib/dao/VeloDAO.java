@@ -29,19 +29,19 @@ public class VeloDAO extends DAO<Velo>
 
     public Velo create(Velo obj)
     {
-
+         String veloTable = tableNames[0];
          try {
                 ResultSet result = this.connect.createStatement(
                                 ResultSet.TYPE_SCROLL_INSENSITIVE,
                       		ResultSet.CONCUR_UPDATABLE
                                     ).executeQuery(
-                                       "SELECT NEXT VALUE FOR sequence_velo FROM velo as id"
+                                       "SELECT NEXT VALUE FOR sequence_velos FROM"+veloTable+" as id"
                                     );
                 if(result.first()){
                     long id = result.getLong(1);
                     System.out.println("id :" + id);
                     PreparedStatement prepare = this.connect.prepareStatement(
-                                                     "INSERT INTO velo (idvelo, etat, idbornette) VALUES(?, ?, ?)"
+                                                     "INSERT INTO"+veloTable+ "(idvelo, etat, idbornette) VALUES(?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
                                 prepare.setBoolean(2, obj.getEtat());

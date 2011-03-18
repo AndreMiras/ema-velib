@@ -72,8 +72,9 @@ public class ClientDAO extends DAO<Client>
                                             + "questionsecrete, "
                                             + "reponsesecrete, "
                                             + "idabonnement, "
+                                            + "iduser, "
                                             + "idbanque) "
-                                            + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                                            + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
                                         );
 				prepare.setLong(1, id);
 				prepare.setString(2, obj.getLastname());
@@ -84,7 +85,8 @@ public class ClientDAO extends DAO<Client>
                                 prepare.setString(7, obj.getQuestionSecrete());
                                 prepare.setString(8, obj.getReponseSecrete());
                                 prepare.setLong(9, obj.getIdAbonnement().getId());
-                                prepare.setLong(10, obj.getIdBanque().getId());
+                                prepare.setLong(10, obj.getUserId());
+                                prepare.setLong(11, obj.getIdBanque().getId());
 				prepare.executeUpdate();
 				obj = this.find(id);
 			}
@@ -148,7 +150,7 @@ public class ClientDAO extends DAO<Client>
                                     "SELECT * FROM "
                                     +  clientTable
                                     + " WHERE iduser = '"
-                                    + user.getId()
+                                    + user.getUserId()
                                     + "'"
                                     );
             if(result.first())
@@ -175,8 +177,9 @@ public class ClientDAO extends DAO<Client>
 	public Client update(Client obj)
         {
             String clientTable = tableNames[0];
-            try
-            {
+            throw new UnsupportedOperationException("Not supported yet.");
+           // try
+            //{
                 /*
                     DAO<Langage> langageDAO = AbstractDAOFactory.getFactory(FactoryType.DAO_FACTORY)
                                                                    .getLangageDAO();
@@ -190,7 +193,7 @@ public class ClientDAO extends DAO<Client>
                  * 
                  */
 
-                    this.connect
+            /*        this.connect
             .createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                 ResultSet.CONCUR_UPDATABLE
@@ -210,7 +213,7 @@ public class ClientDAO extends DAO<Client>
                 e.printStackTrace();
             }
 
-            return obj;
+            return obj;*/
 	}
 
 
@@ -227,7 +230,7 @@ public class ClientDAO extends DAO<Client>
              //TODO remove that shit, man
                     "DELETE FROM "
                      + clientTable
-                     + "WHERE id = " + obj.getId()
+                     + "WHERE id = " + obj.getClientId()
              );
 
 	    }
@@ -243,7 +246,7 @@ public class ClientDAO extends DAO<Client>
         /*
          * TODO: see below
          */
-        String[] statementStrings = new String[4];
+        String[] statementStrings = new String[6];
         statementStrings[0] =
                 "CREATE SEQUENCE sequence_clients START WITH 1 INCREMENT BY 1";
         statementStrings[1] =
@@ -271,7 +274,11 @@ public class ClientDAO extends DAO<Client>
                  "ALTER TABLE"
                  + tableNames[0]
                  + "ADD CONSTRAINT foreign_key_clients_abonnement FOREIGN KEY (idabonnement) REFERENCES abonnements (idabonnement)";
-        return statementStrings;
+         statementStrings[5] =
+                 "ALTER TABLE"
+                 + tableNames[0]
+                 + "ADD CONSTRAINT foreign_key_clients_banques FOREIGN KEY (idbanque) REFERENCES banques (idbanques)";
+         return statementStrings;
     }
 
 
