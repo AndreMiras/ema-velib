@@ -81,6 +81,7 @@ public class LoginScreenController extends AbstractController
             {
                 // Get the client associated to the given user
                 client = clientDAO.find(user);
+                
                 loggedInWelcomePanel = new LoggedInWelcomePanel(client);
                 loggedInWelcomeController =
                         new LoggedInWelcomeController(mainWindowFrame,
