@@ -11,9 +11,16 @@ package velib.model;
  */
 public class Borne {
 
-    private long id;
+    private long idBorne;
     private String nomBorne;
     private int positionX;
     private int positionY;
+    private boolean etat;
+
+    public Borne(long id, String nomBorne) {
+        this.idBorne=id;
+        this.nomBorne=nomBorne;
+    }
+
 
 }

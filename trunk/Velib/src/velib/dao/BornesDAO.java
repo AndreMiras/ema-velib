@@ -5,7 +5,10 @@
 
 package velib.dao;
 
+import java.lang.String;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import velib.model.Borne;
 
 /**
@@ -19,10 +22,12 @@ public class BornesDAO  extends DAO<Borne>{
         tableNames = new String[] { "bornes" };
     }
 
-    public Borne findBorneLibre ()
+    public ArrayList<Borne> findBorneLibre ()
     {
 
-        /*String bornesTable = tableNames[0];
+        String bornesTable = tableNames[0];
+        ArrayList<Borne> tableauBorne = new ArrayList<Borne>();
+        Borne borne;
 
 	try
         {
@@ -32,12 +37,14 @@ public class BornesDAO  extends DAO<Borne>{
                                      ).executeQuery(
                                     "SELECT * FROM " +
                                     bornesTable +
-                                    " WHERE  = "
-
+                                    " WHERE etat=true"
                                     );
-            if(result.first())
+            while (result.next())
             {
-
+                Long id = result.getLong("idborne");
+                String nom = result.getString("nomBorne");
+                borne = new Borne(id, nom);
+                tableauBorne.add(borne);
             }
         }
         catch (SQLException e)
@@ -45,8 +52,8 @@ public class BornesDAO  extends DAO<Borne>{
             e.printStackTrace();
         }
 
-        return ;*/
-    throw new UnsupportedOperationException("Not supported yet.");
+        return tableauBorne;
+    
     }
     @Override
     public Borne find(long id) {
@@ -76,11 +83,11 @@ public class BornesDAO  extends DAO<Borne>{
                 "CREATE SEQUENCE sequence_bornes START WITH 1 INCREMENT BY 1";
         statementStrings[1] =
                     String.format("CREATE TABLE %s" +
-                    "(idborne INTEGER, " +
-                    "numeroborne INTEGER, " +
+                    "(idborne INTEGER, " +                    
                     "nomBorne VARCHAR(100), " +
                     "positionX INTEGER, " +
-                    "positionY INTEGER) " , tableNames[0]);
+                    "positionY INTEGER, " +
+                    "etat BOOLEAN", tableNames[0]);
       statementStrings[2] =
                 "ALTER TABLE "
                 + tableNames[0]
