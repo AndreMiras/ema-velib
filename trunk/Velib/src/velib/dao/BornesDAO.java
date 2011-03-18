@@ -141,7 +141,7 @@ public class BornesDAO  extends DAO<Borne>{
                     "nomBorne VARCHAR(100), " +
                     "positionX INTEGER, " +
                     "positionY INTEGER, " +
-                    "etat BOOLEAN", tableNames[0]);
+                    "etat BOOLEAN)", tableNames[0]);
       statementStrings[2] =
                 "ALTER TABLE "
                 + tableNames[0]
