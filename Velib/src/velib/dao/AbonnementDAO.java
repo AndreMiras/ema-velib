@@ -84,17 +84,17 @@ public class AbonnementDAO extends DAO<Abonnement> {
                     "idclient INTEGER, " +
                     "idtype INTEGER) " , tableNames[0]);
           statementStrings[2] =
-                "ALTER TABLE"
+                "ALTER TABLE "
                 + tableNames[0]
-                + "ADD CONSTRAINT primary_key_abonnements (idabonnement)";
+                + " ADD CONSTRAINT primary_key_abonnements (idabonnement)";
         statementStrings[3] =
-                "ALTER TABLE"
+                "ALTER TABLE "
                 + tableNames[0]
-                + "ADD CONSTRAINT foreign_key_abonnements_clients FOREIGN KEY (idclient) REFERENCES clients (idclient)";
+                + " ADD CONSTRAINT foreign_key_abonnements_clients FOREIGN KEY (idclient) REFERENCES clients (idclient)";
         statementStrings[4] =
-                "ALTER TABLE"
+                "ALTER TABLE "
                 + tableNames[0]
-                + "ADD CONSTRAINT foreign_key_abonnements_typeAbo FOREIGN KEY (idType) REFERENCES typeabonnement (idtype)";
+                + " ADD CONSTRAINT foreign_key_abonnements_typeAbo FOREIGN KEY (idType) REFERENCES typeabonnement (idtype)";
         return statementStrings;
     }
 

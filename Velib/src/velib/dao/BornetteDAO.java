@@ -116,17 +116,17 @@ public class BornetteDAO extends DAO<Bornette>
                     "idborne INTEGER, " +
                     "idvelo INTEGER) " , tableNames[0]);
         statementStrings[2] =
-                "ALTER TABLE"
+                "ALTER TABLE "
                 + tableNames[0]
-                + "ADD CONSTRAINT primary_key_bornettes PRIMARY KEY (idbornette)";
+                + " ADD CONSTRAINT primary_key_bornettes PRIMARY KEY (idbornette)";
         statementStrings[3] =
-                "ALTER TABLE"
+                "ALTER TABLE "
                 + tableNames[0]
-                + "ADD CONSTRAINT foreign_key_bornettes_borne FOREIGN KEY (idborne) REFERENCES bornes (idbornes)";
+                + " ADD CONSTRAINT foreign_key_bornettes_borne FOREIGN KEY (idborne) REFERENCES bornes (idbornes)";
         statementStrings[4] =
-                "ALTER TABLE"
+                "ALTER TABLE "
                 + tableNames[0]
-                + "ADD CONSTRAINT foreign_key_bornettes_velo FOREIGN KEY (idvelo) REFERENCES velos (idvelos)";
+                + " ADD CONSTRAINT foreign_key_bornettes_velo FOREIGN KEY (idvelo) REFERENCES velos (idvelos)";
         return statementStrings;
     }
 

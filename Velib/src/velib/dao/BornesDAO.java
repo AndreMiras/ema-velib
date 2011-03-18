@@ -52,9 +52,9 @@ public class BornesDAO  extends DAO<Borne>{
                     "positionX INTEGER, " +
                     "positionY INTEGER) " , tableNames[0]);
       statementStrings[2] =
-                "ALTER TABLE"
+                "ALTER TABLE "
                 + tableNames[0]
-                + "ADD CONSTRAINT primary_key_bornes PRIMARY KEY (idBorne)";
+                + " ADD CONSTRAINT primary_key_bornes PRIMARY KEY (idBorne)";
         return statementStrings;
     }
 }
