@@ -48,7 +48,7 @@ public class TypeAbonnementDAO extends DAO<TypeAbonnement> {
                     String.format("CREATE TABLE %s" +
                     "(idtype INTEGER, " +
                     "duree INTEGER, " +
-                    "prix INTEGER, " , tableNames[0]);
+                    "prix INTEGER) " , tableNames[0]);
       statementStrings[2] =
                 "ALTER TABLE"
                 + tableNames[0]

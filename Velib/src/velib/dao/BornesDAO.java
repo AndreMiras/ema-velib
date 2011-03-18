@@ -50,7 +50,7 @@ public class BornesDAO  extends DAO<Borne>{
                     "(numeroborne INTEGER, " +
                     "(nomBorne VARCHAR(100), " +
                     "positionX INTEGER, " +
-                    "positionY INTEGER, " , tableNames[0]);
+                    "positionY INTEGER) " , tableNames[0]);
       statementStrings[2] =
                 "ALTER TABLE"
                 + tableNames[0]

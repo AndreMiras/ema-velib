@@ -82,7 +82,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
                     "datedebut DATE, " +
                     "datefin DATE, " +
                     "idclient INTEGER, " +
-                    "idtype INTEGER, " , tableNames[0]);
+                    "idtype INTEGER) " , tableNames[0]);
           statementStrings[2] =
                 "ALTER TABLE"
                 + tableNames[0]

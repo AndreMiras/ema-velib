@@ -103,7 +103,7 @@ public class VeloDAO extends DAO<Velo>
                     String.format("CREATE TABLE %s" +
                     "(idvelo INTEGER, " +
                     "etat BOOLEAN, " +
-                    "idbornette INTEGER, " , tableNames[0]);
+                    "idbornette INTEGER) " , tableNames[0]);
         statementStrings[2] =
                 "ALTER TABLE"
                 + tableNames[0]

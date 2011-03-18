@@ -86,7 +86,7 @@ public class BanqueDAO extends DAO<Banque>
                     "identifiant VARCHAR(100), " +
                     "dateexpiration DATE, " +
                     "(codeverif INTEGER, " +
-                    "idclient INTEGER, " , tableNames[0]);
+                    "idclient INTEGER) " , tableNames[0]);
         statementStrings[2] =
                 "ALTER TABLE"
                 + tableNames[0]

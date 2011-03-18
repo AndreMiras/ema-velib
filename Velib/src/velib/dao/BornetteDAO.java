@@ -114,7 +114,7 @@ public class BornetteDAO extends DAO<Bornette>
                     "libre BOOLEAN, " +
                     "numero INTEGER, " +
                     "idborne INTEGER, " +
-                    "idvelo INTEGER, " , tableNames[0]);
+                    "idvelo INTEGER) " , tableNames[0]);
         statementStrings[2] =
                 "ALTER TABLE"
                 + tableNames[0]
