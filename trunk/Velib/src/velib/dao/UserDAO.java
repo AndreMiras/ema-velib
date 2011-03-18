@@ -42,7 +42,7 @@ public class UserDAO extends DAO<User>
                                 ResultSet.TYPE_SCROLL_INSENSITIVE,
                       		ResultSet.CONCUR_UPDATABLE
                                     ).executeQuery(
-                                       "CALL NEXT VALUE FOR sequenceuser"
+                                       "CALL NEXT VALUE FOR sequence_users"
                                     );
             if(result.first())
             {
@@ -169,15 +169,19 @@ public class UserDAO extends DAO<User>
     @Override
     public String[] createTablesStatementStrings()
     {
-        String[] statementStrings = new String[2];
+        String[] statementStrings = new String[5];
         statementStrings[0] =
-                "CREATE SEQUENCE sequenceuser START WITH 1 INCREMENT BY 1";
+                "CREATE SEQUENCE sequence_users START WITH 1 INCREMENT BY 1";
         statementStrings[1] =
                     String.format("CREATE TABLE %s" +
-                    "(id INTEGER, " +
+                    "(iduser INTEGER, " +
                     "identifiant VARCHAR(40), " +
-                    "password VARCHAR(40), " +
-                    "PRIMARY KEY (id))", tableNames[0]);
+                    "password VARCHAR(40), " , tableNames[0]);
+         statementStrings[2] =
+                "ALTER TABLE"
+                + tableNames[0]
+                + "ADD CONSTRAINT primary_key_users (iduser)";
+      
         return statementStrings;
     }
 }

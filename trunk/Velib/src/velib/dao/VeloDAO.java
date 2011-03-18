@@ -22,6 +22,10 @@ import velib.model.Velo;
 
 public class VeloDAO extends DAO<Velo>
 {
+    public VeloDAO()
+    {
+        tableNames = new String[] { "velos" };
+    }
 
     public Velo create(Velo obj)
     {
@@ -92,7 +96,23 @@ public class VeloDAO extends DAO<Velo>
     @Override
     public String[] createTablesStatementStrings()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String[] statementStrings = new String[4];
+        statementStrings[0] =
+                "CREATE SEQUENCE sequence_velos START WITH 1 INCREMENT BY 1";
+        statementStrings[1] =
+                    String.format("CREATE TABLE %s" +
+                    "(idvelo INTEGER, " +
+                    "etat BOOLEAN, " +
+                    "idbornette INTEGER, " , tableNames[0]);
+        statementStrings[2] =
+                "ALTER TABLE"
+                + tableNames[0]
+                + "ADD CONSTRAINT primary_key_velos PRIMARY KEY (idvelo)";
+        statementStrings[3] =
+                "ALTER TABLE"
+                + tableNames[0]
+                + "ADD CONSTRAINT foreign_key_velos_bornette FOREIGN KEY (idbornette) REFERENCES bornettes (idbornette)";
+        return statementStrings;
     }
 
 

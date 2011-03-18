@@ -15,6 +15,12 @@ import velib.model.Abonnement;
  */
 // TODO: finish up
 public class AbonnementDAO extends DAO<Abonnement> {
+
+    public AbonnementDAO()
+    {
+        tableNames = new String[] { "abonnements" };
+    }
+
     public Abonnement create(Abonnement obj)
     {
          try {
@@ -66,7 +72,29 @@ public class AbonnementDAO extends DAO<Abonnement> {
     @Override
     public String[] createTablesStatementStrings()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String[] statementStrings = new String[2];
+        statementStrings[0] =
+                "CREATE SEQUENCE sequence_abonnements START WITH 1 INCREMENT BY 1";
+        statementStrings[1] =
+                    String.format("CREATE TABLE %s" +
+                    "(idabonnement INTEGER, " +
+                    "datedebut DATE, " +
+                    "datefin DATE, " +
+                    "idclient INTEGER, " +
+                    "idtype INTEGER, " , tableNames[0]);
+          statementStrings[2] =
+                "ALTER TABLE"
+                + tableNames[0]
+                + "ADD CONSTRAINT primary_key_abonnements (idabonnement)";
+        statementStrings[3] =
+                "ALTER TABLE"
+                + tableNames[0]
+                + "ADD CONSTRAINT foreign_key_abonnements_clients FOREIGN KEY (idclient) REFERENCES clients (idclient)";
+        statementStrings[4] =
+                "ALTER TABLE"
+                + tableNames[0]
+                + "ADD CONSTRAINT foreign_key_abonnements_typeAbo FOREIGN KEY (idType) REFERENCES typeabonnement (idtype)";
+        return statementStrings;
     }
 
 }
