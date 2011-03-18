@@ -44,8 +44,7 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
         createBanquesTable();
         createBornetteTable();
         createLocationTable();
-              
-    }
+     }
 
     public void dropTables()
     {
