@@ -85,11 +85,11 @@ public class UserDAO extends DAO<User>
                                     );
             if(result.first())
             {
-                //System.out.println("I'm in the result");
-                Long id = result.getLong("id");
+                System.out.println("I'm in the result");
+                Long id = result.getLong("iduser");
                 String identifiantDB = result.getString("identifiant");
                 String passwordDB = result.getString("password");
-                //System.out.println("id =" + id);
+                System.out.println("id =" + id);
 
                 user = new User(id, identifiantDB, passwordDB);
             }
