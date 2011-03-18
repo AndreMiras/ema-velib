@@ -21,6 +21,38 @@ public class BornesDAO  extends DAO<Borne>{
         tableNames = new String[] { "bornes" };
     }
 
+    public ArrayList<Borne> findAllBorne ()
+    {
+        String bornesTable = tableNames[0];
+        ArrayList<Borne> tableauBorne = new ArrayList<Borne>();
+        Borne borne;
+
+	try
+        {
+            ResultSet result = this.connect.createStatement(
+                                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                    ResultSet.CONCUR_READ_ONLY
+                                     ).executeQuery(
+                                    "SELECT * FROM " +
+                                    bornesTable
+                                    );
+            while (result.next())
+            {
+                Long id = result.getLong("idborne");
+                String nom = result.getString("nomBorne");
+                borne = new Borne(id, nom);
+                tableauBorne.add(borne);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return tableauBorne;
+    }
+
+
     public ArrayList<Borne> findBorneLibre ()
     {
         String bornesTable = tableNames[0];
@@ -51,7 +83,6 @@ public class BornesDAO  extends DAO<Borne>{
         }
 
         return tableauBorne;
-    
     }
     @Override
     public Borne find(long id) {
