@@ -77,7 +77,9 @@ public class ClientDAO extends DAO<Client>
 				prepare.setLong(1, id);
 				prepare.setString(2, obj.getLastname());
                                 prepare.setString(3, obj.getFirstname());
-                                prepare.setDate(4, obj.getDateNaissanceSQL());
+                                prepare.setDate(4,
+                                        new java.sql.Date(
+                                        obj.getDateNaissance().getTime()));
                                 prepare.setString(5, obj.getAdresse());
                                 prepare.setLong(6, obj.getCodePostal());
                                 prepare.setString(7, obj.getQuestionSecrete());
