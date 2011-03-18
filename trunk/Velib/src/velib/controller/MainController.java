@@ -7,9 +7,12 @@ package velib.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import velib.dao.BornesDAO;
 import velib.dao.DatabaseManagementDAO;
 import velib.dao.IDatabaseManagementDAO;
+import velib.model.Borne;
 import velib.model.IModel;
+import velib.view.DBConnectionPanel;
 import velib.view.DatabaseManagementFrame;
 import velib.view.EditBornFrame;
 import velib.view.IView;
@@ -23,7 +26,7 @@ import velib.view.WelcomeScreenPanel;
 // TODO: to be renamed as MainWindowFrameController
 public class MainController extends AbstractController implements IController
 {
-    
+  
     private IModel model;
     private WelcomeScreenPanel welcomeScreenPanel;
     private WelcomeScreenController welcomeScreenController;
@@ -35,9 +38,15 @@ public class MainController extends AbstractController implements IController
     private DatabaseManagementFrame databaseManagementFrame;
     private DatabaseManagementController databaseManagementController;
 
+    private BornesDAO borneDAO;
+
     // Born Management mvc
     private EditBornFrame editBornFrame;
     private EditBornController editBornController;
+
+    // Database Connection
+    private DBConnectionPanel dBConnectionPanel;
+
 
     public MainController(IModel model, MainWindowFrame view)
     {
@@ -68,6 +77,8 @@ public class MainController extends AbstractController implements IController
                 new EditDatabaseButtonListener());
         mainWindowFrame.addEditBornButtonListener(
                 new EditBornButtonListener());
+        mainWindowFrame.connectToDatabaseButtonListener(
+                new ConnectToDatabaseButtonListener());
     }
 
     public IModel getModel()
@@ -80,16 +91,20 @@ public class MainController extends AbstractController implements IController
         return mainWindowFrame;
     }
 
-
-    class EditDatabaseButtonListener implements ActionListener
+    class ConnectToDatabaseButtonListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-            databaseManagement = new DatabaseManagementDAO();
-            databaseManagementFrame = new DatabaseManagementFrame();
-            databaseManagementController = new DatabaseManagementController(
-                    databaseManagement, databaseManagementFrame);
-            databaseManagementFrame.setVisible(true);
+            borneDAO = new BornesDAO();
+            Borne[] bornes;
+            bornes = borneDAO.findBorneLibre().toArray(
+                    new Borne[borneDAO.findBorneLibre().size()]);
+            DBConnectionPanel dBConnexionPanel = new DBConnectionPanel(bornes);
+
+            DBConnectionController dBConnectionController = new DBConnectionController(
+                    dBConnectionPanel);
+            
+
         }
     }
 
@@ -109,6 +124,19 @@ public class MainController extends AbstractController implements IController
             editBornFrame.setVisible(true);
         }
     }
+
+    class EditDatabaseButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            databaseManagement = new DatabaseManagementDAO();
+            databaseManagementFrame = new DatabaseManagementFrame();
+            databaseManagementController = new DatabaseManagementController(
+                    databaseManagement, databaseManagementFrame);
+            databaseManagementFrame.setVisible(true);
+        }
+    }
+
 
     /*
      * Might not be needed
