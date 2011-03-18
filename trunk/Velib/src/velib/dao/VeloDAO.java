@@ -105,13 +105,13 @@ public class VeloDAO extends DAO<Velo>
                     "etat BOOLEAN, " +
                     "idbornette INTEGER) " , tableNames[0]);
         statementStrings[2] =
-                "ALTER TABLE"
+                "ALTER TABLE "
                 + tableNames[0]
-                + "ADD CONSTRAINT primary_key_velos PRIMARY KEY (idvelo)";
+                + " ADD CONSTRAINT primary_key_velos PRIMARY KEY (idvelo)";
         statementStrings[3] =
-                "ALTER TABLE"
+                "ALTER TABLE "
                 + tableNames[0]
-                + "ADD CONSTRAINT foreign_key_velos_bornette FOREIGN KEY (idbornette) REFERENCES bornettes (idbornette)";
+                + " ADD CONSTRAINT foreign_key_velos_bornette FOREIGN KEY (idbornette) REFERENCES bornettes (idbornette)";
         return statementStrings;
     }
 

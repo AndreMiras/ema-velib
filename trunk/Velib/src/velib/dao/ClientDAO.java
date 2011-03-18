@@ -263,21 +263,21 @@ public class ClientDAO extends DAO<Client>
             "iduser INTEGER, " + // TODO: to be foreign key
             "idbanque INTEGER) " , tableNames[0]); // TODO: foreign key
          statementStrings[2] =
-                 "ALTER TABLE"
+                 "ALTER TABLE "
                  + tableNames[0]
-                 + "ADD CONSTRAINT primary_key_clients PRIMARY KEY (idclient)";
+                 + " ADD CONSTRAINT primary_key_clients PRIMARY KEY (idclient)";
          statementStrings[3] =
-                 "ALTER TABLE"
+                 "ALTER TABLE "
                  + tableNames[0]
-                 + "ADD CONSTRAINT foreign_key_clients_users FOREIGN KEY (iduser) REFERENCES users (iduser)";
+                 + " ADD CONSTRAINT foreign_key_clients_users FOREIGN KEY (iduser) REFERENCES users (iduser)";
          statementStrings[4] =
-                 "ALTER TABLE"
+                 "ALTER TABLE "
                  + tableNames[0]
-                 + "ADD CONSTRAINT foreign_key_clients_abonnement FOREIGN KEY (idabonnement) REFERENCES abonnements (idabonnement)";
+                 + " ADD CONSTRAINT foreign_key_clients_abonnement FOREIGN KEY (idabonnement) REFERENCES abonnements (idabonnement)";
          statementStrings[5] =
-                 "ALTER TABLE"
+                 "ALTER TABLE "
                  + tableNames[0]
-                 + "ADD CONSTRAINT foreign_key_clients_banques FOREIGN KEY (idbanque) REFERENCES banques (idbanques)";
+                 + " ADD CONSTRAINT foreign_key_clients_banques FOREIGN KEY (idbanque) REFERENCES banques (idbanques)";
          return statementStrings;
     }
 

@@ -81,17 +81,17 @@ public class LocationDAO extends DAO<Location>
                     "idClient INTEGER, " +
                     "idVelo INTEGER) " , tableNames[0]);
         statementStrings[2] =
-                "ALTER TABLE"
+                "ALTER TABLE "
                 + tableNames[0]
-                + "ADD CONSTRAINT primary_key_locations PRIMARY KEY (idLocation)";
+                + " ADD CONSTRAINT primary_key_locations PRIMARY KEY (idLocation)";
         statementStrings[3] =
-                "ALTER TABLE"
+                "ALTER TABLE "
                 + tableNames[0]
-                + "ADD CONSTRAINT foreign_key_locations_clients FOREIGN KEY (idClient) REFERENCES clients (idclient)";
+                + " ADD CONSTRAINT foreign_key_locations_clients FOREIGN KEY (idClient) REFERENCES clients (idclient)";
         statementStrings[4] =
-                "ALTER TABLE"
+                "ALTER TABLE "
                 + tableNames[0]
-                + "ADD CONSTRAINT foreign_key_locations_velos FOREIGN KEY (idvelo) REFERENCES velos (idvelo)";
+                + " ADD CONSTRAINT foreign_key_locations_velos FOREIGN KEY (idvelo) REFERENCES velos (idvelo)";
         return statementStrings;
     }
 

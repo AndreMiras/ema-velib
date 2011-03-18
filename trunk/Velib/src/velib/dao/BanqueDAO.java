@@ -88,13 +88,13 @@ public class BanqueDAO extends DAO<Banque>
                     "(codeverif INTEGER, " +
                     "idclient INTEGER) " , tableNames[0]);
         statementStrings[2] =
-                "ALTER TABLE"
+                "ALTER TABLE "
                 + tableNames[0]
-                + "ADD CONSTRAINT primary_key_bornes PRIMARY KEY (idBanque)";
+                + " ADD CONSTRAINT primary_key_bornes PRIMARY KEY (idBanque)";
         statementStrings[3] =
-                "ALTER TABLE"
+                "ALTER TABLE "
                 + tableNames[0]
-                + "ADD CONSTRAINT foreign_key_banques_clients FOREIGN KEY (idclient) REFERENCES clients (idclient)";
+                + " ADD CONSTRAINT foreign_key_banques_clients FOREIGN KEY (idclient) REFERENCES clients (idclient)";
         return statementStrings;
     }
 
