@@ -7,6 +7,7 @@ package velib.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import velib.model.Borne;
 import velib.model.Bornette;
 /**
  *
@@ -23,7 +24,37 @@ public class BornetteDAO extends DAO<Bornette>
 
     public Bornette create(Bornette obj)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String bornetteTable = tableNames[0];
+         try {
+            ResultSet result = this.connect.createStatement(
+                                ResultSet.TYPE_SCROLL_INSENSITIVE,
+                      		ResultSet.CONCUR_UPDATABLE
+                                    ).executeQuery(
+                                       "CALL NEXT VALUE FOR sequence_bornettes"
+                                    );
+            if(result.first())
+            {
+            long id = result.getLong(1);
+            System.out.println("id :" + id);
+            PreparedStatement prepare = this.connect.prepareStatement(
+                                                    	"INSERT INTO " +
+                                                        bornetteTable +
+                                                        " (idbornette, numero, libre, idborne, idvelo) VALUES(?, ?, ?, ?, ?)"
+                                                    );
+				prepare.setLong(1, id);
+                                prepare.setLong(2, obj.getNumero());
+                                prepare.setBoolean(3, obj.getLibre());
+                                prepare.setLong(4, obj.getBorne().getIdBorne());
+                                prepare.setLong(5, obj.getVelo().getId());
+
+				prepare.executeUpdate();
+				obj = this.find(id);
+            }
+	    }
+            catch (SQLException e) {
+	            e.printStackTrace();
+	    }
+	    return obj;
     }
 
     public Bornette findLibre(Long idBorne)
@@ -99,7 +130,33 @@ public class BornetteDAO extends DAO<Bornette>
 
     @Override
     public Bornette find(long id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String bornettesTable = tableNames[0];
+        Bornette bornette = new Bornette();
+        Borne borne;
+        BornesDAO borneDAO = new BornesDAO();
+	try
+        {
+            ResultSet result = this.connect.createStatement(
+                                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                    ResultSet.CONCUR_READ_ONLY
+                                     ).executeQuery(
+                                    "SELECT * FROM " +
+                                    bornettesTable +
+                                    " WHERE idBorne="+id
+                                    );
+           if(result.first())
+            {
+                long numero = result.getLong("numero");
+                borne =  borneDAO.find(result.getLong("idborne"));
+                bornette = new Bornette(id, numero, borne);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return bornette;
     }
 
     @Override

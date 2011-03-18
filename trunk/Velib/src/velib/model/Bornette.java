@@ -13,25 +13,25 @@ public class Bornette {
     private long id;
     private boolean libre;
     private long numero;
-    private Borne idBorne; 
-    private Velo idVelo;
+    private Borne borne;
+    private Velo velo;
 
     public Bornette()
     {
         this.id = 0;
         this.libre = false;
         this.numero = 0;
-        this.idBorne = null;
-        this.idVelo = null;
+        this.borne = null;
+        this.velo = null;
     }
 
-    public Bornette(long id, boolean libre, long numero, Borne idBorne, Velo idVelo) {
+    public Bornette(long id, long numero, Borne borne) {
         this.id = id;
-        this.libre=libre;
+        this.libre=false;
         this.numero = numero;
-        this.idBorne = idBorne;
-        this.idVelo = idVelo;
-    }
+        this.borne = borne;
+        this.velo = new Velo();
+     }
     
     public long getId() {
         return id;
@@ -41,12 +41,12 @@ public class Bornette {
         return numero;
     }
 
-    public Borne getIdBorne() {
-        return idBorne;
+    public Borne getBorne() {
+        return borne;
     }
 
-    public Velo getIdVelo() {
-        return idVelo;
+    public Velo getVelo() {
+        return velo;
     }
 
     public boolean getLibre(){
