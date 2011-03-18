@@ -30,7 +30,7 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel
 
     public LoggedInWelcomePanel(Client client)
     {
-        super();
+        this();
         this.client = client;
 
 
