@@ -15,12 +15,12 @@ public class Client extends User {
     private long client_id;
     private String firstname;
     private String lastname;
-    private Date dateNaissance;
+    private Date dateNaissance; // TODO: is it worth keeping that?
     private String adresse;
     private long codePostal;
     private String questionSecrete;
     private String reponseSecrete;
-    private Abonnement idAbonnement;
+    private Abonnement abonnement;
     private Banque idBanque;
 
 
@@ -34,7 +34,8 @@ public class Client extends User {
         this.client_id = idClient;
         this.firstname = firstname;
         this.lastname = lastname;
-
+        this.dateNaissance = new Date();
+        this.abonnement = new Abonnement();
     }
 
     public String getFirstname()
@@ -69,8 +70,8 @@ public class Client extends User {
     }
 
 
-    public Abonnement getIdAbonnement() {
-        return idAbonnement;
+    public Abonnement getAbonnement() {
+        return abonnement;
     }
 
     public String getQuestionSecrete() {
