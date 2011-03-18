@@ -53,7 +53,7 @@ public class ClientDAO extends DAO<Client>
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
                         ).executeQuery(
-                           "SELECT NEXT VALUE FOR sequence_client FROM "
+                           "SELECT NEXT VALUE FOR sequence_clients FROM "
                            + clientTable
                            + " as id"
                         );
@@ -243,22 +243,34 @@ public class ClientDAO extends DAO<Client>
         /*
          * TODO: see below
          */
-        String[] statementStrings = new String[2];
+        String[] statementStrings = new String[4];
         statementStrings[0] =
-                "CREATE SEQUENCE sequence_client START WITH 1 INCREMENT BY 1";
+                "CREATE SEQUENCE sequence_clients START WITH 1 INCREMENT BY 1";
         statementStrings[1] =
             String.format("CREATE TABLE %s" +
-            "(id INTEGER, " +
+            "(idclient INTEGER, " +
             "nomclient VARCHAR(40), " +
             "prenomclient VARCHAR(40), " +
             "datenaissance DATE, " +
             "adresse VARCHAR(40), " +
             "codepostal VARCHAR(40), " +
-            "reponsesecrete INTEGER, " + // TODO: to me this should be part of the user model, not the client
+            "questionsecrete VARCHAR(200), " +
+            "reponsesecrete VARCHAR(200), " + // TODO: to me this should be part of the user model, not the client
             "idabonnement INTEGER, " + // TODO: to be foreign key
             "iduser INTEGER, " + // TODO: to be foreign key
-            "idbanque VARCHAR(40), " + // TODO: foreign key
-            "PRIMARY KEY (id))", tableNames[0]);
+            "idbanque INTEGER, " , tableNames[0]); // TODO: foreign key
+         statementStrings[2] =
+                 "ALTER TABLE"
+                 + tableNames[0]
+                 + "ADD CONSTRAINT primary_key_clients PRIMARY KEY (idclient)";
+         statementStrings[3] =
+                 "ALTER TABLE"
+                 + tableNames[0]
+                 + "ADD CONSTRAINT foreign_key_clients_users FOREIGN KEY (iduser) REFERENCES users (iduser)";
+         statementStrings[4] =
+                 "ALTER TABLE"
+                 + tableNames[0]
+                 + "ADD CONSTRAINT foreign_key_clients_abonnement FOREIGN KEY (idabonnement) REFERENCES abonnements (idabonnement)";
         return statementStrings;
     }
 

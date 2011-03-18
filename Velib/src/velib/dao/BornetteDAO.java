@@ -16,6 +16,12 @@ import velib.model.Bornette;
 // TODO: finish up
 public class BornetteDAO extends DAO<Bornette>
 {
+
+    public BornetteDAO()
+    {
+        tableNames = new String[] { "bornettes" };
+    }
+
     public Bornette create(Bornette obj)
     {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -97,7 +103,29 @@ public class BornetteDAO extends DAO<Bornette>
     @Override
     public String[] createTablesStatementStrings()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String[] statementStrings = new String[5];
+        statementStrings[0] =
+                "CREATE SEQUENCE sequence_bornettes START WITH 1 INCREMENT BY 1";
+        statementStrings[1] =
+                    String.format("CREATE TABLE %s" +
+                    "(idbornette INTEGER, " +
+                    "libre BOOLEAN, " +
+                    "numero INTEGER, " +
+                    "idborne INTEGER, " +
+                    "idvelo INTEGER, " , tableNames[0]);
+        statementStrings[2] =
+                "ALTER TABLE"
+                + tableNames[0]
+                + "ADD CONSTRAINT primary_key_bornettes PRIMARY KEY (idbornette)";
+        statementStrings[3] =
+                "ALTER TABLE"
+                + tableNames[0]
+                + "ADD CONSTRAINT foreign_key_bornettes_borne FOREIGN KEY (idborne) REFERENCES bornes (idbornes)";
+        statementStrings[4] =
+                "ALTER TABLE"
+                + tableNames[0]
+                + "ADD CONSTRAINT foreign_key_bornettes_velo FOREIGN KEY (idvelo) REFERENCES velos (idvelos)";
+        return statementStrings;
     }
 
 }
