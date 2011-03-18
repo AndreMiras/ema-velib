@@ -36,6 +36,13 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
     {
         createUserTable();
         createClientTable();
+        createAbonnementsTable();
+        createBanquesTable();
+        createBornesTable();
+        createBornetteTable();
+        createLocationTable();
+        createTypeAbonnementTable();
+        createVeloTable();
     }
 
     public void dropTables()
@@ -65,6 +72,41 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
     {
         ClientDAO clientDAO = new ClientDAO();
         clientDAO.createTables();
+    }
+    private void createAbonnementsTable()
+    {
+       AbonnementDAO abonnementDAO = new AbonnementDAO();
+       abonnementDAO.createTables();
+    }
+    private void createBanquesTable()
+    {
+       BanqueDAO banqueDAO = new BanqueDAO();
+       banqueDAO.createTables();
+    }
+    private void createBornesTable()
+    {
+       BornesDAO borneDAO = new BornesDAO();
+       borneDAO.createTables();
+    }
+    private void createBornetteTable()
+    {
+       BornetteDAO bornetteDAO = new BornetteDAO();
+       bornetteDAO.createTables();
+    }
+    private void createLocationTable()
+    {
+       LocationDAO locationDAO = new LocationDAO();
+       locationDAO.createTables();
+    }
+    private void createTypeAbonnementTable()
+    {
+       TypeAbonnementDAO typeAbonnementDAO = new TypeAbonnementDAO();
+       typeAbonnementDAO.createTables();
+    }
+    private void createVeloTable()
+    {
+       VeloDAO veloDAO = new VeloDAO();
+       veloDAO.createTables();
     }
 
     private void fillUpUserTable()

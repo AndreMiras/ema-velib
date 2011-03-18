@@ -15,4 +15,5 @@ public class Borne {
     private String nomBorne;
     private int positionX;
     private int positionY;
+
 }
