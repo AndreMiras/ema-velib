@@ -84,9 +84,9 @@ public class ClientDAO extends DAO<Client>
                                 prepare.setLong(6, obj.getCodePostal());
                                 prepare.setString(7, obj.getQuestionSecrete());
                                 prepare.setString(8, obj.getReponseSecrete());
-                                prepare.setLong(9, obj.getIdAbonnement().getId());
+                                prepare.setLong(9, obj.getAbonnement().getId());
                                 prepare.setLong(10, obj.getUserId());
-                                prepare.setLong(11, obj.getIdBanque().getId());
+                                prepare.setLong(11, obj.getBanque().getId());
 				prepare.executeUpdate();
 				obj = this.find(id);
 			}

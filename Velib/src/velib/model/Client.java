@@ -21,7 +21,7 @@ public class Client extends User {
     private String questionSecrete;
     private String reponseSecrete;
     private Abonnement abonnement;
-    private Banque idBanque;
+    private Banque banque;
 
 
     public Client()
@@ -82,8 +82,8 @@ public class Client extends User {
         return reponseSecrete;
     }
 
-    public Banque getIdBanque() {
-        return idBanque;
+    public Banque getBanque() {
+        return banque;
     }
 
 
