@@ -62,17 +62,17 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
      */
     public void setContentPanel(JPanel panel)
     {
-        // panel.setVisible(true);
-
+        // saving the panel reference (used for later usage)
         middleContentPanelsVector.add(panel);
-       
+
+        // remove all the previous content to add the new panel
         middleContentPanel.removeAll();
-
-
-        middleContentPanel.revalidate();
         middleContentPanel.add(panel);
+        panel.setVisible(true);
 
+        // redraw the middle content
         middleContentPanel.revalidate();
+        middleContentPanel.repaint();
 
         // set previous/next buttons states
         // TODO: we can auto update previous/next status by creating
