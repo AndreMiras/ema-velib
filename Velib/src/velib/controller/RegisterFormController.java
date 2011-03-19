@@ -5,11 +5,19 @@
 
 package velib.controller;
 
+import velib.view.RegisterFormPanel;
+
 /**
  *
  * @author andre
  */
 public class RegisterFormController
 {
+    private RegisterFormPanel registerFormPanel;
+
+    RegisterFormController(RegisterFormPanel registerFormPanel)
+    {
+        this.registerFormPanel = registerFormPanel;
+    }
 
 }

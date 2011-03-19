@@ -60,13 +60,13 @@ public class AbonnementController extends AbstractController
                     
                 /* long subscription */
                 case ONE_WEEK:
-                    System.out.println("bar");
+                    longSubscription();
                     break;
                 case ONE_MONTH:
-                    System.out.println("bar");
+                    longSubscription();
                     break;
                 case ONE_YEAR:
-                    System.out.println("bar");
+                    longSubscription();
                     break;
                 default:
                     System.out.println("Unknown");
@@ -86,7 +86,10 @@ public class AbonnementController extends AbstractController
         {
             RegisterFormPanel registerFormPanel = new RegisterFormPanel();
             RegisterFormController registerFormController =
-                    new RegisterFormController();
+                    new RegisterFormController(registerFormPanel);
+            registerFormPanel.setVisible(true);
+
+            mainWindowFrame.setContentPanel(registerFormPanel);
         }
     }
 
