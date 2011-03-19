@@ -118,10 +118,12 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         editBornMenuItem.addActionListener(al);
     }
 
-    public void connectToDatabaseButtonListener(ActionListener al)
+    public void addConnectToDatabaseButtonListener(ActionListener al)
     {
         connectToDatabaseMenuItem.addActionListener(al);
     }
+
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
