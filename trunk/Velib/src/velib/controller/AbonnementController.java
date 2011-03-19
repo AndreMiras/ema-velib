@@ -5,14 +5,13 @@
 
 package velib.controller;
 
-import java.awt.Button;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ButtonModel;
 import javax.swing.JButton;
 import velib.model.AbonnementType;
 import velib.view.AbonnementPanel;
 import velib.view.MainWindowFrame;
+import velib.view.RegisterFormPanel;
 
 /**
  *
@@ -21,6 +20,7 @@ import velib.view.MainWindowFrame;
 public class AbonnementController extends AbstractController
 {
     private AbonnementPanel abonnementPanel;
+    
 
     public AbonnementController(MainWindowFrame mainWindowFrame,
             AbonnementPanel abonnementPanel)
@@ -50,12 +50,15 @@ public class AbonnementController extends AbstractController
             
             switch(abonnementType)
             {
+                /* short subscription */
                 case HALF_DAY:
                     System.out.println("cmd1");
                     break;
                 case ONE_DAY:
                     System.out.println("foo");
                     break;
+                    
+                /* long subscription */
                 case ONE_WEEK:
                     System.out.println("bar");
                     break;
@@ -69,6 +72,21 @@ public class AbonnementController extends AbstractController
                     System.out.println("Unknown");
                     break;
             }
+        }
+
+        /*
+         * TODO: finish up
+         */
+        private void shortSubscription()
+        {
+            
+        }
+
+        private void longSubscription()
+        {
+            RegisterFormPanel registerFormPanel = new RegisterFormPanel();
+            RegisterFormController registerFormController =
+                    new RegisterFormController();
         }
     }
 
