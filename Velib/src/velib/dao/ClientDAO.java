@@ -133,9 +133,9 @@ public class ClientDAO extends DAO<Client>
             String clientTable = tableNames[0];
             Client client = new Client();
 
-	try
-        {
-            ResultSet result = this.connect.createStatement(
+            try
+            {
+                 ResultSet result = this.connect.createStatement(
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
@@ -169,43 +169,29 @@ public class ClientDAO extends DAO<Client>
 	public Client update(Client obj)
         {
             String clientTable = tableNames[0];
-            throw new UnsupportedOperationException("Not supported yet.");
-           // try
-            //{
-                /*
-                    DAO<Langage> langageDAO = AbstractDAOFactory.getFactory(FactoryType.DAO_FACTORY)
-                                                                   .getLangageDAO();
-                    //Si le langage n'existe pas en base, on le créé
-                    if(obj.getLangage().getId() == 0)
-                    {
-                            obj.setLangage(langageDAO.create(obj.getLangage()));
-                    }
-                    //On met à jours l'objet Langage
-                    langageDAO.update(obj.getLangage());
-                 * 
-                 */
-
-            /*        this.connect
-            .createStatement(
-                    ResultSet.TYPE_SCROLL_INSENSITIVE,
-                ResultSet.CONCUR_UPDATABLE
+            try
+            {
+                      this.connect.createStatement(
+                        ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_UPDATABLE
              ).executeUpdate(
              //TODO remove that shit, man (something else, you say firstname = obj.getLastname and lastname = obj.getFirstname ???)
                     "UPDATE"
                     + clientTable
-                    + " SET firstname = '" + obj.getLastname() + "',"
-                    + " lastname = '" + obj.getFirstname() + "',"
-                    + " WHERE id = " + obj.getId()
+                    + " SET iduser = '" + obj.getUserId() + "',"
+                    + " idbanque = '" + obj.getBanque().getId() + "',"
+                    + " idabonnement = '" + obj.getAbonnement().getId() + "',"
+                    + " WHERE id = " + obj.getClientId()
              );
 
-                obj = this.find(obj.getId());
+                obj = this.find(obj.getClientId());
             }
             catch (SQLException e)
             {
                 e.printStackTrace();
             }
 
-            return obj;*/
+            return obj;
 	}
 
 
