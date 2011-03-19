@@ -35,13 +35,29 @@ public class User implements IModel {
         return user_id;
     }
 
-    public String getIdentifiant() {
+    public void setUserId(long user_id)
+    {
+        this.user_id = user_id;
+    }
+
+    public String getIdentifiant()
+    {
         return identifiant;
+    }
+
+    public void setIdentifiant(String identifiant)
+    {
+        this.identifiant = identifiant;
     }
 
     public String getPassword()
     {
         return password;
+    }
+
+    public void setPassword(String password)
+    {
+        this.password = password;
     }
 
 

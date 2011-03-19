@@ -32,23 +32,15 @@ public class ClientDAO extends DAO<Client>
     public Client create(Client obj)
     {
         String clientTable = tableNames[0];
-        /*
-         * TODO: work on this use case:
-         * trying to create a Client with an empty user reference
-         * should lead to the DAO creating it automatically for us
-         * see developpez article
-         */
-            // If the user doesn't exist
-            /*
-            if(obj.getUser().getId() == 0)
-            {
-                    DAO<User> userDAO =
-                            AbstractDAOFactory.getFactory(FactoryType.DAO_FACTORY).getClientDAO();
-                    obj.setUser(userDAO.create(obj.getUser()));
-            }
-            *
-            */
-         try {
+        
+        if(obj.getUser().getUserId() == 0)
+        {
+            DAO<User> userDAO =
+                    AbstractDAOFactory.getFactory(FactoryType.DAO_FACTORY).getClientDAO();
+            obj.setUser(userDAO.create(obj.getUser()));
+        }
+         try
+         {
              ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
