@@ -10,6 +10,7 @@ import velib.view.RegisterFormPanel;
 /**
  *
  * @author andre
+ * TODO: manage all three kind of long subscription
  */
 public class RegisterFormController
 {
