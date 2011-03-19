@@ -15,10 +15,10 @@ package velib.view;
  *
  * @author Fred
  */
-public class ChoixIDMotdePassePanel extends javax.swing.JPanel {
+public class CreateUserPasswordPanel extends javax.swing.JPanel {
 
     /** Creates new form ChoixIDMotdePassePanel */
-    public ChoixIDMotdePassePanel() {
+    public CreateUserPasswordPanel() {
         initComponents();
     }
 
@@ -87,7 +87,7 @@ public class ChoixIDMotdePassePanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(identifiantTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(53, Short.MAX_VALUE))
-            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,9 +103,9 @@ public class ChoixIDMotdePassePanel extends javax.swing.JPanel {
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(QuestsecreteTextField)))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(226, Short.MAX_VALUE)
+                .addContainerGap(326, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
