@@ -97,8 +97,7 @@ public class MainController extends AbstractController implements IController
         {
             borneDAO = new BornesDAO();
             Borne[] bornes;
-            bornes = borneDAO.findBorneLibre().toArray(
-                    new Borne[borneDAO.findBorneLibre().size()]);
+            bornes = borneDAO.findAllBorne();
             DBConnectionPanel dBConnexionPanel = new DBConnectionPanel(bornes);
 
             DBConnectionController dBConnectionController = new DBConnectionController(
