@@ -101,9 +101,27 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         previousButton.addActionListener(al);
     }
 
-      public void addNextButtonListener(ActionListener al)
+    public void addNextButtonListener(ActionListener al)
     {
         nextButton.addActionListener(al);
+    }
+
+    private void previousPanel()
+    {
+        JPanel previousPanel, currentPanel;
+
+        /*
+         * Remove the element so the order won't get broken
+         * when adding new panels
+         */
+        currentPanel =
+                middleContentPanelsVector.lastElement();
+        middleContentPanelsVector.remove(currentPanel);
+        
+        previousPanel =
+                middleContentPanelsVector.lastElement();
+
+        setContentPanel(previousPanel);
     }
 
 
@@ -153,6 +171,11 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
 
         previousButton.setText("Previous");
         previousButton.setEnabled(false);
+        previousButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                previousButtonActionPerformed(evt);
+            }
+        });
 
         nextButton.setText("Next");
         nextButton.setEnabled(false);
@@ -190,11 +213,6 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         jMenu2.add(editBornMenuItem);
 
         connectToDatabaseMenuItem.setText("Connect to DB");
-        connectToDatabaseMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                connectToDatabaseMenuItemActionPerformed(evt);
-            }
-        });
         jMenu2.add(connectToDatabaseMenuItem);
 
         jMenuBar1.add(jMenu2);
@@ -209,7 +227,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(footersPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(middleContentPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE))
+                    .addComponent(middleContentPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -225,10 +243,10 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void connectToDatabaseMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_connectToDatabaseMenuItemActionPerformed
-    {//GEN-HEADEREND:event_connectToDatabaseMenuItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_connectToDatabaseMenuItemActionPerformed
+    private void previousButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_previousButtonActionPerformed
+    {//GEN-HEADEREND:event_previousButtonActionPerformed
+        previousPanel();
+    }//GEN-LAST:event_previousButtonActionPerformed
 
     /**
     * @param args the command line arguments
