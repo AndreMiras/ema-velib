@@ -9,7 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import velib.dao.ClientDAO;
 import velib.model.Client;
-import velib.model.User;
+import velib.view.CreateUserPasswordPanel;
+import velib.view.MainWindowFrame;
 import velib.view.RegisterFormPanel;
 
 /**
@@ -17,12 +18,14 @@ import velib.view.RegisterFormPanel;
  * @author andre
  * TODO: manage all three kind of long subscription
  */
-public class RegisterFormController
+public class RegisterFormController extends AbstractController
 {
     private RegisterFormPanel registerFormPanel;
 
-    RegisterFormController(RegisterFormPanel registerFormPanel)
+    RegisterFormController(MainWindowFrame mainWindowFrame,
+            RegisterFormPanel registerFormPanel)
     {
+        super(mainWindowFrame);
         this.registerFormPanel = registerFormPanel;
 
         addListeners();
@@ -50,6 +53,15 @@ public class RegisterFormController
             client = registerFormPanel.getClientFromInputs();
             client = clientDAO.create(client);
             System.out.println("Client created: " + client);
+
+            CreateUserPasswordPanel createUserPasswordPanel =
+                    new CreateUserPasswordPanel();
+            createUserPasswordPanel.setVisible(true);
+            CreateUserPasswordController createUserPasswordController =
+                    new CreateUserPasswordController(
+                        client, mainWindowFrame, createUserPasswordPanel);
+
+            mainWindowFrame.setContentPanel(createUserPasswordPanel);
 
         }
     }

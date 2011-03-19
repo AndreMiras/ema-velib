@@ -86,7 +86,8 @@ public class AbonnementController extends AbstractController
         {
             RegisterFormPanel registerFormPanel = new RegisterFormPanel();
             RegisterFormController registerFormController =
-                    new RegisterFormController(registerFormPanel);
+                    new RegisterFormController(mainWindowFrame,
+                    registerFormPanel);
             registerFormPanel.setVisible(true);
 
             mainWindowFrame.setContentPanel(registerFormPanel);
