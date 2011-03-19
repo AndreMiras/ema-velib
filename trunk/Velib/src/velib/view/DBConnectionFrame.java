@@ -50,23 +50,13 @@ public class DBConnectionFrame extends javax.swing.JFrame
         jLabel1 = new javax.swing.JLabel();
 
         listeBorneComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Choisissez un ID" }));
-        listeBorneComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listeBorneComboBoxActionPerformed(evt);
-            }
-        });
 
         jToggleButton1.setText("Connexion");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("Authentification Interface");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -89,16 +79,6 @@ public class DBConnectionFrame extends javax.swing.JFrame
                 .addContainerGap(31, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void listeBorneComboBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_listeBorneComboBoxActionPerformed
-    {//GEN-HEADEREND:event_listeBorneComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listeBorneComboBoxActionPerformed
-
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jToggleButton1ActionPerformed
-    {//GEN-HEADEREND:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
