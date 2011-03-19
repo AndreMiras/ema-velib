@@ -35,6 +35,11 @@ public class WelcomeScreenPanel extends javax.swing.JPanel {
         identifierButton.addActionListener(al);
     }
 
+    public void addAideButtonListener(ActionListener al)
+    {
+        aideButton.addActionListener(al);
+    }
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -53,6 +58,11 @@ public class WelcomeScreenPanel extends javax.swing.JPanel {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         aideButton.setText("Aide");
+        aideButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aideButtonActionPerformed(evt);
+            }
+        });
 
         abonnerButton.setText("S'abonner");
 
@@ -104,6 +114,11 @@ public class WelcomeScreenPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void aideButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_aideButtonActionPerformed
+    {//GEN-HEADEREND:event_aideButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aideButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
