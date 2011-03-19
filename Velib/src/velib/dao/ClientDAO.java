@@ -35,8 +35,7 @@ public class ClientDAO extends DAO<Client>
         
         if(obj.getUser().getUserId() == 0)
         {
-            DAO<User> userDAO =
-                    AbstractDAOFactory.getFactory(FactoryType.DAO_FACTORY).getClientDAO();
+            UserDAO userDAO = new UserDAO();
             obj.setUser(userDAO.create(obj.getUser()));
         }
          try
