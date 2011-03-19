@@ -12,8 +12,6 @@
 package velib.view;
 
 import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JToggleButton;
 import velib.model.Borne;
 
 /**
@@ -34,6 +32,11 @@ public class DBConnectionFrame extends javax.swing.JFrame
     {
         this();
         this.bornes = bornes;
+        /*TODO make this shit work
+        listeBorneComboBox = new javax.swing.JComboBox(bornes);
+        listeBorneComboBox.setSelectedIndex(4);
+        listeBorneComboBox.addActionListener(this);
+        */
     }
 
     /** This method is called from within the constructor to
