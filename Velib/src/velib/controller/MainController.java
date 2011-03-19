@@ -77,7 +77,9 @@ public class MainController extends AbstractController implements IController
                 new EditDatabaseButtonListener());
         mainWindowFrame.addEditBornButtonListener(
                 new EditBornButtonListener());
-        mainWindowFrame.connectToDatabaseButtonListener(
+
+        
+        mainWindowFrame.addConnectToDatabaseButtonListener(
                 new ConnectToDatabaseButtonListener());
     }
 
