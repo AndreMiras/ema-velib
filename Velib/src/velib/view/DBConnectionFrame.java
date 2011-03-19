@@ -20,17 +20,17 @@ import velib.model.Borne;
  *
  * @author G
  */
-public class DBConnectionPanel extends javax.swing.JPanel
+public class DBConnectionFrame extends javax.swing.JFrame
 {
     private Borne[] bornes;
 
     /** Creates new form DBConnexionPanel */
-    public DBConnectionPanel()
+    public DBConnectionFrame()
     {
         initComponents();
     }
 
-    public DBConnectionPanel(Borne[] bornes)
+    public DBConnectionFrame(Borne[] bornes)
     {
         this();
         this.bornes = bornes;

@@ -12,7 +12,7 @@ import velib.dao.DatabaseManagementDAO;
 import velib.dao.IDatabaseManagementDAO;
 import velib.model.Borne;
 import velib.model.IModel;
-import velib.view.DBConnectionPanel;
+import velib.view.DBConnectionFrame;
 import velib.view.DatabaseManagementFrame;
 import velib.view.EditBornFrame;
 import velib.view.IView;
@@ -45,7 +45,7 @@ public class MainController extends AbstractController implements IController
     private EditBornController editBornController;
 
     // Database Connection
-    private DBConnectionPanel dBConnectionPanel;
+    private DBConnectionFrame dBConnectionFrame;
 
 
     public MainController(IModel model, MainWindowFrame view)
@@ -95,14 +95,15 @@ public class MainController extends AbstractController implements IController
     {
         public void actionPerformed(ActionEvent e)
         {
+            dBConnectionFrame = new DBConnectionFrame();
             borneDAO = new BornesDAO();
             Borne[] bornes;
             bornes = borneDAO.findAllBorne();
-            DBConnectionPanel dBConnexionPanel = new DBConnectionPanel(bornes);
+            DBConnectionFrame dBConnexionFrame = new DBConnectionFrame(bornes);
 
             DBConnectionController dBConnectionController = new DBConnectionController(
-                    dBConnectionPanel);
-            
+                    dBConnectionFrame);
+            dBConnectionFrame.setVisible(true);
 
         }
     }
