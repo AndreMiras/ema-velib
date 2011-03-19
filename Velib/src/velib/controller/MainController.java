@@ -97,14 +97,14 @@ public class MainController extends AbstractController implements IController
     {
         public void actionPerformed(ActionEvent e)
         {
-            dBConnectionFrame = new DBConnectionFrame();
             borneDAO = new BornesDAO();
             Borne[] bornes;
             bornes = borneDAO.findAllBorne();
-            DBConnectionFrame dBConnexionFrame = new DBConnectionFrame(bornes);
+            
+            DBConnectionFrame dBConnectionFrame = new DBConnectionFrame(bornes);
 
-            DBConnectionController dBConnectionController = new DBConnectionController(
-                    dBConnectionFrame);
+            DBConnectionController dBConnectionController =
+                    new DBConnectionController(dBConnectionFrame);
             dBConnectionFrame.setVisible(true);
 
         }
