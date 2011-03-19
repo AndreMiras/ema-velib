@@ -32,11 +32,19 @@ public class DBConnectionFrame extends javax.swing.JFrame
     {
         this();
         this.bornes = bornes;
-        /*TODO make this shit work
+
+        setUpDBConnectionFrame();
+
+    }
+
+    /*
+     * fills the combo box with bornes objects
+     */
+    private void setUpDBConnectionFrame()
+    {
         listeBorneComboBox = new javax.swing.JComboBox(bornes);
-        listeBorneComboBox.setSelectedIndex(4);
-        listeBorneComboBox.addActionListener(this);
-        */
+        // listeBorneComboBox.setSelectedIndex(4);
+        // listeBorneComboBox.addActionListener(this);
     }
 
     /** This method is called from within the constructor to
