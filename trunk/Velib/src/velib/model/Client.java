@@ -95,6 +95,17 @@ public class Client extends User {
         return getFullName();
     }
 
+    public User getUser()
+    {
+        return this;
+    }
+
+    public void setUser(User user)
+    {
+        setUserId(user.getUserId());
+        setIdentifiant(user.getIdentifiant());
+        setPassword(user.getPassword());
+    }
 
     /*
     @Override
