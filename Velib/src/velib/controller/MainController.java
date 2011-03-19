@@ -5,8 +5,10 @@
 
 package velib.controller;
 
+import java.awt.ComponentOrientation;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JPanel;
 import velib.dao.BornesDAO;
 import velib.dao.DatabaseManagementDAO;
 import velib.dao.IDatabaseManagementDAO;
@@ -140,13 +142,17 @@ public class MainController extends AbstractController implements IController
     }
 
 
-    /*
-     * Might not be needed
-     */
     class PreviousButtonListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
+            /*
+            JPanel previousPanel;
+            previousPanel = 
+                    mainWindowFrame.middleContentPanelsVector.lastElement();
+            mainWindowFrame.setContentPanel(previousPanel);
+             * 
+             */
         }
     }
 
