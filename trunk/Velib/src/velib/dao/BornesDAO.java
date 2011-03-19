@@ -56,11 +56,12 @@ public class BornesDAO  extends DAO<Borne>{
     }
 
 
-    public ArrayList<Borne> findBorneLibre ()
+    public Borne[] findBorneLibre ()
     {
         String bornesTable = tableNames[0];
-        ArrayList<Borne> tableauBorne = new ArrayList<Borne>();
+        Borne[] tableauBorne = new Borne[10];
         Borne borne;
+        int i=0;
 
 	try
         {
@@ -77,7 +78,9 @@ public class BornesDAO  extends DAO<Borne>{
                 Long id = result.getLong("idborne");
                 String nom = result.getString("nomBorne");
                 borne = new Borne(id, nom);
-                tableauBorne.add(borne);
+                tableauBorne[i]=borne;
+                i=i+1;
+                
             }
         }
         catch (SQLException e)
