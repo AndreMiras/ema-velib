@@ -5,6 +5,11 @@
 
 package velib.controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import velib.dao.ClientDAO;
+import velib.model.Client;
+import velib.model.User;
 import velib.view.RegisterFormPanel;
 
 /**
@@ -19,6 +24,34 @@ public class RegisterFormController
     RegisterFormController(RegisterFormPanel registerFormPanel)
     {
         this.registerFormPanel = registerFormPanel;
+
+        addListeners();
+    }
+
+    private void addListeners()
+    {
+        registerFormPanel.addOkButtonListener(
+                new OkButtonListener());
+    }
+
+    /*
+     * TODO:
+     *  - payment process
+     *  - user/password creation
+     *  - congrat screen
+     */
+    class OkButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            Client client;
+            ClientDAO clientDAO = new ClientDAO();
+
+            client = registerFormPanel.getClientFromInputs();
+            client = clientDAO.create(client);
+            System.out.println("Client created: " + client);
+
+        }
     }
 
 }
