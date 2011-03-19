@@ -29,7 +29,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
                                 ResultSet.TYPE_SCROLL_INSENSITIVE,
                       		ResultSet.CONCUR_UPDATABLE
                                     ).executeQuery(
-                                       "SELECT NEXT VALUE FOR sequence_abonnements FROM"+ abonnementTable+" as id"
+                                       "CALL NEXT VALUE FOR sequence_abonnements"
                                     );
             if(result.first()){
             long id = result.getLong(1);
