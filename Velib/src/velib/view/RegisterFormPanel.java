@@ -11,6 +11,11 @@
 
 package velib.view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import velib.model.Client;
+import velib.model.User;
+
 /**
  *
  * @author fteysseire
@@ -21,6 +26,59 @@ public class RegisterFormPanel extends javax.swing.JPanel {
     public RegisterFormPanel() {
         initComponents();
     }
+
+    public void addOkButtonListener(ActionListener al)
+{
+    okButton.addActionListener(al);
+}
+
+/*
+ * Returns true if the inputs are valid, else returns false
+ */
+private boolean formIsValid()
+{
+    // TODO: finish up
+    return true;
+}
+
+ /*
+  * Displays the invalid inputs error message
+  */
+private void invalidForm()
+{
+    JOptionPane.showMessageDialog(this, "Invalid input");
+}
+
+/*
+ * create and return a client object from the input
+ */
+public Client getClientFromInputs()
+{
+    User user;
+    int idClient;
+    String firstname;
+    String lastname;
+    Client client;
+
+    if (formIsValid())
+    {
+
+        user = new User();
+        idClient = 0;
+        firstname = firstNameTextField.getText();
+        lastname = lastNameTextField.getText();
+
+        client = new Client(idClient, firstname, lastname, user);
+    }
+    else
+    {
+        client = null;
+        invalidForm();
+    }
+
+    return client;
+}
+
 
     /** This method is called from within the constructor to
      * initialize the form.
