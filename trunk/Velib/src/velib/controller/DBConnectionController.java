@@ -5,7 +5,7 @@
 
 package velib.controller;
 
-import velib.view.DBConnectionPanel;
+import velib.view.DBConnectionFrame;
 import velib.view.MainWindowFrame;
 
 /**
@@ -14,9 +14,9 @@ import velib.view.MainWindowFrame;
  */
 public class DBConnectionController
 {
-    private DBConnectionPanel dBConnectionPanel;
+    private DBConnectionFrame dBConnectionPanel;
 
-    public DBConnectionController(DBConnectionPanel dBConnectionPanel)
+    public DBConnectionController(DBConnectionFrame dBConnectionPanel)
     {
         this.dBConnectionPanel = dBConnectionPanel;
     }
