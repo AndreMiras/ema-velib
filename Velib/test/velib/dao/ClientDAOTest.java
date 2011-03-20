@@ -34,10 +34,13 @@ public class ClientDAOTest {
     }
 
     /*
+     * Instanciating an in-memory hsql db instance
      * Creating tables
      */
     @Before
     public void setUp() {
+        ConnectionHSQL.getDebugInstance();
+        
         DatabaseManagementDAO databaseManagementDAO =
                 new DatabaseManagementDAO();
         databaseManagementDAO.createTables();
