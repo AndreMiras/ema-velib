@@ -10,11 +10,12 @@ import java.util.Date;
 /**
  *
  * @author Nicolas
+ * plusieurs clients peuvent avoir la meme carte mais on considere qu'un
+ * client n'a qu'une carte
  */
 
-//plusieurs clients peuvent avoir la meme carte mais on considere qu'un client n'a qu'une carte
-public class Bank {
-
+public class Bank
+{
      private long id;
      private long numero;
      private Date dateExpiration;
