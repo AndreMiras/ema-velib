@@ -42,14 +42,13 @@ public class BanqueDAO extends DAO<Bank>
             long id = result.getLong(1);
             System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
-                                                     "INSERT INTO banques (idbanque, numero, identifiant, dateExpiration, codeVerif, idClient) VALUES(?, ?, ?, ?, ?, ?)"
+                                                     "INSERT INTO banques (idbanque, numero, identifiant, dateExpiration, codeVerif) VALUES(?, ?, ?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
                                 prepare.setLong(2, obj.getNumero());
                                 prepare.setString(3, obj.getIdentifiant());
                                 prepare.setDate(4, obj.getDateExpirationSQL());
                                 prepare.setLong(5, obj.getCodeVerif());
-                                prepare.setLong(6, obj.getClient().getClientId());
 				prepare.executeUpdate();
 				obj = this.find(id);
 			}
@@ -85,11 +84,10 @@ public class BanqueDAO extends DAO<Bank>
                 String identifiant = result.getString("identifiant");
                 //Date date = result.getDate("dateexpiration");
                 Long codeVerif = result.getLong("codeVerif");
-                client = clientDAO.find(result.getLong("idclient"));
-
+               
                 System.out.println("id =" + id);
 
-               compteBanque = new Bank(id, numero, identifiant, codeVerif, client);
+               compteBanque = new Bank(id, numero, identifiant, codeVerif);
             }
         }
         catch (SQLException e)
@@ -113,7 +111,7 @@ public class BanqueDAO extends DAO<Bank>
    @Override
     public String[] createTablesStatementStrings()
     {
-        String[] statementStrings = new String[4];
+        String[] statementStrings = new String[3];
         statementStrings[0] =
                 "CREATE SEQUENCE sequence_banques START WITH 1 INCREMENT BY 1";
         statementStrings[1] =
@@ -122,16 +120,11 @@ public class BanqueDAO extends DAO<Bank>
                     "numero INTEGER, " +
                     "identifiant VARCHAR(100), " +
                     "dateexpiration DATE, " +
-                    "codeverif INTEGER, " +
-                    "idclient INTEGER) " , tableNames[0]);
+                    "codeverif INTEGER, ", tableNames[0]);
         statementStrings[2] =
                 "ALTER TABLE "
                 + tableNames[0]
                 + " ADD CONSTRAINT primary_key_bornes PRIMARY KEY (idBanque)";
-        statementStrings[3] =
-                "ALTER TABLE "
-                + tableNames[0]
-                + " ADD CONSTRAINT foreign_key_banques_clients FOREIGN KEY (idclient) REFERENCES clients (idclient)";
         return statementStrings;
     }
 

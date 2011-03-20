@@ -11,6 +11,8 @@ import java.util.Date;
  *
  * @author Nicolas
  */
+
+//plusieurs clients peuvent avoir la meme carte mais on considere qu'un client n'a qu'une carte
 public class Bank {
 
      private long id;
@@ -18,21 +20,17 @@ public class Bank {
      private Date dateExpiration;
      private String identifiant;
      private long codeVerif;
-     private Client client;
-
-    public Bank(long id, long numero, String identifiant, long codeVerif, Client client) {
+    
+    public Bank(long id, long numero, String identifiant, long codeVerif) {
         this.id=id;
         this.numero=numero;
         this.identifiant=identifiant;
         this.codeVerif=codeVerif;
-        this.client=client;
     }
 
     public Bank() {
     }
-
     
-
     public long getId() {
         return id;
     }
@@ -52,11 +50,6 @@ public class Bank {
     public long getNumero() {
         return numero;
     }
-
-    public Client getClient() {
-        return client;
-    }
-
 
     public java.sql.Date getDateExpirationSQL() {
         long t = dateExpiration.getTime();
