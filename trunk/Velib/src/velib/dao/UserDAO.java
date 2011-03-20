@@ -178,9 +178,9 @@ public class UserDAO extends DAO<User>
                     String.format("CREATE TABLE %s" +
                     "(iduser INTEGER, " +
                     "identifiant VARCHAR(40), " +
-                    "password VARCHAR(40))" +
+                    "password VARCHAR(40)," +
                     "questionsecrete VARCHAR(200), " +
-                    "reponsesecrete VARCHAR(200), " , tableNames[0]);
+                    "reponsesecrete VARCHAR(200)) " , tableNames[0]);
          statementStrings[2] =
                 "ALTER TABLE "
                 + tableNames[0]
