@@ -11,6 +11,8 @@
 
 package velib.view;
 
+import java.awt.event.ActionListener;
+import velib.model.Bornette;
 import velib.model.Client;
 
 /**
@@ -22,16 +24,18 @@ public class LouerVeloPanel extends javax.swing.JPanel {
 
     // TODO: should we add the borne/bornette here?
     private Client client;
+    private Bornette bornette;
 
     /** Creates new form LouerVeloPanel */
     public LouerVeloPanel() {
         initComponents();
     }
 
-    public LouerVeloPanel(Client client)
+    public LouerVeloPanel(Client client, Bornette bornette)
     {
         this();
         this.client = client;
+        this.bornette = bornette;
         setUp();
     }
 
@@ -42,6 +46,12 @@ public class LouerVeloPanel extends javax.swing.JPanel {
     {
         setSize(200, 200); // TODO: to be removed
         fullNameLabel.setText(client.getFullName());
+        bornetteLabel.setText(bornette.toString());
+    }
+
+    public void addOkButtonListener(ActionListener al)
+    {
+        okButton.addActionListener(al);
     }
 
     /** This method is called from within the constructor to
@@ -60,6 +70,7 @@ public class LouerVeloPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         fullNameLabel = new javax.swing.JLabel();
         bornetteLabel = new javax.swing.JLabel();
+        okButton = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Vous souhaitez louer un velo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
@@ -111,6 +122,8 @@ public class LouerVeloPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        okButton.setText("OK");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,14 +131,20 @@ public class LouerVeloPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(237, Short.MAX_VALUE)
+                .addComponent(okButton)
+                .addGap(68, 68, 68))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(okButton)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -138,6 +157,7 @@ public class LouerVeloPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton okButton;
     // End of variables declaration//GEN-END:variables
 
 }

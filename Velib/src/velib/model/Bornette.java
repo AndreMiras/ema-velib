@@ -47,11 +47,16 @@ public class Bornette {
         return velo;
     }
 
+    public void setVelo(Velo velo)
+    {
+        this.velo = velo;
+    }
 
-
-
-    
-
+    @Override
+    public String toString()
+    {
+        return Long.toString(numero);
+    }
 
 
     
