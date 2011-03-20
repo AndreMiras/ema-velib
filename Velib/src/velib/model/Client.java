@@ -18,8 +18,7 @@ public class Client extends User {
     private Date dateNaissance; // TODO: is it worth keeping that?
     private String adresse;
     private long codePostal;
-    private String questionSecrete;
-    private String reponseSecrete;
+
     private Abonnement abonnement;
     private Banque banque;
 
@@ -76,13 +75,7 @@ public class Client extends User {
         return abonnement;
     }
 
-    public String getQuestionSecrete() {
-        return questionSecrete;
-    }
 
-    public String getReponseSecrete() {
-        return reponseSecrete;
-    }
 
     public Banque getBanque() {
         return banque;

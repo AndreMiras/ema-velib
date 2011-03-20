@@ -58,8 +58,6 @@ public class ClientDAO extends DAO<Client>
                                             + "datenaissance, "
                                             + "adresse, "
                                             + "codepostal, "
-                                            + "questionsecrete, "
-                                            + "reponsesecrete, "
                                             + "idabonnement, "
                                             + "iduser, "
                                             + "idbanque) "
@@ -73,8 +71,6 @@ public class ClientDAO extends DAO<Client>
                                         obj.getDateNaissance().getTime()));
                                 prepare.setString(5, obj.getAdresse());
                                 prepare.setLong(6, obj.getCodePostal());
-                                prepare.setString(7, obj.getQuestionSecrete());
-                                prepare.setString(8, obj.getReponseSecrete());
                                 prepare.setLong(9, obj.getAbonnement().getId());
                                 prepare.setLong(10, obj.getUserId());
                                 prepare.setLong(11, obj.getBanque().getId());
@@ -235,8 +231,7 @@ public class ClientDAO extends DAO<Client>
             "datenaissance DATE, " +
             "adresse VARCHAR(40), " +
             "codepostal VARCHAR(40), " +
-            "questionsecrete VARCHAR(200), " +
-            "reponsesecrete VARCHAR(200), " + // TODO: to me this should be part of the user model, not the client
+            // TODO: to me this should be part of the user model, not the client
             "idabonnement INTEGER, " + // TODO: to be foreign key
             "iduser INTEGER, " + // TODO: to be foreign key
             "idbanque INTEGER) " , tableNames[0]); // TODO: foreign key

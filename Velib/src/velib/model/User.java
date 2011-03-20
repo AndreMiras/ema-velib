@@ -16,6 +16,8 @@ public class User implements IModel {
     private long user_id;
     private String identifiant;
     private String password;
+    private String questionSecrete;
+    private String reponseSecrete;
 
     public User()
     {
@@ -60,8 +62,13 @@ public class User implements IModel {
         this.password = password;
     }
 
+        public String getQuestionSecrete() {
+        return questionSecrete;
+    }
 
-    
+    public String getReponseSecrete() {
+        return reponseSecrete;
+    }
 
 
 }
