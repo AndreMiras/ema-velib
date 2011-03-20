@@ -76,14 +76,10 @@ public class MainWindowController extends AbstractMainWindowController implement
         welcomeScreenController = new WelcomeScreenController(
                 this, model, welcomeScreenPanel);
         
-        setMainWindowContentPanel(welcomeScreenPanel);
+        mainWindowFrame.setContentPanel(welcomeScreenPanel);
         
     }
 
-    public void setMainWindowContentPanel(JPanel jpanel)
-    {
-        mainWindowFrame.setContentPanel(jpanel);
-    }
     
     private void addListeners()
     {
