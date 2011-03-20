@@ -7,6 +7,7 @@ package velib.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import velib.dao.ClientDAO;
 import velib.dao.UserDAO;
 import velib.model.Client;
 import velib.model.User;
@@ -53,6 +54,7 @@ public class CreateUserPasswordController extends AbstractController
         {
             User user;
             UserDAO userDAO = new UserDAO();
+            ClientDAO clientDAO = new ClientDAO();
 
             user = createUserPasswordPanel.getUserFromInputs();
             user.setUserId(client.getUser().getUserId());
@@ -60,6 +62,8 @@ public class CreateUserPasswordController extends AbstractController
             userDAO.update(user);
 
             /* Calling up the create CreateUserPassword  */
+            // updating the client object in memory first
+            client = clientDAO.find(client.getClientId());
             BankDetailsPanel bankDetailsPanel =
                     new BankDetailsPanel();
             bankDetailsPanel.setVisible(true);
