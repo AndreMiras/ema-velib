@@ -41,11 +41,11 @@ public class ClientDAO extends DAO<Client>
             obj.setUser(userDAO.create(obj.getUser()));
         }
         //Si l'abonnement n'existe pas
-        /*if(obj.getAbonnement().getId() == 0)
+        if(obj.getAbonnement().getId() == 0)
         {
             AbonnementDAO abonnementDAO = new AbonnementDAO();
             obj.setAbonnement(abonnementDAO.create(obj.getAbonnement()));
-        }*/
+        }
         //Si le compte en banque n'existe pas
         /*if(obj.getBanque().getId() == 0)
         {
