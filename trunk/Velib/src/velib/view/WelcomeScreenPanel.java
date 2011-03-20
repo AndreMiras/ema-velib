@@ -20,10 +20,10 @@ import java.awt.event.ActionListener;
 public class WelcomeScreenPanel extends javax.swing.JPanel {
 
     /** Creates new form WelcomeScreenPanel */
-    public WelcomeScreenPanel() {
+    public WelcomeScreenPanel()
+    {
         initComponents();
     }
-
 
     public void addAbonnerButtonListener(ActionListener al)
     {
