@@ -35,6 +35,8 @@ public class RestituerVeloController extends AbstractController
     {
         restituerVeloPanel.addDeclarerProblemeButtonListener(
                 new DeclarerProblemeButtonListener());
+        restituerVeloPanel.addOkButtonListener(
+                new OkButtonListener());
     }
 
     class DeclarerProblemeButtonListener implements ActionListener
@@ -42,6 +44,14 @@ public class RestituerVeloController extends AbstractController
         public void actionPerformed(ActionEvent e)
         {
             System.out.println("TODO: Create a Probleme object in the DB using the DAO");
+        }
+    }
+
+    class OkButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            System.out.println("TODO: go back to the home screen");
         }
     }
 }

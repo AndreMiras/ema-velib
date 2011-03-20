@@ -12,6 +12,8 @@
 package velib.view;
 
 import java.awt.event.ActionListener;
+import velib.model.Bornette;
+import velib.model.Client;
 
 /**
  *
@@ -19,9 +21,30 @@ import java.awt.event.ActionListener;
  */
 public class RestituerVeloPanel extends javax.swing.JPanel {
 
+    private Client client;
+    private Bornette bornette;
+
     /** Creates new form RestituerVeloPanel */
     public RestituerVeloPanel() {
         initComponents();
+    }
+
+    public RestituerVeloPanel(Client client, Bornette bornette)
+    {
+        this();
+        this.client = client;
+        this.bornette = bornette;
+
+        setUp();
+    }
+
+    /*
+     * setup widget using model
+     */
+    private void setUp()
+    {
+        fullNameLabel.setText(client.getFirstname());
+        numBornetteLabel.setText(Long.toBinaryString(bornette.getNumero()));
     }
 
 
@@ -29,6 +52,11 @@ public class RestituerVeloPanel extends javax.swing.JPanel {
     public void addDeclarerProblemeButtonListener(ActionListener actionListener)
     {
         declarerProblemeButton.addActionListener(actionListener);
+    }
+
+    public void addOkButtonListener(ActionListener actionListener)
+    {
+        okButton.addActionListener(actionListener);
     }
 
     /** This method is called from within the constructor to
@@ -47,6 +75,7 @@ public class RestituerVeloPanel extends javax.swing.JPanel {
         declarerProblemeButton = new javax.swing.JButton();
         fullNameLabel = new javax.swing.JLabel();
         numBornetteLabel = new javax.swing.JLabel();
+        okButton = new javax.swing.JButton();
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Vous souhaitez restituer un vélo "));
 
@@ -62,6 +91,8 @@ public class RestituerVeloPanel extends javax.swing.JPanel {
 
         numBornetteLabel.setText("numBornette");
 
+        okButton.setText("OK");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -70,20 +101,24 @@ public class RestituerVeloPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(numBornetteLabel)
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(fullNameLabel)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(278, Short.MAX_VALUE)
-                .addComponent(declarerProblemeButton)
+                        .addComponent(fullNameLabel))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(declarerProblemeButton)
+                            .addComponent(jLabel2))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(numBornetteLabel)
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel3))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(okButton)
+                                .addGap(10, 10, 10)))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -99,7 +134,9 @@ public class RestituerVeloPanel extends javax.swing.JPanel {
                     .addComponent(numBornetteLabel)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(declarerProblemeButton)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(declarerProblemeButton)
+                    .addComponent(okButton))
                 .addContainerGap())
         );
 
@@ -130,6 +167,7 @@ public class RestituerVeloPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel numBornetteLabel;
+    private javax.swing.JButton okButton;
     // End of variables declaration//GEN-END:variables
 
 }
