@@ -29,7 +29,14 @@ public class AbstractMainWindowController
     {
         mainWindowController.setMainWindowContentPanel(jpanel);
     }
-    
 
+
+    /*
+    protected void initMainWindow()
+    {
+        mainWindowController.mainWindowFrameSetup();
+    }
+     * 
+     */
 
 }

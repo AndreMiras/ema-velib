@@ -12,14 +12,12 @@ import velib.view.MainWindowFrame;
  *
  * @author G
  */
-public class UsersControlController extends AbstractMainWindowController
+public class UsersControlController
 {
     private UsersControlFrame usersControlFrame;
 
-    public UsersControlController(MainWindowController mainWindowController,
-            UsersControlFrame usersControlFrame)
+    public UsersControlController(UsersControlFrame usersControlFrame)
     {
-        super(mainWindowController);
         this.usersControlFrame = usersControlFrame;
     }
 }
