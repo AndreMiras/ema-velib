@@ -137,7 +137,7 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
 
        for (int i=0; i<3; i++)
        {
-           nomBorne = "firstname" + i;
+           nomBorne = "Borne" + i;
 
            borneDAO = new BornesDAO();
            borne = new Borne(id, nomBorne);
@@ -152,8 +152,8 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
            bornette = new Bornette(id, numero, borne, velo);
            bornette = bornetteDAO.create(bornette);
 
-           System.out.println("created client: " + borne);
-           System.out.println("created client: " + bornette);
+           System.out.println("created borne: " + borne);
+           System.out.println("created bornette: " + bornette);
        }
     }
 
