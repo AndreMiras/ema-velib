@@ -51,6 +51,7 @@ private void invalidForm()
 
 /*
  * create and return a user object from the input
+ * TODO: add secret question/response
  */
 public User getUserFromInputs()
 {
