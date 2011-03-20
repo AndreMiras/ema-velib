@@ -147,6 +147,7 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
            veloDAO = new VeloDAO();
            velo = new Velo (id);
            velo = veloDAO.create(velo);
+
            numero = i+1;
            bornetteDAO = new BornetteDAO();
            bornette = new Bornette(id, numero, borne, velo);
