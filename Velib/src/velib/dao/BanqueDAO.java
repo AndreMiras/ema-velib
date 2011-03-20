@@ -100,7 +100,28 @@ public class BanqueDAO extends DAO<Bank>
 
     @Override
     public Bank update(Bank obj) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String banquesTable = tableNames[0];
+        try {
+                this .connect.createStatement(
+                    	ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_UPDATABLE
+                     ).executeUpdate(
+                    	"UPDATE " +
+                        banquesTable +
+                        " SET numero = '" + obj.getNumero()+ "',"+
+                        " identifiant = '" + obj.getIdentifiant() + "',"+
+                        " dateexpiration = '" + obj.getDateExpiration() + "',"+
+                        " codeverif = '" + obj.getCodeVerif() + "'"+
+                    	" WHERE idbanque = " + obj.getId()
+                     );
+
+	obj = this.find(obj.getId());
+	    }
+        catch (SQLException e)
+        {
+	  e.printStackTrace();
+	}
+        return obj;
     }
 
     @Override

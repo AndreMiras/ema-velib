@@ -74,7 +74,6 @@ public class VeloDAO extends DAO<Velo>
                     Long idvelo = result.getLong("idvelo");
                     Boolean etat = result.getBoolean("etat");
                     bornette = bornetteDAO.find(result.getLong("idbornette"));
-                    
                     velo = new Velo(idvelo, etat, bornette);
                 }
 
