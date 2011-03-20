@@ -21,6 +21,8 @@ public class Abonnement {
     public Abonnement () {
         // TODO: hardcoded value, ident envoyé de la BDD (DAO)
         this.id=0;
+        this.dateDebut = new Date();
+        this.dateFin = new Date();
     }
 
     public long getId() {
