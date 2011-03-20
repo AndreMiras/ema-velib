@@ -120,7 +120,9 @@ public class BornetteDAO extends DAO<Bornette>
         return bornette;
     }
 
-    public Bornette updateLibre (Bornette obj)
+    
+    @Override
+    public Bornette update(Bornette obj)
     {
         String bornetteTable = tableNames[0];
         try {
@@ -131,7 +133,7 @@ public class BornetteDAO extends DAO<Bornette>
                     	"UPDATE " +
                         bornetteTable +
                         " SET libre = '" + obj.getLibre()+ "',"+
-                    	" WHERE iduser = " + obj.getId()
+                    	" WHERE idbornnete = " + obj.getId()
                      );
 
 	obj = this.find(obj.getId());
@@ -141,11 +143,6 @@ public class BornetteDAO extends DAO<Bornette>
 	  e.printStackTrace();
 	}
         return obj;
-    }
-    @Override
-    public Bornette update(Bornette obj)
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
