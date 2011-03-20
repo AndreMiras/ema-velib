@@ -20,6 +20,11 @@ public class Client extends User {
     private long codePostal;
 
     private Abonnement abonnement;
+
+    /*
+     * plusieurs clients peuvent avoir la meme carte mais on considere qu'un
+     * client n'a qu'une carte
+     */
     private Bank banque;
 
 

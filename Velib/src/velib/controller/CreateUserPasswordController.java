@@ -31,6 +31,8 @@ public class CreateUserPasswordController extends AbstractController
         super(mainWindowFrame);
         this.client = client;
         this.createUserPasswordPanel = createUserPasswordPanel;
+
+        addListeners();
     }
 
     private void addListeners()
