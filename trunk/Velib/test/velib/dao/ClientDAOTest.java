@@ -26,11 +26,26 @@ public class ClientDAOTest {
     @BeforeClass
     public static void setUpClass() throws Exception
     {
+        ConnectionHSQL.getDebugInstance();
+
+        DatabaseManagementDAO databaseManagementDAO =
+                new DatabaseManagementDAO();
+
+        // cleaning-up before all
+        databaseManagementDAO.dropDatabase();
+
+        databaseManagementDAO.createTables();
     }
 
     @AfterClass
     public static void tearDownClass() throws Exception
     {
+        DatabaseManagementDAO databaseManagementDAO =
+                new DatabaseManagementDAO();
+        // databaseManagementDAO.dropTables();
+
+        // cleaning-up
+        databaseManagementDAO.dropDatabase();
     }
 
     /*
@@ -38,26 +53,13 @@ public class ClientDAOTest {
      * Creating tables
      */
     @Before
-    public void setUp() {
-        ConnectionHSQL.getDebugInstance();
-        
-        DatabaseManagementDAO databaseManagementDAO =
-                new DatabaseManagementDAO();
-        
-        // cleaning-up before all
-        databaseManagementDAO.dropDatabase();
-        
-        databaseManagementDAO.createTables();
+    public void setUp()
+    {
     }
 
     @After
-    public void tearDown() {
-        DatabaseManagementDAO databaseManagementDAO =
-                new DatabaseManagementDAO();
-        // databaseManagementDAO.dropTables();
-
-        // cleaning-up
-        databaseManagementDAO.dropDatabase();
+    public void tearDown()
+    {
     }
 
     /**
