@@ -12,15 +12,15 @@ import velib.view.MainWindowFrame;
  *
  * @author G
  */
-public class HelpController extends AbstractController
+public class HelpController extends AbstractMainWindowController
 {
 
     private IModel model;
     private HelpPanel view;
 
-    public HelpController(MainWindowFrame mainWindowFrame, IModel model, HelpPanel view)
+    public HelpController(MainWindowController mainWindowController, IModel model, HelpPanel view)
     {
-        super(mainWindowFrame);
+        super(mainWindowController);
         this.model = model;
         this.view = view;
     }

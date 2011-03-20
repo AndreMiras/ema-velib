@@ -13,16 +13,16 @@ import velib.view.MainWindowFrame;
  *
  * @author andre
  */
-public class ConfirmationAbonnementController extends AbstractController
+public class ConfirmationAbonnementController extends AbstractMainWindowController
 {
     private Client client;
     private ConfirmationAbonnementPanel confirmationAbonnementPanel;
 
     public ConfirmationAbonnementController(Client client,
-            MainWindowFrame mainWindowFrame,
+            MainWindowController mainWindowController,
             ConfirmationAbonnementPanel confirmationAbonnementPanel)
     {
-        super(mainWindowFrame);
+        super(mainWindowController);
         this.client = client;
         this.confirmationAbonnementPanel = confirmationAbonnementPanel;
     }

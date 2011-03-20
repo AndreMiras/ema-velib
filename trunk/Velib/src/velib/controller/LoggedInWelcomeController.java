@@ -24,17 +24,17 @@ import velib.view.RestituerVeloPanel;
  *
  * @author andre
  */
-class LoggedInWelcomeController extends AbstractController
+class LoggedInWelcomeController extends AbstractMainWindowController
 {
 
     private Client client ;
     private LoggedInWelcomePanel loggedInWelcomePanel;
 
     public LoggedInWelcomeController(
-            MainWindowFrame mainWindowFrame, Client client,
+            MainWindowController mainWindowController, Client client,
             LoggedInWelcomePanel loggedInWelcomePanel)
     {
-        super(mainWindowFrame);
+        super(mainWindowController);
         this.client = client;
         this.loggedInWelcomePanel = loggedInWelcomePanel;
 
@@ -66,8 +66,8 @@ class LoggedInWelcomeController extends AbstractController
                     new LouerVeloPanel(client, bornette);
             LouerVeloController louerVeloController =
                     new LouerVeloController(
-                    mainWindowFrame, client, bornette, louerVeloPanel);
-            mainWindowFrame.setContentPanel(louerVeloPanel);
+                    mainWindowController, client, bornette, louerVeloPanel);
+            setMainWindowContentPanel(louerVeloPanel);
         }
     }
 
@@ -99,8 +99,8 @@ class LoggedInWelcomeController extends AbstractController
                     new RestituerVeloPanel(client, bornette);
             RestituerVeloController restituerVeloController =
                     new RestituerVeloController(
-                    mainWindowFrame, restituerVeloPanel, client);
-            mainWindowFrame.setContentPanel(restituerVeloPanel);
+                    mainWindowController, restituerVeloPanel, client);
+            setMainWindowContentPanel(restituerVeloPanel);
            
         }
     }

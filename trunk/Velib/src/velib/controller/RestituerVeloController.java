@@ -15,15 +15,15 @@ import velib.view.RestituerVeloPanel;
  *
  * @author andre
  */
-public class RestituerVeloController extends AbstractController
+public class RestituerVeloController extends AbstractMainWindowController
 {
     private RestituerVeloPanel restituerVeloPanel;
     private Client client;
 
-    public RestituerVeloController(MainWindowFrame mainWindowFrame,
+    public RestituerVeloController(MainWindowController mainWindowController,
             RestituerVeloPanel restituerVeloPanel, Client client)
     {
-        super(mainWindowFrame);
+        super(mainWindowController);
         
         this.restituerVeloPanel = restituerVeloPanel;
         this.client = client;

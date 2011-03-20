@@ -18,14 +18,14 @@ import velib.view.RegisterFormPanel;
  * @author andre
  * TODO: manage all three kind of long subscription
  */
-public class RegisterFormController extends AbstractController
+public class RegisterFormController extends AbstractMainWindowController
 {
     private RegisterFormPanel registerFormPanel;
 
-    RegisterFormController(MainWindowFrame mainWindowFrame,
+    RegisterFormController(MainWindowController mainWindowController,
             RegisterFormPanel registerFormPanel)
     {
-        super(mainWindowFrame);
+        super(mainWindowController);
         this.registerFormPanel = registerFormPanel;
 
         addListeners();
@@ -59,10 +59,11 @@ public class RegisterFormController extends AbstractController
                     new CreateUserPasswordPanel();
             createUserPasswordPanel.setVisible(true);
             CreateUserPasswordController createUserPasswordController =
-                    new CreateUserPasswordController(
-                        client, mainWindowFrame, createUserPasswordPanel);
+                    new CreateUserPasswordController(client,
+                        mainWindowController,
+                        createUserPasswordPanel);
 
-            mainWindowFrame.setContentPanel(createUserPasswordPanel);
+            setMainWindowContentPanel(createUserPasswordPanel);
 
         }
     }
