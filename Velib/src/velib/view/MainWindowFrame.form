@@ -32,7 +32,6 @@
             <MenuItem class="javax.swing.JMenuItem" name="usersControlMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Users Control"/>
-                <Property name="actionCommand" type="java.lang.String" value="Users Control"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="usersControlMenuItemActionPerformed"/>

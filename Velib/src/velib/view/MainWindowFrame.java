@@ -142,6 +142,10 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         connectToDatabaseMenuItem.addActionListener(al);
     }
 
+    public void addUsersControlButtonListener(ActionListener al)
+    {
+        usersControlMenuItem.addActionListener(al);
+    }
     
     /** This method is called from within the constructor to
      * initialize the form.
