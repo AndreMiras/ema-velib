@@ -14,7 +14,7 @@ public class Bornette {
     private boolean libre;
     private long numero;
     private Borne borne;
-    private Velo velo;
+ 
 
     public Bornette()
     {
@@ -22,7 +22,6 @@ public class Bornette {
         this.libre = false;
         this.numero = 0;
         this.borne = null;
-        this.velo = null;
     }
 
     public Bornette(long id, long numero, Borne borne) {
@@ -30,7 +29,6 @@ public class Bornette {
         this.libre=false;
         this.numero = numero;
         this.borne = borne;
-        this.velo = new Velo();
      }
     
     public long getId() {
@@ -45,9 +43,6 @@ public class Bornette {
         return borne;
     }
 
-    public Velo getVelo() {
-        return velo;
-    }
 
     public boolean getLibre(){
         return libre;
