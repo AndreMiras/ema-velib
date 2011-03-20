@@ -233,7 +233,7 @@ public class BornetteDAO extends DAO<Bornette>
                 "ALTER TABLE "
                 + tableNames[0]
                 + " ADD CONSTRAINT foreign_key_bornettes_borne FOREIGN KEY "
-                + "(idborne) REFERENCES bornes (idbornes)";
+                + "(idborne) REFERENCES bornes (idborne)";
         statementStrings[4] =
                 "ALTER TABLE "
                 + tableNames[0]
