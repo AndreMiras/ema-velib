@@ -18,16 +18,16 @@ import velib.view.MainWindowFrame;
  *
  * @author andre
  */
-public class BankDetailsController extends AbstractController
+public class BankDetailsController extends AbstractMainWindowController
 {
     private Client client;
     private BankDetailsPanel bankDetailsPanel;
 
     public BankDetailsController(Client client,
-            MainWindowFrame mainWindowFrame,
+            MainWindowController mainWindowController,
             BankDetailsPanel bankDetailsPanel)
     {
-        super(mainWindowFrame);
+        super(mainWindowController);
         this.client = client;
         this.bankDetailsPanel = bankDetailsPanel;
 
@@ -62,10 +62,10 @@ public class BankDetailsController extends AbstractController
             ConfirmationAbonnementPanel confirmationAbonnementPanel =
                     new ConfirmationAbonnementPanel(client);
             ConfirmationAbonnementController confirmationAbonnementController =
-                    new ConfirmationAbonnementController(
-                        client, mainWindowFrame, confirmationAbonnementPanel);
+                    new ConfirmationAbonnementController(client,
+                    mainWindowController, confirmationAbonnementPanel);
 
-            mainWindowFrame.setContentPanel(confirmationAbonnementPanel);
+            setMainWindowContentPanel(confirmationAbonnementPanel);
 
         }
     }

@@ -27,12 +27,13 @@ import velib.view.UsersControlFrame;
  * @author andre
  */
 // TODO: to be renamed as MainWindowFrameController
-public class MainWindowController extends AbstractController implements IController
+public class MainWindowController extends AbstractMainWindowController implements IController
 {
   
     private IModel model;
     private WelcomeScreenPanel welcomeScreenPanel;
     private WelcomeScreenController welcomeScreenController;
+    private MainWindowFrame mainWindowFrame;
 
     private LoginScreenController loginScreenController;
 
@@ -54,10 +55,12 @@ public class MainWindowController extends AbstractController implements IControl
     private UsersControlFrame usersControlFrame;
     private UsersControlController usersControlController;
 
-    public MainWindowController(IModel model, MainWindowFrame view)
+    public MainWindowController(IModel model,
+            MainWindowFrame mainWindowFrame)
     {
-        super(view);
+        super(null);
         this.model = model;
+        this.mainWindowFrame = mainWindowFrame;
 
         // addListeners();
         mainWindowFrameSetup();
@@ -71,10 +74,15 @@ public class MainWindowController extends AbstractController implements IControl
     {
         welcomeScreenPanel = new WelcomeScreenPanel();
         welcomeScreenController = new WelcomeScreenController(
-                mainWindowFrame, model, welcomeScreenPanel);
+                this, model, welcomeScreenPanel);
         
-        mainWindowFrame.setContentPanel(welcomeScreenPanel);
+        setMainWindowContentPanel(welcomeScreenPanel);
         
+    }
+
+    public void setMainWindowContentPanel(JPanel jpanel)
+    {
+        mainWindowFrame.setContentPanel(jpanel);
     }
     
     private void addListeners()
@@ -141,7 +149,7 @@ public class MainWindowController extends AbstractController implements IControl
         {
             // TODO: two controllers ... not needed
             editBornFrame = new EditBornFrame();
-            editBornController = new EditBornController(mainWindowFrame,
+            editBornController = new EditBornController(mainWindowController,
                     editBornFrame);
             
             GeneralAdministrationController generalAdministrationController =

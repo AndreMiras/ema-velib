@@ -24,17 +24,17 @@ import velib.view.MainWindowFrame;
  * TODO:
  * dispose when the velo is taken or when the time out is reached
  */
-public class LouerVeloController extends AbstractController
+public class LouerVeloController extends AbstractMainWindowController
 {
 
     private LouerVeloPanel louerVeloPanel;
     private Client client;
     private Bornette bornette;
 
-    public LouerVeloController(MainWindowFrame mainWindowFrame,
+    public LouerVeloController(MainWindowController mainWindowController,
             Client client, Bornette bornette, LouerVeloPanel louerVeloPanel)
     {
-        super(mainWindowFrame);
+        super(mainWindowController);
 
         this.louerVeloPanel = louerVeloPanel;
         this.bornette = bornette;
@@ -80,7 +80,7 @@ public class LouerVeloController extends AbstractController
 
             System.out.println("Creating a subscription object");
             // TODO: Call the home screen by cleaning the mainWindowFrame
-            mainWindowFrame.setContentPanel(louerVeloPanel);
+            setMainWindowContentPanel(louerVeloPanel);
         }
     }
 

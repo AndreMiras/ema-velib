@@ -17,15 +17,15 @@ import velib.view.RegisterFormPanel;
  *
  * @author andre
  */
-public class AbonnementController extends AbstractController
+public class AbonnementController extends AbstractMainWindowController
 {
     private AbonnementPanel abonnementPanel;
     
 
-    public AbonnementController(MainWindowFrame mainWindowFrame,
+    public AbonnementController(MainWindowController mainWindowController,
             AbonnementPanel abonnementPanel)
     {
-        super(mainWindowFrame);
+        super(mainWindowController);
         this.abonnementPanel = abonnementPanel;
 
         abonnementPanel.addAbonnementGroupButtonListener(
@@ -86,11 +86,11 @@ public class AbonnementController extends AbstractController
         {
             RegisterFormPanel registerFormPanel = new RegisterFormPanel();
             RegisterFormController registerFormController =
-                    new RegisterFormController(mainWindowFrame,
+                    new RegisterFormController(mainWindowController,
                     registerFormPanel);
             registerFormPanel.setVisible(true);
 
-            mainWindowFrame.setContentPanel(registerFormPanel);
+            setMainWindowContentPanel(registerFormPanel);
         }
     }
 

@@ -20,7 +20,7 @@ import velib.view.MainWindowFrame;
  *
  * @author andre
  */
-public class LoginScreenController extends AbstractController
+public class LoginScreenController extends AbstractMainWindowController
 {
 
     private IModel model;
@@ -37,9 +37,10 @@ public class LoginScreenController extends AbstractController
     private Client client;
 
     // TODO: actually I think we will path it a DAO rather than a model
-    public LoginScreenController(MainWindowFrame mainWindowFrame, IModel model, LoginScreenPanel view)
+    public LoginScreenController(MainWindowController mainWindowController,
+            IModel model, LoginScreenPanel view)
     {
-        super(mainWindowFrame);
+        super(mainWindowController);
         this.model = model;
         this.view = view;
 
@@ -84,9 +85,9 @@ public class LoginScreenController extends AbstractController
                 
                 loggedInWelcomePanel = new LoggedInWelcomePanel(client);
                 loggedInWelcomeController =
-                        new LoggedInWelcomeController(mainWindowFrame,
+                        new LoggedInWelcomeController(mainWindowController,
                         client, loggedInWelcomePanel);
-                mainWindowFrame.setContentPanel(loggedInWelcomePanel);
+                setMainWindowContentPanel(loggedInWelcomePanel);
                 System.out.println("Users ok");
                 // mainWindow.showMessage("User ok");
             }

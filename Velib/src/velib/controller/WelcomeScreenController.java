@@ -22,16 +22,17 @@ import velib.view.WelcomeScreenPanel;
  * basically this controller doesn't do any Model changes
  * just delegates
  */
-public class WelcomeScreenController extends AbstractController
+public class WelcomeScreenController extends AbstractMainWindowController
 {
     // TODO: controller might not be needed
     private IModel model;
     private WelcomeScreenPanel view;
 
     public WelcomeScreenController(
-            MainWindowFrame mainWindowFrame, IModel model, WelcomeScreenPanel view)
+            MainWindowController mainWindowController,
+            IModel model, WelcomeScreenPanel view)
     {
-        super(mainWindowFrame);
+        super(mainWindowController);
         this.model = model;
         this.view = view;
 
@@ -53,9 +54,10 @@ public class WelcomeScreenController extends AbstractController
             // TODO: does it really need to be kept as a private attribute?
             AbonnementPanel abonnementPanel = new AbonnementPanel();
             AbonnementController abonnementController =
-                    new AbonnementController(mainWindowFrame, abonnementPanel);
+                    new AbonnementController(mainWindowController,
+                    abonnementPanel);
             // loginScreenPanel.setVisible(true);
-            mainWindowFrame.setContentPanel(abonnementPanel);
+            setMainWindowContentPanel(abonnementPanel);
         }
     }
     
@@ -66,10 +68,10 @@ public class WelcomeScreenController extends AbstractController
             // TODO: does it really need to be kept as a private attribute?
             LoginScreenPanel loginScreenPanel = new LoginScreenPanel();
             LoginScreenController loginScreenController =
-                    new LoginScreenController(mainWindowFrame,
+                    new LoginScreenController(mainWindowController,
                     model, loginScreenPanel);
             // loginScreenPanel.setVisible(true);
-            mainWindowFrame.setContentPanel(loginScreenPanel);
+            setMainWindowContentPanel(loginScreenPanel);
         }
     }
 
@@ -78,9 +80,10 @@ public class WelcomeScreenController extends AbstractController
         public void actionPerformed(ActionEvent e)
         {
             HelpPanel helpPanel = new HelpPanel();
-            HelpController helpController = new HelpController(mainWindowFrame,
+            HelpController helpController = new HelpController(
+                    mainWindowController,
                     model, helpPanel);
-            mainWindowFrame.setContentPanel(helpPanel);
+            setMainWindowContentPanel(helpPanel);
         }
     }
     

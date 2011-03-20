@@ -19,17 +19,17 @@ import velib.view.MainWindowFrame;
  *
  * @author andre
  */
-public class CreateUserPasswordController extends AbstractController
+public class CreateUserPasswordController extends AbstractMainWindowController
 {
     private Client client;
     private CreateUserPasswordPanel createUserPasswordPanel;
     
     CreateUserPasswordController(
             Client client,
-            MainWindowFrame mainWindowFrame,
+            MainWindowController mainWindowController,
             CreateUserPasswordPanel createUserPasswordPanel)
     {
-        super(mainWindowFrame);
+        super(mainWindowController);
         this.client = client;
         this.createUserPasswordPanel = createUserPasswordPanel;
 
@@ -69,9 +69,9 @@ public class CreateUserPasswordController extends AbstractController
             bankDetailsPanel.setVisible(true);
             BankDetailsController bankDetailsController =
                     new BankDetailsController(
-                        client, mainWindowFrame, bankDetailsPanel);
+                        client, mainWindowController, bankDetailsPanel);
 
-            mainWindowFrame.setContentPanel(bankDetailsPanel);
+            setMainWindowContentPanel(bankDetailsPanel);
 
         }
     }
