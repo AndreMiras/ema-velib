@@ -50,6 +50,7 @@ public class MainWindowController // extends AbstractMainWindowController implem
 
     // Database Connection
     private DBConnectionFrame dBConnectionFrame;
+    private DBConnectionController dBConnectionController;
 
     // Users Control mvc
     private UsersControlFrame usersControlFrame;
@@ -92,8 +93,8 @@ public class MainWindowController // extends AbstractMainWindowController implem
                 new EditDatabaseButtonListener());
         mainWindowFrame.addEditBornButtonListener(
                 new EditBornButtonListener());
-        mainWindowFrame.addConnectToDatabaseButtonListener(
-                new ConnectToDatabaseButtonListener());
+        mainWindowFrame.addDBConnectionButtonListener(
+                new DBConnectionButtonListener());
         mainWindowFrame.addUsersControlButtonListener(
                 new UsersControlButtonListener());
     }
@@ -125,7 +126,7 @@ public class MainWindowController // extends AbstractMainWindowController implem
         }
     }
 
-    class ConnectToDatabaseButtonListener implements ActionListener
+    class DBConnectionButtonListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
@@ -146,7 +147,6 @@ public class MainWindowController // extends AbstractMainWindowController implem
     {
         public void actionPerformed(ActionEvent e)
         {
-            // TODO: two controllers ... not needed
             editBornFrame = new EditBornFrame();
             editBornController = new EditBornController(editBornFrame);
             editBornFrame.setVisible(true);
