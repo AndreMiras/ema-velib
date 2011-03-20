@@ -27,6 +27,7 @@ public class BanqueDAO extends DAO<Banque>
     {
         tableNames = new String[] { "banques" };
     }
+
     public Banque create(Banque obj)
     {
            
@@ -49,7 +50,8 @@ public class BanqueDAO extends DAO<Banque>
                                 prepare.setDate(4, obj.getDateExpirationSQL());
                                 prepare.setLong(5, obj.getCodeVerif());
                                 prepare.setLong(6, obj.getClient().getClientId());
-				
+				prepare.executeUpdate();
+				obj = this.find(id);
 			}
 	    }
             catch (SQLException e) {
@@ -60,7 +62,37 @@ public class BanqueDAO extends DAO<Banque>
 
     @Override
     public Banque find(long id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Banque compteBanque = new Banque();
+        String banquesTable = tableNames[0];
+
+	try
+        {
+            ResultSet result = this.connect.createStatement(
+                                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                    ResultSet.CONCUR_READ_ONLY
+                                     ).executeQuery(
+                                    "SELECT * FROM " +
+                                    banquesTable +
+                                    " WHERE idbanque = '" + id
+                                    );
+            if(result.first())
+            {
+                System.out.println("I'm in the result");
+
+                Long numero = result.getLong("numero");
+                String identifiant = result.getString("identifiant");
+                //Date date = result.getDate("dateexpiration");
+                System.out.println("id =" + id);
+
+               // compteBanque = new Banque(id, identifiantDB, passwordDB);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return compteBanque;
     }
 
     @Override

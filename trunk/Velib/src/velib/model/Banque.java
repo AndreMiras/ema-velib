@@ -20,6 +20,20 @@ public class Banque {
      private long codeVerif;
      private Client client;
 
+    public Banque(long id, long numero, Date date, String identifiant, long codeVerif, Client client) {
+        this.id=id;
+        this.numero=numero;
+        this.dateExpiration=date;
+        this.identifiant=identifiant;
+        this.codeVerif=codeVerif;
+        this.client=client;
+    }
+
+    public Banque() {
+    }
+
+    
+
     public long getId() {
         return id;
     }
