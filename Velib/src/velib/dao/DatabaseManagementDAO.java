@@ -49,11 +49,10 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
         createBornesTable();
         createUserTable();
         createBanquesTable();
-        createClientTable();
-        createVeloTable();
-        
         createTypeAbonnementTable();
         createAbonnementsTable();
+        createClientTable();
+        createVeloTable();
         createBornetteTable();
         createLocationTable();
      }
