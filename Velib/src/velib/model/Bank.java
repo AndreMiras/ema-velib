@@ -67,6 +67,12 @@ public class Bank
         return dateExpirationSql;
     }
 
+    @Override
+    public String toString()
+    {
+        return numero;
+    }
+
      
 
 }
