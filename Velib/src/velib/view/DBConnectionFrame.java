@@ -36,9 +36,9 @@ public class DBConnectionFrame extends javax.swing.JFrame
 
     }
 
-    /*
-     * fills the combo box with bornes objects
-     */
+
+     // Fills the combo box with bornes objects
+     
     private void setUpDBConnectionFrame()
     {
         for (int i=0; i<bornes.length; i++)
