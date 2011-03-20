@@ -54,6 +54,7 @@ public class RegisterFormController extends AbstractController
             client = clientDAO.create(client);
             System.out.println("Client created: " + client);
 
+            /* Calling up the create CreateUserPassword  */
             CreateUserPasswordPanel createUserPasswordPanel =
                     new CreateUserPasswordPanel();
             createUserPasswordPanel.setVisible(true);

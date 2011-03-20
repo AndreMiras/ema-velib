@@ -11,6 +11,9 @@
 
 package velib.view;
 
+import javax.swing.JOptionPane;
+import velib.model.User;
+
 /**
  *
  * @author Fred
@@ -21,6 +24,52 @@ public class CreateUserPasswordPanel extends javax.swing.JPanel {
     public CreateUserPasswordPanel() {
         initComponents();
     }
+
+    /*
+ * Returns true if the inputs are valid, else returns false
+ */
+private boolean formIsValid()
+{
+    // TODO: finish up
+    return true;
+}
+
+ /*
+  * Displays the invalid inputs error message
+  */
+private void invalidForm()
+{
+    JOptionPane.showMessageDialog(this, "Invalid input");
+}
+
+/*
+ * create and return a user object from the input
+ */
+public User getUserFromInputs()
+{
+    User user;
+    int id;
+    String identifiant;
+    String password;
+
+    if (formIsValid())
+    {
+
+        user = new User();
+        id = 0;
+        identifiant = identifiantTextfield.getText();
+        password = motdepasseTextField.getText();
+
+        user = new User(0, identifiant, password);
+    }
+    else
+    {
+        user = null;
+        invalidForm();
+    }
+
+    return user;
+}
 
     /** This method is called from within the constructor to
      * initialize the form.
