@@ -52,23 +52,23 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="numdeCompteTextField" min="-2" pref="106" max="-2" attributes="0"/>
+                          <Component id="ccNumTextField" min="-2" pref="106" max="-2" attributes="0"/>
                           <EmptySpace pref="235" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="CryptogrammeTextField" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="cardSecurityCodeTextField" min="-2" pref="36" max="-2" attributes="0"/>
                           <EmptySpace pref="285" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="DateExpTextField" min="-2" pref="78" max="-2" attributes="0"/>
+                          <Component id="expirationDateTextField" min="-2" pref="78" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="validerCooBancaireButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="validerButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -85,20 +85,20 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="numdeCompteTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ccNumTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CryptogrammeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cardSecurityCodeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="DateExpTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="expirationDateTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="validerCooBancaireButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="validerButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -117,21 +117,21 @@
             <Property name="text" type="java.lang.String" value="Cryptogramme visuel* :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="validerCooBancaireButton">
+        <Component class="javax.swing.JButton" name="validerButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Valider"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="numdeCompteTextField">
+        <Component class="javax.swing.JTextField" name="ccNumTextField">
         </Component>
-        <Component class="javax.swing.JTextField" name="CryptogrammeTextField">
+        <Component class="javax.swing.JTextField" name="cardSecurityCodeTextField">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="text" type="java.lang.String" value="Date d&apos;expiration :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="DateExpTextField">
+        <Component class="javax.swing.JTextField" name="expirationDateTextField">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
