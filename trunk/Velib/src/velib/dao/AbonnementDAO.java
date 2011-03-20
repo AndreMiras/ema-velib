@@ -93,7 +93,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
           statementStrings[2] =
                 "ALTER TABLE "
                 + tableNames[0]
-                + " ADD CONSTRAINT primary_key_abonnements (idabonnement)";
+                + " ADD CONSTRAINT primary_key_abonnements PRIMARY KEY (idabonnement)";
           /*
         statementStrings[3] =
                 "ALTER TABLE "
