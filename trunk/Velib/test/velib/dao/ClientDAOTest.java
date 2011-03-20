@@ -43,6 +43,10 @@ public class ClientDAOTest {
         
         DatabaseManagementDAO databaseManagementDAO =
                 new DatabaseManagementDAO();
+        
+        // cleaning-up before all
+        databaseManagementDAO.dropDatabase();
+        
         databaseManagementDAO.createTables();
     }
 
@@ -50,7 +54,10 @@ public class ClientDAOTest {
     public void tearDown() {
         DatabaseManagementDAO databaseManagementDAO =
                 new DatabaseManagementDAO();
-        databaseManagementDAO.dropTables();
+        // databaseManagementDAO.dropTables();
+
+        // cleaning-up
+        databaseManagementDAO.dropDatabase();
     }
 
     /**
