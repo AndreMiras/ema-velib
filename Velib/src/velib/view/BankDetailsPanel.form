@@ -53,13 +53,13 @@
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="numdeCompteTextField" min="-2" pref="106" max="-2" attributes="0"/>
-                          <EmptySpace pref="131" max="32767" attributes="0"/>
+                          <EmptySpace pref="235" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="CryptogrammeTextField" min="-2" pref="36" max="-2" attributes="0"/>
-                          <EmptySpace pref="185" max="32767" attributes="0"/>
+                          <EmptySpace pref="285" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
