@@ -20,6 +20,7 @@ public class Bank
      private String numero;
      private Date dateExpiration;
      // name on the card
+     // TODO: change for relevant name e.g. cardHolder
      private String identifiant;
      private String codeVerif;
     
