@@ -35,12 +35,19 @@ public class AbonnementDAO extends DAO<Abonnement> {
             long id = result.getLong(1);
             System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
-                                                    	"INSERT INTO "+abonnementTable+"(idabonnement, datedebut, datefin, idclient, idtype) VALUES(?, ?, ?, ?, ?)"
+                                                    	"INSERT INTO "
+                                                        + abonnementTable
+                                                        + "(idabonnement,"
+                                                        + "datedebut,"
+                                                        + "datefin,"
+                                                        // + "idclient,"
+                                                        + "idtype) "
+                                                        + "VALUES(?, ?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
 				prepare.setDate(2, obj.getDateDebutSQL());
                                 prepare.setDate(3, obj.getDateFinSQL());
-                                prepare.setLong(4, obj.getClient().getClientId());
+                                // prepare.setLong(4, obj.getClient().getClientId());
                                 prepare.setLong(5, obj.getType().getId());
 				prepare.executeUpdate();
 				obj = this.find(id);
@@ -73,7 +80,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
     @Override
     public String[] createTablesStatementStrings()
     {
-        String[] statementStrings = new String[5];
+        String[] statementStrings = new String[4];
         statementStrings[0] =
                 "CREATE SEQUENCE sequence_abonnements START WITH 1 INCREMENT BY 1";
         statementStrings[1] =
@@ -81,17 +88,20 @@ public class AbonnementDAO extends DAO<Abonnement> {
                     "(idabonnement INTEGER, " +
                     "datedebut DATE, " +
                     "datefin DATE, " +
-                    "idclient INTEGER, " +
+                    // "idclient INTEGER, " +
                     "idtype INTEGER) " , tableNames[0]);
           statementStrings[2] =
                 "ALTER TABLE "
                 + tableNames[0]
                 + " ADD CONSTRAINT primary_key_abonnements (idabonnement)";
+          /*
         statementStrings[3] =
                 "ALTER TABLE "
                 + tableNames[0]
                 + " ADD CONSTRAINT foreign_key_abonnements_clients FOREIGN KEY (idclient) REFERENCES clients (idclient)";
-        statementStrings[4] =
+           * 
+           */
+        statementStrings[3] =
                 "ALTER TABLE "
                 + tableNames[0]
                 + " ADD CONSTRAINT foreign_key_abonnements_typeAbo FOREIGN KEY (idType) REFERENCES typeabonnement (idtype)";
