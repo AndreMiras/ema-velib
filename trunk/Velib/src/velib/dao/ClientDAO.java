@@ -115,10 +115,11 @@ public class ClientDAO extends DAO<Client>
                                     result.getString("lastname"), user);
             }
 
-		    } catch (SQLException e) {
+            }
+            catch (SQLException e) {
 		            e.printStackTrace();
 		    }
-		   return client;
+            return client;
 
 	}
 

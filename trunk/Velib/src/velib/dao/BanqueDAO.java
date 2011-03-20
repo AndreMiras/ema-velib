@@ -64,6 +64,8 @@ public class BanqueDAO extends DAO<Banque>
     public Banque find(long id) {
         Banque compteBanque = new Banque();
         String banquesTable = tableNames[0];
+        Client client;
+        ClientDAO clientDAO = new ClientDAO();
 
 	try
         {
@@ -82,9 +84,12 @@ public class BanqueDAO extends DAO<Banque>
                 Long numero = result.getLong("numero");
                 String identifiant = result.getString("identifiant");
                 //Date date = result.getDate("dateexpiration");
+                Long codeVerif = result.getLong("codeVerif");
+                client = clientDAO.find(result.getLong("idclient"));
+
                 System.out.println("id =" + id);
 
-               // compteBanque = new Banque(id, identifiantDB, passwordDB);
+               compteBanque = new Banque(id, numero, identifiant, codeVerif, client);
             }
         }
         catch (SQLException e)
@@ -114,10 +119,10 @@ public class BanqueDAO extends DAO<Banque>
         statementStrings[1] =
                     String.format("CREATE TABLE %s" +
                     "(idbanque INTEGER, " +
-                    "(numero INTEGER, " +
+                    "numero INTEGER, " +
                     "identifiant VARCHAR(100), " +
                     "dateexpiration DATE, " +
-                    "(codeverif INTEGER, " +
+                    "codeverif INTEGER, " +
                     "idclient INTEGER) " , tableNames[0]);
         statementStrings[2] =
                 "ALTER TABLE "
