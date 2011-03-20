@@ -52,8 +52,8 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
         createClientTable();
         createVeloTable();
         
-        //createTypeAbonnementTable();
-        //createAbonnementsTable();
+        createTypeAbonnementTable();
+        createAbonnementsTable();
         createBornetteTable();
         createLocationTable();
      }
