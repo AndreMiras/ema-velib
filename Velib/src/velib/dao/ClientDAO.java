@@ -114,7 +114,7 @@ public class ClientDAO extends DAO<Client>
                                      ).executeQuery(
                                         "SELECT * FROM "
                                         + clientTable
-                                        + " WHERE idclient = " + id
+                                        + " WHERE idclient = '" + id + "'"
                                      );
             if(result.first())
             {
