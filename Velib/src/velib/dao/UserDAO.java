@@ -115,11 +115,11 @@ public class UserDAO extends DAO<User>
                      ).executeUpdate(
                     	"UPDATE " +
                         usersTable +
-                        " SET identifiant = '" + obj.getIdentifiant()+ "'"+
-                        " SET password = '" + obj.getPassword() + "'"+
-                        " SET questionsecrete = '" + obj.getQuestionSecrete() + "'"+
-                        " SET reponsesecrete = '" + obj.getReponseSecrete() + "'"+
-                    	" WHERE id = " + obj.getUserId()
+                        " SET identifiant = '" + obj.getIdentifiant()+ "',"+
+                        " password = '" + obj.getPassword() + "',"+
+                        " questionsecrete = '" + obj.getQuestionSecrete() + "',"+
+                        " reponsesecrete = '" + obj.getReponseSecrete() + "'"+
+                    	" WHERE iduser = " + obj.getUserId()
                      );
 
 	obj = this.find(obj.getUserId());
