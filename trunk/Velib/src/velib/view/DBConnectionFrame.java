@@ -11,6 +11,7 @@
 
 package velib.view;
 
+import java.awt.event.ActionListener;
 import velib.model.Borne;
 
 /**
@@ -48,6 +49,21 @@ public class DBConnectionFrame extends javax.swing.JFrame
         }
     }
 
+    public void addConnexionButtonListener(ActionListener al)
+    {
+        connexionButton.addActionListener(al);
+    }
+
+    /*
+     * Returns the selected borne object
+     */
+    public Borne getBorneFromInput()
+    {
+        Borne selectedBorne;
+        selectedBorne = (Borne)listeBorneComboBox.getSelectedItem();
+        return selectedBorne;
+    }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -58,10 +74,10 @@ public class DBConnectionFrame extends javax.swing.JFrame
     private void initComponents() {
 
         listeBorneComboBox = new javax.swing.JComboBox();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        connexionButton = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
 
-        jToggleButton1.setText("Connexion");
+        connexionButton.setText("Connexion");
 
         jLabel1.setText("Authentification Interface");
 
@@ -74,7 +90,7 @@ public class DBConnectionFrame extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(listeBorneComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(connexionButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -85,7 +101,7 @@ public class DBConnectionFrame extends javax.swing.JFrame
                 .addGap(18, 18, 18)
                 .addComponent(listeBorneComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToggleButton1)
+                .addComponent(connexionButton)
                 .addContainerGap(28, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -103,8 +119,8 @@ public class DBConnectionFrame extends javax.swing.JFrame
     
     private velib.view.DBConnectionFrame dBConnectionFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton connexionButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JComboBox listeBorneComboBox;
     // End of variables declaration//GEN-END:variables
 
