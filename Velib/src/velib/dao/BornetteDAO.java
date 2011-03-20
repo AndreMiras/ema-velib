@@ -146,16 +146,20 @@ public class BornetteDAO extends DAO<Bornette>
             {
                 idvelo = obj.getVelo().getId();
             }
-                this .connect.createStatement(
-                    	ResultSet.TYPE_SCROLL_INSENSITIVE,
-                        ResultSet.CONCUR_UPDATABLE
-                     ).executeUpdate(
-                    	"UPDATE " +
+            String sql = "UPDATE " +
                         bornetteTable +
                         " SET numero = '" + obj.getNumero()+ "',"+
                         " idborne = '" + obj.getBorne().getIdBorne()+ "',"+
-                        " idvelo = '" + idvelo+ "'"+
-                    	" WHERE idbornnete = " + obj.getId()
+                        " idvelo = " + idvelo+
+                    	" WHERE idbornette = " + obj.getId();
+
+            System.out.println("La requête a effectué est la suivante : " + sql);
+
+            this .connect.createStatement(
+                    	ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_UPDATABLE
+                     ).executeUpdate(
+                    	sql
                      );
 
 	obj = this.find(obj.getId());
