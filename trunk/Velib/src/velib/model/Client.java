@@ -80,11 +80,19 @@ public class Client extends User {
         return abonnement;
     }
 
+    public void setAbonnement(Abonnement abonnement) {
+        this.abonnement = abonnement;
+    }
 
 
     public Bank getBanque() {
         return banque;
     }
+
+    public void setBanque(Bank banque) {
+        this.banque = banque;
+    }
+
 
 
     @Override
