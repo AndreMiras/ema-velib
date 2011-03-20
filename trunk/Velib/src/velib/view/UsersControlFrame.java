@@ -45,7 +45,7 @@ public class UsersControlFrame extends javax.swing.JFrame
     {
         for (int i=0; i<location.length; i++)
         {
-            //String nomClient = location[i].getClient().getFullName();
+            String nomClient = location[i].getClient().getFullName();
             //Long idVelo = location[i].getVelo().getId();
             //testComboBox.addItem(nomClient);
             System.out.println("YALLAAAAA");
