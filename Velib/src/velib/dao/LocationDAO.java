@@ -16,7 +16,7 @@ import velib.model.Location;
 // TODO: finish up
 public class LocationDAO extends DAO<Location>
 {
-     public LocationDAO()
+    public LocationDAO()
     {
         tableNames = new String[] { "locations" };
     }
