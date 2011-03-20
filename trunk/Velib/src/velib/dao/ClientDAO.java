@@ -18,6 +18,7 @@ import velib.model.Client;
 import velib.dao.AbstractDAOFactory;
 import velib.dao.DAO;
 import velib.dao.FactoryType;
+import velib.model.Abonnement;
 import velib.model.User;
 
 public class ClientDAO extends DAO<Client>
@@ -32,11 +33,24 @@ public class ClientDAO extends DAO<Client>
     public Client create(Client obj)
     {
         String clientTable = tableNames[0];
-        
+
+        //If user doesn't exist
         if(obj.getUser().getUserId() == 0)
         {
             UserDAO userDAO = new UserDAO();
             obj.setUser(userDAO.create(obj.getUser()));
+        }
+        //Si l'abonnement n'existe pas
+        if(obj.getAbonnement().getId() == 0)
+        {
+            AbonnementDAO abonnementDAO = new AbonnementDAO();
+            obj.setAbonnement(abonnementDAO.create(obj.getAbonnement()));
+        }
+        //Si le compte en banque n'existe pas
+        if(obj.getBanque().getId() == 0)
+        {
+            BanqueDAO banqueDAO = new BanqueDAO();
+            obj.setBanque(banqueDAO.create(obj.getBanque()));
         }
          try
          {
