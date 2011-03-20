@@ -11,7 +11,6 @@
 
 package velib.view;
 
-import javax.swing.JComboBox;
 import velib.model.Borne;
 
 /**
@@ -42,9 +41,10 @@ public class DBConnectionFrame extends javax.swing.JFrame
      */
     private void setUpDBConnectionFrame()
     {
-        listeBorneComboBox = new javax.swing.JComboBox(bornes);
-        // listeBorneComboBox.setSelectedIndex(4);
-        // listeBorneComboBox.addActionListener(this);
+        for (int i=0; i<bornes.length; i++)
+        {
+            listeBorneComboBox.addItem(bornes[i]);
+        }
     }
 
     /** This method is called from within the constructor to
@@ -59,8 +59,6 @@ public class DBConnectionFrame extends javax.swing.JFrame
         listeBorneComboBox = new javax.swing.JComboBox();
         jToggleButton1 = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
-
-        listeBorneComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Choisissez un ID" }));
 
         jToggleButton1.setText("Connexion");
 

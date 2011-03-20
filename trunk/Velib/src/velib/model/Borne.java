@@ -30,6 +30,12 @@ public class Borne {
         this.nomBorne="";
     }
 
+    @Override
+    public String toString()
+    {
+        return nomBorne;
+    }
+    
     public long getIdBorne() {
         return idBorne;
     }
