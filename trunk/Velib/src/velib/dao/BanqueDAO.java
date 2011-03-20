@@ -48,7 +48,7 @@ public class BanqueDAO extends DAO<Bank>
                                 prepare.setString(2, obj.getNumero());
                                 prepare.setString(3, obj.getIdentifiant());
                                 prepare.setDate(4, obj.getDateExpirationSQL());
-                                prepare.setLong(5, obj.getCodeVerif());
+                                prepare.setString(5, obj.getCodeVerif());
 				prepare.executeUpdate();
 				obj = this.find(id);
 			}
@@ -83,7 +83,7 @@ public class BanqueDAO extends DAO<Bank>
                 String numero = result.getString("numero");
                 String identifiant = result.getString("identifiant");
                 //Date date = result.getDate("dateexpiration");
-                Long codeVerif = result.getLong("codeVerif");
+                String codeVerif = result.getString("codeVerif");
                
                 System.out.println("id =" + id);
 
@@ -120,7 +120,7 @@ public class BanqueDAO extends DAO<Bank>
                     "numero VARCHAR(40), " +
                     "identifiant VARCHAR(100), " +
                     "dateexpiration DATE, " +
-                    "codeverif INTEGER, ", tableNames[0]);
+                    "codeverif VARCHAR(3), ", tableNames[0]);
         statementStrings[2] =
                 "ALTER TABLE "
                 + tableNames[0]
