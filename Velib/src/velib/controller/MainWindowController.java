@@ -89,9 +89,8 @@ public class MainWindowController extends AbstractMainWindowController implement
                 new EditBornButtonListener());
         mainWindowFrame.addConnectToDatabaseButtonListener(
                 new ConnectToDatabaseButtonListener());
-        /*mainWindowFrame.addUsersControlButtonListener(
+        mainWindowFrame.addUsersControlButtonListener(
                 new UsersControlButtonListener());
-         * */
     }
 
     public IModel getModel()
@@ -112,13 +111,12 @@ public class MainWindowController extends AbstractMainWindowController implement
             borneDAO = new BornesDAO();
             Borne[] bornes;
             bornes = borneDAO.findBorneLibre();
-
-            DBConnectionFrame dBConnectionFrame = new DBConnectionFrame(bornes);
-
-            DBConnectionController dBConnectionController =
-                    new DBConnectionController(dBConnectionFrame);
-            dBConnectionFrame.setVisible(true);
             */
+            UsersControlFrame usersControlFrame = new UsersControlFrame();
+
+            UsersControlController usersControlController =
+                    new UsersControlController(mainWindowController, usersControlFrame);
+            usersControlFrame.setVisible(true);
         }
     }
 
