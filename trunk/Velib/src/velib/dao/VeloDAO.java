@@ -47,6 +47,9 @@ public class VeloDAO extends DAO<Velo>
                                                     );
 				prepare.setLong(1, id);
                                 prepare.setBoolean(2, obj.getEtat());
+
+                                prepare.executeUpdate();
+				obj = this.find(id);
                  }
 	    }
             catch (SQLException e) {
@@ -72,6 +75,7 @@ public class VeloDAO extends DAO<Velo>
                     Long idvelo = result.getLong("idvelo");
                     boolean etat = result.getBoolean("etat");
                     velo = new Velo(idvelo, etat);
+
                 }
 
             }
