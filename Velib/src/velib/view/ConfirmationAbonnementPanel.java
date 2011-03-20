@@ -35,6 +35,7 @@ public class ConfirmationAbonnementPanel extends javax.swing.JPanel {
     {
         fullnameLabel.setText(client.getFullName());
         userLabel.setText(client.getUser().getIdentifiant());
+        passwordLabel.setText(client.getUser().getPassword());
     }
 
 
@@ -55,6 +56,8 @@ public class ConfirmationAbonnementPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         fullnameLabel = new javax.swing.JLabel();
         userLabel = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        passwordLabel = new javax.swing.JLabel();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Vous avez choisi un abonnement d'une durée de :"));
 
@@ -64,13 +67,17 @@ public class ConfirmationAbonnementPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Votre identifiant de location est :");
 
-        jLabel4.setText(", il est personnel.");
+        jLabel4.setText("il est personnel.");
 
         jLabel5.setText("Ne le communiquez à personne...");
 
         fullnameLabel.setText("jLabel6");
 
         userLabel.setText("jLabel6");
+
+        jLabel6.setText("Votre identifiant mot de passe est :");
+
+        passwordLabel.setText("jLabel7");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -87,14 +94,19 @@ public class ConfirmationAbonnementPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(userLabel)
-                                .addGap(65, 65, 65)
-                                .addComponent(jLabel4)))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                                .addComponent(userLabel))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(passwordLabel)))))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,11 +119,16 @@ public class ConfirmationAbonnementPanel extends javax.swing.JPanel {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(userLabel)
+                    .addComponent(jLabel3))
+                .addGap(2, 2, 2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(passwordLabel))
+                .addGap(2, 2, 2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(userLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
+                    .addComponent(jLabel5))
                 .addContainerGap())
         );
 
@@ -129,7 +146,7 @@ public class ConfirmationAbonnementPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -141,7 +158,9 @@ public class ConfirmationAbonnementPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel passwordLabel;
     private javax.swing.JLabel userLabel;
     // End of variables declaration//GEN-END:variables
 
