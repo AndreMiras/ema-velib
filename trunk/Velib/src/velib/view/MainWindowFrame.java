@@ -161,6 +161,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         editDatabaseMenuItem = new javax.swing.JMenuItem();
         editBornMenuItem = new javax.swing.JMenuItem();
         connectToDatabaseMenuItem = new javax.swing.JMenuItem();
+        usersControlMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("NemoVelo");
@@ -189,7 +190,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
                 .addComponent(previousButton)
                 .addGap(18, 18, 18)
                 .addComponent(nextButton)
-                .addContainerGap(350, Short.MAX_VALUE))
+                .addContainerGap(381, Short.MAX_VALUE))
         );
         footersPanelLayout.setVerticalGroup(
             footersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,6 +215,15 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
 
         connectToDatabaseMenuItem.setText("Connect to DB");
         jMenu2.add(connectToDatabaseMenuItem);
+
+        usersControlMenuItem.setText("Users Control");
+        usersControlMenuItem.setActionCommand("Users Control");
+        usersControlMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usersControlMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu2.add(usersControlMenuItem);
 
         jMenuBar1.add(jMenu2);
 
@@ -248,6 +258,11 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         previousPanel();
     }//GEN-LAST:event_previousButtonActionPerformed
 
+    private void usersControlMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_usersControlMenuItemActionPerformed
+    {//GEN-HEADEREND:event_usersControlMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usersControlMenuItemActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -270,6 +285,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     private javax.swing.JPanel middleContentPanel;
     private javax.swing.JButton nextButton;
     private javax.swing.JButton previousButton;
+    private javax.swing.JMenuItem usersControlMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }
