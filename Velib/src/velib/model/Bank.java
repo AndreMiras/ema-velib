@@ -17,19 +17,22 @@ import java.util.Date;
 public class Bank
 {
      private long id;
-     private long numero;
+     private String numero;
      private Date dateExpiration;
+     // name on the card
      private String identifiant;
      private long codeVerif;
     
-    public Bank(long id, long numero, String identifiant, long codeVerif) {
+    public Bank(long id, String numero, String identifiant, long codeVerif)
+    {
         this.id=id;
         this.numero=numero;
         this.identifiant=identifiant;
         this.codeVerif=codeVerif;
     }
 
-    public Bank() {
+    public Bank()
+    {
     }
     
     public long getId() {
@@ -48,7 +51,7 @@ public class Bank
         return identifiant;
     }
 
-    public long getNumero() {
+    public String getNumero() {
         return numero;
     }
 
