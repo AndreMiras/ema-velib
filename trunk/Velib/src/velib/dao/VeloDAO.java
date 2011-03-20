@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import velib.dao.AbstractDAOFactory;
 import velib.dao.DAO;
 import velib.dao.FactoryType;
+import velib.model.Bornette;
 import velib.model.Velo;
 
 public class VeloDAO extends DAO<Velo>
@@ -57,6 +58,8 @@ public class VeloDAO extends DAO<Velo>
     @Override
     public Velo find(long id) {
         Velo velo = new Velo();
+        Bornette bornette;
+        BornetteDAO bornetteDAO = new BornetteDAO();
 
 	try {
                 ResultSet result = this .connect.createStatement(
@@ -70,8 +73,9 @@ public class VeloDAO extends DAO<Velo>
                               
                     Long idvelo = result.getLong("idvelo");
                     Boolean etat = result.getBoolean("etat");
-                        Long idBornette = result.getLong("idbornette");
-                    velo = new Velo();
+                    bornette = bornetteDAO.find(result.getLong("idbornette"));
+                    
+                    velo = new Velo(idvelo, etat, bornette);
                 }
 
             }
