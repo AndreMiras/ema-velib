@@ -50,7 +50,7 @@ public class TypeAbonnementDAO extends DAO<TypeAbonnement> {
                     "duree INTEGER, " +
                     "prix INTEGER) " , tableNames[0]);
       statementStrings[2] =
-                "ALTER TABLE"
+                "ALTER TABLE "
                 + tableNames[0]
                 + "ADD CONSTRAINT primary_key_typeAbo PRIMARY KEY (idtype)";
         return statementStrings;
