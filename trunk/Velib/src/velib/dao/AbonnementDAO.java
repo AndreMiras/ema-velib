@@ -35,7 +35,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
             long id = result.getLong(1);
             System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
-                                                    	"INSERT INTO"+abonnementTable+"(idabonnement, datedebut, datefin, idclient, idtype) VALUES(?, ?, ?, ?, ?)"
+                                                    	"INSERT INTO "+abonnementTable+"(idabonnement, datedebut, datefin, idclient, idtype) VALUES(?, ?, ?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
 				prepare.setDate(2, obj.getDateDebutSQL());
