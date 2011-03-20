@@ -60,7 +60,7 @@ public class BankDetailsController extends AbstractController
 
             /* Calling up the create ConfirmationAbonnement  */
             ConfirmationAbonnementPanel confirmationAbonnementPanel =
-                    new ConfirmationAbonnementPanel();
+                    new ConfirmationAbonnementPanel(client);
             ConfirmationAbonnementController confirmationAbonnementController =
                     new ConfirmationAbonnementController(
                         client, mainWindowFrame, confirmationAbonnementPanel);
