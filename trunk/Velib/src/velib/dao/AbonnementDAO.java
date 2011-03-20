@@ -24,6 +24,15 @@ public class AbonnementDAO extends DAO<Abonnement> {
     public Abonnement create(Abonnement obj)
     {
         String abonnementTable = tableNames[0];
+
+        //Si l'abonnement n'existe pas
+        /*
+        if(obj.getType().getId() == 0)
+        {
+            // TODO
+        }
+         *
+         */
          try {
              ResultSet result = this.connect.createStatement(
                                 ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -48,7 +57,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
 				prepare.setDate(2, obj.getDateDebutSQL());
                                 prepare.setDate(3, obj.getDateFinSQL());
                                 // prepare.setLong(4, obj.getClient().getClientId());
-                                prepare.setLong(5, obj.getType().getId());
+                                prepare.setLong(4, obj.getType().getId());
 				prepare.executeUpdate();
 				obj = this.find(id);
 			}
