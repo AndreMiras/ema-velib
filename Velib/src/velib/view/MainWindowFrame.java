@@ -137,9 +137,9 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         editBornMenuItem.addActionListener(al);
     }
 
-    public void addConnectToDatabaseButtonListener(ActionListener al)
+    public void addDBConnectionButtonListener(ActionListener al)
     {
-        connectToDatabaseMenuItem.addActionListener(al);
+        dbConnectionMenuItem.addActionListener(al);
     }
 
     public void addUsersControlButtonListener(ActionListener al)
@@ -165,7 +165,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         jMenu2 = new javax.swing.JMenu();
         editDatabaseMenuItem = new javax.swing.JMenuItem();
         editBornMenuItem = new javax.swing.JMenuItem();
-        connectToDatabaseMenuItem = new javax.swing.JMenuItem();
+        dbConnectionMenuItem = new javax.swing.JMenuItem();
         usersControlMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -218,11 +218,10 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         editBornMenuItem.setText("Edit Born");
         jMenu2.add(editBornMenuItem);
 
-        connectToDatabaseMenuItem.setText("Connect to DB");
-        jMenu2.add(connectToDatabaseMenuItem);
+        dbConnectionMenuItem.setText("Connect to DB");
+        jMenu2.add(dbConnectionMenuItem);
 
         usersControlMenuItem.setText("Users Control");
-        usersControlMenuItem.setActionCommand("Users Control");
         usersControlMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usersControlMenuItemActionPerformed(evt);
@@ -280,7 +279,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem connectToDatabaseMenuItem;
+    private javax.swing.JMenuItem dbConnectionMenuItem;
     private javax.swing.JMenuItem editBornMenuItem;
     private javax.swing.JMenuItem editDatabaseMenuItem;
     private javax.swing.JPanel footersPanel;

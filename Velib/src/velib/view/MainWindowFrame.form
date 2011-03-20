@@ -24,7 +24,7 @@
                 <Property name="text" type="java.lang.String" value="Edit Born"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="connectToDatabaseMenuItem">
+            <MenuItem class="javax.swing.JMenuItem" name="dbConnectionMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Connect to DB"/>
               </Properties>

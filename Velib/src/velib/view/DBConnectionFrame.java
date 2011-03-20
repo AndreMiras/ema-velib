@@ -31,14 +31,15 @@ public class DBConnectionFrame extends javax.swing.JFrame
     {
         this();
         this.bornes = bornes;
-
         setUpDBConnectionFrame();
-
     }
 
+    public DBConnectionFrame getDBConnectionFrame()
+    {
+        return dBConnectionFrame;
+    }
 
-     // Fills the combo box with bornes objects
-     
+     // Fills the combo box with bornes objects 
     private void setUpDBConnectionFrame()
     {
         for (int i=0; i<bornes.length; i++)
@@ -89,7 +90,18 @@ public class DBConnectionFrame extends javax.swing.JFrame
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
+    public static void main(String args[])
+    {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
+                new UsersControlFrame().setVisible(true);
+            }
+        });
+    }
+    
+    private velib.view.DBConnectionFrame dBConnectionFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JToggleButton jToggleButton1;
