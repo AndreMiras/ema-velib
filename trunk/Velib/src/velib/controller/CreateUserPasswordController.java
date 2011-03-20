@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import velib.dao.UserDAO;
 import velib.model.Client;
 import velib.model.User;
-import velib.view.CoordonneesBancairePanel;
+import velib.view.BankDetailsPanel;
 import velib.view.CreateUserPasswordPanel;
 import velib.view.MainWindowFrame;
 
@@ -58,8 +58,8 @@ public class CreateUserPasswordController extends AbstractController
             userDAO.update(user);
 
             /* Calling up the create CreateUserPassword  */
-            CoordonneesBancairePanel bankDetailsPanel =
-                    new CoordonneesBancairePanel();
+            BankDetailsPanel bankDetailsPanel =
+                    new BankDetailsPanel();
             bankDetailsPanel.setVisible(true);
             BankDetailsController bankDetailsController =
                     new BankDetailsController(

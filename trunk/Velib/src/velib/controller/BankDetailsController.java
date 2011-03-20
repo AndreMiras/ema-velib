@@ -6,7 +6,7 @@
 package velib.controller;
 
 import velib.model.Client;
-import velib.view.CoordonneesBancairePanel;
+import velib.view.BankDetailsPanel;
 import velib.view.MainWindowFrame;
 
 /**
@@ -16,11 +16,11 @@ import velib.view.MainWindowFrame;
 public class BankDetailsController extends AbstractController
 {
     private Client client;
-    private CoordonneesBancairePanel bankDetailsPanel;
+    private BankDetailsPanel bankDetailsPanel;
 
     public BankDetailsController(Client client,
             MainWindowFrame mainWindowFrame,
-            CoordonneesBancairePanel bankDetailsPanel)
+            BankDetailsPanel bankDetailsPanel)
     {
         super(mainWindowFrame);
         this.client = client;

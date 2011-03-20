@@ -15,10 +15,10 @@ package velib.view;
  *
  * @author Fred
  */
-public class CoordonneesBancairePanel extends javax.swing.JPanel {
+public class BankDetailsPanel extends javax.swing.JPanel {
 
     /** Creates new form CoordonneesBancairePanel */
-    public CoordonneesBancairePanel() {
+    public BankDetailsPanel() {
         initComponents();
     }
 
@@ -64,12 +64,12 @@ public class CoordonneesBancairePanel extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(numdeCompteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(131, Short.MAX_VALUE))
+                        .addContainerGap(235, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CryptogrammeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(185, Short.MAX_VALUE))
+                        .addContainerGap(285, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
