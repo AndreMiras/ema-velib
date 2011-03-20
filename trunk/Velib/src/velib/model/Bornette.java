@@ -11,24 +11,24 @@ package velib.model;
 public class Bornette {
 
     private long id;
-    private boolean libre;
     private long numero;
     private Borne borne;
+    private Velo velo;
  
 
     public Bornette()
     {
         this.id = 0;
-        this.libre = false;
         this.numero = 0;
         this.borne = null;
+        this.velo = null;
     }
 
-    public Bornette(long id, long numero, Borne borne) {
+    public Bornette(long id, long numero, Borne borne, Velo velo) {
         this.id = id;
-        this.libre=false;
         this.numero = numero;
         this.borne = borne;
+        this.velo = velo;
      }
     
     public long getId() {
@@ -43,9 +43,8 @@ public class Bornette {
         return borne;
     }
 
-
-    public boolean getLibre(){
-        return libre;
+    public Velo getVelo() {
+        return velo;
     }
 
 

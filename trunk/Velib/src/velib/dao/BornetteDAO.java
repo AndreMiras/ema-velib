@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import velib.model.Borne;
 import velib.model.Bornette;
+import velib.model.Velo;
 /**
  *
  * @author Nicolas
@@ -39,13 +40,14 @@ public class BornetteDAO extends DAO<Bornette>
             PreparedStatement prepare = this.connect.prepareStatement(
                                                     	"INSERT INTO " +
                                                         bornetteTable +
-                                                        " (idbornette, numero, libre, idborne) VALUES(?, ?, ?, ?)"
+                                                        " (idbornette, numero,"
+                                                        + "idborne, idvelo) "
+                                                        + "VALUES(?, ?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
-                                prepare.setLong(2, obj.getNumero());
-                                prepare.setBoolean(3, obj.getLibre());
-                                prepare.setLong(4, obj.getBorne().getIdBorne());
-                               
+                                prepare.setLong(2, obj.getNumero());                                
+                                prepare.setLong(3, obj.getBorne().getIdBorne());
+                                prepare.setLong(4, obj.getVelo().getId());
 
 				prepare.executeUpdate();
 				obj = this.find(id);
@@ -63,6 +65,8 @@ public class BornetteDAO extends DAO<Bornette>
         Bornette bornette = new Bornette();
         Borne borne;
         BornesDAO borneDAO = new BornesDAO();
+        Velo velo;
+        VeloDAO veloDAO = new VeloDAO();
 
 	try
         {
@@ -70,14 +74,16 @@ public class BornetteDAO extends DAO<Bornette>
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                    "SELECT * FROM"+bornetteTable+" WHERE libre=true AND idborne='" + idBorne + "'"
+                                    "SELECT * FROM"+bornetteTable+" WHERE "
+                                    + "idvelo is null AND idborne='" + idBorne + "'"
                                     );
             if(result.first())
             {
                 long id = result.getLong("idbornette");
                 long numero = result.getLong("numero");
                 borne = borneDAO.find(result.getLong("idborne"));
-                bornette = new Bornette(id, numero, borne);
+                velo = veloDAO.find(result.getLong("idvelo"));
+                bornette = new Bornette(id, numero, borne, velo);
             }
         }
         catch (SQLException e)
@@ -94,6 +100,8 @@ public class BornetteDAO extends DAO<Bornette>
         Bornette bornette = new Bornette();
         Borne borne;
         BornesDAO borneDAO = new BornesDAO();
+        Velo velo;
+        VeloDAO veloDAO = new VeloDAO();
 
 	try
         {
@@ -101,16 +109,17 @@ public class BornetteDAO extends DAO<Bornette>
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                    "SELECT * FROM"+bornetteTable+" WHERE libre=false AND idborne='" + idBorne + "'"
+                                    "SELECT * FROM"+bornetteTable+" WHERE "
+                                    + "idvelo is not null AND idborne='" + idBorne + "'"
                                     );
             if(result.first())
             {
                long id = result.getLong("idbornette");
                 long numero = result.getLong("numero");
                 borne = borneDAO.find(result.getLong("idborne"));
-                bornette = new Bornette(id, numero, borne);
-
-            }
+                velo = veloDAO.find(result.getLong("idvelo"));
+                bornette = new Bornette(id, numero, borne, velo);
+             }
         }
         catch (SQLException e)
         {
@@ -132,7 +141,8 @@ public class BornetteDAO extends DAO<Bornette>
                      ).executeUpdate(
                     	"UPDATE " +
                         bornetteTable +
-                        " SET libre = '" + obj.getLibre()+ "',"+
+                        " SET numero = '" + obj.getNumero()+ "',"+
+                        " idborne = '" + obj.getBorne().getIdBorne()+ "'"+
                     	" WHERE idbornnete = " + obj.getId()
                      );
 
@@ -157,6 +167,8 @@ public class BornetteDAO extends DAO<Bornette>
         Bornette bornette = new Bornette();
         Borne borne;
         BornesDAO borneDAO = new BornesDAO();
+        Velo velo;
+        VeloDAO veloDAO = new VeloDAO();
 	try
         {
             ResultSet result = this.connect.createStatement(
@@ -165,13 +177,14 @@ public class BornetteDAO extends DAO<Bornette>
                                      ).executeQuery(
                                     "SELECT * FROM " +
                                     bornettesTable +
-                                    " WHERE idBorne="+id
+                                    " WHERE idBornette="+id
                                     );
            if(result.first())
             {
                 long numero = result.getLong("numero");
                 borne =  borneDAO.find(result.getLong("idborne"));
-                bornette = new Bornette(id, numero, borne);
+                velo = veloDAO.find(result.getLong("idvelo"));
+                bornette = new Bornette(id, numero, borne, velo);
             }
         }
         catch (SQLException e)
@@ -193,7 +206,8 @@ public class BornetteDAO extends DAO<Bornette>
                     "(idbornette INTEGER, " +
                     "libre BOOLEAN, " +
                     "numero INTEGER, " +
-                    "idborne INTEGER) "  , tableNames[0]);
+                    "idborne INTEGER, " +
+                    "idvelo INTEGER) "  , tableNames[0]);
                    
         statementStrings[2] =
                 "ALTER TABLE "
@@ -202,7 +216,13 @@ public class BornetteDAO extends DAO<Bornette>
         statementStrings[3] =
                 "ALTER TABLE "
                 + tableNames[0]
-                + " ADD CONSTRAINT foreign_key_bornettes_borne FOREIGN KEY (idborne) REFERENCES bornes (idbornes)";
+                + " ADD CONSTRAINT foreign_key_bornettes_borne FOREIGN KEY "
+                + "(idborne) REFERENCES bornes (idbornes)";
+        statementStrings[4] =
+                "ALTER TABLE "
+                + tableNames[0]
+                + " ADD CONSTRAINT foreign_key_bornettes_velo FOREIGN KEY "
+                + "(idvelo) REFERENCES velos (idvelos)";
         return statementStrings;
     }
 

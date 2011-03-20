@@ -36,18 +36,18 @@ public class VeloDAO extends DAO<Velo>
                                 ResultSet.TYPE_SCROLL_INSENSITIVE,
                       		ResultSet.CONCUR_UPDATABLE
                                     ).executeQuery(
-                                       "SELECT NEXT VALUE FOR sequence_velos FROM"+veloTable+" as id"
+                                       "CALL NEXT VALUE FOR sequence_velos"
                                     );
                 if(result.first()){
                     long id = result.getLong(1);
                     System.out.println("id :" + id);
                     PreparedStatement prepare = this.connect.prepareStatement(
-                                                     "INSERT INTO"+veloTable+ "(idvelo, etat, idbornette) VALUES(?, ?, ?)"
+                                                     "INSERT INTO "+veloTable+
+                                                     "(idvelo, etat) VALUES(?, ?)"
                                                     );
 				prepare.setLong(1, id);
                                 prepare.setBoolean(2, obj.getEtat());
-                                prepare.setLong(3, obj.getBornette().getId());
-                }
+                 }
 	    }
             catch (SQLException e) {
 	            e.printStackTrace();
@@ -58,23 +58,20 @@ public class VeloDAO extends DAO<Velo>
     @Override
     public Velo find(long id) {
         Velo velo = new Velo();
-        Bornette bornette;
-        BornetteDAO bornetteDAO = new BornetteDAO();
 
 	try {
                 ResultSet result = this .connect.createStatement(
                                     	ResultSet.TYPE_SCROLL_INSENSITIVE,
                                         ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                        "SELECT * FROM velo WHERE id = " + id
+                                        "SELECT * FROM velos WHERE idvelo = " + id
                                      );
                 if(result.first())
                 {
                               
                     Long idvelo = result.getLong("idvelo");
-                    Boolean etat = result.getBoolean("etat");
-                    bornette = bornetteDAO.find(result.getLong("idbornette"));
-                    velo = new Velo(idvelo, etat, bornette);
+                    boolean etat = result.getBoolean("etat");
+                    velo = new Velo(idvelo, etat);
                 }
 
             }
@@ -88,7 +85,25 @@ public class VeloDAO extends DAO<Velo>
 
     @Override
     public Velo update(Velo obj) {
-        throw new UnsupportedOperationException("Not supported yet.");
+         String veloTable = tableNames[0];
+        try {
+                this .connect.createStatement(
+                    	ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_UPDATABLE
+                     ).executeUpdate(
+                    	"UPDATE " +
+                        veloTable +
+                        " SET etat = '" + obj.getEtat()+ "',"+
+                        " WHERE idvelo = " + obj.getId()
+                     );
+
+	obj = this.find(obj.getId());
+	    }
+        catch (SQLException e)
+        {
+	  e.printStackTrace();
+	}
+        return obj;
     }
 
     @Override
@@ -99,22 +114,17 @@ public class VeloDAO extends DAO<Velo>
     @Override
     public String[] createTablesStatementStrings()
     {
-        String[] statementStrings = new String[4];
+        String[] statementStrings = new String[3];
         statementStrings[0] =
                 "CREATE SEQUENCE sequence_velos START WITH 1 INCREMENT BY 1";
         statementStrings[1] =
                     String.format("CREATE TABLE %s" +
                     "(idvelo INTEGER, " +
-                    "etat BOOLEAN, " +
-                    "idbornette INTEGER) " , tableNames[0]);
+                    "etat BOOLEAN) ", tableNames[0]);
         statementStrings[2] =
                 "ALTER TABLE "
                 + tableNames[0]
                 + " ADD CONSTRAINT primary_key_velos PRIMARY KEY (idvelo)";
-        statementStrings[3] =
-                "ALTER TABLE "
-                + tableNames[0]
-                + " ADD CONSTRAINT foreign_key_velos_bornette FOREIGN KEY (idbornette) REFERENCES bornettes (idbornette)";
         return statementStrings;
     }
 
