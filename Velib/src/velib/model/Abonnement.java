@@ -23,6 +23,7 @@ public class Abonnement {
         this.id=0;
         this.dateDebut = new Date();
         this.dateFin = new Date();
+        type = new TypeAbonnement();
     }
 
     public long getId() {
