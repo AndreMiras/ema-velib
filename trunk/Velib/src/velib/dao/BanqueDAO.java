@@ -74,7 +74,7 @@ public class BanqueDAO extends DAO<Bank>
                                      ).executeQuery(
                                     "SELECT * FROM " +
                                     banquesTable +
-                                    " WHERE idbanque = '" + id
+                                    " WHERE idbanque = '" + id +"'"
                                     );
             if(result.first())
             {
