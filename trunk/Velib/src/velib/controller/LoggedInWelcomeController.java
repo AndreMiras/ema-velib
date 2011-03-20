@@ -30,6 +30,8 @@ class LoggedInWelcomeController extends AbstractController
         super(mainWindowFrame);
         this.client = client;
         this.loggedInWelcomePanel = loggedInWelcomePanel;
+
+        addListeners();
     }
 
     private void addListeners()
