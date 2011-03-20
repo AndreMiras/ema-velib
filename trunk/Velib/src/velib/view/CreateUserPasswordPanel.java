@@ -11,6 +11,7 @@
 
 package velib.view;
 
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import velib.model.User;
 
@@ -21,18 +22,24 @@ import velib.model.User;
 public class CreateUserPasswordPanel extends javax.swing.JPanel {
 
     /** Creates new form ChoixIDMotdePassePanel */
-    public CreateUserPasswordPanel() {
+    public CreateUserPasswordPanel()
+    {
         initComponents();
     }
 
+    public void addValiderButtonListener(ActionListener al)
+    {
+        validerButton.addActionListener(al);
+    }
+
     /*
- * Returns true if the inputs are valid, else returns false
- */
-private boolean formIsValid()
-{
-    // TODO: finish up
-    return true;
-}
+     * Returns true if the inputs are valid, else returns false
+     */
+    private boolean formIsValid()
+    {
+        // TODO: finish up
+        return true;
+    }
 
  /*
   * Displays the invalid inputs error message
@@ -92,7 +99,7 @@ public User getUserFromInputs()
         jLabel6 = new javax.swing.JLabel();
         QuestsecreteTextField = new javax.swing.JTextField();
         repSecreteTextField = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        validerButton = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Choix des identifiants"));
 
@@ -114,7 +121,7 @@ public User getUserFromInputs()
 
         jLabel6.setText("Réponse secrète :");
 
-        jButton1.setText("Valider");
+        validerButton.setText("Valider");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -155,7 +162,7 @@ public User getUserFromInputs()
                 .addContainerGap(95, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(326, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(validerButton)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -184,7 +191,7 @@ public User getUserFromInputs()
                     .addComponent(jLabel6)
                     .addComponent(repSecreteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1))
+                .addComponent(validerButton))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -213,7 +220,6 @@ public User getUserFromInputs()
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField QuestsecreteTextField;
     private javax.swing.JTextField identifiantTextfield;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -224,6 +230,7 @@ public User getUserFromInputs()
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField motdepasseTextField;
     private javax.swing.JTextField repSecreteTextField;
+    private javax.swing.JButton validerButton;
     // End of variables declaration//GEN-END:variables
 
 }

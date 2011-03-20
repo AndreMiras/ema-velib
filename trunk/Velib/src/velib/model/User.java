@@ -62,11 +62,19 @@ public class User implements IModel {
         this.password = password;
     }
 
-        public String getQuestionSecrete() {
+    @Override
+    public String toString()
+    {
+        return identifiant;
+    }
+
+    public String getQuestionSecrete()
+    {
         return questionSecrete;
     }
 
-    public String getReponseSecrete() {
+    public String getReponseSecrete()
+    {
         return reponseSecrete;
     }
 

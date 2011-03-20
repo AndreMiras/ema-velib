@@ -28,9 +28,9 @@ public class RegisterFormPanel extends javax.swing.JPanel {
     }
 
     public void addOkButtonListener(ActionListener al)
-{
-    okButton.addActionListener(al);
-}
+    {
+        okButton.addActionListener(al);
+    }
 
 /*
  * Returns true if the inputs are valid, else returns false
