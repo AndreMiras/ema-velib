@@ -39,13 +39,13 @@ public class BornetteDAO extends DAO<Bornette>
             PreparedStatement prepare = this.connect.prepareStatement(
                                                     	"INSERT INTO " +
                                                         bornetteTable +
-                                                        " (idbornette, numero, libre, idborne, idvelo) VALUES(?, ?, ?, ?, ?)"
+                                                        " (idbornette, numero, libre, idborne) VALUES(?, ?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
                                 prepare.setLong(2, obj.getNumero());
                                 prepare.setBoolean(3, obj.getLibre());
                                 prepare.setLong(4, obj.getBorne().getIdBorne());
-                                prepare.setLong(5, obj.getVelo().getId());
+                               
 
 				prepare.executeUpdate();
 				obj = this.find(id);
@@ -61,6 +61,8 @@ public class BornetteDAO extends DAO<Bornette>
     {
         String bornetteTable = tableNames[0];
         Bornette bornette = new Bornette();
+        Borne borne;
+        BornesDAO borneDAO = new BornesDAO();
 
 	try
         {
@@ -72,8 +74,10 @@ public class BornetteDAO extends DAO<Bornette>
                                     );
             if(result.first())
             {
-
-                bornette = new Bornette();
+                long id = result.getLong("idbornette");
+                long numero = result.getLong("numero");
+                borne = borneDAO.find(result.getLong("idborne"));
+                bornette = new Bornette(id, numero, borne);
             }
         }
         catch (SQLException e)
@@ -88,6 +92,8 @@ public class BornetteDAO extends DAO<Bornette>
     {
         String bornetteTable = tableNames[0];
         Bornette bornette = new Bornette();
+        Borne borne;
+        BornesDAO borneDAO = new BornesDAO();
 
 	try
         {
@@ -99,12 +105,10 @@ public class BornetteDAO extends DAO<Bornette>
                                     );
             if(result.first())
             {
-                long id = result.getLong("idbornette");
-                long idborneDB = result.getLong("idborne");
-                long idveloDB = result.getLong("idvelo");
-                boolean libre = result.getBoolean("libre");
+               long id = result.getLong("idbornette");
                 long numero = result.getLong("numero");
-                bornette = new Bornette();
+                borne = borneDAO.find(result.getLong("idborne"));
+                bornette = new Bornette(id, numero, borne);
 
             }
         }
@@ -116,6 +120,28 @@ public class BornetteDAO extends DAO<Bornette>
         return bornette;
     }
 
+    public Bornette updateLibre (Bornette obj)
+    {
+        String bornetteTable = tableNames[0];
+        try {
+                this .connect.createStatement(
+                    	ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_UPDATABLE
+                     ).executeUpdate(
+                    	"UPDATE " +
+                        bornetteTable +
+                        " SET libre = '" + obj.getLibre()+ "',"+
+                    	" WHERE iduser = " + obj.getId()
+                     );
+
+	obj = this.find(obj.getId());
+	    }
+        catch (SQLException e)
+        {
+	  e.printStackTrace();
+	}
+        return obj;
+    }
     @Override
     public Bornette update(Bornette obj)
     {
@@ -170,8 +196,8 @@ public class BornetteDAO extends DAO<Bornette>
                     "(idbornette INTEGER, " +
                     "libre BOOLEAN, " +
                     "numero INTEGER, " +
-                    "idborne INTEGER, " +
-                    "idvelo INTEGER) " , tableNames[0]);
+                    "idborne INTEGER) "  , tableNames[0]);
+                   
         statementStrings[2] =
                 "ALTER TABLE "
                 + tableNames[0]
@@ -180,10 +206,6 @@ public class BornetteDAO extends DAO<Bornette>
                 "ALTER TABLE "
                 + tableNames[0]
                 + " ADD CONSTRAINT foreign_key_bornettes_borne FOREIGN KEY (idborne) REFERENCES bornes (idbornes)";
-        statementStrings[4] =
-                "ALTER TABLE "
-                + tableNames[0]
-                + "  ADD CONSTRAINT foreign_key_bornettes_velo FOREIGN KEY (idvelo) REFERENCES velos (idvelos)";
         return statementStrings;
     }
 
