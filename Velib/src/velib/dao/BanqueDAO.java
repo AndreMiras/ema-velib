@@ -36,7 +36,7 @@ public class BanqueDAO extends DAO<Bank>
                                 ResultSet.TYPE_SCROLL_INSENSITIVE,
                       		ResultSet.CONCUR_UPDATABLE
                                     ).executeQuery(
-                                       "SELECT NEXT VALUE FOR sequence_banques FROM banques as id"
+                                       "CALL NEXT VALUE FOR sequence_banques"
                                     );
             if(result.first()){
             long id = result.getLong(1);
@@ -74,7 +74,7 @@ public class BanqueDAO extends DAO<Bank>
                                      ).executeQuery(
                                     "SELECT * FROM " +
                                     banquesTable +
-                                    "WHERE idbanque = '" + id
+                                    " WHERE idbanque = '" + id
                                     );
             if(result.first())
             {
@@ -141,7 +141,7 @@ public class BanqueDAO extends DAO<Bank>
                     "numero VARCHAR(40), " +
                     "identifiant VARCHAR(100), " +
                     "dateexpiration DATE, " +
-                    "codeverif VARCHAR(3), ", tableNames[0]);
+                    "codeverif VARCHAR(3)) ", tableNames[0]);
         statementStrings[2] =
                 "ALTER TABLE "
                 + tableNames[0]
