@@ -136,7 +136,16 @@ public class BornetteDAO extends DAO<Bornette>
     public Bornette update(Bornette obj)
     {
         String bornetteTable = tableNames[0];
+        Long idvelo;
         try {
+            if (obj.getVelo()== null)
+            {
+                idvelo = null;
+            }
+            else
+            {
+                idvelo = obj.getVelo().getId();
+            }
                 this .connect.createStatement(
                     	ResultSet.TYPE_SCROLL_INSENSITIVE,
                         ResultSet.CONCUR_UPDATABLE
@@ -144,7 +153,8 @@ public class BornetteDAO extends DAO<Bornette>
                     	"UPDATE " +
                         bornetteTable +
                         " SET numero = '" + obj.getNumero()+ "',"+
-                        " idborne = '" + obj.getBorne().getIdBorne()+ "'"+
+                        " idborne = '" + obj.getBorne().getIdBorne()+ "',"+
+                        " idvelo = '" + idvelo+ "'"+
                     	" WHERE idbornnete = " + obj.getId()
                      );
 
