@@ -145,7 +145,7 @@ public class BanqueDAO extends DAO<Bank>
         statementStrings[2] =
                 "ALTER TABLE "
                 + tableNames[0]
-                + " ADD CONSTRAINT primary_key_bornes PRIMARY KEY (idBanque)";
+                + " ADD CONSTRAINT primary_key_banques PRIMARY KEY (idBanque)";
         return statementStrings;
     }
 
