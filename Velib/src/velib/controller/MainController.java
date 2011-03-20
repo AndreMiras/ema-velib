@@ -20,6 +20,7 @@ import velib.view.EditBornFrame;
 import velib.view.IView;
 import velib.view.MainWindowFrame;
 import velib.view.WelcomeScreenPanel;
+import velib.view.UsersControlFrame;
 
 /**
  *
@@ -49,6 +50,9 @@ public class MainController extends AbstractController implements IController
     // Database Connection
     private DBConnectionFrame dBConnectionFrame;
 
+    // Users Control mvc
+    private UsersControlFrame usersControlFrame;
+    private UsersControlController usersControlController;
 
     public MainController(IModel model, MainWindowFrame view)
     {
@@ -79,10 +83,11 @@ public class MainController extends AbstractController implements IController
                 new EditDatabaseButtonListener());
         mainWindowFrame.addEditBornButtonListener(
                 new EditBornButtonListener());
-
-        
         mainWindowFrame.addConnectToDatabaseButtonListener(
                 new ConnectToDatabaseButtonListener());
+        /*mainWindowFrame.addUsersControlButtonListener(
+                new UsersControlButtonListener());
+         * */
     }
 
     public IModel getModel()
@@ -93,6 +98,24 @@ public class MainController extends AbstractController implements IController
     public IView getView()
     {
         return mainWindowFrame;
+    }
+
+    class UsersControlButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            /*
+            borneDAO = new BornesDAO();
+            Borne[] bornes;
+            bornes = borneDAO.findBorneLibre();
+
+            DBConnectionFrame dBConnectionFrame = new DBConnectionFrame(bornes);
+
+            DBConnectionController dBConnectionController =
+                    new DBConnectionController(dBConnectionFrame);
+            dBConnectionFrame.setVisible(true);
+            */
+        }
     }
 
     class ConnectToDatabaseButtonListener implements ActionListener
