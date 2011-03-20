@@ -18,8 +18,11 @@ public class Location {
     private Velo velo;
     private Date date;
 
-    public Location () {
+    public Location (long id, Client client, Velo velo) {
         // TODO: hardcoded value, ident envoyé de la BDD (DAO)
+        this.id=id;
+        this.client=client;
+        this.velo=velo;
     }
 
     public Client getClient() {

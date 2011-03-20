@@ -16,10 +16,17 @@ public class Velo
     private boolean etat;
     private Bornette bornette;
 
-    public Velo()
+    public Velo(Long id, boolean etat, Bornette bornette)
     {
+        this.id=id;
+        this.etat=etat;
+        this.bornette=bornette;
     }
 
+    public Velo() {
+    }
+
+    
     
 
     public Velo(long id)
