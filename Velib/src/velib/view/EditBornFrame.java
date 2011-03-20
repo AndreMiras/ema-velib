@@ -24,7 +24,7 @@ public class EditBornFrame extends javax.swing.JFrame {
     public EditBornFrame() {
         initComponents();
     }
-
+    
     // TODO: cleaning
     public GeneralAdministrationPanel getGeneralAdministrationPanel()
     {

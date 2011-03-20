@@ -5,9 +5,9 @@
 
 package velib.controller;
 
-import velib.model.IModel;
 import velib.view.UsersControlFrame;
 import velib.view.MainWindowFrame;
+
 /**
  *
  * @author G
@@ -16,7 +16,8 @@ public class UsersControlController extends AbstractController
 {
     private UsersControlFrame usersControlFrame;
 
-    public UsersControlController(MainWindowFrame mainWindowFrame, UsersControlFrame usersControlFrame)
+    public UsersControlController(MainWindowFrame mainWindowFrame,
+            UsersControlFrame usersControlFrame)
     {
         super(mainWindowFrame);
         this.usersControlFrame = usersControlFrame;
