@@ -25,6 +25,10 @@ public class Location {
         this.velo=velo;
     }
 
+    public Location() {
+    }
+
+
     public Client getClient() {
         return client;
     }

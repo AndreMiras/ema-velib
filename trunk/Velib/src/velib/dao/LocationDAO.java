@@ -37,7 +37,10 @@ public class LocationDAO extends DAO<Location>
             long id = result.getLong(1);
             System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
-                                                    	"INSERT INTO location (id, date, clientid, veloid) VALUES(?, ?, ?,?)"
+                                                    	"INSERT INTO locations "
+                                                        + "(idlocation, date,"
+                                                        + " idclient,"
+                                                        + " idvelo) VALUES(?, ?, ?,?)"
                                                     );
 				prepare.setLong(1, id);
                                 prepare.setDate(2, obj.getDateSQL());
@@ -53,7 +56,7 @@ public class LocationDAO extends DAO<Location>
 	    return obj;
     }
 
-        public Location[] findAllLocation ()
+    public Location[] findAllLocation ()
     {
         String locationsTable = tableNames[0];
         Location[] tableauLocation = new Location[10];
@@ -90,6 +93,40 @@ public class LocationDAO extends DAO<Location>
 
         return tableauLocation;
     }
+    
+        public Location find (Client client)
+    {
+        String locationsTable = tableNames[0];
+        Location location = new Location();
+        Velo velo;
+        VeloDAO veloDAO = new VeloDAO();
+
+	try
+        {
+            ResultSet result = this.connect.createStatement(
+                                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                    ResultSet.CONCUR_READ_ONLY
+                                     ).executeQuery(
+                                    "SELECT * FROM " +
+                                    locationsTable +
+                                    "WHERE idClient = " + client.getClientId()
+                                    );
+            if (result.first())
+            {
+                Long id = result.getLong("idlocation");
+                velo = veloDAO.find(result.getLong("idvelo"));
+                location = new Location(id, client, velo);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return location;
+    }
+
+
 
     @Override
     public Location update(Location obj)
