@@ -27,7 +27,7 @@ import velib.view.UsersControlFrame;
  * @author andre
  */
 // TODO: to be renamed as MainWindowFrameController
-public class MainController extends AbstractController implements IController
+public class MainWindowController extends AbstractController implements IController
 {
   
     private IModel model;
@@ -54,7 +54,7 @@ public class MainController extends AbstractController implements IController
     private UsersControlFrame usersControlFrame;
     private UsersControlController usersControlController;
 
-    public MainController(IModel model, MainWindowFrame view)
+    public MainWindowController(IModel model, MainWindowFrame view)
     {
         super(view);
         this.model = model;

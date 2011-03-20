@@ -5,7 +5,7 @@
 
 package velib;
 
-import velib.controller.MainController;
+import velib.controller.MainWindowController;
 import velib.model.Client;
 import velib.view.MainWindowFrame;
 
@@ -27,7 +27,7 @@ public class Main {
         view.setVisible(true);
 
         // Create the controller
-        MainController controller = new MainController(null, view);
+        MainWindowController controller = new MainWindowController(null, view);
         view.setVisible(true);
     }
 
