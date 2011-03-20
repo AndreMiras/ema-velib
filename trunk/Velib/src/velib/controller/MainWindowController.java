@@ -144,12 +144,7 @@ public class MainWindowController extends AbstractMainWindowController implement
             // TODO: two controllers ... not needed
             editBornFrame = new EditBornFrame();
             editBornController = new EditBornController(mainWindowController,
-                    editBornFrame);
-            
-            GeneralAdministrationController generalAdministrationController =
-                    new GeneralAdministrationController(
-            editBornFrame.getGeneralAdministrationPanel());
-            
+                    editBornFrame);            
             editBornFrame.setVisible(true);
         }
     }
