@@ -18,9 +18,9 @@ import velib.model.Client;
 import velib.dao.AbstractDAOFactory;
 import velib.dao.DAO;
 import velib.dao.FactoryType;
-import velib.model.Banque;
+import velib.model.Bank;
 
-public class BanqueDAO extends DAO<Banque>
+public class BanqueDAO extends DAO<Bank>
 {
 
     public BanqueDAO()
@@ -28,7 +28,7 @@ public class BanqueDAO extends DAO<Banque>
         tableNames = new String[] { "banques" };
     }
 
-    public Banque create(Banque obj)
+    public Bank create(Bank obj)
     {
            
          try {
@@ -61,8 +61,8 @@ public class BanqueDAO extends DAO<Banque>
     }
 
     @Override
-    public Banque find(long id) {
-        Banque compteBanque = new Banque();
+    public Bank find(long id) {
+        Bank compteBanque = new Bank();
         String banquesTable = tableNames[0];
         Client client;
         ClientDAO clientDAO = new ClientDAO();
@@ -89,7 +89,7 @@ public class BanqueDAO extends DAO<Banque>
 
                 System.out.println("id =" + id);
 
-               compteBanque = new Banque(id, numero, identifiant, codeVerif, client);
+               compteBanque = new Bank(id, numero, identifiant, codeVerif, client);
             }
         }
         catch (SQLException e)
@@ -101,12 +101,12 @@ public class BanqueDAO extends DAO<Banque>
     }
 
     @Override
-    public Banque update(Banque obj) {
+    public Bank update(Bank obj) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void delete(Banque obj) {
+    public void delete(Bank obj) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

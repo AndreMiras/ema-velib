@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Nicolas
  */
-public class Banque {
+public class Bank {
 
      private long id;
      private long numero;
@@ -20,7 +20,7 @@ public class Banque {
      private long codeVerif;
      private Client client;
 
-    public Banque(long id, long numero, String identifiant, long codeVerif, Client client) {
+    public Bank(long id, long numero, String identifiant, long codeVerif, Client client) {
         this.id=id;
         this.numero=numero;
         this.identifiant=identifiant;
@@ -28,7 +28,7 @@ public class Banque {
         this.client=client;
     }
 
-    public Banque() {
+    public Bank() {
     }
 
     

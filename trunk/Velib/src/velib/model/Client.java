@@ -20,7 +20,7 @@ public class Client extends User {
     private long codePostal;
 
     private Abonnement abonnement;
-    private Banque banque;
+    private Bank banque;
 
 
     public Client()
@@ -36,7 +36,7 @@ public class Client extends User {
         
         this.dateNaissance = new Date();
         this.abonnement = new Abonnement();
-        this.banque = new Banque();
+        this.banque = new Bank();
     }
 
     public String getFirstname()
@@ -77,7 +77,7 @@ public class Client extends User {
 
 
 
-    public Banque getBanque() {
+    public Bank getBanque() {
         return banque;
     }
 
