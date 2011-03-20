@@ -38,14 +38,14 @@ public class LocationDAO extends DAO<Location>
             System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
                                                     	"INSERT INTO locations "
-                                                        + "(idlocation, date,"
+                                                        + "(idlocation,"
                                                         + " idclient,"
-                                                        + " idvelo) VALUES(?, ?, ?,?)"
+                                                        + " idvelo) VALUES(?, ?,?)"
                                                     );
 				prepare.setLong(1, id);
-                                prepare.setDate(2, obj.getDateSQL());
-				prepare.setLong(3, obj.getClient().getClientId());
-                                prepare.setLong(4, obj.getVelo().getId());
+                               // prepare.setDate(2, obj.getDateSQL());
+				prepare.setLong(2, obj.getClient().getClientId());
+                                prepare.setLong(3, obj.getVelo().getId());
 				prepare.executeUpdate();
 				obj = this.find(id);
             }
@@ -94,7 +94,7 @@ public class LocationDAO extends DAO<Location>
         return tableauLocation;
     }
     
-        public Location find (Client client)
+    public Location find (Client client)
     {
         String locationsTable = tableNames[0];
         Location location = new Location();
@@ -142,8 +142,38 @@ public class LocationDAO extends DAO<Location>
 
     @Override
     public Location find(long id) {
-         throw new UnsupportedOperationException("Not supported yet.");
+         String locationsTable = tableNames[0];
+        Location location = new Location();
+        Velo velo;
+        VeloDAO veloDAO = new VeloDAO();
+        Client client;
+        ClientDAO clientDAO = new ClientDAO();
+
+	try
+        {
+            ResultSet result = this.connect.createStatement(
+                                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                    ResultSet.CONCUR_READ_ONLY
+                                     ).executeQuery(
+                                    "SELECT * FROM " +
+                                    locationsTable +
+                                    " WHERE idClient = " + id
+                                    );
+            if (result.first())
+            {
+                client = clientDAO.find(result.getLong("idclient"));
+                velo = veloDAO.find(result.getLong("idvelo"));
+                location = new Location(id, client, velo);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return location;
     }
+    
 
      @Override
     public String[] createTablesStatementStrings()
