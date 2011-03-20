@@ -20,10 +20,6 @@ public class DBConnectionController
     {
         this.dBConnectionPanel = dBConnectionPanel;
     }
-
-
-
-
 }
 
 

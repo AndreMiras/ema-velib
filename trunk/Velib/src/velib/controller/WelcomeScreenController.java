@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import velib.model.IModel;
 import velib.view.AbonnementPanel;
+import velib.view.HelpPanel;
 import velib.view.LoginScreenPanel;
 import velib.view.MainWindowFrame;
 import velib.view.WelcomeScreenPanel;
@@ -42,7 +43,7 @@ public class WelcomeScreenController extends AbstractController
     {
         view.addAbonnerButtonListener(new AbonnerButtonListener());
         view.addIdentifierButtonListener(new IdentifierButtonListener());
-
+        view.addAideButtonListener(new AideButtonListener());
     }
 
     class AbonnerButtonListener implements ActionListener
@@ -72,5 +73,15 @@ public class WelcomeScreenController extends AbstractController
         }
     }
 
+    class AideButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            HelpPanel helpPanel = new HelpPanel();
+            HelpController helpController = new HelpController(mainWindowFrame,
+                    model, helpPanel);
+            mainWindowFrame.setContentPanel(helpPanel);
+        }
+    }
     
 }
