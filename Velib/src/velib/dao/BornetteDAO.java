@@ -40,8 +40,10 @@ public class BornetteDAO extends DAO<Bornette>
             PreparedStatement prepare = this.connect.prepareStatement(
                                                     	"INSERT INTO " +
                                                         bornetteTable +
-                                                        " (idbornette, numero,"
-                                                        + "idborne, idvelo) "
+                                                        " (idbornette,"
+                                                        + "numero,"
+                                                        + "idborne,"
+                                                        + "idvelo) "
                                                         + "VALUES(?, ?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
@@ -109,7 +111,7 @@ public class BornetteDAO extends DAO<Bornette>
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                    "SELECT * FROM"+bornetteTable+" WHERE "
+                                    "SELECT * FROM "+bornetteTable+" WHERE "
                                     + "idvelo is not null AND idborne='" + idBorne + "'"
                                     );
             if(result.first())
