@@ -13,14 +13,12 @@ import velib.view.MainWindowFrame;
  * @author andre
  * TODO/ to be removed (replaced by Gaetan controller)
  */
-public class EditBornController extends AbstractMainWindowController
+public class EditBornController
 {
     private EditBornFrame editBornFrame;
 
-    public EditBornController(MainWindowController mainWindowController,
-            EditBornFrame editBornFrame)
+    public EditBornController(EditBornFrame editBornFrame)
     {
-        super(mainWindowController);
         this.editBornFrame = editBornFrame;
     }
 

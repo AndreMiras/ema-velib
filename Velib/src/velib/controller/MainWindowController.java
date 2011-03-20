@@ -27,7 +27,7 @@ import velib.view.UsersControlFrame;
  * @author andre
  */
 // TODO: to be renamed as MainWindowFrameController
-public class MainWindowController extends AbstractMainWindowController implements IController
+public class MainWindowController // extends AbstractMainWindowController implements IController
 {
   
     private IModel model;
@@ -58,11 +58,10 @@ public class MainWindowController extends AbstractMainWindowController implement
     public MainWindowController(IModel model,
             MainWindowFrame mainWindowFrame)
     {
-        super(null);
+        // super(null);
         this.model = model;
         this.mainWindowFrame = mainWindowFrame;
 
-        // addListeners();
         mainWindowFrameSetup();
         addListeners();
     }
@@ -70,14 +69,20 @@ public class MainWindowController extends AbstractMainWindowController implement
     /*
      * Add first WelcomeScreenPanel and register associated controller
      */
-    private void mainWindowFrameSetup()
+    public final void mainWindowFrameSetup()
     {
+        // mainWindowFrame.initMainWindow();
         welcomeScreenPanel = new WelcomeScreenPanel();
         welcomeScreenController = new WelcomeScreenController(
                 this, model, welcomeScreenPanel);
         
         mainWindowFrame.setContentPanel(welcomeScreenPanel);
         
+    }
+
+    protected void setMainWindowContentPanel(JPanel jpanel)
+    {
+        mainWindowFrame.setContentPanel(jpanel);
     }
 
     
@@ -115,7 +120,7 @@ public class MainWindowController extends AbstractMainWindowController implement
             UsersControlFrame usersControlFrame = new UsersControlFrame();
 
             UsersControlController usersControlController =
-                    new UsersControlController(mainWindowController, usersControlFrame);
+                    new UsersControlController(usersControlFrame);
             usersControlFrame.setVisible(true);
         }
     }
@@ -143,8 +148,7 @@ public class MainWindowController extends AbstractMainWindowController implement
         {
             // TODO: two controllers ... not needed
             editBornFrame = new EditBornFrame();
-            editBornController = new EditBornController(mainWindowController,
-                    editBornFrame);            
+            editBornController = new EditBornController(editBornFrame);
             editBornFrame.setVisible(true);
         }
     }

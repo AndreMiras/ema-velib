@@ -79,8 +79,7 @@ public class LouerVeloController extends AbstractMainWindowController
             bornetteDAO.update(bornette);
 
             System.out.println("Creating a subscription object");
-            // TODO: Call the home screen by cleaning the mainWindowFrame
-            setMainWindowContentPanel(louerVeloPanel);
+            initMainWindow();
         }
     }
 
