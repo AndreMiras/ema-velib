@@ -21,9 +21,9 @@ public class Bank
      private Date dateExpiration;
      // name on the card
      private String identifiant;
-     private long codeVerif;
+     private String codeVerif;
     
-    public Bank(long id, String numero, String identifiant, long codeVerif)
+    public Bank(long id, String numero, String identifiant, String codeVerif)
     {
         this.id=id;
         this.numero=numero;
@@ -39,7 +39,7 @@ public class Bank
         return id;
     }
 
-    public long getCodeVerif() {
+    public String getCodeVerif() {
         return codeVerif;
     }
 
