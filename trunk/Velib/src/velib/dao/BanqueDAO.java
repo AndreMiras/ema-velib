@@ -45,7 +45,7 @@ public class BanqueDAO extends DAO<Bank>
                                                      "INSERT INTO banques (idbanque, numero, identifiant, dateExpiration, codeVerif) VALUES(?, ?, ?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
-                                prepare.setLong(2, obj.getNumero());
+                                prepare.setString(2, obj.getNumero());
                                 prepare.setString(3, obj.getIdentifiant());
                                 prepare.setDate(4, obj.getDateExpirationSQL());
                                 prepare.setLong(5, obj.getCodeVerif());
@@ -80,7 +80,7 @@ public class BanqueDAO extends DAO<Bank>
             {
                 System.out.println("I'm in the result");
 
-                Long numero = result.getLong("numero");
+                String numero = result.getString("numero");
                 String identifiant = result.getString("identifiant");
                 //Date date = result.getDate("dateexpiration");
                 Long codeVerif = result.getLong("codeVerif");
@@ -117,7 +117,7 @@ public class BanqueDAO extends DAO<Bank>
         statementStrings[1] =
                     String.format("CREATE TABLE %s" +
                     "(idbanque INTEGER, " +
-                    "numero INTEGER, " +
+                    "numero VARCHAR(40), " +
                     "identifiant VARCHAR(100), " +
                     "dateexpiration DATE, " +
                     "codeverif INTEGER, ", tableNames[0]);
