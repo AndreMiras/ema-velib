@@ -14,6 +14,7 @@ import velib.model.Borne;
 import velib.model.Bornette;
 import velib.model.Client;
 import velib.model.User;
+import velib.model.Velo;
 
 /**
  *
@@ -129,6 +130,8 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
         String nomBorne;
         Bornette bornette;
         BornetteDAO bornetteDAO;
+        Velo velo;
+        VeloDAO veloDAO;
         long numero = 0;
         int id = 0;
         System.out.println("Filling up borne table");
@@ -141,9 +144,12 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
            borne = new Borne(id, nomBorne);
            borne = borneDAO.create(borne);
 
+           veloDAO = new VeloDAO();
+           velo = new Velo (id);
+           velo = veloDAO.create(velo);
            numero = i+1;
            bornetteDAO = new BornetteDAO();
-           bornette = new Bornette(id, numero, borne);
+           bornette = new Bornette(id, numero, borne, velo);
            bornette = bornetteDAO.create(bornette);
 
            System.out.println("created client: " + borne);

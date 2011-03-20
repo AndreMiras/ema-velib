@@ -61,7 +61,7 @@ public class GeneralAdministrationController
 
 
             Velo velo = new Velo();
-            velo.setBornette(bornette);
+            //velo.setBornette(bornette);
             VeloDAO veloDAO = new VeloDAO();
             veloDAO.create(velo);
         }
