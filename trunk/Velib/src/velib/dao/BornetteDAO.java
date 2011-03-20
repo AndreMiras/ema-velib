@@ -76,7 +76,7 @@ public class BornetteDAO extends DAO<Bornette>
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                    "SELECT * FROM"+bornetteTable+" WHERE "
+                                    "SELECT * FROM "+bornetteTable+" WHERE "
                                     + "idvelo is null AND idborne='" + idBorne + "'"
                                     );
             if(result.first())

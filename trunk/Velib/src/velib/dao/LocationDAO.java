@@ -109,7 +109,7 @@ public class LocationDAO extends DAO<Location>
                                      ).executeQuery(
                                     "SELECT * FROM " +
                                     locationsTable +
-                                    "WHERE idClient = " + client.getClientId()
+                                    " WHERE idClient = " + client.getClientId()
                                     );
             if (result.first())
             {
