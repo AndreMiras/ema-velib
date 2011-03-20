@@ -15,6 +15,7 @@ public class Borne {
     private String nomBorne;
     private int positionX;
     private int positionY;
+    /* is the borne already associated with a soft */
     private boolean etat;
 
     public Borne(long id, String nomBorne) {
@@ -22,7 +23,9 @@ public class Borne {
         this.nomBorne=nomBorne;
         this.positionX=0;
         this.positionY=0;
-        this.etat=false;
+
+        /* by default the borne is free */
+        this.etat=true;
     }
 
     public Borne() {
