@@ -264,7 +264,7 @@ public class ClientDAO extends DAO<Client>
          statementStrings[5] =
                  "ALTER TABLE "
                  + tableNames[0]
-                 + " ADD CONSTRAINT foreign_key_clients_banques FOREIGN KEY (idbanque) REFERENCES banques (idbanques)";
+                 + " ADD CONSTRAINT foreign_key_clients_banques FOREIGN KEY (idbanque) REFERENCES banques (idbanque)";
          return statementStrings;
     }
 
