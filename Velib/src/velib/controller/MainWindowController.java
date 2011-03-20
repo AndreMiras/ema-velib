@@ -71,7 +71,7 @@ public class MainWindowController // extends AbstractMainWindowController implem
      */
     public final void mainWindowFrameSetup()
     {
-        // mainWindowFrame.initMainWindow();
+        mainWindowFrame.initMainWindow();
         welcomeScreenPanel = new WelcomeScreenPanel();
         welcomeScreenController = new WelcomeScreenController(
                 this, model, welcomeScreenPanel);

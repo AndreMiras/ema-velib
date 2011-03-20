@@ -31,12 +31,9 @@ public class AbstractMainWindowController
     }
 
 
-    /*
     protected void initMainWindow()
     {
         mainWindowController.mainWindowFrameSetup();
     }
-     * 
-     */
 
 }
