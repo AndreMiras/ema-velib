@@ -59,7 +59,7 @@ public class BornesDAO  extends DAO<Borne>{
     public Borne[] findBorneLibre ()
     {
         String bornesTable = tableNames[0];
-        Borne[] tableauBorne = new Borne[10];
+        Borne[] tableauBorne= new Borne[10];//TODO : dynamic sizes
         Borne borne;
         int i=0;
 
@@ -69,10 +69,12 @@ public class BornesDAO  extends DAO<Borne>{
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                    "SELECT * FROM " +
+                                    "SELECT count* FROM " +
                                     bornesTable +
                                     " WHERE etat=true"
                                     );
+            
+
             while (result.next())
             {
                 Long id = result.getLong("idborne");
