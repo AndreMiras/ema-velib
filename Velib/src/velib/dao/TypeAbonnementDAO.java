@@ -52,7 +52,7 @@ public class TypeAbonnementDAO extends DAO<TypeAbonnement> {
       statementStrings[2] =
                 "ALTER TABLE "
                 + tableNames[0]
-                + "ADD CONSTRAINT primary_key_typeAbo PRIMARY KEY (idtype)";
+                + " ADD CONSTRAINT primary_key_typeAbo PRIMARY KEY (idtype)";
         return statementStrings;
     }
 
