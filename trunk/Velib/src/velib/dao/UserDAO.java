@@ -51,11 +51,13 @@ public class UserDAO extends DAO<User>
             PreparedStatement prepare = this.connect.prepareStatement(
                                                     	"INSERT INTO " +
                                                         usersTable +
-                                                        " (iduser, identifiant, password) VALUES(?, ?, ?)"
+                                                        " (iduser, identifiant, password, questionsecrete, reponsesecrete) VALUES(?, ?, ?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
                                 prepare.setString(2, obj.getIdentifiant());
 				prepare.setString(3, obj.getPassword());
+                                prepare.setString(4, obj.getQuestionSecrete());
+                                prepare.setString(5, obj.getReponseSecrete());
 
 				prepare.executeUpdate();
 				obj = this.find(id);
@@ -114,6 +116,8 @@ public class UserDAO extends DAO<User>
                     	"UPDATE " +
                         usersTable +
                         " SET password = '" + obj.getPassword() + "'"+
+                        " SET questionsecrete = '" + obj.getQuestionSecrete() + "'"+
+                        " SET reponsesecrete = '" + obj.getReponseSecrete() + "'"+
                     	" WHERE id = " + obj.getUserId()
                      );
 
@@ -174,7 +178,9 @@ public class UserDAO extends DAO<User>
                     String.format("CREATE TABLE %s" +
                     "(iduser INTEGER, " +
                     "identifiant VARCHAR(40), " +
-                    "password VARCHAR(40))" , tableNames[0]);
+                    "password VARCHAR(40))" +
+                    "questionsecrete VARCHAR(200), " +
+                    "reponsesecrete VARCHAR(200), " , tableNames[0]);
          statementStrings[2] =
                 "ALTER TABLE "
                 + tableNames[0]
