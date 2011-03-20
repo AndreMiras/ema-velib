@@ -30,7 +30,7 @@ public class LocationDAO extends DAO<Location>
                                 ResultSet.TYPE_SCROLL_INSENSITIVE,
                       		ResultSet.CONCUR_UPDATABLE
                                     ).executeQuery(
-                                       "SELECT NEXT VALUE FOR sequence_locations FROM"+locationTable+"as id"
+                                       "CALL NEXT VALUE FOR sequence_locations"
                                     );
             if(result.first())
             {
