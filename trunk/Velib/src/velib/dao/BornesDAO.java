@@ -69,7 +69,7 @@ public class BornesDAO  extends DAO<Borne>{
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                    "SELECT count* FROM " +
+                                    "SELECT * FROM " +
                                     bornesTable +
                                     " WHERE etat=true"
                                     );
