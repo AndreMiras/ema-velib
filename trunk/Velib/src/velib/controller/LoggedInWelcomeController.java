@@ -7,6 +7,9 @@ package velib.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import velib.dao.BorneSingleton;
+import velib.dao.BornetteDAO;
+import velib.model.Bornette;
 import velib.model.Client;
 import velib.model.IModel;
 import velib.view.LoggedInWelcomePanel;
@@ -48,13 +51,18 @@ class LoggedInWelcomeController extends AbstractController
     {
         public void actionPerformed(ActionEvent e)
         {
+            long idBorne = BorneSingleton.getInstance().getIdBorne();
+
+            BornetteDAO bornetteDAO = new BornetteDAO();
+            Bornette bornette = bornetteDAO.findOccupe(idBorne);
             // TODO: does it really need to be kept as a private attribute?
             // This might just be a pop up dialog rather than an actual
             // panel plus its dedicated controller
-            LouerVeloPanel louerVeloPanel = new LouerVeloPanel(client);
+            LouerVeloPanel louerVeloPanel =
+                    new LouerVeloPanel(client, bornette);
             LouerVeloController louerVeloController =
-                    new LouerVeloController(mainWindowFrame, louerVeloPanel);
-            // loginScreenPanel.setVisible(true);
+                    new LouerVeloController(
+                    mainWindowFrame, client, bornette, louerVeloPanel);
             mainWindowFrame.setContentPanel(louerVeloPanel);
         }
     }

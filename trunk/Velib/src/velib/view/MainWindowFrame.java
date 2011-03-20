@@ -34,16 +34,17 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     public MainWindowFrame()
     {
         initComponents();
-        setUpMainWindow();
+        initMainWindow();
         middleContentPanelsVector = new Vector<JPanel>();
     }
 
     /*
      * Set up the first screen which is the WelcomeScreen
-     * TODO: shouldn't some of this handled in the controller?
      */
-    private void setUpMainWindow()
+    public void initMainWindow()
     {
+        middleContentPanel.removeAll();
+        middleContentPanelsVector = new Vector<JPanel>();
     }
 
     public void showMessage(String message)
