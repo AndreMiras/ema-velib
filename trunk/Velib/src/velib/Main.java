@@ -7,6 +7,7 @@ package velib;
 
 import velib.controller.MainWindowController;
 import velib.model.Client;
+import velib.view.AdministrationWindowFrame;
 import velib.view.MainWindowFrame;
 
 
@@ -25,6 +26,8 @@ public class Main {
         // Creating the main view
         MainWindowFrame view = new MainWindowFrame();
         view.setVisible(true);
+        AdministrationWindowFrame administrationView = new AdministrationWindowFrame();
+        administrationView.setVisible(true);
 
         // Create the controller
         MainWindowController controller = new MainWindowController(null, view);
