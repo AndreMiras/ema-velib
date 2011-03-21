@@ -150,11 +150,14 @@ public class ClientDAOTest {
     public void testDelete()
     {
         System.out.println("delete");
-        Client obj = null;
-        ClientDAO instance = new ClientDAO();
-        instance.delete(obj);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Client client;
+        ClientDAO clientDAO = new ClientDAO();
+        client = clientDAO.find(1);
+        // the client should exist
+        assertNotNull(client);
+        clientDAO.delete(client);
+        // the client should NOT exist
+        assertNull(client);
     }
 
     /**
