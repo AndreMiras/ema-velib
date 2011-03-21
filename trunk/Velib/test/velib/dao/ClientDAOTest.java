@@ -102,50 +102,45 @@ public class ClientDAOTest {
 
     /**
      * Test of find method, of class ClientDAO.
+     * TODO: finish up this test
      */
     @Test
     public void testFind_User()
     {
         System.out.println("find");
-        User user = null;
+        User user = new User(1, "", ""); // this is a find by user id
         ClientDAO instance = new ClientDAO();
-        Client expResult = null;
         Client result = instance.find(user);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(user.getUserId(), result.getUserId());
     }
 
     /**
      * Test of findByUser method, of class ClientDAO.
+     * TODO: should we keep that one, same as above
      */
     @Test
     public void testFindByUser()
     {
         System.out.println("findByUser");
-        User user = null;
+        User user = new User(1, "", ""); // this is a find by user id
         ClientDAO instance = new ClientDAO();
-        Client expResult = null;
-        Client result = instance.findByUser(user);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Client result = instance.find(user);
+        assertEquals(user.getUserId(), result.getUserId());
     }
 
     /**
      * Test of update method, of class ClientDAO.
+     * TODO: this tests isn't finished at all
      */
     @Test
     public void testUpdate()
     {
         System.out.println("update");
-        Client obj = null;
-        ClientDAO instance = new ClientDAO();
-        Client expResult = null;
-        Client result = instance.update(obj);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ClientDAO clientDAO = new ClientDAO();
+        Client client = clientDAO.find(1);
+        
+        // Client result = instance.update(obj);
+        assertEquals(client.getFirstname(), "firstname");
     }
 
     /**
