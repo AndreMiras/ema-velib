@@ -88,18 +88,16 @@ public class ClientDAOTest {
 
     /**
      * Test of find method, of class ClientDAO.
+     * TODO: comment these tests
      */
     @Test
     public void testFind_long()
     {
         System.out.println("find");
-        long id = 0L;
+        long id = 1;
         ClientDAO instance = new ClientDAO();
-        Client expResult = null;
-        Client result = instance.find(id);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Client client = instance.find(id);
+        assertEquals(id, client.getClientId());
     }
 
     /**
