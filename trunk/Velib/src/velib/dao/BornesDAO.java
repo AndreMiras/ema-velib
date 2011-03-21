@@ -72,7 +72,7 @@ public class BornesDAO  extends DAO<Borne>{
                                      ).executeQuery(
                                     "SELECT * FROM " +
                                     bornesTable +
-                                    " WHERE etat=true"
+                                    " WHERE disponibilite=true"
                                     );
             
             while (result.next())
@@ -138,7 +138,7 @@ public class BornesDAO  extends DAO<Borne>{
             PreparedStatement prepare = this.connect.prepareStatement(
                                                     	"INSERT INTO " +
                                                         borneTable +
-                                                        " (idborne, nomBorne, positionX, positionY, etat) VALUES(?, ?, ?, ?, ?)"
+                                                        " (idborne, nomBorne, positionX, positionY, disponibilite) VALUES(?, ?, ?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
                                 prepare.setString(2, obj.getNomBorne());
