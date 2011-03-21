@@ -17,11 +17,18 @@ package velib.view;
  */
 public class AdministrationBornePanel extends javax.swing.JPanel {
 
+    private velib.view.AdministrationBornePanel administrationBornePanel;
+
     /** Creates new form AdministrationBornePanel */
-    public AdministrationBornePanel() {
+    public AdministrationBornePanel()
+    {
         initComponents();
     }
 
+    public AdministrationBornePanel getAdministrationBornePanel()
+    {
+        return administrationBornePanel;
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
