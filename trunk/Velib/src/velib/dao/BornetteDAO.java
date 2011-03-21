@@ -220,7 +220,6 @@ public class BornetteDAO extends DAO<Bornette>
         statementStrings[1] =
                     String.format("CREATE TABLE %s" +
                     "(idbornette INTEGER, " +
-                    "libre BOOLEAN, " +
                     "numero INTEGER, " +
                     "idborne INTEGER, " +
                     "idvelo INTEGER) "  , tableNames[0]);
