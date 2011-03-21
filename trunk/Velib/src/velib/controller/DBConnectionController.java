@@ -8,6 +8,7 @@ package velib.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import velib.dao.BorneSingleton;
+import velib.dao.BornesDAO;
 import velib.model.Borne;
 import velib.view.DBConnectionFrame;
 import velib.view.MainWindowFrame;
@@ -36,11 +37,20 @@ public class DBConnectionController
     {
         public void actionPerformed(ActionEvent e)
         {
-            Borne borne;
-            borne = dBConnectionPanel.getBorneFromInput();
+            Borne oldBorne, newBorne;
+            BornesDAO bornesDAO = new BornesDAO();
+
+            oldBorne = BorneSingleton.getInstance();
+            newBorne = dBConnectionPanel.getBorneFromInput();
             System.out.println("Setting new borne singleton to: "
-                    + borne);
-            BorneSingleton.setBorne(borne);
+                    + newBorne);
+            BorneSingleton.setBorne(newBorne);
+
+            /* updating the station, setting it up to used in the DB */
+            oldBorne.setDisponible(true);
+            newBorne.setDisponible(false);
+            bornesDAO.update(oldBorne);
+            bornesDAO.update(newBorne);
         }
     }
 }

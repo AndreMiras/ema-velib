@@ -59,8 +59,10 @@ public class Borne {
         return etat;
     }
 
-
-
+    public void setDisponible(boolean state)
+    {
+        etat = state;
+    }
 
 
 }
