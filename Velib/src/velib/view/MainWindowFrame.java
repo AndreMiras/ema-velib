@@ -126,26 +126,11 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     }
 
 
-
-    public void addEditDatabaseButtonListener(ActionListener al)
-    {
-        editDatabaseMenuItem.addActionListener(al);
-    }
-
-    public void addEditBornButtonListener(ActionListener al)
-    {
-        editBornMenuItem.addActionListener(al);
-    }
-
     public void addDBConnectionButtonListener(ActionListener al)
     {
         dbConnectionMenuItem.addActionListener(al);
     }
 
-    public void addUsersControlButtonListener(ActionListener al)
-    {
-        usersControlMenuItem.addActionListener(al);
-    }
     
     /** This method is called from within the constructor to
      * initialize the form.
@@ -163,10 +148,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        editDatabaseMenuItem = new javax.swing.JMenuItem();
-        editBornMenuItem = new javax.swing.JMenuItem();
         dbConnectionMenuItem = new javax.swing.JMenuItem();
-        usersControlMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("NemoVelo");
@@ -212,22 +194,8 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
 
         jMenu2.setText("Edit");
 
-        editDatabaseMenuItem.setText("Edit DB");
-        jMenu2.add(editDatabaseMenuItem);
-
-        editBornMenuItem.setText("Edit Born");
-        jMenu2.add(editBornMenuItem);
-
         dbConnectionMenuItem.setText("Connect to DB");
         jMenu2.add(dbConnectionMenuItem);
-
-        usersControlMenuItem.setText("Users Control");
-        usersControlMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usersControlMenuItemActionPerformed(evt);
-            }
-        });
-        jMenu2.add(usersControlMenuItem);
 
         jMenuBar1.add(jMenu2);
 
@@ -262,11 +230,6 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         previousPanel();
     }//GEN-LAST:event_previousButtonActionPerformed
 
-    private void usersControlMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_usersControlMenuItemActionPerformed
-    {//GEN-HEADEREND:event_usersControlMenuItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usersControlMenuItemActionPerformed
-
     /**
     * @param args the command line arguments
     */
@@ -280,8 +243,6 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem dbConnectionMenuItem;
-    private javax.swing.JMenuItem editBornMenuItem;
-    private javax.swing.JMenuItem editDatabaseMenuItem;
     private javax.swing.JPanel footersPanel;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -289,7 +250,6 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     private javax.swing.JPanel middleContentPanel;
     private javax.swing.JButton nextButton;
     private javax.swing.JButton previousButton;
-    private javax.swing.JMenuItem usersControlMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }
