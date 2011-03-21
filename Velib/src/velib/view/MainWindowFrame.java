@@ -194,7 +194,8 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
 
         jMenu2.setText("Edit");
 
-        dbConnectionMenuItem.setText("Connect to DB");
+        dbConnectionMenuItem.setText("Register");
+        dbConnectionMenuItem.setActionCommand("Register Station");
         jMenu2.add(dbConnectionMenuItem);
 
         jMenuBar1.add(jMenu2);
