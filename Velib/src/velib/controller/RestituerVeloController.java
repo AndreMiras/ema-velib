@@ -51,7 +51,7 @@ public class RestituerVeloController extends AbstractMainWindowController
     {
         public void actionPerformed(ActionEvent e)
         {
-            System.out.println("TODO: go back to the home screen");
+            initMainWindow();
         }
     }
 }
