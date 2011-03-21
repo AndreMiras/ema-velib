@@ -158,7 +158,31 @@ public class BornesDAO  extends DAO<Borne>{
 
     @Override
     public Borne update(Borne obj) {
-        throw new UnsupportedOperationException("Not supported yet.");
+      String borneTable = tableNames[0];
+
+        try {
+            String sql = "UPDATE " +
+                        borneTable +
+                        " SET nomBorne = '" + obj.getNomBorne()+ "',"+
+                        " positionX = '" + obj.getPositionX()+ "',"+
+                        " positionY = " + obj.getPositionY()+
+                        " disponibilite = " + obj.getEtat()+
+                    	" WHERE idborne = " + obj.getIdBorne();
+
+             this .connect.createStatement(
+                    	ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_UPDATABLE
+                     ).executeUpdate(
+                    	sql
+                     );
+
+	obj = this.find(obj.getIdBorne());
+	    }
+        catch (SQLException e)
+        {
+	  e.printStackTrace();
+	}
+        return obj;
     }
 
     @Override
@@ -178,7 +202,7 @@ public class BornesDAO  extends DAO<Borne>{
                     "nomBorne VARCHAR(100), " +
                     "positionX INTEGER, " +
                     "positionY INTEGER, " +
-                    "etat BOOLEAN)", tableNames[0]);
+                    "disponibilite BOOLEAN)", tableNames[0]);
       statementStrings[2] =
                 "ALTER TABLE "
                 + tableNames[0]
