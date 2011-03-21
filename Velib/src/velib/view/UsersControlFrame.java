@@ -55,9 +55,6 @@ public class UsersControlFrame extends javax.swing.JFrame
             String nomClient = location[i].getClient().getFullName();
             Long idVelo = location[i].getVelo().getId();
             String ClientEtVelo = nomClient+" utilise vélo: "+ idVelo+"\n" ;
-            //testComboBox.addItem(ClientEtVelo);
-            // TODO: andre jList1
-            //jTextArea1.setText(ClientEtVelo);
             System.out.println(i);
         }
     }
@@ -85,7 +82,7 @@ public class UsersControlFrame extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        Title.setFont(new java.awt.Font("Tahoma", 0, 14));
+        Title.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Title.setText("Liste des utilisateurs actifs");
 
         jList1.setModel(new javax.swing.AbstractListModel() {
@@ -102,16 +99,16 @@ public class UsersControlFrame extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Title))
+                    .addComponent(Title)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(23, 23, 23)
                 .addComponent(Title)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(304, Short.MAX_VALUE))
         );
