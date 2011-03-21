@@ -30,10 +30,13 @@ public class Bank
         this.numero=numero;
         this.identifiant=identifiant;
         this.codeVerif=codeVerif;
+
+        dateExpiration = new Date();
     }
 
     public Bank()
     {
+        this(0, "", "", "");
     }
     
     public long getId() {
