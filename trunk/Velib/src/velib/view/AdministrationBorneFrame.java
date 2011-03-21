@@ -33,7 +33,7 @@ public class AdministrationBorneFrame extends javax.swing.JFrame {
 
         administrationBornePanel1 = new velib.view.AdministrationBornePanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
