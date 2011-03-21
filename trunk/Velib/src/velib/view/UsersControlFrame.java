@@ -28,8 +28,11 @@ public class UsersControlFrame extends javax.swing.JFrame
     public UsersControlFrame()
     {
         initComponents();
-        location=locationDAO.findAllLocation();
-        setUpUsersControlFrame(location);
+
+        // TODO: this shouldn't be done in  the view but in the controller
+        location = locationDAO.findAllLocation();
+        setUpUsersControlFrame();
+        fillUpJList();
     }
 
     /** This method is called from within the constructor to
@@ -44,10 +47,10 @@ public class UsersControlFrame extends javax.swing.JFrame
     }
 
      // Fills the combo box with bornes objects
-    private void setUpUsersControlFrame(Location[] location)
+    private void setUpUsersControlFrame()
     {
         System.out.println("Taille du tableau : " + location.length);
-        for (int i=0; i<3; i++)
+        for (int i=0; i<location.length; i++)
         {
             String nomClient = location[i].getClient().getFullName();
             Long idVelo = location[i].getVelo().getId();
@@ -58,6 +61,20 @@ public class UsersControlFrame extends javax.swing.JFrame
             System.out.println(i);
         }
     }
+
+    private void fillUpJList()
+    {
+        // polygonsScrollPane
+
+        jList1.setModel(new javax.swing.AbstractListModel() {
+            // model.Polygon[] polygons = model.getPolygons();
+            public int getSize() { return location.length; }
+            public Object getElementAt(int i) { return location[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+    }
+
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -78,6 +95,11 @@ public class UsersControlFrame extends javax.swing.JFrame
             }
         });
 
+        jList1.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
         jScrollPane1.setViewportView(jList1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -86,11 +108,11 @@ public class UsersControlFrame extends javax.swing.JFrame
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(testComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Title, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(404, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(testComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(482, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,9 +121,9 @@ public class UsersControlFrame extends javax.swing.JFrame
                 .addComponent(Title)
                 .addGap(44, 44, 44)
                 .addComponent(testComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(37, 37, 37)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
 
         pack();

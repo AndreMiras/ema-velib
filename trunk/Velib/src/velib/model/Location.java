@@ -47,4 +47,10 @@ public class Location {
         return dateSql;
     }
 
+    @Override
+    public String toString()
+    {
+        return client + "->" + velo;
+    }
+
 }
