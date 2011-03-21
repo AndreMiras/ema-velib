@@ -153,10 +153,14 @@ public class ClientDAOTest {
         Client client;
         ClientDAO clientDAO = new ClientDAO();
         client = clientDAO.find(1);
+        
         // the client should exist
         assertNotNull(client);
         clientDAO.delete(client);
+        
         // the client should NOT exist
+        client = clientDAO.find(1);
+        System.out.println("client is null ? " + client);
         assertNull(client);
     }
 
@@ -170,6 +174,7 @@ public class ClientDAOTest {
         ClientDAO instance = new ClientDAO();
         String[] expResult = null;
         String[] result = instance.createTablesStatementStrings();
+        
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
