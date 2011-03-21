@@ -106,34 +106,36 @@ public class ClientDAO extends DAO<Client>
 
 	public Client find(long id)
         {
-                String clientTable = tableNames[0];
-		Client client = new Client();
-                UserDAO userDAO = new UserDAO();
-                User user;
+            String clientTable = tableNames[0];
+            Client client = null;
+            UserDAO userDAO = new UserDAO();
+            User user;
 
-		try {
-            ResultSet result = this .connect
-                                    .createStatement(
-                                    	ResultSet.TYPE_SCROLL_INSENSITIVE,
-                                        ResultSet.CONCUR_READ_ONLY
-                                     ).executeQuery(
-                                        "SELECT * FROM "
-                                        + clientTable
-                                        + " WHERE idclient = '" + id + "'"
-                                     );
-            if(result.first())
+            try
             {
-                user = userDAO.find(result.getLong("iduser"));
-                client = new Client(
-                                    id,
-                                    result.getString("firstname"),
-                                    result.getString("lastname"), user);
-            }
+                ResultSet result = this .connect
+                                        .createStatement(
+                                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                            ResultSet.CONCUR_READ_ONLY
+                                         ).executeQuery(
+                                            "SELECT * FROM "
+                                            + clientTable
+                                            + " WHERE idclient = '" + id + "'"
+                                         );
+                if(result.first())
+                {
+                    user = userDAO.find(result.getLong("iduser"));
+                    client = new Client(
+                                        id,
+                                        result.getString("firstname"),
+                                        result.getString("lastname"), user);
+                }
 
             }
-            catch (SQLException e) {
-		            e.printStackTrace();
-		    }
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
             return client;
 
 	}
