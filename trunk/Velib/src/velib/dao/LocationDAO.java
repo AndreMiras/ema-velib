@@ -7,6 +7,7 @@ package velib.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
 import velib.model.Client;
 import velib.model.Location;
 import velib.model.Velo;
@@ -59,9 +60,9 @@ public class LocationDAO extends DAO<Location>
     public Location[] findAllLocation ()
     {
         String locationsTable = tableNames[0];
-        Location[] tableauLocation = new Location[10];
+
+        Vector<Location> locationVector = new Vector<Location>();
         Location location;
-        int i=0;
         Client client;
         Velo velo;
         ClientDAO clientDAO = new ClientDAO();
@@ -82,8 +83,7 @@ public class LocationDAO extends DAO<Location>
                 client = clientDAO.find(result.getLong("idclient"));
                 velo = veloDAO.find(result.getLong("idvelo"));
                 location = new Location(id, client, velo);
-                tableauLocation[i]=location;
-                i=i+1;
+                locationVector.add(location);
             }
         }
         catch (SQLException e)
@@ -91,7 +91,7 @@ public class LocationDAO extends DAO<Location>
             e.printStackTrace();
         }
 
-        return tableauLocation;
+        return locationVector.toArray(new Location[locationVector.size()]);
     }
     
     public Location find (Client client)
