@@ -53,7 +53,7 @@ public class EditBornFrame extends javax.swing.JFrame
         DelBikeTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gestion du matériel"));
 
@@ -164,7 +164,7 @@ public class EditBornFrame extends javax.swing.JFrame
                 .addGap(29, 29, 29))
         );
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel2.setText("Administra des éléments du réseau");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
