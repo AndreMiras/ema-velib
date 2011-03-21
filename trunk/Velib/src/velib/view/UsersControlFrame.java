@@ -11,6 +11,8 @@
 
 package velib.view;
 
+import javax.swing.JList;
+import javax.swing.JTextArea;
 import velib.dao.LocationDAO;
 import velib.model.Location;
 /**
@@ -20,12 +22,13 @@ import velib.model.Location;
 public class UsersControlFrame extends javax.swing.JFrame
 {
     LocationDAO locationDAO = new LocationDAO();
-    private Location[] location = locationDAO.findAllLocation();
+    private Location[] location;
 
     /** Creates new form UsersControlFrame */
     public UsersControlFrame()
     {
         initComponents();
+        location=locationDAO.findAllLocation();
         setUpUsersControlFrame(location);
     }
 
@@ -43,11 +46,15 @@ public class UsersControlFrame extends javax.swing.JFrame
      // Fills the combo box with bornes objects
     private void setUpUsersControlFrame(Location[] location)
     {
-        for (int i=0; i<location.length; i++)
+        System.out.println("Taille du tableau : " + location.length);
+        for (int i=0; i<3; i++)
         {
-            //String nomClient = location[i].getClient().getFullName();
-            //Long idVelo = location[i].getVelo().getId();
-            //testComboBox.addItem(nomClient);
+            String nomClient = location[i].getClient().getFullName();
+            Long idVelo = location[i].getVelo().getId();
+            String ClientEtVelo = nomClient+" utilise vélo: "+ idVelo+"\n" ;
+            //testComboBox.addItem(ClientEtVelo);
+            // TODO: andre jList1
+            //jTextArea1.setText(ClientEtVelo);
             System.out.println(i);
         }
     }
@@ -57,18 +64,21 @@ public class UsersControlFrame extends javax.swing.JFrame
 
         Title = new javax.swing.JLabel();
         testComboBox = new javax.swing.JComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Title.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Title.setFont(new java.awt.Font("Tahoma", 0, 14));
         Title.setText("Liste des utilisateurs actifs");
 
-        testComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         testComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 testComboBoxActionPerformed(evt);
             }
         });
+
+        jScrollPane1.setViewportView(jList1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,10 +86,11 @@ public class UsersControlFrame extends javax.swing.JFrame
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(testComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Title))
-                .addContainerGap(508, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(testComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Title, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(404, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,7 +99,9 @@ public class UsersControlFrame extends javax.swing.JFrame
                 .addComponent(Title)
                 .addGap(44, 44, 44)
                 .addComponent(testComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(396, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(248, Short.MAX_VALUE))
         );
 
         pack();
@@ -116,6 +129,8 @@ public class UsersControlFrame extends javax.swing.JFrame
     private velib.view.UsersControlFrame usersControlFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Title;
+    private javax.swing.JList jList1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox testComboBox;
     // End of variables declaration//GEN-END:variables
 
