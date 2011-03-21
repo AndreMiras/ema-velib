@@ -40,4 +40,10 @@ public class Velo
         return etat;
     }
 
+    @Override
+    public String toString()
+    {
+        return "velo" + id;
+    }
+
 }
