@@ -160,7 +160,6 @@ public class ClientDAOTest {
         
         // the client should NOT exist
         client = clientDAO.find(1);
-        System.out.println("client is null ? " + client);
         assertNull(client);
     }
 
