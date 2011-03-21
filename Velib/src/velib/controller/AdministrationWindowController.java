@@ -13,6 +13,7 @@ import velib.dao.DatabaseManagementDAO;
 import velib.dao.IDatabaseManagementDAO;
 import velib.model.Borne;
 import velib.model.IModel;
+import velib.view.AdministrationBorneFrame;
 import velib.view.AdministrationWindowFrame;
 import velib.view.DBConnectionFrame;
 import velib.view.DatabaseManagementFrame;
@@ -28,8 +29,6 @@ import velib.view.UsersControlFrame;
  */
 public class AdministrationWindowController
 {
-    private AdministrationWindowFrame administrationWindowFrame;
-
         // Database Management mvc
     private IDatabaseManagementDAO databaseManagement;
     private DatabaseManagementFrame databaseManagementFrame;
@@ -40,8 +39,11 @@ public class AdministrationWindowController
     private UsersControlController usersControlController;
 
         // Born Management mvc
-    private EditBornFrame editBornFrame;
-    private EditBornController editBornController;
+    private AdministrationWindowFrame administrationWindowFrame;
+    private AdministrationWindowController administrationWindowController;
+
+    private AdministrationBorneFrame administrationBorneFrame;
+    private AdministrationBorneController administrationBorneController;
 
     public AdministrationWindowController(AdministrationWindowFrame administrationWindowFrame)
     {
@@ -73,9 +75,9 @@ public class AdministrationWindowController
     {
         public void actionPerformed(ActionEvent e)
         {
-            editBornFrame = new EditBornFrame();
-            editBornController = new EditBornController(editBornFrame);
-            editBornFrame.setVisible(true);
+            administrationBorneFrame = new AdministrationBorneFrame();
+            administrationBorneController = new AdministrationBorneController(administrationBorneFrame);
+            administrationBorneFrame.setVisible(true);
         }
     }
 
