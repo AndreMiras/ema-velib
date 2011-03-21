@@ -118,7 +118,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Votre paiement est accept&#xe9; et votre abonnement valid&#xe9;."/>
+            <Property name="text" type="java.lang.String" value="Votre paiement est accept&#xe9; et votre abonnement est valid&#xe9;."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
