@@ -63,7 +63,7 @@ public class ConfirmationAbonnementPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Bonjour");
 
-        jLabel2.setText("Votre paiement est accepté et votre abonnement validé.");
+        jLabel2.setText("Votre paiement est accepté et votre abonnement est validé.");
 
         jLabel3.setText("Votre identifiant de location est :");
 
