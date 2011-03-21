@@ -165,8 +165,8 @@ public class BornesDAO  extends DAO<Borne>{
                         borneTable +
                         " SET nomBorne = '" + obj.getNomBorne()+ "',"+
                         " positionX = '" + obj.getPositionX()+ "',"+
-                        " positionY = " + obj.getPositionY()+
-                        " disponibilite = " + obj.getEtat()+
+                        " positionY = " + obj.getPositionY()+ "',"+
+                        " disponibilite = " + obj.getEtat()+ "'"+
                     	" WHERE idborne = " + obj.getIdBorne();
 
              this .connect.createStatement(
