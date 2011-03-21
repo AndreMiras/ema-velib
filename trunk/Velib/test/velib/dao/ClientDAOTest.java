@@ -76,13 +76,14 @@ public class ClientDAOTest {
         
         ClientDAO clientDAO = new ClientDAO();
         Client client = new Client(0, "fistname", "lastname", user);
+
+        // set the id to 0, the db should give a correct one
         assertEquals(0, client.getClientId());
 
         client = clientDAO.create(client);
-        
+
+        // the id should now be 1
         assertEquals(1, client.getClientId());
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
