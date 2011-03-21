@@ -75,7 +75,7 @@ public class ClientDAOTest {
 
         
         ClientDAO clientDAO = new ClientDAO();
-        Client client = new Client(0, "fistname", "lastname", user);
+        Client client = new Client(0, "firstname", "lastname", user);
 
         // set the id to 0, the db should give a correct one
         assertEquals(0, client.getClientId());
