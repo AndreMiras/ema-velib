@@ -102,16 +102,19 @@ public class ClientDAOTest {
 
     /**
      * Test of find method, of class ClientDAO.
-     * TODO: finish up this test
      */
     @Test
     public void testFind_User()
     {
         System.out.println("find");
-        User user = new User(1, "", ""); // this is a find by user id
+        UserDAO userDAO = new UserDAO();
+        User user = userDAO.find(1);
         ClientDAO instance = new ClientDAO();
         Client result = instance.find(user);
+
+        // IDs should match together
         assertEquals(user.getUserId(), result.getUserId());
+        assertEquals(user.getIdentifiant(), result.getIdentifiant());
     }
 
     /**
@@ -122,10 +125,7 @@ public class ClientDAOTest {
     public void testFindByUser()
     {
         System.out.println("findByUser");
-        User user = new User(1, "", ""); // this is a find by user id
-        ClientDAO instance = new ClientDAO();
-        Client result = instance.find(user);
-        assertEquals(user.getUserId(), result.getUserId());
+        testFind_User();
     }
 
     /**
@@ -171,12 +171,10 @@ public class ClientDAOTest {
     {
         System.out.println("createTablesStatementStrings");
         ClientDAO instance = new ClientDAO();
-        String[] expResult = null;
         String[] result = instance.createTablesStatementStrings();
-        
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
+        // very basic test
+        assertTrue(result.length > 0);
     }
 
 }
