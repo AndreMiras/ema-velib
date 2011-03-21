@@ -78,7 +78,7 @@ public class LocationDAO extends DAO<Location>
                                     );
             while (result.next())
             {
-                Long id = result.getLong("idborne");
+                Long id = result.getLong("idlocation");
                 client = clientDAO.find(result.getLong("idclient"));
                 velo = veloDAO.find(result.getLong("idvelo"));
                 location = new Location(id, client, velo);
