@@ -223,7 +223,7 @@ public class ClientDAO extends DAO<Client>
              //TODO remove that shit, man
                     "DELETE FROM "
                      + clientTable
-                     + "WHERE id = " + obj.getClientId()
+                     + " WHERE idclient = " + obj.getClientId()
              );
 
 	    }
