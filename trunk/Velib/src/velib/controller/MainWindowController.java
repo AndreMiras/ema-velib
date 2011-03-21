@@ -89,14 +89,8 @@ public class MainWindowController // extends AbstractMainWindowController implem
     
     private void addListeners()
     {
-        mainWindowFrame.addEditDatabaseButtonListener(
-                new EditDatabaseButtonListener());
-        mainWindowFrame.addEditBornButtonListener(
-                new EditBornButtonListener());
         mainWindowFrame.addDBConnectionButtonListener(
                 new DBConnectionButtonListener());
-        mainWindowFrame.addUsersControlButtonListener(
-                new UsersControlButtonListener());
     }
 
     public IModel getModel()
@@ -107,23 +101,6 @@ public class MainWindowController // extends AbstractMainWindowController implem
     public IView getView()
     {
         return mainWindowFrame;
-    }
-
-    class UsersControlButtonListener implements ActionListener
-    {
-        public void actionPerformed(ActionEvent e)
-        {
-            /*
-            borneDAO = new BornesDAO();
-            Borne[] bornes;
-            bornes = borneDAO.findBorneLibre();
-            */
-            UsersControlFrame usersControlFrame = new UsersControlFrame();
-
-            UsersControlController usersControlController =
-                    new UsersControlController(usersControlFrame);
-            usersControlFrame.setVisible(true);
-        }
     }
 
     class DBConnectionButtonListener implements ActionListener
@@ -142,29 +119,6 @@ public class MainWindowController // extends AbstractMainWindowController implem
 
         }
     }
-
-    class EditBornButtonListener implements ActionListener
-    {
-        public void actionPerformed(ActionEvent e)
-        {
-            editBornFrame = new EditBornFrame();
-            editBornController = new EditBornController(editBornFrame);
-            editBornFrame.setVisible(true);
-        }
-    }
-
-    class EditDatabaseButtonListener implements ActionListener
-    {
-        public void actionPerformed(ActionEvent e)
-        {
-            databaseManagement = new DatabaseManagementDAO();
-            databaseManagementFrame = new DatabaseManagementFrame();
-            databaseManagementController = new DatabaseManagementController(
-                    databaseManagement, databaseManagementFrame);
-            databaseManagementFrame.setVisible(true);
-        }
-    }
-
 
     class PreviousButtonListener implements ActionListener
     {

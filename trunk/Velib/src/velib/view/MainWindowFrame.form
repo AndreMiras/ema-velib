@@ -14,28 +14,10 @@
             <Property name="text" type="java.lang.String" value="Edit"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="editDatabaseMenuItem">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Edit DB"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="editBornMenuItem">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Edit Born"/>
-              </Properties>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="dbConnectionMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Connect to DB"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="usersControlMenuItem">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Users Control"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="usersControlMenuItemActionPerformed"/>
-              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
