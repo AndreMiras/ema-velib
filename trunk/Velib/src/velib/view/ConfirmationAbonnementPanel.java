@@ -75,7 +75,7 @@ public class ConfirmationAbonnementPanel extends javax.swing.JPanel {
 
         userLabel.setText("jLabel6");
 
-        jLabel6.setText("Votre identifiant mot de passe est :");
+        jLabel6.setText("Votre mot de passe est :");
 
         passwordLabel.setText("jLabel7");
 
