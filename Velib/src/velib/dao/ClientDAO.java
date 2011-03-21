@@ -50,11 +50,11 @@ public class ClientDAO extends DAO<Client>
          * 
          */
         //Si le compte en banque n'existe pas
-        /*if(obj.getBanque().getId() == 0)
+        if(obj.getBanque().getId() == 0)
         {
             BanqueDAO banqueDAO = new BanqueDAO();
             obj.setBanque(banqueDAO.create(obj.getBanque()));
-        }*/
+        }
          try
          {
              ResultSet result = this.connect.createStatement(
