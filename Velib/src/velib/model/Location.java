@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Nicolas
  */
-public class Location {
+ public class Location {
 
     private long id;
     private Client client;
@@ -50,7 +50,7 @@ public class Location {
     @Override
     public String toString()
     {
-        return client + "->" + velo;
+        return client + " utilise vélo n° " + velo;
     }
 
 }
