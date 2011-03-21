@@ -83,8 +83,8 @@ public class ClientDAO extends DAO<Client>
                                             + "?, ?, ?, ?, ?, ?, ?, ?)"
                                         );
 				prepare.setLong(1, id);
-				prepare.setString(2, obj.getLastname());
-                                prepare.setString(3, obj.getFirstname());
+                                prepare.setString(2, obj.getFirstname());
+                                prepare.setString(3, obj.getLastname());
                                 prepare.setDate(4,
                                         new java.sql.Date(
                                         obj.getDateNaissance().getTime()));
