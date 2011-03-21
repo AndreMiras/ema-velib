@@ -164,11 +164,11 @@ public class BornesDAO  extends DAO<Borne>{
             String sql = "UPDATE " +
                         borneTable +
                         " SET nomBorne = '" + obj.getNomBorne()+ "',"+
-                        " positionX = '" + obj.getPositionX()+ "',"+
-                        " positionY = " + obj.getPositionY()+ "',"+
-                        " disponibilite = " + obj.getEtat()+ "'"+
+                        " positionX = " + obj.getPositionX()+ ","+
+                        " positionY = " + obj.getPositionY()+ ","+
+                        " disponibilite = " + obj.getEtat()+
                     	" WHERE idborne = " + obj.getIdBorne();
-
+              System.out.println(sql);
              this .connect.createStatement(
                     	ResultSet.TYPE_SCROLL_INSENSITIVE,
                         ResultSet.CONCUR_UPDATABLE
