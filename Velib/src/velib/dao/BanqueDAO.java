@@ -78,8 +78,6 @@ public class BanqueDAO extends DAO<Bank>
                                     );
             if(result.first())
             {
-                System.out.println("I'm in the result");
-
                 String numero = result.getString("numero");
                 String identifiant = result.getString("identifiant");
                 //Date date = result.getDate("dateexpiration");
