@@ -36,6 +36,10 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
         generalManagementButton.addActionListener(al);
     }
 
+    public void addusersListButtonListener(ActionListener al)
+    {
+        usersListButton.addActionListener(al);
+    }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -49,6 +53,9 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
         editDatabaseButton = new javax.swing.JButton();
         generalManagementButton = new javax.swing.JButton();
         usersListButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,28 +65,45 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
 
         usersListButton.setText("Liste utilisateurs");
 
+        jLabel1.setText("Toutes les fonctions de manipulation de la base de données.");
+
+        jLabel2.setText("Fonctions d'ajout et de suppression des éléments du système.");
+
+        jLabel3.setText("Liste les utilisateurs et affiche les vélos leur correspondant.");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(usersListButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(editDatabaseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(generalManagementButton))
-                .addContainerGap(330, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel1))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(editDatabaseButton)
+                .addGap(59, 59, 59)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editDatabaseButton)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addComponent(generalManagementButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(generalManagementButton)
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addComponent(usersListButton)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(usersListButton)
+                    .addComponent(jLabel3))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         pack();
@@ -99,6 +123,9 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton editDatabaseButton;
     private javax.swing.JButton generalManagementButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton usersListButton;
     // End of variables declaration//GEN-END:variables
 

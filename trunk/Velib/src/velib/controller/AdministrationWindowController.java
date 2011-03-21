@@ -39,6 +39,10 @@ public class AdministrationWindowController
     private UsersControlFrame usersControlFrame;
     private UsersControlController usersControlController;
 
+        // Born Management mvc
+    private EditBornFrame editBornFrame;
+    private EditBornController editBornController;
+
     public AdministrationWindowController(AdministrationWindowFrame administrationWindowFrame)
     {
         this.administrationWindowFrame = administrationWindowFrame;
@@ -49,12 +53,22 @@ public class AdministrationWindowController
     {
         administrationWindowFrame.addEditDatabaseButtonListener(
                 new EditDatabaseButtonListener());
-        //administrationWindowFrame.addGeneralManagementButtonListener(
-        //        new GeneralManagementButtonListener());
-
+        administrationWindowFrame.addGeneralManagementButtonListener(
+                new GeneralManagementButtonListener());
+        administrationWindowFrame.addusersListButtonListener(
+                new UsersListButtonListener());
     }
 
-/*
+    class UsersListButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            usersControlFrame = new UsersControlFrame();
+            usersControlController = new UsersControlController(usersControlFrame);
+            usersControlFrame.setVisible(true);
+        }
+    }
+
     class GeneralManagementButtonListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
@@ -64,7 +78,7 @@ public class AdministrationWindowController
             editBornFrame.setVisible(true);
         }
     }
-*/
+
     class EditDatabaseButtonListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
