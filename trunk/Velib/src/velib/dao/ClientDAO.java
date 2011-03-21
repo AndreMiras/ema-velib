@@ -75,10 +75,12 @@ public class ClientDAO extends DAO<Client>
                                             + "datenaissance, "
                                             + "adresse, "
                                             + "codepostal, "
-                                            + "idabonnement, "
+                                            // + "idabonnement, "
                                             + "iduser, "
                                             + "idbanque) "
-                                            + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                                            + "VALUES("
+                                            // + "?, "
+                                            + "?, ?, ?, ?, ?, ?, ?, ?)"
                                         );
 				prepare.setLong(1, id);
 				prepare.setString(2, obj.getLastname());
@@ -88,9 +90,9 @@ public class ClientDAO extends DAO<Client>
                                         obj.getDateNaissance().getTime()));
                                 prepare.setString(5, obj.getAdresse());
                                 prepare.setLong(6, obj.getCodePostal());
-                                prepare.setLong(7, obj.getAbonnement().getId());
-                                prepare.setLong(8, obj.getUserId());
-                                prepare.setLong(9, obj.getBanque().getId());
+                                // prepare.setLong(7, obj.getAbonnement().getId());
+                                prepare.setLong(8-1, obj.getUserId());
+                                prepare.setLong(9-1, obj.getBanque().getId());
 				prepare.executeUpdate();
 				obj = this.find(id);
 			}
