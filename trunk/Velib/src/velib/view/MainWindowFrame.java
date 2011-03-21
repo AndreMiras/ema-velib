@@ -155,7 +155,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
 
         middleContentPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Content"));
 
-        footersPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Footers (broken)"));
+        footersPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         previousButton.setText("Previous");
         previousButton.setEnabled(false);
@@ -217,7 +217,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(middleContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                .addComponent(middleContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(footersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())

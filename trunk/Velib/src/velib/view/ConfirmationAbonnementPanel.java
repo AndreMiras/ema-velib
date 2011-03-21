@@ -11,6 +11,7 @@
 
 package velib.view;
 
+import java.awt.event.ActionListener;
 import velib.model.Client;
 
 /**
@@ -38,6 +39,11 @@ public class ConfirmationAbonnementPanel extends javax.swing.JPanel {
         passwordLabel.setText(client.getUser().getPassword());
     }
 
+    public void addOkButtonListener(ActionListener al)
+    {
+        okButton.addActionListener(al);
+    }
+
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -58,6 +64,7 @@ public class ConfirmationAbonnementPanel extends javax.swing.JPanel {
         userLabel = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         passwordLabel = new javax.swing.JLabel();
+        okButton = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Vous avez choisi un abonnement d'une durée de :"));
 
@@ -132,6 +139,8 @@ public class ConfirmationAbonnementPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        okButton.setText("OK");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,13 +149,19 @@ public class ConfirmationAbonnementPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(354, Short.MAX_VALUE)
+                .addComponent(okButton)
+                .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(okButton)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -160,6 +175,7 @@ public class ConfirmationAbonnementPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton okButton;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JLabel userLabel;
     // End of variables declaration//GEN-END:variables
