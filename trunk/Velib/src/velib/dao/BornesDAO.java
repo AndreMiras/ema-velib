@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Vector;
 import velib.model.Borne;
 
 /**
@@ -59,9 +60,9 @@ public class BornesDAO  extends DAO<Borne>{
     public Borne[] findBorneLibre ()
     {
         String bornesTable = tableNames[0];
-        Borne[] tableauBorne= new Borne[10];//TODO : dynamic sizes
+        
+        Vector<Borne> borneVector = new Vector<Borne>();
         Borne borne;
-        int i=0;
 
 	try
         {
@@ -74,14 +75,12 @@ public class BornesDAO  extends DAO<Borne>{
                                     " WHERE etat=true"
                                     );
             
-
             while (result.next())
             {
                 Long id = result.getLong("idborne");
                 String nom = result.getString("nomBorne");
                 borne = new Borne(id, nom);
-                tableauBorne[i]=borne;
-                i=i+1;
+                borneVector.add(borne);
                 
             }
         }
@@ -90,7 +89,7 @@ public class BornesDAO  extends DAO<Borne>{
             e.printStackTrace();
         }
 
-        return tableauBorne;
+        return borneVector.toArray(new Borne[borneVector.size()]);
     }
     @Override
     public Borne find(long id) {
