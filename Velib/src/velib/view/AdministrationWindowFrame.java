@@ -11,16 +11,31 @@
 
 package velib.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Nicolas
  */
-public class AdministrationWindowFrame extends javax.swing.JFrame {
+public class AdministrationWindowFrame extends javax.swing.JFrame
+{
 
     /** Creates new form AdministrationWindowFrame */
-    public AdministrationWindowFrame() {
+    public AdministrationWindowFrame()
+    {
         initComponents();
     }
+
+    public void addEditDatabaseButtonListener(ActionListener al)
+    {
+        editDatabaseButton.addActionListener(al);
+    }
+
+    public void addGeneralManagementButtonListener(ActionListener al)
+    {
+        generalManagementButton.addActionListener(al);
+    }
+
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -31,53 +46,40 @@ public class AdministrationWindowFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        middleContentPanel = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        editDatabaseButton = new javax.swing.JButton();
+        generalManagementButton = new javax.swing.JButton();
+        usersListButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        middleContentPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Content"));
+        editDatabaseButton.setText("Edit Database");
 
-        jButton1.setText("Edit Database");
+        generalManagementButton.setText("General Management");
 
-        jButton2.setText("Edit born");
-
-        jButton3.setText("Liste utilisateurs");
+        usersListButton.setText("Liste utilisateurs");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addContainerGap(371, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(middleContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(usersListButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(editDatabaseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(generalManagementButton))
+                .addContainerGap(330, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jButton1)
+                .addGap(62, 62, 62)
+                .addComponent(editDatabaseButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(generalManagementButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addContainerGap(158, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(middleContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addComponent(usersListButton)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         pack();
@@ -95,10 +97,9 @@ public class AdministrationWindowFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JPanel middleContentPanel;
+    private javax.swing.JButton editDatabaseButton;
+    private javax.swing.JButton generalManagementButton;
+    private javax.swing.JButton usersListButton;
     // End of variables declaration//GEN-END:variables
 
 }
