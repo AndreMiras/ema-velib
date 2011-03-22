@@ -14,6 +14,8 @@ import velib.view.AdministrationWindowFrame;
 import velib.view.CheckDefectsFrame;
 import velib.view.DatabaseManagementFrame;
 import velib.view.UsersControlFrame;
+import velib.dao.LocationDAO;
+import velib.model.Location;
 import velib.model.Borne;
 import velib.model.IModel;
 import javax.swing.JPanel;
@@ -38,6 +40,8 @@ public class AdministrationWindowController
         // Users Control mvc
     private UsersControlFrame usersControlFrame;
     private UsersControlController usersControlController;
+    LocationDAO locationDAO = new LocationDAO();
+    private Location[] location;
 
         // Born Management mvc
     private AdministrationWindowFrame administrationWindowFrame;
@@ -83,7 +87,8 @@ public class AdministrationWindowController
     {
         public void actionPerformed(ActionEvent e)
         {
-            usersControlFrame = new UsersControlFrame();
+            location = locationDAO.findAllLocation();
+            usersControlFrame = new UsersControlFrame(location);
             usersControlController = new UsersControlController(usersControlFrame);
             usersControlFrame.setVisible(true);
         }
