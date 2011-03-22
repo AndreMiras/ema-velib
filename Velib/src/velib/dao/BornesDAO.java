@@ -147,8 +147,8 @@ public class BornesDAO  extends DAO<Borne>{
                                                     );
 				prepare.setLong(1, id);
                                 prepare.setString(2, obj.getNomBorne());
-                                prepare.setFloat(3, obj.getLatitude());
-                                prepare.setFloat(4, obj.getLongitude());
+                                prepare.setDouble(3, obj.getLatitude());
+                                prepare.setDouble(4, obj.getLongitude());
                                 prepare.setBoolean(5, obj.getEtat());
 
 				prepare.executeUpdate();
