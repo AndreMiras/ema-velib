@@ -28,11 +28,22 @@ import javax.imageio.ImageIO;
  */
 public class MapPanel extends javax.swing.JPanel {
 
+    /*
+     * "http://maps.google.com"
+        + "/maps/api/staticmap?"
+        + "center=France,Nimes&zoom=14&size=400x400&sensor=false
+     */
+
+    // ll=43.835208,4.361315
+    private String stationMarker =
+            "markers=color:blue%7Clabel:S%7C43.835208,4.361315";
     // TODO: split up server and GET url
     private String urlString =
         "http://maps.google.com"
         + "/maps/api/staticmap?"
-        + "center=France,Nimes&zoom=14&size=400x400&sensor=false";
+        + "center=France,Nimes&zoom=14&size=400x400&sensor=false"
+        + "&"
+        + stationMarker;
     
     private File mapImage;
     private BufferedImage image;
@@ -61,8 +72,18 @@ public class MapPanel extends javax.swing.JPanel {
         }
         catch (IOException ex)
         {
-            Logger.getLogger(MapPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(
+                    MapPanel.class.getName()).log(
+                    Level.SEVERE, null, ex);
         }
+    }
+
+    /*
+     * Centers the map to X, Y
+     */
+    public void setCenter()
+    {
+        
     }
 
     @Override
