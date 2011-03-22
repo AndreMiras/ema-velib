@@ -12,6 +12,7 @@
 package velib.view;
 
 import java.awt.event.ActionListener;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import velib.model.Bank;
 
@@ -56,20 +57,24 @@ public class BankDetailsPanel extends javax.swing.JPanel {
     {
         Bank bankDetails;
         int id;
+        String cardHolder;
         String creditCardNumber;
         String cardSecurityCode;
+        Date date;
         // String expirationDate;
 
         if (formIsValid())
         {
             id = 0;
+            cardHolder=cardHolderTextField.getText();
             creditCardNumber = ccNumTextField.getText();
             cardSecurityCode = cardSecurityCodeTextField.getText();
-
+            date = dateChooser.getDate();
             bankDetails = new Bank(0,
                     creditCardNumber,
-                    "TODO fullname",
+                    cardHolder,
                     cardSecurityCode);
+            bankDetails.setDateExpiration(date);
         }
         else
         {
@@ -96,10 +101,10 @@ public class BankDetailsPanel extends javax.swing.JPanel {
         ccNumTextField = new javax.swing.JTextField();
         cardSecurityCodeTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        expirationDateTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        cardHolderTextField = new javax.swing.JTextField();
+        dateChooser = new com.toedter.calendar.JDateChooser();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Veuillez entrer les coordonnées de votre carte bancaire :"));
 
@@ -107,8 +112,10 @@ public class BankDetailsPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Cryptogramme visuel* :");
 
-        validerButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        validerButton.setFont(new java.awt.Font("Tahoma", 1, 14));
         validerButton.setText("Valider");
+
+        cardSecurityCodeTextField.setColumns(3);
 
         jLabel3.setText("Date d'expiration :");
 
@@ -132,13 +139,14 @@ public class BankDetailsPanel extends javax.swing.JPanel {
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(cardSecurityCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(177, 177, 177)
                                 .addComponent(validerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ccNumTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(expirationDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(ccNumTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cardHolderTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)))))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -147,16 +155,16 @@ public class BankDetailsPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cardHolderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(ccNumTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(expirationDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(dateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(validerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -179,7 +187,7 @@ public class BankDetailsPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(46, 46, 46)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -187,16 +195,16 @@ public class BankDetailsPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField cardHolderTextField;
     private javax.swing.JTextField cardSecurityCodeTextField;
     private javax.swing.JTextField ccNumTextField;
-    private javax.swing.JTextField expirationDateTextField;
+    private com.toedter.calendar.JDateChooser dateChooser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton validerButton;
     // End of variables declaration//GEN-END:variables
 

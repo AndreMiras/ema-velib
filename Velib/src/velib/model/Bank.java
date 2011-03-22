@@ -19,18 +19,15 @@ public class Bank
      private long id;
      private String numero;
      private Date dateExpiration;
-     // name on the card
-     // TODO: change for relevant name e.g. cardHolder
-     private String identifiant;
+    private String cardHolder;
      private String codeVerif;
     
-    public Bank(long id, String numero, String identifiant, String codeVerif)
+    public Bank(long id, String numero, String cardHolder, String codeVerif)
     {
         this.id=id;
         this.numero=numero;
-        this.identifiant=identifiant;
+        this.cardHolder=cardHolder;
         this.codeVerif=codeVerif;
-
         dateExpiration = new Date();
     }
 
@@ -57,18 +54,18 @@ public class Bank
     }
 
     public String getIdentifiant() {
-        return identifiant;
+        return cardHolder;
     }
 
     public String getNumero() {
         return numero;
     }
 
-    public java.sql.Date getDateExpirationSQL() {
-        long t = dateExpiration.getTime();
-        java.sql.Date dateExpirationSql = new java.sql.Date(t);
-        return dateExpirationSql;
+    public void setDateExpiration(Date dateExpiration) {
+        this.dateExpiration = dateExpiration;
     }
+
+   
 
     @Override
     public String toString()
