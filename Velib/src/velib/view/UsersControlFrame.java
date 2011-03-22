@@ -23,7 +23,7 @@ public class UsersControlFrame extends javax.swing.JFrame
 {
     LocationDAO locationDAO = new LocationDAO();
     private Location[] location;
-
+    private velib.view.UsersControlFrame usersControlFrame;
     /** Creates new form UsersControlFrame */
     public UsersControlFrame()
     {
@@ -116,7 +116,7 @@ public class UsersControlFrame extends javax.swing.JFrame
         });
     }
 
-    private velib.view.UsersControlFrame usersControlFrame;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Title;
     private javax.swing.JList UsersjList;
