@@ -81,12 +81,13 @@ class LoggedInWelcomeController extends AbstractMainWindowController
         {
             Bornette bornette;
             Velo bike;
-            Location location;
-            Date dateFinLocation = new Date();
+            Location location;            
             LocationDAO locationDAO = new LocationDAO();
             BornetteDAO bornetteDAO = new BornetteDAO();
             
             location = locationDAO.find(client);
+           
+            Date dateFinLocation = new Date();
             location.setDateFinLocation(dateFinLocation);
             bike = location.getVelo();
             bornette = bornetteDAO.findLibre(
@@ -95,9 +96,9 @@ class LoggedInWelcomeController extends AbstractMainWindowController
             bornette.setVelo(bike);
             // hitting the database
             bornetteDAO.update(bornette);
+            
             locationDAO.update(location);
-            System.out.println("La date de début de location est" + location.getDateDebutLocation());
-            System.out.println("La date de fin de location est" + location.getDateFinLocation());
+
 
             // TODO: screen when given bike back
             RestituerVeloPanel restituerVeloPanel =
