@@ -133,6 +133,8 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
         VeloDAO veloDAO;
         long numero = 0;
         int id = 0;
+
+        // 43.835208,4.361315
         System.out.println("Filling up borne table");
 
        for (int i=0; i<3; i++)
