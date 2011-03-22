@@ -6,9 +6,6 @@
 package velib.controller;
 
 import velib.view.UsersControlFrame;
-import velib.view.MainWindowFrame;
-import velib.dao.LocationDAO;
-import velib.model.Location;
 
 /**
  *
