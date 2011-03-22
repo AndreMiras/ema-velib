@@ -47,17 +47,16 @@ public class LocationDAO extends DAO<Location>
                                                         + " idvelo) VALUES(?,?,?,?,?)"
                                                     );
 				prepare.setLong(1, id);
-                                prepare.setDate(2,
-                                            new java.sql.Date(
-                                                obj.getDateDebutLocation().getTime()));
+                                prepare.setTimestamp(2,
+                                            new java.sql.Timestamp(obj.getDateDebutLocation().getTime()));
                                 if(obj.getDateFinLocation()== null)
                                         {
                                                 prepare.setDate(3,null);
                                         }
                                          else
                                         {
-                                          prepare.setDate(3,
-                                              new java.sql.Date(
+                                          prepare.setTimestamp(3,
+                                              new java.sql.Timestamp(
                                                 obj.getDateFinLocation().getTime()));
                                         }
 
@@ -126,13 +125,17 @@ public class LocationDAO extends DAO<Location>
                                      ).executeQuery(
                                     "SELECT * FROM " +
                                     locationsTable +
-                                    " WHERE idClient = " + client.getClientId()
+                                    " WHERE idClient = " + client.getClientId() 
+                                    + "AND dateFinLocation is null"
                                     );
+            
             if (result.first())
             {
                 Long id = result.getLong("idlocation");
                 velo = veloDAO.find(result.getLong("idvelo"));
                 location = new Location(id, client, velo);
+                location.setDateDebutLocation(result.getTimestamp("DateDebutLocation"));
+                location.setDateFinLocation(result.getTimestamp("DateFinLocation"));
             }
         }
         catch (SQLException e)
@@ -158,11 +161,11 @@ public class LocationDAO extends DAO<Location>
                         locationsTable +
                         " SET idlocation = '" + obj.getId()+ "',"+
                         " dateDebutLocation = '"
-                        + new java.sql.Date(obj.getDateDebutLocation().getTime()) + "',"
+                        + new java.sql.Timestamp(obj.getDateDebutLocation().getTime()) + "',"
                         
                         + " dateFinLocation = '"
-                        + new java.sql.Date(obj.getDateFinLocation().getTime()) + "',"
-                        + " idclient = '" + obj.getClient().getClientId() + "'"
+                        + new java.sql.Timestamp(obj.getDateFinLocation().getTime()) + "',"
+                        + " idclient = '" + obj.getClient().getClientId() + "',"
                         + " idvelo = '" + obj.getVelo().getId() + "'"
                     	+ " WHERE idlocation = " + obj.getId()
                      );
@@ -200,7 +203,7 @@ public class LocationDAO extends DAO<Location>
                                      ).executeQuery(
                                     "SELECT * FROM " +
                                     locationsTable +
-                                    " WHERE idClient = " + id
+                                    " WHERE idlocation = " + id
                                     );
             if (result.first())
             {
