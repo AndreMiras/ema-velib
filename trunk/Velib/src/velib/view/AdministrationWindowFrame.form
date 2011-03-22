@@ -27,7 +27,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="CheckDefectsButton" alignment="0" max="32767" attributes="1"/>
+                          <Component id="checkDefectsButton" alignment="0" max="32767" attributes="1"/>
                           <Component id="usersListButton" alignment="1" max="32767" attributes="1"/>
                           <Component id="editDatabaseButton" alignment="1" max="32767" attributes="1"/>
                           <Component id="generalManagementButton" alignment="0" max="32767" attributes="1"/>
@@ -71,7 +71,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="CheckDefectsButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="checkDefectsButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -113,7 +113,7 @@
         <Property name="text" type="java.lang.String" value="Liste les utilisateurs et affiche les v&#xe9;los leur correspondant."/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="CheckDefectsButton">
+    <Component class="javax.swing.JButton" name="checkDefectsButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Liste des v&#xe9;los d&#xe9;fectueux"/>
       </Properties>

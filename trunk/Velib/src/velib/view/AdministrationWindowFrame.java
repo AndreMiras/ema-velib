@@ -41,6 +41,10 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
         usersListButton.addActionListener(al);
     }
 
+    public void addCheckDefectsButtonListener(ActionListener al)
+    {
+        usersListButton.addActionListener(al);
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -56,7 +60,7 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        CheckDefectsButton = new javax.swing.JButton();
+        checkDefectsButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -79,7 +83,7 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
 
         jLabel3.setText("Liste les utilisateurs et affiche les vélos leur correspondant.");
 
-        CheckDefectsButton.setText("Liste des vélos défectueux");
+        checkDefectsButton.setText("Liste des vélos défectueux");
 
         jLabel4.setText("Liste les vélos ayant été déclarés comme ayant un problème.");
 
@@ -95,7 +99,7 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(CheckDefectsButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(checkDefectsButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(usersListButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(editDatabaseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(generalManagementButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -129,7 +133,7 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CheckDefectsButton)
+                    .addComponent(checkDefectsButton)
                     .addComponent(jLabel4))
                 .addGap(30, 30, 30))
         );
@@ -154,7 +158,7 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CheckDefectsButton;
+    private javax.swing.JButton checkDefectsButton;
     private javax.swing.JButton editDatabaseButton;
     private javax.swing.JButton generalManagementButton;
     private javax.swing.JLabel jLabel1;
