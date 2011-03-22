@@ -18,6 +18,7 @@ public class Client extends User {
     private Date dateNaissance;
     private String adresse;
     private long codePostal;
+    private String ville;
 
     private Abonnement abonnement;
 
@@ -98,6 +99,23 @@ public class Client extends User {
     public void setBanque(Bank banque) {
         this.banque = banque;
     }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public void setCodePostal(long codePostal) {
+        this.codePostal = codePostal;
+    }
+    
 
 
 

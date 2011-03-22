@@ -61,6 +61,10 @@ public Client getClientFromInputs()
     String lastname;
     Client client;
     Date date;
+    String adresse;
+    long codePostal;
+    String ville;
+
 
     if (formIsValid())
     {
@@ -70,10 +74,14 @@ public Client getClientFromInputs()
         firstname = firstNameTextField.getText();
         lastname = lastNameTextField.getText();
         date = dateChooser.getDate();
-        
+        adresse=addressLine1TextField.getText();
+        //codePostal=postalCodeTextField.getText();
+        ville=cityTextField.getText();
 
         client = new Client(idClient, firstname, lastname, user);
         client.setDateNaissance(date);
+        client.setAdresse(adresse);
+        client.setVille(ville);
     }
     else
     {
