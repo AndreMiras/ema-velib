@@ -50,7 +50,7 @@ import java.util.Date;
     @Override
     public String toString()
     {
-        return client + " utilise vélo n° " + velo;
+        return client + " utilise : " + velo;
     }
 
 }
