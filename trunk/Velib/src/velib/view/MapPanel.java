@@ -11,16 +11,67 @@
 
 package velib.view;
 
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+
 /**
  *
  * @author andre
+ * Using Google Map static API
  */
 public class MapPanel extends javax.swing.JPanel {
+
+    // TODO: split up server and GET url
+    private String urlString =
+        "http://maps.google.com"
+        + "/maps/api/staticmap?"
+        + "center=France,Nimes&zoom=14&size=400x400&sensor=false";
+    
+    private File mapImage;
+    private BufferedImage image;
 
     /** Creates new form MapPanel */
     public MapPanel() {
         initComponents();
+
+        setUpMapImage();
     }
+
+    private void setUpMapImage()
+    {
+        URL url = null;
+        try
+        {
+            url = new URL(urlString);
+        }
+        catch (MalformedURLException ex)
+        {
+            Logger.getLogger(MapPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try
+        {
+            image = ImageIO.read(url);
+        }
+        catch (IOException ex)
+        {
+            Logger.getLogger(MapPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void paintComponent(Graphics g)
+    {
+        // see javadoc for more info on the parameters
+        g.drawImage(image, 0, 0, null);
+    }
+
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -31,34 +82,22 @@ public class MapPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-
-        setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createTitledBorder("Map"));
-
-        jLabel1.setText("The map will be here");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(jLabel1)
-                .addContainerGap(116, Short.MAX_VALUE))
+            .addGap(0, 390, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jLabel1)
-                .addContainerGap(158, Short.MAX_VALUE))
+            .addGap(0, 275, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 
 }
