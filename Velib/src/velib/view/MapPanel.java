@@ -11,6 +11,7 @@
 
 package velib.view;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -87,8 +88,20 @@ public class MapPanel extends javax.swing.JPanel
         latlong = thisStation.getLatLong();
 
         String stationMarker;
+        String otherStationMarkers = "";
         stationMarker = createMarkerString("blue",
                 "S", latlong);
+
+        // TODO: to be moved to a dedicated function for redability
+        for(int i=0; i<otherStations.length; i++)
+        {
+            otherStationMarkers += createMarkerString("green",
+                "S", otherStations[i].getLatLong());
+            if (i<otherStations.length-1)
+            {
+               otherStationMarkers += "&";
+            }
+        }
 
 
         // TODO: split up server and GET url
@@ -98,9 +111,14 @@ public class MapPanel extends javax.swing.JPanel
         + "center="
         // + "France,Nimes"
         + createLatLongString(latlong) // center the map to the station
-        + "&zoom=14&size=400x400&sensor=false"
+        + "&zoom=14&"
+        + "size="
+        + createSizeString(this.getPreferredSize()) // map to be panel size
+        + "&sensor=false"
         + "&"
-        + stationMarker;
+        + stationMarker
+        + "&"
+        + otherStationMarkers;
 
         return urlString;
     }
@@ -127,6 +145,15 @@ public class MapPanel extends javax.swing.JPanel
                     MapPanel.class.getName()).log(
                     Level.SEVERE, null, ex);
         }
+    }
+
+    private String createSizeString(Dimension dimension)
+    {
+        String sizeString =
+            dimension.width +
+            "x" +
+            dimension.height;
+        return sizeString;
     }
 
     private String createLatLongString(double latlong[])
