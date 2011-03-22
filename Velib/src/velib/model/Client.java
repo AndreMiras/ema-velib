@@ -15,7 +15,7 @@ public class Client extends User {
     private long client_id;
     private String firstname;
     private String lastname;
-    private Date dateNaissance; // TODO: is it worth keeping that?
+    private Date dateNaissance;
     private String adresse;
     private long codePostal;
 
@@ -71,6 +71,12 @@ public class Client extends User {
         return dateNaissance;
     }
 
+    public void setDateNaissance(Date dateNaissance) {
+        this.dateNaissance = dateNaissance;
+    }
+
+    
+
     public long getClientId() {
         return client_id;
     }
@@ -92,6 +98,7 @@ public class Client extends User {
     public void setBanque(Bank banque) {
         this.banque = banque;
     }
+
 
 
 
