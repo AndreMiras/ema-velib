@@ -42,8 +42,7 @@ public class BornesDAO  extends DAO<Borne>{
             while (result.next())
             {
                 Long id = result.getLong("idborne");
-                String nom = result.getString("nomBorne");
-                borne = new Borne(id, nom);
+                borne = find(id);
                 borneVector.add(borne);
             }
         }
