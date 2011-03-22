@@ -15,13 +15,14 @@ import velib.model.Borne;
 import velib.model.IModel;
 import velib.view.AdministrationBorneFrame;
 import velib.view.AdministrationWindowFrame;
-import velib.view.DBConnectionFrame;
+import velib.view.CheckDefectsFrame;
 import velib.view.DatabaseManagementFrame;
+import velib.view.UsersControlFrame;
 import velib.view.EditBornFrame;
 import velib.view.IView;
 import velib.view.MainWindowFrame;
 import velib.view.WelcomeScreenPanel;
-import velib.view.UsersControlFrame;
+import velib.view.DBConnectionFrame;
 
 /**
  *
@@ -42,8 +43,13 @@ public class AdministrationWindowController
     private AdministrationWindowFrame administrationWindowFrame;
     private AdministrationWindowController administrationWindowController;
 
+        // General Station administration
     private AdministrationBorneFrame administrationBorneFrame;
     private AdministrationBorneController administrationBorneController;
+
+        // Bike defects mvc
+    private CheckDefectsFrame checkDefectsFrame;
+    private CheckDefectsController checkDefectsController;
 
     public AdministrationWindowController(AdministrationWindowFrame administrationWindowFrame)
     {
@@ -59,6 +65,18 @@ public class AdministrationWindowController
                 new GeneralManagementButtonListener());
         administrationWindowFrame.addusersListButtonListener(
                 new UsersListButtonListener());
+        administrationWindowFrame.addCheckDefectsButtonListener(
+                new CheckDefectsButtonListener());
+    }
+
+    class CheckDefectsButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            checkDefectsFrame = new CheckDefectsFrame();
+            checkDefectsController = new CheckDefectsController(checkDefectsFrame);
+            checkDefectsFrame.setVisible(true);
+        }
     }
 
     class UsersListButtonListener implements ActionListener
