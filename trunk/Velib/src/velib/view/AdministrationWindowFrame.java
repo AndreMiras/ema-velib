@@ -36,14 +36,14 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
         generalManagementButton.addActionListener(al);
     }
 
-    public void addusersListButtonListener(ActionListener al)
+    public void addUsersListButtonListener(ActionListener al)
     {
         usersListButton.addActionListener(al);
     }
 
     public void addCheckDefectsButtonListener(ActionListener al)
     {
-        usersListButton.addActionListener(al);
+        checkDefectsButton.addActionListener(al);
     }
     /** This method is called from within the constructor to
      * initialize the form.
