@@ -110,6 +110,9 @@ public class BornesDAO  extends DAO<Borne>{
             {
                 String nom = result.getString("nomBorne");
                 borne = new Borne(id, nom);
+                borne.setLatLong(
+                        result.getDouble("latitude"),
+                        result.getDouble("longitude"));
             }
         }
         catch (SQLException e)
