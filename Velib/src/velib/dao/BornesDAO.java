@@ -26,7 +26,7 @@ public class BornesDAO  extends DAO<Borne>{
     public Borne[] findAllBorne ()
     {
         String bornesTable = tableNames[0];
-        Borne[] tableauBorne = new Borne[10];
+        Vector<Borne> borneVector = new Vector<Borne>();
         Borne borne;
         int i=0;
 
@@ -44,8 +44,7 @@ public class BornesDAO  extends DAO<Borne>{
                 Long id = result.getLong("idborne");
                 String nom = result.getString("nomBorne");
                 borne = new Borne(id, nom);
-                tableauBorne[i]=borne;
-                i=i+1;
+                borneVector.add(borne);
             }
         }
         catch (SQLException e)
@@ -53,7 +52,7 @@ public class BornesDAO  extends DAO<Borne>{
             e.printStackTrace();
         }
 
-        return tableauBorne;
+        return borneVector.toArray(new Borne[borneVector.size()]);
     }
 
 
