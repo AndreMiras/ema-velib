@@ -63,7 +63,7 @@ public class AdministrationWindowController
                 new EditDatabaseButtonListener());
         administrationWindowFrame.addGeneralManagementButtonListener(
                 new GeneralManagementButtonListener());
-        administrationWindowFrame.addusersListButtonListener(
+        administrationWindowFrame.addUsersListButtonListener(
                 new UsersListButtonListener());
         administrationWindowFrame.addCheckDefectsButtonListener(
                 new CheckDefectsButtonListener());
