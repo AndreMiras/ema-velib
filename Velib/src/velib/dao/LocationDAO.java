@@ -26,6 +26,7 @@ public class LocationDAO extends DAO<Location>
     public Location create(Location obj)
     {
         String locationTable = tableNames[0];
+        System.out.println("date fin de location " + obj.getDateFinLocation());
          try {
              ResultSet result = this.connect.createStatement(
                                 ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -40,13 +41,29 @@ public class LocationDAO extends DAO<Location>
             PreparedStatement prepare = this.connect.prepareStatement(
                                                     	"INSERT INTO locations "
                                                         + "(idlocation,"
+                                                        + " dateDebutLocation,"
+                                                        + " dateFinLocation,"
                                                         + " idclient,"
-                                                        + " idvelo) VALUES(?, ?,?)"
+                                                        + " idvelo) VALUES(?,?,?,?,?)"
                                                     );
 				prepare.setLong(1, id);
-                               // prepare.setDate(2, obj.getDateSQL());
-				prepare.setLong(2, obj.getClient().getClientId());
-                                prepare.setLong(3, obj.getVelo().getId());
+                                prepare.setDate(2,
+                                            new java.sql.Date(
+                                                obj.getDateDebutLocation().getTime()));
+                                if(obj.getDateFinLocation()== null)
+                                        {
+                                                prepare.setDate(3,null);
+                                        }
+                                         else
+                                        {
+                                          prepare.setDate(3,
+                                              new java.sql.Date(
+                                                obj.getDateFinLocation().getTime()));
+                                        }
+
+                           
+				prepare.setLong(4, obj.getClient().getClientId());
+                                prepare.setLong(5, obj.getVelo().getId());
 				prepare.executeUpdate();
 				obj = this.find(id);
             }
@@ -131,7 +148,32 @@ public class LocationDAO extends DAO<Location>
     @Override
     public Location update(Location obj)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+          String locationsTable = tableNames[0];
+        try {
+                this .connect.createStatement(
+                    	ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_UPDATABLE
+                     ).executeUpdate(
+                    	"UPDATE " +
+                        locationsTable +
+                        " SET idlocation = '" + obj.getId()+ "',"+
+                        " dateDebutLocation = '"
+                        + new java.sql.Date(obj.getDateDebutLocation().getTime()) + "',"
+                        
+                        + " dateFinLocation = '"
+                        + new java.sql.Date(obj.getDateFinLocation().getTime()) + "',"
+                        + " idclient = '" + obj.getClient().getClientId() + "'"
+                        + " idvelo = '" + obj.getVelo().getId() + "'"
+                    	+ " WHERE idlocation = " + obj.getId()
+                     );
+
+	obj = this.find(obj.getId());
+	    }
+        catch (SQLException e)
+        {
+	  e.printStackTrace();
+	}
+        return obj;
     }
 
     @Override
@@ -142,7 +184,8 @@ public class LocationDAO extends DAO<Location>
 
     @Override
     public Location find(long id) {
-         String locationsTable = tableNames[0];
+
+        String locationsTable = tableNames[0];
         Location location = new Location();
         Velo velo;
         VeloDAO veloDAO = new VeloDAO();
@@ -164,6 +207,8 @@ public class LocationDAO extends DAO<Location>
                 client = clientDAO.find(result.getLong("idclient"));
                 velo = veloDAO.find(result.getLong("idvelo"));
                 location = new Location(id, client, velo);
+                location.setDateDebutLocation(result.getDate("DateDebutLocation"));
+                location.setDateFinLocation(result.getDate("DateFinLocation"));
             }
         }
         catch (SQLException e)
@@ -184,7 +229,8 @@ public class LocationDAO extends DAO<Location>
         statementStrings[1] =
                     String.format("CREATE TABLE %s" +
                     "(idlocation INTEGER, " +
-                    "date DATE, " +
+                    "dateDebutLocation DATETIME, " +
+                    "dateFinLocation DATETIME, " +
                     "idClient INTEGER, " +
                     "idVelo INTEGER) " , tableNames[0]);
         statementStrings[2] =

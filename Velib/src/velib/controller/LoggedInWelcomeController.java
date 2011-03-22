@@ -7,6 +7,7 @@ package velib.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 import velib.dao.BorneSingleton;
 import velib.dao.BornetteDAO;
 import velib.dao.LocationDAO;
@@ -81,10 +82,12 @@ class LoggedInWelcomeController extends AbstractMainWindowController
             Bornette bornette;
             Velo bike;
             Location location;
+            Date dateFinLocation = new Date();
             LocationDAO locationDAO = new LocationDAO();
             BornetteDAO bornetteDAO = new BornetteDAO();
             
             location = locationDAO.find(client);
+            location.setDateFinLocation(dateFinLocation);
             bike = location.getVelo();
             bornette = bornetteDAO.findLibre(
                     BorneSingleton.getInstance().getIdBorne());
@@ -92,7 +95,9 @@ class LoggedInWelcomeController extends AbstractMainWindowController
             bornette.setVelo(bike);
             // hitting the database
             bornetteDAO.update(bornette);
-            
+            locationDAO.update(location);
+            System.out.println("La date de début de location est" + location.getDateDebutLocation());
+            System.out.println("La date de fin de location est" + location.getDateFinLocation());
 
             // TODO: screen when given bike back
             RestituerVeloPanel restituerVeloPanel =

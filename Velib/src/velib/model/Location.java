@@ -16,36 +16,53 @@ import java.util.Date;
     private long id;
     private Client client;
     private Velo velo;
-    private Date date;
+    private Date dateDebutLocation;
+    private Date dateFinLocation;
 
     public Location (long id, Client client, Velo velo) {
         // TODO: hardcoded value, ident envoyé de la BDD (DAO)
         this.id=id;
         this.client=client;
         this.velo=velo;
+        dateDebutLocation=null;
+        dateFinLocation=null;
     }
 
     public Location() {
     }
 
+    public long getId() {
+        return id;
+    }
 
+
+    
     public Client getClient() {
         return client;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getDateDebutLocation() {
+        return dateDebutLocation;
     }
+
+    public void setDateDebutLocation(Date dateDebutLocation) {
+        this.dateDebutLocation = dateDebutLocation;
+    }
+
+    public Date getDateFinLocation() {
+        return dateFinLocation;
+    }
+
+    public void setDateFinLocation(Date dateFinLocation) {
+        this.dateFinLocation = dateFinLocation;
+    }
+
 
     public Velo getVelo() {
         return velo;
     }
 
-    public java.sql.Date getDateSQL() {
-        long t = date.getTime();
-        java.sql.Date dateSql = new java.sql.Date(t);
-        return dateSql;
-    }
+  
 
     @Override
     public String toString()
