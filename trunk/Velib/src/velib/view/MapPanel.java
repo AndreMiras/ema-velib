@@ -95,7 +95,10 @@ public class MapPanel extends javax.swing.JPanel
         String urlString =
         "http://maps.google.com"
         + "/maps/api/staticmap?"
-        + "center=France,Nimes&zoom=14&size=400x400&sensor=false"
+        + "center="
+        // + "France,Nimes"
+        + createLatLongString(latlong) // center the map to the station
+        + "&zoom=14&size=400x400&sensor=false"
         + "&"
         + stationMarker;
 
@@ -126,18 +129,28 @@ public class MapPanel extends javax.swing.JPanel
         }
     }
 
+    private String createLatLongString(double latlong[])
+    {
+        String latLongString =
+            latlong[0] +
+            "," +
+            latlong[1];
+
+        return latLongString;
+    }
+
+     
     // TODO: cleaning: java color object
     private String createMarkerString(
             String color, String label, double latlong[])
     {
+        String latLongString = createLatLongString(latlong);
         String markerString =
             "markers=color:" + color +
             "%7C" + 
             "label:" + label +
             "%7C" +
-            latlong[0] + 
-            "," + 
-            latlong[1];
+            latLongString;
 
         return markerString;
     }
