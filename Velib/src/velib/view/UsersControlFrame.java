@@ -113,7 +113,6 @@ public class UsersControlFrame extends javax.swing.JFrame
         });
     }
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Title;
     private javax.swing.JScrollPane jScrollPane1;

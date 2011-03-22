@@ -1,9 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
  * CheckDefectsFrame.java
  *
  * Created on 22 mars 2011, 18:17:28
@@ -19,12 +14,19 @@ public class CheckDefectsFrame extends javax.swing.JFrame
 {
 
     private velib.view.CheckDefectsFrame checkDefectsFrame;
-
+    //private Problems[] problems;
     /** Creates new form CheckDefectsFrame */
     public CheckDefectsFrame()
     {
         initComponents();
     }
+    /*
+    public CheckDefectsFrame(Problems[] problems)
+    {
+        this();
+        this.problems = problems;
+        fillUpJList();
+    }*/
 
     public CheckDefectsFrame getCheckDefectsFrame()
     {
@@ -46,7 +48,7 @@ public class CheckDefectsFrame extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         DefectBikeList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Aucun problème actuellement déclaré" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -73,7 +75,7 @@ public class CheckDefectsFrame extends javax.swing.JFrame
                 .addComponent(Title)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
