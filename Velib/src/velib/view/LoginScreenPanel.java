@@ -61,8 +61,8 @@ public class LoginScreenPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         identifyTextField = new javax.swing.JTextField();
-        codeTextField = new javax.swing.JTextField();
         validerButton = new javax.swing.JButton();
+        codeTextField = new javax.swing.JPasswordField();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Identification"));
 
@@ -75,12 +75,6 @@ public class LoginScreenPanel extends javax.swing.JPanel {
         identifyTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 identifyTextFieldActionPerformed(evt);
-            }
-        });
-
-        codeTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codeTextFieldActionPerformed(evt);
             }
         });
 
@@ -97,16 +91,16 @@ public class LoginScreenPanel extends javax.swing.JPanel {
                 .addGap(106, 106, 106))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(codeTextField))
+                        .addComponent(codeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(identifyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1)
@@ -154,14 +148,9 @@ public class LoginScreenPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
 }//GEN-LAST:event_identifyTextFieldActionPerformed
 
-    private void codeTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_codeTextFieldActionPerformed
-    {//GEN-HEADEREND:event_codeTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_codeTextFieldActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField codeTextField;
+    private javax.swing.JPasswordField codeTextField;
     private javax.swing.JTextField identifyTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
