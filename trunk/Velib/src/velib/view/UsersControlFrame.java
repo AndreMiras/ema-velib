@@ -1,9 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
  * UsersControlFrame.java
  *
  * Created on 20 mars 2011, 12:32:17
@@ -21,16 +16,18 @@ import velib.model.Location;
  */
 public class UsersControlFrame extends javax.swing.JFrame
 {
-    LocationDAO locationDAO = new LocationDAO();
-    private Location[] location;
+    private Location[] locations;
     private velib.view.UsersControlFrame usersControlFrame;
     /** Creates new form UsersControlFrame */
     public UsersControlFrame()
     {
         initComponents();
+    }
 
-        // TODO: this shouldn't be done in  the view but in the controller
-        location = locationDAO.findAllLocation();
+    public UsersControlFrame(Location[] locations)
+    {
+        this();
+        this.locations = locations;
         fillUpJList();
     }
 
@@ -48,13 +45,13 @@ public class UsersControlFrame extends javax.swing.JFrame
      // Fills the combo box with bornes objects
     private void fillUpJList()
     {
-        // polygonsScrollPane
-        UsersjList.setModel(new javax.swing.AbstractListModel() {
-            // model.Polygon[] polygons = model.getPolygons();
-            public int getSize() { return location.length; }
-            public Object getElementAt(int i) { return location[i]; }
+        // polygonsScrollPanel
+        usersjList.setModel(new javax.swing.AbstractListModel()
+        {
+            public int getSize() { return locations.length; }
+            public Object getElementAt(int i) { return locations[i]; }
         });
-        jScrollPane1.setViewportView(UsersjList);
+        jScrollPane1.setViewportView(usersjList);
     }
 
     
@@ -64,19 +61,19 @@ public class UsersControlFrame extends javax.swing.JFrame
 
         Title = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        UsersjList = new javax.swing.JList();
+        usersjList = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         Title.setFont(new java.awt.Font("Tahoma", 0, 14));
         Title.setText("Liste des utilisateurs actifs");
 
-        UsersjList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        usersjList.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Aucun utilisateur actif actuellement" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(UsersjList);
+        jScrollPane1.setViewportView(usersjList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,8 +116,8 @@ public class UsersControlFrame extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Title;
-    private javax.swing.JList UsersjList;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList usersjList;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -7,6 +7,8 @@ package velib.controller;
 
 import velib.view.UsersControlFrame;
 import velib.view.MainWindowFrame;
+import velib.dao.LocationDAO;
+import velib.model.Location;
 
 /**
  *
@@ -18,6 +20,6 @@ public class UsersControlController
 
     public UsersControlController(UsersControlFrame usersControlFrame)
     {
-        this.usersControlFrame = usersControlFrame;
+        this.usersControlFrame = new UsersControlFrame();
     }
 }
