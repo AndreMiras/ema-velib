@@ -20,13 +20,17 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import velib.dao.BorneSingleton;
+import velib.dao.BornesDAO;
+import velib.model.Borne;
 
 /**
  *
  * @author andre
  * Using Google Map static API
  */
-public class MapPanel extends javax.swing.JPanel {
+public class MapPanel extends javax.swing.JPanel
+{
 
     /*
      * "http://maps.google.com"
@@ -34,30 +38,74 @@ public class MapPanel extends javax.swing.JPanel {
         + "center=France,Nimes&zoom=14&size=400x400&sensor=false
      */
 
-    // ll=43.835208,4.361315
-    private String stationMarker =
-            "markers=color:blue%7Clabel:S%7C43.835208,4.361315";
-    // TODO: split up server and GET url
-    private String urlString =
+    private Borne thisStation;
+    private Borne[] otherStations;
+    
+    private BufferedImage image;
+
+
+    /** Creates new form MapPanel */
+    public MapPanel()
+    {
+        initComponents();
+
+        /*
+         * TODO: this is for testing only but it should really get
+         * the value from a calling controller (through constructor arguments)
+         */
+        BornesDAO bornesDAO = new BornesDAO();
+        this.thisStation = BorneSingleton.getInstance();
+        this.otherStations = bornesDAO.findAllBorne();
+
+        setUpMapImage();
+    }
+
+    public MapPanel(Borne thisStation, Borne[] otherStations)
+    {
+        this();
+        
+        this.thisStation = thisStation;
+        this.otherStations = otherStations;
+
+        /*
+         * TODO: this is for testing only but it should really get
+         * the value from a calling controller (through constructor arguments)
+         */
+        BornesDAO bornesDAO = new BornesDAO();
+        this.thisStation = BorneSingleton.getInstance();
+        this.otherStations = bornesDAO.findAllBorne();
+
+        setUpMapImage();
+    }
+
+    /*
+     * TODO: finish up
+     */
+    private String createUrlString()
+    {
+        double latlong[];
+        latlong = thisStation.getLatLong();
+
+        String stationMarker;
+        stationMarker = createMarkerString("blue",
+                "S", latlong);
+
+
+        // TODO: split up server and GET url
+        String urlString =
         "http://maps.google.com"
         + "/maps/api/staticmap?"
         + "center=France,Nimes&zoom=14&size=400x400&sensor=false"
         + "&"
         + stationMarker;
-    
-    private File mapImage;
-    private BufferedImage image;
 
-    /** Creates new form MapPanel */
-    public MapPanel() {
-        initComponents();
-
-        setUpMapImage();
+        return urlString;
     }
 
     private void setUpMapImage()
     {
         URL url = null;
+        String urlString = createUrlString();
         try
         {
             url = new URL(urlString);
@@ -76,6 +124,22 @@ public class MapPanel extends javax.swing.JPanel {
                     MapPanel.class.getName()).log(
                     Level.SEVERE, null, ex);
         }
+    }
+
+    // TODO: cleaning: java color object
+    private String createMarkerString(
+            String color, String label, double latlong[])
+    {
+        String markerString =
+            "markers=color:" + color +
+            "%7C" + 
+            "label:" + label +
+            "%7C" +
+            latlong[0] + 
+            "," + 
+            latlong[1];
+
+        return markerString;
     }
 
     /*
