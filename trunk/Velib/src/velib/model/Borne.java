@@ -24,10 +24,11 @@ public class Borne {
         this.nomBorne=nomBorne;
 
         /* by default the borne is free */
-        this.etat=true;
+        this.etat = true;
     }
 
-    public Borne() {
+    public Borne()
+    {
         this.idBorne=0;
         this.nomBorne="";
     }
@@ -38,23 +39,39 @@ public class Borne {
         return nomBorne;
     }
     
-    public long getIdBorne() {
+    public long getIdBorne()
+    {
         return idBorne;
     }
 
-    public String getNomBorne() {
+    public String getNomBorne()
+    {
         return nomBorne;
     }
 
-    public float getLatitude() {
+    public float getLatitude()
+    {
         return latitude;
     }
 
-    public float getLongitude() {
+    public float getLongitude()
+    {
         return longitude;
     }
+    
+    public void setLatitude(float latitude)
+    {
+        this.latitude = latitude;
+    }
 
-    public boolean getEtat() {
+
+    public void setLongitude(float longitude)
+    {
+        this.longitude = longitude;
+    }
+
+    public boolean getEtat()
+    {
         return etat;
     }
 
