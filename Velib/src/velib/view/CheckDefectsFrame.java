@@ -6,31 +6,43 @@
 
 package velib.view;
 
+import velib.model.Velo;
 /**
  *
  * @author G
  */
 public class CheckDefectsFrame extends javax.swing.JFrame
 {
-
+    private Velo[] velos;
     private velib.view.CheckDefectsFrame checkDefectsFrame;
-    //private Problems[] problems;
+    //private Velo[] velos;
     /** Creates new form CheckDefectsFrame */
     public CheckDefectsFrame()
     {
         initComponents();
     }
-    /*
-    public CheckDefectsFrame(Problems[] problems)
+
+    public CheckDefectsFrame(Velo[] velos)
     {
         this();
-        this.problems = problems;
-        fillUpJList();
-    }*/
+        this.velos = velos;
+        //fillUpJList();
+    }
 
     public CheckDefectsFrame getCheckDefectsFrame()
     {
         return checkDefectsFrame;
+    }
+
+    private void fillUpJList()
+    {
+        // polygonsScrollPanel
+        defectBikejList.setModel(new javax.swing.AbstractListModel()
+        {
+            public int getSize() { return velos.length; }
+            public Object getElementAt(int i) { return velos[i]; }
+        });
+        jScrollPane1.setViewportView(defectBikejList);
     }
     /** This method is called from within the constructor to
      * initialize the form.
@@ -42,17 +54,17 @@ public class CheckDefectsFrame extends javax.swing.JFrame
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        DefectBikeList = new javax.swing.JList();
+        defectBikejList = new javax.swing.JList();
         Title = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        DefectBikeList.setModel(new javax.swing.AbstractListModel() {
+        defectBikejList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Aucun problème actuellement déclaré" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(DefectBikeList);
+        jScrollPane1.setViewportView(defectBikejList);
 
         Title.setFont(new java.awt.Font("Tahoma", 0, 14));
         Title.setText("Liste des vélos ayant le statut \"Problème déclaré\"");
@@ -93,8 +105,8 @@ public class CheckDefectsFrame extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList DefectBikeList;
     private javax.swing.JLabel Title;
+    private javax.swing.JList defectBikejList;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 

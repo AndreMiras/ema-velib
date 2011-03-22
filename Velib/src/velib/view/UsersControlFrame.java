@@ -6,9 +6,6 @@
 
 package velib.view;
 
-import javax.swing.JList;
-import javax.swing.JTextArea;
-import velib.dao.LocationDAO;
 import velib.model.Location;
 /**
  *

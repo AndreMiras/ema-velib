@@ -16,6 +16,8 @@ import velib.view.DatabaseManagementFrame;
 import velib.view.UsersControlFrame;
 import velib.dao.LocationDAO;
 import velib.model.Location;
+import velib.dao.VeloDAO;
+import velib.model.Velo;
 import velib.model.Borne;
 import velib.model.IModel;
 import javax.swing.JPanel;
@@ -41,7 +43,7 @@ public class AdministrationWindowController
     private UsersControlFrame usersControlFrame;
     private UsersControlController usersControlController;
     LocationDAO locationDAO = new LocationDAO();
-    private Location[] location;
+    private Location[] locations;
 
         // Born Management mvc
     private AdministrationWindowFrame administrationWindowFrame;
@@ -54,6 +56,8 @@ public class AdministrationWindowController
         // Bike defects mvc
     private CheckDefectsFrame checkDefectsFrame;
     private CheckDefectsController checkDefectsController;
+    VeloDAO veloDAO = new VeloDAO();
+    private Velo[] velos;
 
     public AdministrationWindowController(AdministrationWindowFrame administrationWindowFrame)
     {
@@ -77,7 +81,8 @@ public class AdministrationWindowController
     {
         public void actionPerformed(ActionEvent e)
         {
-            checkDefectsFrame = new CheckDefectsFrame();
+            velos = veloDAO.findVeloPanne();
+            checkDefectsFrame = new CheckDefectsFrame(velos);
             checkDefectsController = new CheckDefectsController(checkDefectsFrame);
             checkDefectsFrame.setVisible(true);
         }
@@ -87,8 +92,8 @@ public class AdministrationWindowController
     {
         public void actionPerformed(ActionEvent e)
         {
-            location = locationDAO.findAllLocation();
-            usersControlFrame = new UsersControlFrame(location);
+            locations = locationDAO.findAllLocation();
+            usersControlFrame = new UsersControlFrame(locations);
             usersControlController = new UsersControlController(usersControlFrame);
             usersControlFrame.setVisible(true);
         }
