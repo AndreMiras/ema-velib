@@ -23,6 +23,7 @@ public class ClientDAOTest {
     public ClientDAOTest() {
     }
 
+    //Méthode effectuée avant le test
     @BeforeClass
     public static void setUpClass() throws Exception
     {
@@ -37,6 +38,7 @@ public class ClientDAOTest {
         databaseManagementDAO.createTables();
     }
 
+    //Méthode effectuée à la fin du test
     @AfterClass
     public static void tearDownClass() throws Exception
     {
