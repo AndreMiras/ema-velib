@@ -14,8 +14,8 @@ public class Borne {
     private long idBorne;
     private String nomBorne;
     
-    private float latitude;
-    private float longitude;
+    private double latitude;
+    private double longitude;
     /* is the borne already associated with a soft */
     private boolean etat;
 
@@ -49,24 +49,34 @@ public class Borne {
         return nomBorne;
     }
 
-    public float getLatitude()
+    public double getLatitude()
     {
         return latitude;
     }
 
-    public float getLongitude()
+    public double getLongitude()
     {
         return longitude;
     }
+
+    public double[] getLatLong()
+    {
+        return new double[] {latitude, longitude};
+    }
     
-    public void setLatitude(float latitude)
+    public void setLatitude(double latitude)
     {
         this.latitude = latitude;
     }
 
-
-    public void setLongitude(float longitude)
+    public void setLongitude(double longitude)
     {
+        this.longitude = longitude;
+    }
+
+    public void setLatLong(double latitude, double longitude)
+    {
+        this.latitude = latitude;
         this.longitude = longitude;
     }
 
