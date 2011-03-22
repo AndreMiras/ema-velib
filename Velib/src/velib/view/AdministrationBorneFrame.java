@@ -36,21 +36,21 @@ public class AdministrationBorneFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        BorneNameTextField = new javax.swing.JTextField();
+        BorneIDTextField = new javax.swing.JTextField();
+        BorneXPosTextField = new javax.swing.JTextField();
+        BorneYPosTextField = new javax.swing.JTextField();
+        AddBorneButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        BornetteIDTextField = new javax.swing.JTextField();
+        BornetteBornIDTextField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        AddBornetteButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        BikeIDTextField = new javax.swing.JTextField();
+        AddBikeButton = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -65,13 +65,13 @@ public class AdministrationBorneFrame extends javax.swing.JFrame {
 
         jLabel4.setText("Position Y");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        BorneNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                BorneNameTextFieldActionPerformed(evt);
             }
         });
 
-        jButton1.setText("jButton1");
+        AddBorneButton.setText("Ajouter");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -88,11 +88,11 @@ public class AdministrationBorneFrame extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
-                    .addComponent(jButton1))
+                        .addComponent(BorneYPosTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(BorneXPosTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(BorneIDTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(BorneNameTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
+                    .addComponent(AddBorneButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -101,29 +101,29 @@ public class AdministrationBorneFrame extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BorneNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BorneIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BorneXPosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BorneYPosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17)
-                .addComponent(jButton1)
+                .addComponent(AddBorneButton)
                 .addContainerGap())
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Ajouter une bornette"));
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        BornetteIDTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                BornetteIDTextFieldActionPerformed(evt);
             }
         });
 
@@ -131,7 +131,7 @@ public class AdministrationBorneFrame extends javax.swing.JFrame {
 
         jLabel8.setText("ID de la Bornette");
 
-        jButton2.setText("jButton2");
+        AddBornetteButton.setText("Ajouter");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -140,16 +140,16 @@ public class AdministrationBorneFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                    .addComponent(BornetteBornIDTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                    .addComponent(BornetteIDTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel8))
                         .addContainerGap(55, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addContainerGap(85, Short.MAX_VALUE))))
+                        .addComponent(AddBornetteButton)
+                        .addContainerGap(89, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,13 +157,13 @@ public class AdministrationBorneFrame extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BornetteIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BornetteBornIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(AddBornetteButton)
                 .addContainerGap())
         );
 
@@ -171,7 +171,7 @@ public class AdministrationBorneFrame extends javax.swing.JFrame {
 
         jLabel10.setText("ID du vélo");
 
-        jButton3.setText("jButton3");
+        AddBikeButton.setText("Ajouter");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -180,13 +180,13 @@ public class AdministrationBorneFrame extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                    .addComponent(BikeIDTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addContainerGap(105, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addContainerGap(81, Short.MAX_VALUE))))
+                        .addComponent(AddBikeButton)
+                        .addContainerGap(85, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,9 +194,9 @@ public class AdministrationBorneFrame extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BikeIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(AddBikeButton)
                 .addContainerGap())
         );
 
@@ -236,15 +236,15 @@ public class AdministrationBorneFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField7ActionPerformed
-    {//GEN-HEADEREND:event_jTextField7ActionPerformed
+    private void BornetteIDTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BornetteIDTextFieldActionPerformed
+    {//GEN-HEADEREND:event_BornetteIDTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_BornetteIDTextFieldActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField1ActionPerformed
-    {//GEN-HEADEREND:event_jTextField1ActionPerformed
+    private void BorneNameTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BorneNameTextFieldActionPerformed
+    {//GEN-HEADEREND:event_BorneNameTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_BorneNameTextFieldActionPerformed
 
     /**
     * @param args the command line arguments
@@ -258,9 +258,16 @@ public class AdministrationBorneFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton AddBikeButton;
+    private javax.swing.JButton AddBorneButton;
+    private javax.swing.JButton AddBornetteButton;
+    private javax.swing.JTextField BikeIDTextField;
+    private javax.swing.JTextField BorneIDTextField;
+    private javax.swing.JTextField BorneNameTextField;
+    private javax.swing.JTextField BorneXPosTextField;
+    private javax.swing.JTextField BorneYPosTextField;
+    private javax.swing.JTextField BornetteBornIDTextField;
+    private javax.swing.JTextField BornetteIDTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -272,13 +279,6 @@ public class AdministrationBorneFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 
 }
