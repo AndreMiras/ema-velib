@@ -26,7 +26,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Component id="jPanel1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -59,14 +59,16 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="dateChooser" min="-2" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="cardSecurityCodeTextField" min="-2" pref="36" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
                                   <Component id="validerButton" min="-2" pref="118" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="ccNumTextField" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
-                              <Component id="expirationDateTextField" min="-2" pref="78" max="-2" attributes="0"/>
-                              <Component id="jTextField1" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="ccNumTextField" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="cardHolderTextField" alignment="0" pref="126" max="32767" attributes="1"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -80,19 +82,19 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cardHolderTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ccNumTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="expirationDateTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dateChooser" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="validerButton" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
@@ -129,13 +131,14 @@
         <Component class="javax.swing.JTextField" name="ccNumTextField">
         </Component>
         <Component class="javax.swing.JTextField" name="cardSecurityCodeTextField">
+          <Properties>
+            <Property name="columns" type="int" value="3"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="text" type="java.lang.String" value="Date d&apos;expiration :"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="expirationDateTextField">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -147,7 +150,9 @@
             <Property name="text" type="java.lang.String" value="Posseseur de la carte :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="cardHolderTextField">
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="dateChooser">
         </Component>
       </SubComponents>
     </Container>

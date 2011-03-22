@@ -42,12 +42,16 @@ public class BanqueDAO extends DAO<Bank>
             long id = result.getLong(1);
             System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
-                                                     "INSERT INTO banques (idbanque, numero, identifiant, dateExpiration, codeVerif) VALUES(?, ?, ?, ?, ?)"
+                                         "INSERT INTO banques "
+                                         + "(idbanque, numero, identifiant, "
+                                         + "dateExpiration, codeVerif) "
+                                         + "VALUES(?, ?, ?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
                                 prepare.setString(2, obj.getNumero());
                                 prepare.setString(3, obj.getIdentifiant());
-                                prepare.setDate(4, obj.getDateExpirationSQL());
+                                prepare.setTimestamp(4,
+                                        new java.sql.Timestamp(obj.getDateExpiration().getTime()));
                                 prepare.setString(5, obj.getCodeVerif());
 				prepare.executeUpdate();
 				obj = this.find(id);
