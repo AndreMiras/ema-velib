@@ -13,6 +13,7 @@ package velib.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
 
 
 import velib.dao.AbstractDAOFactory;
@@ -58,6 +59,37 @@ public class VeloDAO extends DAO<Velo>
 	    return obj;
     }
 
+    public Velo[] findVeloPanne()
+    {
+        String velosTable = tableNames[0];
+
+        Vector<Velo> veloVector = new Vector<Velo>();
+        Velo velo;
+	try
+        {
+            ResultSet result = this.connect.createStatement(
+                                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                    ResultSet.CONCUR_READ_ONLY
+                                     ).executeQuery(
+                                    "SELECT * FROM " +
+                                    velosTable +
+                                    "WHERE etat=false"
+                                    );
+            while (result.next())
+            {
+                Long idvelo = result.getLong("idvelo");
+                boolean etat = result.getBoolean("etat");
+                velo = new Velo(idvelo, etat);
+                veloVector.add(velo);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return veloVector.toArray(new Velo[veloVector.size()]);
+    }
     @Override
     public Velo find(long id) {
         Velo velo = new Velo();
