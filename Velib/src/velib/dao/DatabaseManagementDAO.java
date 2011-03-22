@@ -137,8 +137,8 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
         // 43.835208,4.361315
         double latlongs[][] = new double[][] {
             {43.835, 4.361},
-            {43.85, 4.35},
-            {43.87, 4.39}
+            {43.837, 4.366},
+            {43.833, 4.362}
         };
         double latlong[] = new double[2];
         System.out.println("Filling up borne table");
