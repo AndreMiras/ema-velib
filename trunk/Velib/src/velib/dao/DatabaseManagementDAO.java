@@ -135,6 +135,12 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
         int id = 0;
 
         // 43.835208,4.361315
+        double latlongs[][] = new double[][] {
+            {43.835, 4.361},
+            {43.85, 4.35},
+            {43.87, 4.39}
+        };
+        double latlong[] = new double[2];
         System.out.println("Filling up borne table");
 
        for (int i=0; i<3; i++)
@@ -143,6 +149,7 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
 
            borneDAO = new BornesDAO();
            borne = new Borne(id, nomBorne);
+           borne.setLatLong(latlongs[i][0], latlongs[i][1]);
            borne = borneDAO.create(borne);
 
            veloDAO = new VeloDAO();
