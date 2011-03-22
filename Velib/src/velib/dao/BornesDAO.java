@@ -138,12 +138,17 @@ public class BornesDAO  extends DAO<Borne>{
             PreparedStatement prepare = this.connect.prepareStatement(
                                                     	"INSERT INTO " +
                                                         borneTable +
-                                                        " (idborne, nomBorne, positionX, positionY, disponibilite) VALUES(?, ?, ?, ?, ?)"
+                                                        " (idborne,"
+                                                        + "nomBorne,"
+                                                        + "latitude,"
+                                                        + "longitude,"
+                                                        + "disponibilite)"
+                                                        + "VALUES(?, ?, ?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
                                 prepare.setString(2, obj.getNomBorne());
-                                prepare.setLong(3, obj.getPositionX());
-                                prepare.setLong(4, obj.getPositionY());
+                                prepare.setFloat(3, obj.getLatitude());
+                                prepare.setFloat(4, obj.getLongitude());
                                 prepare.setBoolean(5, obj.getEtat());
 
 				prepare.executeUpdate();
@@ -164,8 +169,8 @@ public class BornesDAO  extends DAO<Borne>{
             String sql = "UPDATE " +
                         borneTable +
                         " SET nomBorne = '" + obj.getNomBorne()+ "',"+
-                        " positionX = " + obj.getPositionX()+ ","+
-                        " positionY = " + obj.getPositionY()+ ","+
+                        " latitude = " + obj.getLatitude()+ ","+
+                        " longitude = " + obj.getLongitude()+ ","+
                         " disponibilite = " + obj.getEtat()+
                     	" WHERE idborne = " + obj.getIdBorne();
               System.out.println(sql);
@@ -200,8 +205,8 @@ public class BornesDAO  extends DAO<Borne>{
                     String.format("CREATE TABLE %s" +
                     "(idborne INTEGER, " +                    
                     "nomBorne VARCHAR(100), " +
-                    "positionX INTEGER, " +
-                    "positionY INTEGER, " +
+                    "latitude FLOAT, " +
+                    "longitude FLOAT, " +
                     "disponibilite BOOLEAN)", tableNames[0]);
       statementStrings[2] =
                 "ALTER TABLE "
