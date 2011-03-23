@@ -10,7 +10,8 @@ import java.util.Date;
  *
  * @author fteysseire
  */
-public class Abonnement {
+public class Abonnement
+{
 
     private long id;
     private Date dateDebut;
@@ -18,7 +19,8 @@ public class Abonnement {
     private Client client;
     private TypeAbonnement type;
   
-    public Abonnement () {
+    public Abonnement ()
+    {
         // TODO: hardcoded value, ident envoyé de la BDD (DAO)
         this.id=0;
         this.dateDebut = new Date();
@@ -26,33 +28,42 @@ public class Abonnement {
         type = new TypeAbonnement();
     }
 
-    public long getId() {
+    public long getId()
+    {
         return id;
     }
 
-    public Date getDateDebut() {
+    public Date getDateDebut()
+    {
         return dateDebut;
     }
 
-    public Date getDateFin() {
+    public Date getDateFin()
+    {
         return dateFin;
     }
 
-    public Client getClient() {
+    public Client getClient()
+    {
         return client;
     }
 
-    public TypeAbonnement getType() {
+    public TypeAbonnement getType()
+    {
         return type;
     }
-    
-    public java.sql.Date getDateDebutSQL() {
+
+    // TODO: cleaning, should not relies on java.sql
+    public java.sql.Date getDateDebutSQL()
+    {
         long t = dateDebut.getTime();
         java.sql.Date dateDebutSql = new java.sql.Date(t);
         return dateDebutSql;
     }
 
-    public java.sql.Date getDateFinSQL() {
+    // TODO: cleaning, should not relies on java.sql
+    public java.sql.Date getDateFinSQL()
+    {
         long t = dateFin.getTime();
         java.sql.Date dateFinSql = new java.sql.Date(t);
         return dateFinSql;
