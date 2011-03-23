@@ -70,13 +70,14 @@ public class ClientDAO extends DAO<Client>
                                             + "lastname, "
                                             + "datenaissance, "
                                             + "adresse, "
+                                            + "ville, "
                                             + "codepostal, "
                                             // + "idabonnement, "
                                             + "iduser, "
                                             + "idbanque) "
                                             + "VALUES("
                                             // + "?, "
-                                            + "?, ?, ?, ?, ?, ?, ?, ?)"
+                                            + "?, ?, ?, ?, ?, ?, ?, ?, ?)"
                                         );
 				prepare.setLong(1, id);
                                 prepare.setString(2, obj.getFirstname());
@@ -85,7 +86,8 @@ public class ClientDAO extends DAO<Client>
                                         new java.sql.Date(
                                         obj.getDateNaissance().getTime()));
                                 prepare.setString(5, obj.getAdresse());
-                                prepare.setLong(6, obj.getCodePostal());
+                                prepare.setString(6, obj.getVille());
+                                prepare.setLong(7, obj.getCodePostal());
                                 // prepare.setLong(7, obj.getAbonnement().getId());
                                 prepare.setLong(8-1, obj.getUserId());
                                 prepare.setLong(9-1, obj.getBanque().getId());
@@ -194,6 +196,12 @@ public class ClientDAO extends DAO<Client>
                     + " SET iduser = '" + obj.getUserId() + "',"
                     + " idbanque = '" + obj.getBanque().getId() + "',"
                     + " idabonnement = '" + obj.getAbonnement().getId() + "',"
+                    + "firstname = '" + obj.getFirstname() + "',"
+                    + "lastname = '" + obj.getLastname() + "',"
+                    + "datenaissance = '" + new java.sql.Timestamp(obj.getDateNaissance().getTime()) + "',"
+                    + "adresse = '" + obj.getAdresse() + "',"
+                    + "ville = '" + obj.getVille() + "',"
+                    + "codepostal = '" + obj.getCodePostal() + "',"
                     + " WHERE id = " + obj.getClientId()
              );
 
@@ -246,7 +254,8 @@ public class ClientDAO extends DAO<Client>
             "firstname VARCHAR(40), " +
             "lastname VARCHAR(40), " +
             "datenaissance DATE, " +
-            "adresse VARCHAR(40), " +
+            "adresse VARCHAR(200), " +
+            "ville VARCHAR(40), " +
             "codepostal VARCHAR(40), " +
             // TODO: to me this should be part of the user model, not the client
             "idabonnement INTEGER, " + // TODO: to be foreign key
