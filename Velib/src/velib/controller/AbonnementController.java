@@ -8,7 +8,10 @@ package velib.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import velib.dao.AbonnementDAO;
+import velib.model.Abonnement;
 import velib.model.AbonnementType;
+import velib.model.TypeAbonnement;
 import velib.view.AbonnementPanel;
 import velib.view.MainWindowFrame;
 import velib.view.RegisterFormPanel;
@@ -43,7 +46,10 @@ public class AbonnementController extends AbstractMainWindowController
         {
             String actionCommand;
             AbonnementType abonnementType;
+            TypeAbonnement typeAbonnement;
             JButton clickedButton = (JButton)e.getSource();
+            Abonnement subscription;
+            AbonnementDAO subscriptionDAO = new AbonnementDAO();
 
             actionCommand = clickedButton.getActionCommand();
             abonnementType = AbonnementType.valueOf(actionCommand);
@@ -52,7 +58,7 @@ public class AbonnementController extends AbstractMainWindowController
             {
                 /* short subscription */
                 case HALF_DAY:
-                    System.out.println("cmd1");
+                    System.out.println("bar");
                     break;
                 case ONE_DAY:
                     System.out.println("foo");
@@ -72,6 +78,12 @@ public class AbonnementController extends AbstractMainWindowController
                     System.out.println("Unknown");
                     break;
             }
+
+
+            typeAbonnement = new TypeAbonnement(abonnementType);
+            // Hit the database with the subscription object
+            subscription = new Abonnement(typeAbonnement);
+            subscriptionDAO.create(subscription);
         }
 
         /*
