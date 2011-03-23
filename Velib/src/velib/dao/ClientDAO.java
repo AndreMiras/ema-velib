@@ -52,55 +52,55 @@ public class ClientDAO extends DAO<Client>
             BanqueDAO banqueDAO = new BanqueDAO();
             obj.setBanque(banqueDAO.create(obj.getBanque()));
         }
-         try
-         {
-            
-             ResultSet result = this.connect.createStatement(
-                    ResultSet.TYPE_SCROLL_INSENSITIVE,
-                    ResultSet.CONCUR_UPDATABLE
-                        ).executeQuery(
-                           "CALL NEXT VALUE FOR sequence_clients"
-                        );
-            if(result.first()){
-            long id = result.getLong(1);
-                
-            PreparedStatement prepare = this.connect.prepareStatement(
-                                            "INSERT INTO "
-                                            + clientTable
-                                            + " (idclient, "
-                                            + "firstname, "
-                                            + "lastname, "
-                                            + "datenaissance, "
-                                            + "adresse, "
-                                            + "ville, "
-                                            //+ "codepostal, "
-                                            //+ "idabonnement, "
-                                            + "iduser, "
-                                            + "idbanque) "
-                                            + "VALUES(?,?, ?, ?, ?, ?, ?, ?)"
-                                        );
-				prepare.setLong(1, id);
-                                prepare.setString(2, obj.getFirstname());
-                                prepare.setString(3, obj.getLastname());
-                                prepare.setDate(4,
-                                        new java.sql.Date(
-                                        obj.getDateNaissance().getTime()));
-                                prepare.setString(5, obj.getAdresse());
-                                prepare.setString(6, obj.getVille());
-                                //prepare.setLong(7, obj.getCodePostal());
-                                //prepare.setLong(8, obj.getAbonnement().getId());
-                                prepare.setLong(7, obj.getUserId());
-                                prepare.setLong(8, obj.getBanque().getId());
+        try
+        {
+            ResultSet result = connect.createStatement(
+            ResultSet.TYPE_SCROLL_INSENSITIVE,
+            ResultSet.CONCUR_UPDATABLE).executeQuery(
+                "CALL NEXT VALUE FOR sequence_clients");
 
-				prepare.executeUpdate();
-                                
-				obj = this.find(id);
-			}
-	    }
-            catch (SQLException e) {
-	            e.printStackTrace();
-	    }
-	    return obj;
+            if(result.first())
+            {
+                long id = result.getLong(1);
+
+                PreparedStatement prepare =
+                        connect.prepareStatement(
+                            "INSERT INTO "
+                            + clientTable
+                            + " (idclient, "
+                            + "firstname, "
+                            + "lastname, "
+                            + "datenaissance, "
+                            + "adresse, "
+                            + "ville, "
+                            //+ "codepostal, "
+                            //+ "idabonnement, "
+                            + "iduser, "
+                            + "idbanque) "
+                            + "VALUES(?,?, ?, ?, ?, ?, ?, ?)");
+                prepare.setLong(1, id);
+                prepare.setString(2, obj.getFirstname());
+                prepare.setString(3, obj.getLastname());
+                prepare.setDate(4,
+                        new java.sql.Date(
+                        obj.getDateNaissance().getTime()));
+                prepare.setString(5, obj.getAdresse());
+                prepare.setString(6, obj.getVille());
+                //prepare.setLong(7, obj.getCodePostal());
+                //prepare.setLong(8, obj.getAbonnement().getId());
+                prepare.setLong(7, obj.getUserId());
+                prepare.setLong(8, obj.getBanque().getId());
+
+                prepare.executeUpdate();
+
+                obj = find(id);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+	return obj;
     }
 
 
