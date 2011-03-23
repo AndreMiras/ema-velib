@@ -47,13 +47,16 @@ public class AbonnementDAOTest {
     public void testCreate()
     {
         System.out.println("create");
-        Abonnement obj = null;
-        AbonnementDAO instance = new AbonnementDAO();
-        Abonnement expResult = null;
-        Abonnement result = instance.create(obj);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Abonnement abonnementFromDAO;
+        Abonnement abonnement = new Abonnement();
+        AbonnementDAO abonnementDAO = new AbonnementDAO();
+        abonnementFromDAO = abonnementDAO.create(abonnement);
+
+        // the abonnement object shouldn't have an id
+        assertEquals(abonnement.getId(), 0);
+
+        // until it's being created by the DAO
+        assertEquals(abonnementFromDAO.getId(), 1);
     }
 
     /**
