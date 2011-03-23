@@ -82,7 +82,7 @@
                       </Group>
                       <Component id="BorneNameTextField" alignment="1" pref="144" max="32767" attributes="1"/>
                       <Component id="BorneXPosTextField" alignment="0" pref="144" max="32767" attributes="1"/>
-                      <Component id="AddBorneButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="addBorneButton" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -104,7 +104,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="BorneYPosTextField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Component id="AddBorneButton" pref="22" max="32767" attributes="0"/>
+                  <Component id="addBorneButton" pref="22" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -135,7 +135,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="BorneYPosTextField">
         </Component>
-        <Component class="javax.swing.JButton" name="AddBorneButton">
+        <Component class="javax.swing.JButton" name="addBorneButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ajouter"/>
           </Properties>
@@ -162,7 +162,7 @@
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="47" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="AddBornetteButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="addBornetteButton" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -176,7 +176,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="borneListejComboBox" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="AddBornetteButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="addBornetteButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -188,7 +188,7 @@
             <Property name="text" type="java.lang.String" value="ID de la Borne parent"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="AddBornetteButton">
+        <Component class="javax.swing.JButton" name="addBornetteButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ajouter"/>
           </Properties>
@@ -225,7 +225,7 @@
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="35" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="AddBikeButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="addBikeButton" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -239,14 +239,14 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="bornetteListjComboBox" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="AddBikeButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="addBikeButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="AddBikeButton">
+        <Component class="javax.swing.JButton" name="addBikeButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ajouter"/>
           </Properties>
