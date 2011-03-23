@@ -13,12 +13,10 @@ import velib.dao.BornetteDAO;
 import velib.dao.LocationDAO;
 import velib.model.Bornette;
 import velib.model.Client;
-import velib.model.IModel;
 import velib.model.Location;
 import velib.model.Velo;
 import velib.view.LoggedInWelcomePanel;
 import velib.view.LouerVeloPanel;
-import velib.view.MainWindowFrame;
 import velib.view.RestituerVeloPanel;
 
 /**
@@ -60,9 +58,7 @@ class LoggedInWelcomeController extends AbstractMainWindowController
 
             BornetteDAO bornetteDAO = new BornetteDAO();
             Bornette bornette = bornetteDAO.findOccupe(new Long(1));
-            // TODO: does it really need to be kept as a private attribute?
-            // This might just be a pop up dialog rather than an actual
-            // panel plus its dedicated controller
+            
             LouerVeloPanel louerVeloPanel =
                     new LouerVeloPanel(client, bornette);
             LouerVeloController louerVeloController =
