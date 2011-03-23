@@ -24,15 +24,33 @@ public class AbonnementDAOTest {
     public AbonnementDAOTest() {
     }
 
+    // before the test
     @BeforeClass
     public static void setUpClass() throws Exception
     {
+        ConnectionHSQL.getDebugInstance();
+
+        DatabaseManagementDAO databaseManagementDAO =
+                new DatabaseManagementDAO();
+
+        // cleaning-up before all
+        databaseManagementDAO.dropDatabase();
+
+        databaseManagementDAO.createTables();
     }
 
+    // after the test
     @AfterClass
     public static void tearDownClass() throws Exception
     {
+        DatabaseManagementDAO databaseManagementDAO =
+                new DatabaseManagementDAO();
+        // databaseManagementDAO.dropTables();
+
+        // cleaning-up
+        databaseManagementDAO.dropDatabase();
     }
+
 
     @Before
     public void setUp() {
