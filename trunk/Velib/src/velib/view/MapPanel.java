@@ -14,7 +14,6 @@ package velib.view;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -38,6 +37,8 @@ public class MapPanel extends javax.swing.JPanel
         + "/maps/api/staticmap?"
         + "center=France,Nimes&zoom=14&size=400x400&sensor=false
      */
+    // If thisStation isn't initialised, take Nimes center
+    private String defaultLocation = "France,Nimes";
 
     private Borne thisStation;
     private Borne[] otherStations;
@@ -50,33 +51,19 @@ public class MapPanel extends javax.swing.JPanel
     {
         initComponents();
 
-        /*
-         * TODO: this is for testing only but it should really get
-         * the value from a calling controller (through constructor arguments)
-         */
-        BornesDAO bornesDAO = new BornesDAO();
         this.thisStation = BorneSingleton.getInstance();
-        this.otherStations = bornesDAO.findAllBorne();
 
         setUpMapImage();
     }
 
-    public MapPanel(Borne thisStation, Borne[] otherStations)
+    public void setThisStation(Borne station)
     {
-        this();
-        
-        this.thisStation = thisStation;
-        this.otherStations = otherStations;
+        this.thisStation = station;
+    }
 
-        /*
-         * TODO: this is for testing only but it should really get
-         * the value from a calling controller (through constructor arguments)
-         */
-        BornesDAO bornesDAO = new BornesDAO();
-        this.thisStation = BorneSingleton.getInstance();
-        this.otherStations = bornesDAO.findAllBorne();
-
-        setUpMapImage();
+    public void setOtherStations(Borne[] stations)
+    {
+        this.otherStations = stations;
     }
 
     /*
@@ -84,22 +71,39 @@ public class MapPanel extends javax.swing.JPanel
      */
     private String createUrlString()
     {
+        String latLongString;
         double latlong[];
-        latlong = thisStation.getLatLong();
-
         String stationMarker;
+
+        /*
+         * If thisStation was init
+         */
+        if (thisStation != null)
+        {
+            latlong = thisStation.getLatLong();
+            latLongString =
+                    createLatLongString(latlong); // center the map to the station
+        }
+        else // set it to the default location
+        {
+            latLongString = defaultLocation;
+            latlong = null;
+        }
         String otherStationMarkers = "";
         stationMarker = createMarkerString("blue",
                 "S", latlong);
 
         // TODO: to be moved to a dedicated function for redability
-        for(int i=0; i<otherStations.length; i++)
+        if (otherStations != null)
         {
-            otherStationMarkers += createMarkerString("green",
-                "S", otherStations[i].getLatLong());
-            if (i<otherStations.length-1)
+            for(int i=0; i<otherStations.length; i++)
             {
-               otherStationMarkers += "&";
+                otherStationMarkers += createMarkerString("green",
+                    "S", otherStations[i].getLatLong());
+                if (i<otherStations.length-1)
+                {
+                   otherStationMarkers += "&";
+                }
             }
         }
 
@@ -121,6 +125,11 @@ public class MapPanel extends javax.swing.JPanel
         + otherStationMarkers;
 
         return urlString;
+    }
+
+    public void updateMapImage()
+    {
+        setUpMapImage();
     }
 
     private void setUpMapImage()
@@ -158,10 +167,14 @@ public class MapPanel extends javax.swing.JPanel
 
     private String createLatLongString(double latlong[])
     {
-        String latLongString =
-            latlong[0] +
-            "," +
-            latlong[1];
+        String latLongString = "";
+        if (latlong != null)
+        {
+            latLongString =
+                latlong[0] +
+                "," +
+                latlong[1];
+        }
 
         return latLongString;
     }
@@ -171,13 +184,22 @@ public class MapPanel extends javax.swing.JPanel
     private String createMarkerString(
             String color, String label, double latlong[])
     {
+        String markerString;
         String latLongString = createLatLongString(latlong);
-        String markerString =
-            "markers=color:" + color +
-            "%7C" + 
-            "label:" + label +
-            "%7C" +
-            latLongString;
+
+        if (!latLongString.isEmpty())
+        {
+            markerString =
+                "markers=color:" + color +
+                "%7C" +
+                "label:" + label +
+                "%7C" +
+                latLongString;
+        }
+        else
+        {
+            markerString = "";
+        }
 
         return markerString;
     }
