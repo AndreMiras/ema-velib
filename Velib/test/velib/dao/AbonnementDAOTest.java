@@ -12,6 +12,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import velib.model.Abonnement;
+import velib.model.AbonnementType;
+import velib.model.TypeAbonnement;
 
 /**
  *
@@ -47,8 +49,12 @@ public class AbonnementDAOTest {
     public void testCreate()
     {
         System.out.println("create");
+        TypeAbonnement typeAbonnement;
         Abonnement abonnementFromDAO;
-        Abonnement abonnement = new Abonnement();
+
+        typeAbonnement = new TypeAbonnement(AbonnementType.HALF_DAY);
+        Abonnement abonnement = new Abonnement(typeAbonnement);
+        
         AbonnementDAO abonnementDAO = new AbonnementDAO();
         abonnementFromDAO = abonnementDAO.create(abonnement);
 

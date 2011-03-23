@@ -62,6 +62,11 @@ public class Abonnement
     {
         return type;
     }
+
+    public void setType(TypeAbonnement type)
+    {
+        this.type = type;
+    }
     
 
 }
