@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 /**
  *
  * @author andre
- * TODO: add an instance to the currentBorn singleton
  */
 public class AbstractMainWindowController
 {
@@ -21,9 +20,6 @@ public class AbstractMainWindowController
     {
         this.mainWindowController = mainWindowController;
     }
-
-    // TODO: add up the model
-
 
     protected void setMainWindowContentPanel(JPanel jpanel)
     {
