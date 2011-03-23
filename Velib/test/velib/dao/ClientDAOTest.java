@@ -140,7 +140,7 @@ public class ClientDAOTest {
     public void testUpdate()
     {
         System.out.println("update client");
-        Client client ;
+        Client client;
         
         ClientDAO clientDAO = new ClientDAO();
 
@@ -163,7 +163,7 @@ public class ClientDAOTest {
         
         // Updating ville to Nimes
         client.setVille("Nimes");
-        clientDAO.update(client);
+        client = clientDAO.update(client);
         System.out.println("La ville après l'update" + client.getVille());
         assertEquals(client.getVille(), "Nimes");
     }

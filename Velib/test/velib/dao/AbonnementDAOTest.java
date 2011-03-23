@@ -52,7 +52,7 @@ public class AbonnementDAOTest {
         TypeAbonnement typeAbonnement;
         Abonnement abonnementFromDAO;
 
-        typeAbonnement = new TypeAbonnement(AbonnementType.HALF_DAY);
+        typeAbonnement = new TypeAbonnement(0, AbonnementType.HALF_DAY);
         Abonnement abonnement = new Abonnement(typeAbonnement);
         
         AbonnementDAO abonnementDAO = new AbonnementDAO();

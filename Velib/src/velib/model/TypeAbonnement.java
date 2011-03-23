@@ -22,11 +22,12 @@ public class TypeAbonnement
     {
     }
 
-    public TypeAbonnement(AbonnementType abonnementType)
+    public TypeAbonnement(long id, AbonnementType abonnementType)
     {
         /*
          * TODO: set duree and price
          */
+        this.id = id;
         this.abonnementType = abonnementType;
         setPriceAndDureeFromType();
     }
@@ -41,6 +42,15 @@ public class TypeAbonnement
         return prix;
     }
 
+    public void setDuree(int duree)
+    {
+        this.duree = duree;
+    }
+
+    public void setPrix(float prix)
+    {
+        this.prix = prix;
+    }
 
     public long getId()
     {
@@ -51,7 +61,9 @@ public class TypeAbonnement
     // TODO: hardcoded price values
     private void setPriceAndDureeFromType()
     {
-        switch(abonnementType)
+        if (abonnementType != null)
+        {
+            switch(abonnementType)
             {
                 /* short subscription */
                 case HALF_DAY:
@@ -75,6 +87,7 @@ public class TypeAbonnement
                     System.out.println("Unknown type");
                     break;
             }
+        }
     }
 
  }
