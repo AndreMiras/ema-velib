@@ -5,6 +5,9 @@
 
 package velib.dao;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import velib.model.TypeAbonnement;
 
 /**
@@ -24,8 +27,43 @@ public class TypeAbonnementDAO extends DAO<TypeAbonnement> {
     }
 
     @Override
-    public TypeAbonnement create(TypeAbonnement obj) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public TypeAbonnement create(TypeAbonnement obj)
+    {
+        String typeAbonnementTable = tableNames[0];
+
+        try
+        {
+            ResultSet result = connect.createStatement(
+            ResultSet.TYPE_SCROLL_INSENSITIVE,
+            ResultSet.CONCUR_UPDATABLE).executeQuery(
+                "CALL NEXT VALUE FOR sequence_clients");
+
+            if(result.first())
+            {
+                long id = result.getLong(1);
+
+                PreparedStatement prepare =
+                        connect.prepareStatement(
+                            "INSERT INTO "
+                            + typeAbonnementTable
+                            + " (idtype, "
+                            + "duree, "
+                            + "prix) "
+                            + "VALUES(?, ?, ?)");
+                prepare.setLong(1, id);
+                prepare.setInt(2, obj.getDuree());
+                prepare.setFloat(3, obj.getPrix());
+
+                prepare.executeUpdate();
+
+                obj = find(id);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+	return obj;
     }
 
     @Override
