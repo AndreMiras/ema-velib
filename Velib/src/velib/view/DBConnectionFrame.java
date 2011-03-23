@@ -77,6 +77,9 @@ public class DBConnectionFrame extends javax.swing.JFrame
         connexionButton = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(300, 200));
+
         connexionButton.setText("Connexion");
 
         jLabel1.setText("Authentification Interface");

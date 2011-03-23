@@ -87,7 +87,7 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
 
         jLabel4.setText("Liste les vélos ayant été déclarés comme ayant un problème.");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel5.setText("Panneau général d'administration");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
