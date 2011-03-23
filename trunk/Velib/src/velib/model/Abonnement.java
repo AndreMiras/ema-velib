@@ -22,12 +22,14 @@ public class Abonnement
   
     public Abonnement()
     {
+        this(null);
     }
 
     public Abonnement(TypeAbonnement type)
     {
         // TODO: hardcoded value, ident envoyé de la BDD (DAO)
-        this.dateDebut = new Date();
+        dateDebut = new Date();
+        dateFin = new Date();
         this.type = type;
 
         /*
