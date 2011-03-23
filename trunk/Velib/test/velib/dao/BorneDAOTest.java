@@ -85,24 +85,44 @@ public class BorneDAOTest {
     }
 
 
-
-    /**
-     * Test of find method, of class ClientDAO.
-     * TODO: comment these tests
-     */
     @Test
     public void testFindAllBorne()
     {
-        /*System.out.println("find all borne");
-        long id = 1;
-        ClientDAO instance = new ClientDAO();
-        Client client = instance.find(id);
-        assertEquals(id, client.getClientId());*/
+        System.out.println("find all borne");
+        BornesDAO borneDAO = new BornesDAO();
+
+        Borne borne1 = new Borne(0, "Borne1");
+        assertTrue(borne1.getIdBorne() == 0);
+        borne1 = borneDAO.create(borne1);
+
+        Borne borne2 = new Borne(0, "Borne2");
+        assertTrue(borne2.getIdBorne() == 0);
+        borne1 = borneDAO.create(borne2);
+
+        Borne[] resultat = borneDAO.findAllBorne();
+        
+        assertEquals(resultat.length,3);
     }
 
-    /**
-     * Test of find method, of class ClientDAO.
-     */
+    @Test
+    public void testFindBorneLibre()
+    {
+        System.out.println("find borne libre");
+        BornesDAO borneDAO = new BornesDAO();
+
+        Borne borne1 = new Borne(0, "Borne1");
+        assertTrue(borne1.getIdBorne() == 0);
+        borne1 = borneDAO.create(borne1);
+
+        Borne borne2 = new Borne(0, "Borne2");
+        borne2.setDisponible(false);
+        assertTrue(borne2.getIdBorne() == 0);
+        borne1 = borneDAO.create(borne2);
+
+        Borne[] resultat = borneDAO.findBorneLibre();
+        assertEquals(resultat.length,1);
+    }
+
     @Test
     public void testFind_Borne()
     {
@@ -153,18 +173,7 @@ public class BorneDAOTest {
     @Test
     public void testDelete()
     {
-        /*System.out.println("delete");
-        Client client;
-        ClientDAO clientDAO = new ClientDAO();
-        client = clientDAO.find(1);
-
-        // the client should exist
-        assertNotNull(client);
-        clientDAO.delete(client);
-
-        // the client should NOT exist
-        client = clientDAO.find(1);
-        assertNull(client);*/
+        
     }
 
     /**
