@@ -13,13 +13,13 @@ package velib.view;
 
 import java.awt.event.ActionListener;
 import velib.model.Borne;
-
 /**
  *
  * @author G
  */
 public class DBConnectionFrame extends javax.swing.JFrame
 {
+    private velib.view.DBConnectionFrame dBConnectionFrame;
     private Borne[] bornes;
 
     /** Creates new form DBConnexionPanel */
@@ -120,7 +120,7 @@ public class DBConnectionFrame extends javax.swing.JFrame
         });
     }
     
-    private velib.view.DBConnectionFrame dBConnectionFrame;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton connexionButton;
     private javax.swing.JLabel jLabel1;
