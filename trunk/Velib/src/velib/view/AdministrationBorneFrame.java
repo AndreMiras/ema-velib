@@ -58,19 +58,21 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
     private void setUpAdministrationBornetteFrame()
     {
         // TODO: that should never ever be done in the view
-        Borne station;
+        //Borne.station;
         BornesDAO stationDAO = new BornesDAO();
         BornetteDAO bornetteDAO = new BornetteDAO();
+        long idBORNE = 0;
+        //idBORNE = valueOf(borneListe2jComboBox.getSelectedItem());
 
-        station = (Borne)borneListe2jComboBox.getSelectedItem();
-        station = stationDAO.find(station.getIdBorne());
-        //bornettes = station.findLibre();
-        /*
+        //station = (Borne)borneListe2jComboBox.getSelectedItem();
+        //station = stationDAO.find(station.getIdBorne());
+        bornettes = bornetteDAO.findLibreAll(idBORNE);
+        
         for (int i=0; i<bornettes.length; i++)
         {
             bornetteListjComboBox.addItem(bornes[i]);
-        }*/
-        System.out.println(" test2");
+        }
+        System.out.println(idBORNE);
     }
 
     public void addAddBornetteButtonListener(ActionListener al)
