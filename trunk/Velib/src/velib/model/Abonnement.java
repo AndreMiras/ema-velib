@@ -9,6 +9,7 @@ import java.util.Date;
 /**
  *
  * @author fteysseire
+ * TODO: inherit a child class as specified cahier_charges_specifications.pdf
  */
 public class Abonnement
 {
@@ -19,13 +20,20 @@ public class Abonnement
     private Client client;
     private TypeAbonnement type;
   
-    public Abonnement ()
+    public Abonnement()
+    {
+    }
+
+    public Abonnement(TypeAbonnement type)
     {
         // TODO: hardcoded value, ident envoyé de la BDD (DAO)
-        this.id=0;
         this.dateDebut = new Date();
-        this.dateFin = new Date();
-        type = new TypeAbonnement();
+        this.type = type;
+
+        /*
+         * TODO: set dateDebut based on type
+         */
+        // TODO: this.dateFin = new Date();
     }
 
     public long getId()
