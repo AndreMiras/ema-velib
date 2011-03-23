@@ -21,7 +21,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import velib.dao.BorneSingleton;
-import velib.dao.BornesDAO;
 import velib.model.Borne;
 
 /**
@@ -39,6 +38,9 @@ public class MapPanel extends javax.swing.JPanel
      */
     // If thisStation isn't initialised, take Nimes center
     private String defaultLocation = "France,Nimes";
+    
+    /* when no connection, load this image */
+    private String defaultMapImage = "France,Nimes";
 
     private Borne thisStation;
     private Borne[] otherStations;
@@ -147,12 +149,26 @@ public class MapPanel extends javax.swing.JPanel
         try
         {
             image = ImageIO.read(url);
-        }
+        } // If fail, try to load local "no_connection" image
         catch (IOException ex)
         {
+            // TODO: should we display a pop up with "can't access domain"
+            /*
             Logger.getLogger(
                     MapPanel.class.getName()).log(
                     Level.SEVERE, null, ex);
+             *
+             */
+            try
+            {
+                url = getClass().getResource("/velib/resources/no_network.jpg");
+                image = ImageIO.read(url);
+            }
+            catch (IOException ex1)
+            {
+                Logger.getLogger(MapPanel.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+
         }
     }
 
