@@ -77,7 +77,7 @@ public class ClientDAO extends DAO<Client>
                             //+ "idabonnement, "
                             + "iduser, "
                             + "idbanque) "
-                            + "VALUES(?,?, ?, ?, ?, ?, ?, ?)");
+                            + "VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
                 prepare.setLong(1, id);
                 prepare.setString(2, obj.getFirstname());
                 prepare.setString(3, obj.getLastname());
@@ -145,7 +145,6 @@ public class ClientDAO extends DAO<Client>
                 e.printStackTrace();
             }
             return client;
-
 	}
 
         public Client find(User user)
@@ -221,6 +220,7 @@ public class ClientDAO extends DAO<Client>
             catch (SQLException e)
             {
                 e.printStackTrace();
+                obj = null;
             }
 
             return obj;
