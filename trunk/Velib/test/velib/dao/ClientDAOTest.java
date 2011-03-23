@@ -85,6 +85,7 @@ public class ClientDAOTest {
         client = clientDAO.create(client);
 
         // the id should now be 1
+        System.out.println("L'id du client est : " + client.getClientId());
         assertEquals(1, client.getClientId());
     }
 
@@ -138,9 +139,9 @@ public class ClientDAOTest {
     @Test
     public void testUpdate()
     {
-        System.out.println("update");
+        System.out.println("update client");
         Client client ;
-        String str;
+        
         ClientDAO clientDAO = new ClientDAO();
 
         // first creating a new client
@@ -151,15 +152,19 @@ public class ClientDAOTest {
         // create the client in the DB
         client = clientDAO.create(client);
         // checking that the client was actually created in the DB
+        System.out.println("Id du client après création : " + client.getClientId());
          assertTrue(client.getClientId() != 0);
+         System.out.println("Ville avant update " + client.getVille());
 
         // before updating the city
         assertEquals(client.getFirstname(), "Andre");
         assertEquals(client.getVille(), "Montpellier");
+        System.out.println("Ville avant update " + client.getVille());
         
         // Updating ville to Nimes
         client.setVille("Nimes");
         clientDAO.update(client);
+        System.out.println("La ville après l'update" + client.getVille());
         assertEquals(client.getVille(), "Nimes");
     }
 
