@@ -7,6 +7,7 @@ package velib.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
 import velib.model.Borne;
 import velib.model.Bornette;
 import velib.model.Velo;
@@ -61,7 +62,7 @@ public class BornetteDAO extends DAO<Bornette>
 	    return obj;
     }
 
-    public Bornette findLibre(Long idBorne)
+    public Bornette findLibreOne(Long idBorne)
     {
         String bornetteTable = tableNames[0];
         Bornette bornette = new Bornette();
@@ -94,6 +95,43 @@ public class BornetteDAO extends DAO<Bornette>
         }
 
         return bornette;
+    }
+
+     public Bornette[] findLibreAll(Long idBorne)
+    {
+        String bornetteTable = tableNames[0];
+        Vector<Bornette> bornetteVector = new Vector<Bornette>();
+        Bornette bornette;
+        Borne borne;
+        BornesDAO borneDAO = new BornesDAO();
+        Velo velo;
+        VeloDAO veloDAO = new VeloDAO();
+
+	try
+        {
+            ResultSet result = this.connect.createStatement(
+                                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                    ResultSet.CONCUR_READ_ONLY
+                                     ).executeQuery(
+                                    "SELECT * FROM "+bornetteTable+" WHERE "
+                                    + "idvelo is null AND idborne='" + idBorne + "'"
+                                    );
+            while (result.next())
+            {
+                long id = result.getLong("idbornette");
+                long numero = result.getLong("numero");
+                borne = borneDAO.find(result.getLong("idborne"));
+                velo = veloDAO.find(result.getLong("idvelo"));
+                bornette = new Bornette(id, numero, borne, velo);
+                bornetteVector.add(bornette);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return bornetteVector.toArray(new Bornette[bornetteVector.size()]);
     }
 
     public Bornette findOccupe(Long idBorne)

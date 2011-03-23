@@ -90,7 +90,7 @@ class LoggedInWelcomeController extends AbstractMainWindowController
             Date dateFinLocation = new Date();
             location.setDateFinLocation(dateFinLocation);
             bike = location.getVelo();
-            bornette = bornetteDAO.findLibre(
+            bornette = bornetteDAO.findLibreOne(
                     BorneSingleton.getInstance().getIdBorne());
             // attaching the bike to the stand
             bornette.setVelo(bike);
