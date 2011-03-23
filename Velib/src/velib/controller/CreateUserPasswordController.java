@@ -13,7 +13,6 @@ import velib.model.Client;
 import velib.model.User;
 import velib.view.BankDetailsPanel;
 import velib.view.CreateUserPasswordPanel;
-import velib.view.MainWindowFrame;
 
 /**
  *
@@ -42,12 +41,7 @@ public class CreateUserPasswordController extends AbstractMainWindowController
                 new ValiderButtonListener());
     }
 
-    /*
-     * TODO:
-     *  - payment process
-     *  - user/password creation
-     *  - congrat screen
-     */
+    // TODO: payment process
     class ValiderButtonListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
