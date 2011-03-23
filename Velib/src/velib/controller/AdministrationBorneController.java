@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import velib.dao.BorneSingleton;
 import velib.dao.BornesDAO;
 import velib.model.Borne;
+import velib.model.Bornette;
+import velib.dao.BornetteDAO;
 import velib.view.MainWindowFrame;
 
 import velib.view.AdministrationBorneFrame;
@@ -22,6 +24,7 @@ class AdministrationBorneController
 {
 
     private AdministrationBorneFrame administrationBorneFrame;
+    private BornetteDAO bornetteDAO;
 
     public AdministrationBorneController(AdministrationBorneFrame administrationBorneFrame)
     {
@@ -34,7 +37,26 @@ class AdministrationBorneController
         administrationBorneFrame.addAddBornetteButtonListener(
                 new AddBornetteButtonListener());
     }
+/*
+        class GeneralManagementButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
 
+            borneDAO = new BornesDAO();
+            Borne[] bornes;
+            bornes = borneDAO.findAllBorne();
+            bornetteDAO = new BornetteDAO();
+            Bornette[] bornettes;
+            //bornettes = bornetteDAO.findLibre(BorneSingleton.);
+            administrationBorneFrame = new AdministrationBorneFrame(bornes, bornettes);
+            administrationBorneController = new AdministrationBorneController(administrationBorneFrame);
+            administrationBorneFrame.setVisible(true);
+        }
+    }
+
+    */
+    
     class AddBornetteButtonListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
