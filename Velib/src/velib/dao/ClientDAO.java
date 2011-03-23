@@ -15,10 +15,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import velib.model.Client;
-import velib.dao.AbstractDAOFactory;
-import velib.dao.DAO;
-import velib.dao.FactoryType;
-import velib.model.Abonnement;
 import velib.model.User;
 
 public class ClientDAO extends DAO<Client>
