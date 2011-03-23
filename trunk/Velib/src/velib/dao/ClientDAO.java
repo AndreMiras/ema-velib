@@ -13,6 +13,7 @@ package velib.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import velib.model.Bank;
 
 import velib.model.Client;
 import velib.model.User;
@@ -53,6 +54,7 @@ public class ClientDAO extends DAO<Client>
         }
          try
          {
+             System.out.println("Je suis dans le create");
              ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
@@ -61,7 +63,7 @@ public class ClientDAO extends DAO<Client>
                         );
             if(result.first()){
             long id = result.getLong(1);
-            System.out.println("id :" + id);
+                System.out.println("La ville avant insertion dans la bdd est : " + obj.getVille());
             PreparedStatement prepare = this.connect.prepareStatement(
                                             "INSERT INTO "
                                             + clientTable
@@ -71,13 +73,11 @@ public class ClientDAO extends DAO<Client>
                                             + "datenaissance, "
                                             + "adresse, "
                                             + "ville, "
-                                            + "codepostal, "
-                                            // + "idabonnement, "
+                                            //+ "codepostal, "
+                                            //+ "idabonnement, "
                                             + "iduser, "
                                             + "idbanque) "
-                                            + "VALUES("
-                                            // + "?, "
-                                            + "?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                                            + "VALUES(?,?, ?, ?, ?, ?, ?, ?)"
                                         );
 				prepare.setLong(1, id);
                                 prepare.setString(2, obj.getFirstname());
@@ -87,11 +87,13 @@ public class ClientDAO extends DAO<Client>
                                         obj.getDateNaissance().getTime()));
                                 prepare.setString(5, obj.getAdresse());
                                 prepare.setString(6, obj.getVille());
-                                prepare.setLong(7, obj.getCodePostal());
-                                // prepare.setLong(7, obj.getAbonnement().getId());
-                                prepare.setLong(8-1, obj.getUserId());
-                                prepare.setLong(9-1, obj.getBanque().getId());
+                                //prepare.setLong(7, obj.getCodePostal());
+                                //prepare.setLong(8, obj.getAbonnement().getId());
+                                prepare.setLong(7, obj.getUserId());
+                                prepare.setLong(8, obj.getBanque().getId());
+
 				prepare.executeUpdate();
+                                
 				obj = this.find(id);
 			}
 	    }
@@ -107,7 +109,10 @@ public class ClientDAO extends DAO<Client>
             String clientTable = tableNames[0];
             Client client = null;
             UserDAO userDAO = new UserDAO();
+            BanqueDAO banqueDAO = new BanqueDAO();
             User user;
+            Bank banque;
+          
 
             try
             {
@@ -122,11 +127,16 @@ public class ClientDAO extends DAO<Client>
                                          );
                 if(result.first())
                 {
+                    
                     user = userDAO.find(result.getLong("iduser"));
+                    banque = banqueDAO.find(result.getLong("idbanque"));
                     client = new Client(
-                                        id,
+                                        result.getLong("idclient"),
                                         result.getString("firstname"),
                                         result.getString("lastname"), user);
+                    client.setAdresse(result.getString("adresse"));
+                    client.setVille(result.getString("ville"));
+                    client.setBanque(banque);
                 }
 
             }
@@ -186,6 +196,7 @@ public class ClientDAO extends DAO<Client>
             String clientTable = tableNames[0];
             try
             {
+                System.out.println("Je suis dans l'update");
                       this.connect.createStatement(
                         ResultSet.TYPE_SCROLL_INSENSITIVE,
                         ResultSet.CONCUR_UPDATABLE
@@ -195,14 +206,14 @@ public class ClientDAO extends DAO<Client>
                     + clientTable
                     + " SET iduser = '" + obj.getUserId() + "',"
                     + " idbanque = '" + obj.getBanque().getId() + "',"
-                    + " idabonnement = '" + obj.getAbonnement().getId() + "',"
-                    + "firstname = '" + obj.getFirstname() + "',"
-                    + "lastname = '" + obj.getLastname() + "',"
-                    + "datenaissance = '" + new java.sql.Timestamp(obj.getDateNaissance().getTime()) + "',"
-                    + "adresse = '" + obj.getAdresse() + "',"
-                    + "ville = '" + obj.getVille() + "',"
-                    + "codepostal = '" + obj.getCodePostal() + "',"
-                    + " WHERE id = " + obj.getClientId()
+                    //+ " idabonnement = '" + obj.getAbonnement().getId() + "',"
+                    + " firstname = '" + obj.getFirstname() + "',"
+                    + " lastname = '" + obj.getLastname() + "',"
+                    + " datenaissance = '" + new java.sql.Timestamp(obj.getDateNaissance().getTime()) + "',"
+                    + " adresse = '" + obj.getAdresse() + "',"
+                    + " ville = '" + obj.getVille() + "',"
+                    //+ " codepostal = '" + obj.getCodePostal() + "',"
+                    + "WHERE idclient = " + obj.getClientId()
              );
 
                 obj = this.find(obj.getClientId());
