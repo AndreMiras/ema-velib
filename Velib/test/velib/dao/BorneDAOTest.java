@@ -120,7 +120,7 @@ public class BorneDAOTest {
         borne1 = borneDAO.create(borne2);
 
         Borne[] resultat = borneDAO.findBorneLibre();
-        assertEquals(resultat.length,1);
+        assertEquals(resultat.length,4);
     }
 
     @Test
