@@ -60,22 +60,6 @@ public class Abonnement
     {
         return type;
     }
-
-    // TODO: cleaning, should not relies on java.sql
-    public java.sql.Date getDateDebutSQL()
-    {
-        long t = dateDebut.getTime();
-        java.sql.Date dateDebutSql = new java.sql.Date(t);
-        return dateDebutSql;
-    }
-
-    // TODO: cleaning, should not relies on java.sql
-    public java.sql.Date getDateFinSQL()
-    {
-        long t = dateFin.getTime();
-        java.sql.Date dateFinSql = new java.sql.Date(t);
-        return dateFinSql;
-    }
     
 
 }
