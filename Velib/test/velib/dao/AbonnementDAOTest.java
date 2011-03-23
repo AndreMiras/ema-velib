@@ -80,7 +80,7 @@ public class AbonnementDAOTest {
         assertEquals(abonnement.getId(), 0);
 
         // until it's being created by the DAO
-        assertEquals(abonnementFromDAO.getId(), 1);
+        assertEquals(1, abonnementFromDAO.getId());
     }
 
     /**
@@ -90,13 +90,17 @@ public class AbonnementDAOTest {
     public void testFind()
     {
         System.out.println("find");
-        long id = 0L;
+
         AbonnementDAO instance = new AbonnementDAO();
         Abonnement expResult = null;
-        Abonnement result = instance.find(id);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
+        // trying to find an non existing object
+        Abonnement result = instance.find(0);
+        assertEquals(null, result);
+
+        // trying to find an existing one
+        result = instance.find(1);
+        assertEquals(1, result.getId());
     }
 
     /**
