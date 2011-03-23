@@ -134,13 +134,12 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
         long numero = 0;
         int id = 0;
 
-        // 43.835208,4.361315
+        // some latlong around Nimes center
         double latlongs[][] = new double[][] {
             {43.835, 4.361},
             {43.837, 4.366},
             {43.833, 4.362}
         };
-        double latlong[] = new double[2];
         System.out.println("Filling up borne table");
 
        for (int i=0; i<3; i++)

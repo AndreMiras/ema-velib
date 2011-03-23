@@ -12,6 +12,7 @@
 package velib.view;
 
 import java.awt.event.ActionListener;
+import velib.model.Borne;
 
 /**
  *
@@ -23,6 +24,16 @@ public class WelcomeScreenPanel extends javax.swing.JPanel {
     public WelcomeScreenPanel()
     {
         initComponents();
+    }
+
+    /*
+     * Setup stations for the map widget
+     */
+    public void setMapWidgetStations(Borne thisStation, Borne[] otherStations)
+    {
+        mapPanel1.setThisStation(thisStation);
+        mapPanel1.setOtherStations(otherStations);
+        mapPanel1.updateMapImage();
     }
 
     public void addAbonnerButtonListener(ActionListener al)

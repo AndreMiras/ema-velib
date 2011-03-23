@@ -7,11 +7,13 @@ package velib.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import velib.dao.BorneSingleton;
+import velib.dao.BornesDAO;
+import velib.model.Borne;
 import velib.model.IModel;
 import velib.view.AbonnementPanel;
 import velib.view.HelpPanel;
 import velib.view.LoginScreenPanel;
-import velib.view.MainWindowFrame;
 import velib.view.WelcomeScreenPanel;
 
 /**
@@ -36,9 +38,20 @@ public class WelcomeScreenController extends AbstractMainWindowController
         this.model = model;
         this.view = view;
 
+        setUpMapWidget();
         addListeners();
     }
 
+    /*
+     * Add stations markers to the map widget
+     */
+    private void setUpMapWidget()
+    {
+        BornesDAO bornesDAO = new BornesDAO();
+        Borne thisStation = BorneSingleton.getInstance();
+        Borne[] otherStations = bornesDAO.findAllBorne();
+        view.setMapWidgetStations(thisStation, otherStations);
+    }
 
     private void addListeners()
     {
