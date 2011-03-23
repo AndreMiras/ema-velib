@@ -5,12 +5,10 @@
 
 package velib.controller;
 
-import java.awt.ComponentOrientation;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import velib.dao.BornesDAO;
-import velib.dao.DatabaseManagementDAO;
 import velib.dao.IDatabaseManagementDAO;
 import velib.model.Borne;
 import velib.model.IModel;
@@ -46,7 +44,6 @@ public class MainWindowController // extends AbstractMainWindowController implem
 
     // Born Management mvc
     private EditBornFrame editBornFrame;
-    private EditBornController editBornController;
 
     // Database Connection
     private DBConnectionFrame dBConnectionFrame;
