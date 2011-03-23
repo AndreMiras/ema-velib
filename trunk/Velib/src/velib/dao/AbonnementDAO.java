@@ -54,8 +54,12 @@ public class AbonnementDAO extends DAO<Abonnement> {
                                                         + "VALUES(?, ?, ?, ?)"
                                                     );
 				prepare.setLong(1, id);
-				prepare.setDate(2, obj.getDateDebutSQL());
-                                prepare.setDate(3, obj.getDateFinSQL());
+                                prepare.setDate(2,
+                                        new java.sql.Date(
+                                            obj.getDateDebut().getTime()));
+                                prepare.setDate(3,
+                                        new java.sql.Date(
+                                            obj.getDateFin().getTime()));
                                 // prepare.setLong(4, obj.getClient().getClientId());
                                 prepare.setLong(4, obj.getType().getId());
 				prepare.executeUpdate();
