@@ -201,7 +201,7 @@ public class ClientDAO extends DAO<Client>
                         ResultSet.CONCUR_UPDATABLE
              ).executeUpdate(
              //TODO remove that shit, man (something else, you say firstname = obj.getLastname and lastname = obj.getFirstname ???)
-                    "UPDATE"
+                    "UPDATE "
                     + clientTable
                     + " SET iduser = '" + obj.getUserId() + "',"
                     + " idbanque = '" + obj.getBanque().getId() + "',"
@@ -210,9 +210,9 @@ public class ClientDAO extends DAO<Client>
                     + " lastname = '" + obj.getLastname() + "',"
                     + " datenaissance = '" + new java.sql.Timestamp(obj.getDateNaissance().getTime()) + "',"
                     + " adresse = '" + obj.getAdresse() + "',"
-                    + " ville = '" + obj.getVille() + "',"
+                    + " ville = '" + obj.getVille() + "'"
                     //+ " codepostal = '" + obj.getCodePostal() + "',"
-                    + "WHERE idclient = " + obj.getClientId()
+                    + " WHERE idclient = " + obj.getClientId()
              );
 
                 obj = this.find(obj.getClientId());
