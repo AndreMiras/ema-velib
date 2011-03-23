@@ -54,7 +54,7 @@ public class ClientDAO extends DAO<Client>
         }
          try
          {
-             System.out.println("Je suis dans le create");
+            
              ResultSet result = this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
@@ -63,7 +63,7 @@ public class ClientDAO extends DAO<Client>
                         );
             if(result.first()){
             long id = result.getLong(1);
-                System.out.println("La ville avant insertion dans la bdd est : " + obj.getVille());
+                
             PreparedStatement prepare = this.connect.prepareStatement(
                                             "INSERT INTO "
                                             + clientTable
