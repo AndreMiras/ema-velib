@@ -90,5 +90,11 @@ public class Borne {
         etat = state;
     }
 
+    public void setNomBorne(String nomBorne) {
+        this.nomBorne = nomBorne;
+    }
+
+
+
 
 }
