@@ -14,7 +14,7 @@ public class Velo
     private long id;
     private boolean etat;
    
-    public Velo(Long id, boolean etat)
+    public Velo(long id, boolean etat)
     {
         this.id=id;
         this.etat=etat;
