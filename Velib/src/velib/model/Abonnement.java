@@ -22,7 +22,7 @@ public class Abonnement
   
     public Abonnement()
     {
-        this(null);
+        this(new TypeAbonnement());
     }
 
     public Abonnement(TypeAbonnement type)

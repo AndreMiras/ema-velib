@@ -13,12 +13,16 @@ package velib.model;
 public class TypeAbonnement
 {
 
-        private long id;
-        private float prix;
-        private int duree; // TODO: what type should we use?
-        private AbonnementType abonnementType;
+    private long id;
+    private float prix;
+    private int duree; // TODO: what type should we use?
+    private AbonnementType abonnementType;
 
-    public TypeAbonnement (AbonnementType abonnementType)
+    public TypeAbonnement()
+    {
+    }
+
+    public TypeAbonnement(AbonnementType abonnementType)
     {
         /*
          * TODO: set duree and price
