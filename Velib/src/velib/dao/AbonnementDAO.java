@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import velib.model.Abonnement;
+import velib.model.TypeAbonnement;
 
 /**
  *
@@ -74,7 +75,39 @@ public class AbonnementDAO extends DAO<Abonnement> {
     @Override
     public Abonnement find(long id)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String typeAbonnementTable = tableNames[0];
+        TypeAbonnement typeAbonnement;
+        TypeAbonnementDAO typeAbonnementDAO = new TypeAbonnementDAO();
+        Abonnement abonnement = null;
+
+        try
+        {
+            ResultSet result =
+                    connect.createStatement(
+                                        ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                        ResultSet.CONCUR_READ_ONLY
+                                     ).executeQuery(
+                                        "SELECT * FROM "
+                                        + typeAbonnementTable
+                                        + " WHERE idabonnement = '" + id + "'"
+                                     );
+            if(result.first())
+            {
+                typeAbonnement =
+                        typeAbonnementDAO.find(result.getInt("idtype"));
+                abonnement =
+                        new Abonnement(
+                        result.getLong("idabonnement"), typeAbonnement);
+                abonnement.setDateDebut(result.getDate("datedebut"));
+                abonnement.setDateFin(result.getDate("datefin"));
+            }
+
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return abonnement;
     }
 
     @Override

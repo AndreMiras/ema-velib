@@ -53,7 +53,7 @@ public class AbonnementDAOTest {
         Abonnement abonnementFromDAO;
 
         typeAbonnement = new TypeAbonnement(0, AbonnementType.HALF_DAY);
-        Abonnement abonnement = new Abonnement(typeAbonnement);
+        Abonnement abonnement = new Abonnement(0, typeAbonnement);
         
         AbonnementDAO abonnementDAO = new AbonnementDAO();
         abonnementFromDAO = abonnementDAO.create(abonnement);
