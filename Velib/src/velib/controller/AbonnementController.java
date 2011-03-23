@@ -80,9 +80,9 @@ public class AbonnementController extends AbstractMainWindowController
             }
 
 
-            typeAbonnement = new TypeAbonnement(abonnementType);
+            typeAbonnement = new TypeAbonnement(0, abonnementType);
             // Hit the database with the subscription object
-            subscription = new Abonnement(typeAbonnement);
+            subscription = new Abonnement(0, typeAbonnement);
             subscriptionDAO.create(subscription);
         }
 
