@@ -12,7 +12,10 @@
 package velib.view;
 
 import java.awt.event.ActionListener;
+import velib.dao.BornesDAO;
+import velib.dao.BornetteDAO;
 import velib.model.Borne;
+import velib.model.Bornette;
 /**
  *
  * @author G
@@ -21,6 +24,7 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
 {
     private velib.view.AdministrationBorneFrame administrationBorneFrame;
     private Borne[] bornes;
+    private Bornette[] bornettes;
 
     /** Creates new form AdministrationBorneFrame */
     public AdministrationBorneFrame()
@@ -32,6 +36,7 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
     {
         this();
         this.bornes = bornes;
+        //this.bornettes = bornettes;
         setUpAdministrationBorneFrame();
     }
 
@@ -46,7 +51,26 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
         for (int i=0; i<bornes.length; i++)
         {
             borneListejComboBox.addItem(bornes[i]);
+            borneListe2jComboBox.addItem(bornes[i]);
         }
+    }
+
+    private void setUpAdministrationBornetteFrame()
+    {
+        // TODO: that should never ever be done in the view
+        Borne station;
+        BornesDAO stationDAO = new BornesDAO();
+        BornetteDAO bornetteDAO = new BornetteDAO();
+
+        station = (Borne)borneListe2jComboBox.getSelectedItem();
+        station = stationDAO.find(station.getIdBorne());
+        //bornettes = station.findLibre();
+        /*
+        for (int i=0; i<bornettes.length; i++)
+        {
+            bornetteListjComboBox.addItem(bornes[i]);
+        }*/
+        System.out.println(" test2");
     }
 
     public void addAddBornetteButtonListener(ActionListener al)
@@ -83,6 +107,8 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
         addBikeButton = new javax.swing.JButton();
         bornetteListjComboBox = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
+        borneListe2jComboBox = new javax.swing.JComboBox();
+        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -94,12 +120,6 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
         jLabel3.setText("Lattitude");
 
         jLabel4.setText("Longitude");
-
-        BorneNameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BorneNameTextFieldActionPerformed(evt);
-            }
-        });
 
         addBorneButton.setText("Ajouter");
 
@@ -147,12 +167,6 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
 
         addBornetteButton.setText("Ajouter");
 
-        borneListejComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                borneListejComboBoxActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -176,20 +190,22 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
                 .addComponent(borneListejComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(addBornetteButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Ajouter un vélo"));
 
         addBikeButton.setText("Ajouter");
 
-        bornetteListjComboBox.addActionListener(new java.awt.event.ActionListener() {
+        jLabel7.setText("ID de la Bornette parent");
+
+        borneListe2jComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bornetteListjComboBoxActionPerformed(evt);
+                borneListe2jComboBoxActionPerformed(evt);
             }
         });
 
-        jLabel7.setText("ID de la Bornette parent");
+        jLabel8.setText("ID de la Borne parent");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -198,6 +214,8 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(borneListe2jComboBox, 0, 152, Short.MAX_VALUE)
                     .addComponent(bornetteListjComboBox, 0, 152, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel7)
@@ -209,12 +227,16 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(borneListe2jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bornetteListjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(addBikeButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14));
@@ -254,20 +276,11 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BorneNameTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BorneNameTextFieldActionPerformed
-    {//GEN-HEADEREND:event_BorneNameTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BorneNameTextFieldActionPerformed
-
-    private void borneListejComboBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_borneListejComboBoxActionPerformed
-    {//GEN-HEADEREND:event_borneListejComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_borneListejComboBoxActionPerformed
-
-    private void bornetteListjComboBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_bornetteListjComboBoxActionPerformed
-    {//GEN-HEADEREND:event_bornetteListjComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bornetteListjComboBoxActionPerformed
+    private void borneListe2jComboBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_borneListe2jComboBoxActionPerformed
+    {//GEN-HEADEREND:event_borneListe2jComboBoxActionPerformed
+        System.out.println("TEST");
+        setUpAdministrationBornetteFrame();
+    }//GEN-LAST:event_borneListe2jComboBoxActionPerformed
 
     /**
     * @param args the command line arguments
@@ -287,6 +300,7 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
     private javax.swing.JButton addBikeButton;
     private javax.swing.JButton addBorneButton;
     private javax.swing.JButton addBornetteButton;
+    private javax.swing.JComboBox borneListe2jComboBox;
     private javax.swing.JComboBox borneListejComboBox;
     private javax.swing.JComboBox bornetteListjComboBox;
     private javax.swing.JLabel jLabel1;
@@ -294,6 +308,7 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

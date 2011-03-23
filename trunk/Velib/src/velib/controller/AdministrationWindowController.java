@@ -20,11 +20,11 @@ import velib.dao.VeloDAO;
 import velib.model.Velo;
 import velib.model.Borne;
 import velib.dao.BornesDAO;
-import velib.model.Bornette;
-import velib.dao.BornetteDAO;
+
 
 import velib.model.IModel;
 import javax.swing.JPanel;
+import velib.dao.BorneSingleton;
 import velib.view.EditBornFrame;
 import velib.view.IView;
 import velib.view.MainWindowFrame;
@@ -56,7 +56,6 @@ public class AdministrationWindowController
     private AdministrationBorneFrame administrationBorneFrame;
     private AdministrationBorneController administrationBorneController;
     private BornesDAO borneDAO;
-    private BornetteDAO bornetteDAO;
 
         // Bike defects mvc
     private CheckDefectsFrame checkDefectsFrame;
@@ -112,9 +111,6 @@ public class AdministrationWindowController
             borneDAO = new BornesDAO();
             Borne[] bornes;
             bornes = borneDAO.findAllBorne();
-            bornetteDAO = new BornetteDAO();
-            Bornette[] bornettes;
-            //bornettes = bornetteDAO.findLibre()
             administrationBorneFrame = new AdministrationBorneFrame(bornes);
             administrationBorneController = new AdministrationBorneController(administrationBorneFrame);
             administrationBorneFrame.setVisible(true);
