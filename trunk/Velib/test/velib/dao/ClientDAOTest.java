@@ -132,17 +132,35 @@ public class ClientDAOTest {
 
     /**
      * Test of update method, of class ClientDAO.
-     * TODO: this tests isn't finished at all
+     * Firstname, lastname and birthdate cannot be changed for a client
+     * all the other attribute can.
      */
     @Test
     public void testUpdate()
     {
         System.out.println("update");
+        Client client ;
+        String str;
         ClientDAO clientDAO = new ClientDAO();
-        Client client = clientDAO.find(1);
+
+        // first creating a new client
+        client = new Client(0, "Andre", "Miras", new User());
+        client.setVille("Montpellier");
+        assertTrue(client.getClientId() == 0);
+
+        // create the client in the DB
+        client = clientDAO.create(client);
+        // checking that the client was actually created in the DB
+         assertTrue(client.getClientId() != 0);
+
+        // before updating the city
+        assertEquals(client.getFirstname(), "Andre");
+        assertEquals(client.getVille(), "Montpellier");
         
-        // Client result = instance.update(obj);
-        assertEquals(client.getFirstname(), "firstname");
+        // Updating ville to Nimes
+        client.setVille("Nimes");
+        clientDAO.update(client);
+        assertEquals(client.getVille(), "Nimes");
     }
 
     /**
