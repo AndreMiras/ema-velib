@@ -73,7 +73,7 @@ public class VeloDAO extends DAO<Velo>
                                      ).executeQuery(
                                     "SELECT * FROM " +
                                     velosTable +
-                                    "WHERE etat=false"
+                                    " WHERE etat=false"
                                     );
             while (result.next())
             {
