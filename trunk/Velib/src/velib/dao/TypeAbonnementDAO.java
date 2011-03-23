@@ -24,37 +24,37 @@ public class TypeAbonnementDAO extends DAO<TypeAbonnement> {
     @Override
     public TypeAbonnement find(long id)
     {
-            String typeAbonnementTable = tableNames[0];
-            TypeAbonnement typeAbonnement = null;
+        String typeAbonnementTable = tableNames[0];
+        TypeAbonnement typeAbonnement = null;
 
-            try
+        try
+        {
+            ResultSet result =
+                    connect.createStatement(
+                                        ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                        ResultSet.CONCUR_READ_ONLY
+                                     ).executeQuery(
+                                        "SELECT * FROM "
+                                        + typeAbonnementTable
+                                        + " WHERE idtype = '" + id + "'"
+                                     );
+            if(result.first())
             {
-                ResultSet result =
-                        connect.createStatement(
-                                            ResultSet.TYPE_SCROLL_INSENSITIVE,
-                                            ResultSet.CONCUR_READ_ONLY
-                                         ).executeQuery(
-                                            "SELECT * FROM "
-                                            + typeAbonnementTable
-                                            + " WHERE idtype = '" + id + "'"
-                                         );
-                if(result.first())
-                {
-                    typeAbonnement =
-                            new TypeAbonnement(
-                            result.getLong("idtype"),
-                            null); // I do not yet know how I will handle this
-                    typeAbonnement.setDuree(result.getInt("duree"));
-                    typeAbonnement.setPrix(result.getFloat("prix"));
-                }
+                typeAbonnement =
+                        new TypeAbonnement(
+                        result.getLong("idtype"),
+                        null); // I do not yet know how I will handle this
+                typeAbonnement.setDuree(result.getInt("duree"));
+                typeAbonnement.setPrix(result.getFloat("prix"));
+            }
 
-            }
-            catch (SQLException e)
-            {
-                e.printStackTrace();
-            }
-            return typeAbonnement;
-	}
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return typeAbonnement;
+    }
 
     @Override
     public TypeAbonnement create(TypeAbonnement obj)
