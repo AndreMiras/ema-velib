@@ -43,7 +43,7 @@ public class RestituerVeloPanel extends javax.swing.JPanel {
     private void setUp()
     {
         fullNameLabel.setText(client.getFirstname());
-        numBornetteLabel.setText(Long.toBinaryString(bornette.getNumero()));
+        numBornetteLabel.setText(bornette.toString());
     }
 
 
