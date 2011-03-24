@@ -20,6 +20,8 @@ import velib.dao.VeloDAO;
 import velib.model.Velo;
 import velib.model.Borne;
 import velib.dao.BornesDAO;
+import velib.view.ListeClientFrame;
+
 
 
 
@@ -55,6 +57,10 @@ public class AdministrationWindowController
     VeloDAO veloDAO = new VeloDAO();
     private Velo[] velos;
 
+        //Administration clients
+    private ListeClientFrame listeClientFrame;
+    private ListeClientController listeClientController;
+
     public AdministrationWindowController(AdministrationWindowFrame administrationWindowFrame)
     {
         this.administrationWindowFrame = administrationWindowFrame;
@@ -71,6 +77,8 @@ public class AdministrationWindowController
                 new UsersListButtonListener());
         administrationWindowFrame.addCheckDefectsButtonListener(
                 new CheckDefectsButtonListener());
+        administrationWindowFrame.addClientButtonListener(
+                new ClientButtonListener ());
     }
 
     class CheckDefectsButtonListener implements ActionListener
@@ -118,6 +126,18 @@ public class AdministrationWindowController
             databaseManagementController = new DatabaseManagementController(
                     databaseManagement, databaseManagementFrame);
             databaseManagementFrame.setVisible(true);
+        }
+    }
+
+        class ClientButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+
+            listeClientFrame = new ListeClientFrame();
+            listeClientController = new ListeClientController(
+                    );
+            listeClientFrame.setVisible(true);
         }
     }
 }
