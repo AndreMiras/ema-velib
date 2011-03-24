@@ -45,7 +45,7 @@ public class Abonnement
 
     public Date getDateDebut()
     {
-        return dateDebut;
+        return new Date(dateDebut.getTime());
     }
 
     public Date getDateFin()

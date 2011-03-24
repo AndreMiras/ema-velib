@@ -181,11 +181,10 @@ public class AbonnementDAOTest {
     {
         System.out.println("createTablesStatementStrings");
         AbonnementDAO instance = new AbonnementDAO();
-        String[] expResult = null;
         String[] result = instance.createTablesStatementStrings();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
+        // very basic test
+        assertTrue(result.length > 0);
     }
 
 }
