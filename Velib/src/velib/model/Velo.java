@@ -28,6 +28,7 @@ public class Velo
     }
 
     public Velo() {
+
     }
 
     public long getId() {
