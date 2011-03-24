@@ -25,6 +25,7 @@ public class ListeClientFrame extends javax.swing.JFrame {
     /** Creates new form ListeClientFrame */
     public ListeClientFrame() {
         initComponents();
+        differentActivitiesjButton.setEnabled(false);
     }
 
 
@@ -44,6 +45,7 @@ public class ListeClientFrame extends javax.swing.JFrame {
     {
       lastNameLabelFillup.setText(client.getLastname());
       firstNameLabelFillUp.setText(client.getFirstname());
+      differentActivitiesjButton.setEnabled(true);
     }
 
     public JTextField getFirstNamejTextField() {
