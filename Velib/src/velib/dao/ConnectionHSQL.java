@@ -5,7 +5,7 @@ public class ConnectionHSQL {
 
 	//URL de connection
 	private static String url = "jdbc:hsqldb:hsql://localhost/";
-        private static String urlDebug = "jdbc:hsqldb:hsql:mem";
+        private static String urlDebug = "jdbc:hsqldb:mem:.";
 
 	//Nom du user
 	private static String user = "sa";
