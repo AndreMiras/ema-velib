@@ -62,7 +62,8 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
         long idBORNE;
         idBORNE = (Long) borneListe2jComboBox.getSelectedItem();
         bornettes = bornetteDAO.findLibreAll(idBORNE);
-        
+
+        bornetteListjComboBox.removeAllItems();
         for (int i=0; i<bornettes.length; i++)
         {
             System.out.println(bornettes[i].getId());
