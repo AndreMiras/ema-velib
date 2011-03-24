@@ -26,7 +26,6 @@ public class LocationDAO extends DAO<Location>
     public Location create(Location obj)
     {
         String locationTable = tableNames[0];
-        System.out.println("date fin de location " + obj.getDateFinLocation());
          try {
              ResultSet result = this.connect.createStatement(
                                 ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -37,7 +36,6 @@ public class LocationDAO extends DAO<Location>
             if(result.first())
             {
             long id = result.getLong(1);
-            System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
                                                     	"INSERT INTO locations "
                                                         + "(idlocation,"

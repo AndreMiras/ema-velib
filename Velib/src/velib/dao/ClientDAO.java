@@ -175,7 +175,6 @@ public class ClientDAO extends DAO<Client>
                 Long idUser = result.getLong("iduser");
                 String firstname = result.getString("firstname");
                 String lastname = result.getString("lastname");
-                //System.out.println("id =" + id);
 
                 client = new Client(idClient, firstname, lastname, user);
             }

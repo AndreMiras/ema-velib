@@ -47,7 +47,6 @@ public class UserDAO extends DAO<User>
             if(result.first())
             {
             long id = result.getLong(1);
-            System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
                                                     	"INSERT INTO " +
                                                         usersTable +
@@ -90,7 +89,6 @@ public class UserDAO extends DAO<User>
                 Long id = result.getLong("iduser");
                 String identifiantDB = result.getString("identifiant");
                 String passwordDB = result.getString("password");
-                System.out.println("id =" + id);
 
                 user = new User(id, identifiantDB, passwordDB);
             }
