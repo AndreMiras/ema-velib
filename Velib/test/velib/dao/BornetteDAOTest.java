@@ -57,8 +57,9 @@ public class BornetteDAOTest {
      * Creating tables
      */
     @Before
-    public void setUp()
+    public void setUp() throws Exception
     {
+        setUpClass();
     }
 
     @After
@@ -66,9 +67,6 @@ public class BornetteDAOTest {
     {
     }
 
-    /**
-     * Test of create method, of class ClientDAO.
-     */
     @Test
     public void testCreate()
     {
@@ -96,7 +94,7 @@ public class BornetteDAOTest {
     }
 
         @Test
-    public void testFindBorneLibre()
+    public void testFindBornetteLibre()
     {
         System.out.println("find bornette libre");
 
@@ -119,43 +117,90 @@ public class BornetteDAOTest {
 
        Bornette bornetteResultat = bornetteDAO.findLibreOne(borne1.getIdBorne());
 
-        assertEquals(bornetteResultat.getId(),3);
+        assertEquals(bornetteResultat.getId(),2);
     }
 
 
     @Test
-    public void testFindAllBorne()
+    public void testFindAllBornette()
     {
-        /*System.out.println("find all borne");
+        System.out.println("find all bornette");
         BornesDAO borneDAO = new BornesDAO();
+        BornetteDAO bornetteDAO = new BornetteDAO();
 
         Borne borne1 = new Borne(0, "Borne1");
-        assertTrue(borne1.getIdBorne() == 0);
+        // set the id to 0, the db should give a correct one
+        assertEquals(0, borne1.getIdBorne());
         borne1 = borneDAO.create(borne1);
+ 
 
-        Borne borne2 = new Borne(0, "Borne2");
-        assertTrue(borne2.getIdBorne() == 0);
-        borne1 = borneDAO.create(borne2);
+       Bornette bornette1 = new Bornette(0, 1, borne1, null);
+       Bornette bornette2 = new Bornette (0, 1, borne1, null);
+       bornette1 = bornetteDAO.create(bornette1);
+       bornette2 = bornetteDAO.create(bornette2);
 
-        Borne[] resultat = borneDAO.findAllBorne();
 
-        assertEquals(resultat.length,3);*/
+        Bornette[] resultat = bornetteDAO.findLibreAll(borne1.getIdBorne());
+       
+        System.out.println("La taille du tableau de toute les bornettes est "
+                +resultat.length);
+        assertEquals(resultat.length,2);
     }
-
-
 
     @Test
-    public void testFind_Borne()
+     public void testFindBornetteOccupe()
     {
-        /*System.out.println("find borne");
-        BornesDAO borneDAO = new BornesDAO();
-        int id = 1;
-        Borne borne = borneDAO.find(id);
+        
+        System.out.println("find bornette occupe");
 
-        // IDs should match together
-        assertEquals(id, borne.getIdBorne());*/
+        BornesDAO borneDAO = new BornesDAO();
+        VeloDAO veloDAO = new VeloDAO();
+        BornetteDAO bornetteDAO = new BornetteDAO();
+
+        Borne borne1 = new Borne(0, "Borne1");
+        Velo velo1 = new Velo(0, true);
+         // set the id to 0, the db should give a correct one
+        assertEquals(0, borne1.getIdBorne());
+        borne1 = borneDAO.create(borne1);
+        assertEquals(0, velo1.getId());
+        velo1 = veloDAO.create(velo1);
+
+       Bornette bornette1 = new Bornette(0, 1, borne1, velo1);
+       Bornette bornette2 = new Bornette (0, 1, borne1, null);
+       bornette1 = bornetteDAO.create(bornette1);
+       bornette2 = bornetteDAO.create(bornette2);
+
+       Bornette bornetteResultat = bornetteDAO.findOccupe(borne1.getIdBorne());
+
+        assertEquals(bornetteResultat.getId(),1);
     }
 
+    @Test
+    public void testFindBornette_long()
+    {
+        System.out.println("find bornette");
+        testCreate();
+        BornetteDAO bornetteDAO = new BornetteDAO();
+        int id = 1;
+        Bornette bornette = bornetteDAO.find(id);
+
+        // IDs should match together
+        assertEquals(id, bornette.getId());
+    }
+
+    @Test
+    public void testNoFindBornette_long()
+    {
+        System.out.println("find bornette");
+        testCreate();
+        BornetteDAO bornetteDAO = new BornetteDAO();
+        int id = 1;
+        Bornette bornette = bornetteDAO.find(365);
+
+        // IDs should match together
+        assertEquals(null, bornette);
+
+    }
     /**
      * Test of update method, of class ClientDAO.
      * TODO: this tests isn't finished at all
