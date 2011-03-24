@@ -111,7 +111,7 @@ public class LocationDAO extends DAO<Location>
     public Location find (Client client)
     {
         String locationsTable = tableNames[0];
-        Location location = new Location();
+        Location location = null;
         Velo velo;
         VeloDAO veloDAO = new VeloDAO();
 
