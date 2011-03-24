@@ -186,6 +186,7 @@ public class BornesDAO  extends DAO<Borne>{
         catch (SQLException e)
         {
 	  e.printStackTrace();
+          obj=null;
 	}
         return obj;
     }

@@ -124,6 +124,7 @@ public class UserDAO extends DAO<User>
         catch (SQLException e)
         {
 	  e.printStackTrace();
+          obj = null;
 	}
         return obj;
     }
