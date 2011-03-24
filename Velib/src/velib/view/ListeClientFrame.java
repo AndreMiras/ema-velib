@@ -11,15 +11,40 @@
 
 package velib.view;
 
+import java.awt.event.ActionListener;
+import velib.model.Client;
+
 /**
  *
  * @author Nicolas
  */
 public class ListeClientFrame extends javax.swing.JFrame {
 
+    private Client[] clients;
+
     /** Creates new form ListeClientFrame */
     public ListeClientFrame() {
         initComponents();
+    }
+
+        public ListeClientFrame(Client[] clients)
+    {
+        this();
+        this.clients = clients;
+        setUpListeClientFrame();
+    }
+
+    private void setUpListeClientFrame()
+    {
+        for (int i=0; i<clients.length; i++)
+        {
+            listeClientsComboBox.addItem(clients[i].getFullName());
+        }
+    }
+
+    public void addClientListeComboBoxListener(ActionListener al)
+    {
+        listeClientsComboBox.addActionListener(al);
     }
 
     /** This method is called from within the constructor to
@@ -32,6 +57,7 @@ public class ListeClientFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         listeClientLabel = new java.awt.Label();
+        listeClientsComboBox = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,17 +67,23 @@ public class ListeClientFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(162, 162, 162)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(146, Short.MAX_VALUE)
                 .addComponent(listeClientLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addGap(142, 142, 142))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(197, 197, 197)
+                .addComponent(listeClientsComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(175, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(listeClientLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(listeClientsComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(240, Short.MAX_VALUE))
         );
 
         pack();
@@ -70,6 +102,7 @@ public class ListeClientFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Label listeClientLabel;
+    private javax.swing.JComboBox listeClientsComboBox;
     // End of variables declaration//GEN-END:variables
 
 }

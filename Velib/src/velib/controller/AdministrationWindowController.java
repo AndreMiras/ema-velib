@@ -20,6 +20,8 @@ import velib.dao.VeloDAO;
 import velib.model.Velo;
 import velib.model.Borne;
 import velib.dao.BornesDAO;
+import velib.dao.ClientDAO;
+import velib.model.Client;
 import velib.view.ListeClientFrame;
 
 
@@ -60,6 +62,7 @@ public class AdministrationWindowController
         //Administration clients
     private ListeClientFrame listeClientFrame;
     private ListeClientController listeClientController;
+    private ClientDAO clientDAO;
 
     public AdministrationWindowController(AdministrationWindowFrame administrationWindowFrame)
     {
@@ -133,9 +136,11 @@ public class AdministrationWindowController
     {
         public void actionPerformed(ActionEvent e)
         {
-
-            listeClientFrame = new ListeClientFrame();
-            listeClientController = new ListeClientController(
+            clientDAO = new ClientDAO();
+            Client[] clients;
+            clients = clientDAO.findAllClient();
+            listeClientFrame = new ListeClientFrame(clients);
+            listeClientController = new ListeClientController(listeClientFrame
                     );
             listeClientFrame.setVisible(true);
         }
