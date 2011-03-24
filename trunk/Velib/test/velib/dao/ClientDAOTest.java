@@ -85,7 +85,6 @@ public class ClientDAOTest {
         client = clientDAO.create(client);
 
         // the id should now be 1
-        System.out.println("L'id du client est : " + client.getClientId());
         assertEquals(1, client.getClientId());
     }
 
