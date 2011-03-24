@@ -59,7 +59,7 @@ public class BornetteDAOTest {
     @Before
     public void setUp() throws Exception
     {
-        setUpClass();
+        // setUpClass();
     }
 
     @After
@@ -93,10 +93,13 @@ public class BornetteDAOTest {
 
     }
 
-        @Test
-    public void testFindBornetteLibre()
+    @Test
+    public void testFindBornetteLibre() throws Exception
     {
         System.out.println("find bornette libre");
+
+        // cleans-up DB
+        setUpClass();
 
         BornesDAO borneDAO = new BornesDAO();
         VeloDAO veloDAO = new VeloDAO();
@@ -148,10 +151,13 @@ public class BornetteDAOTest {
     }
 
     @Test
-     public void testFindBornetteOccupe()
+     public void testFindBornetteOccupe() throws Exception
     {
         
         System.out.println("find bornette occupe");
+
+        setUpClass();
+
 
         BornesDAO borneDAO = new BornesDAO();
         VeloDAO veloDAO = new VeloDAO();
@@ -176,9 +182,12 @@ public class BornetteDAOTest {
     }
 
     @Test
-    public void testFindBornette_long()
+    public void testFindBornette_long() throws Exception
     {
         System.out.println("find bornette");
+
+        setUpClass();
+
         testCreate();
         BornetteDAO bornetteDAO = new BornetteDAO();
         int id = 1;
@@ -189,9 +198,12 @@ public class BornetteDAOTest {
     }
 
     @Test
-    public void testNoFindBornette_long()
+    public void testNoFindBornette_long() throws Exception
     {
         System.out.println("find bornette");
+
+        setUpClass();
+
         testCreate();
         BornetteDAO bornetteDAO = new BornetteDAO();
         int id = 1;
