@@ -71,18 +71,31 @@ public class AbonnementDAOTest {
         System.out.println("create");
         TypeAbonnement typeAbonnement;
         Abonnement abonnementFromDAO;
+        Date today, tomorrow;
+
+        today = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(today);
+        calendar.add(Calendar.DATE, 1); // adding a day to today
+        tomorrow = calendar.getTime();
 
         typeAbonnement = new TypeAbonnement(0, AbonnementType.HALF_DAY);
         Abonnement abonnement = new Abonnement(0, typeAbonnement);
+        abonnement.setDateDebut(today);
+        abonnement.setDateFin(tomorrow);
         
         AbonnementDAO abonnementDAO = new AbonnementDAO();
         abonnementFromDAO = abonnementDAO.create(abonnement);
 
         // the abonnement object shouldn't have an id
-        assertEquals(abonnement.getId(), 0);
+        assertEquals(0, abonnement.getId());
+        assertEquals(today, abonnement.getDateDebut());
+        assertEquals(tomorrow, abonnement.getDateFin());
 
         // until it's being created by the DAO
         assertEquals(1, abonnementFromDAO.getId());
+        assertEquals(today, abonnementFromDAO.getDateDebut());
+        assertEquals(tomorrow, abonnementFromDAO.getDateFin());
     }
 
     /**
