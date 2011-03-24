@@ -7,15 +7,12 @@ package velib.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import velib.dao.BorneSingleton;
 import velib.dao.BornesDAO;
 import velib.model.Borne;
 import velib.model.Bornette;
 import velib.dao.BornetteDAO;
 import velib.dao.VeloDAO;
 import velib.model.Velo;
-import velib.view.MainWindowFrame;
-
 import velib.view.AdministrationBorneFrame;
 
 /**
@@ -24,7 +21,6 @@ import velib.view.AdministrationBorneFrame;
  */
 class AdministrationBorneController
 {
-
     Bornette [] bornettes;
     Bornette bornette;
     Borne borne;
@@ -63,8 +59,7 @@ class AdministrationBorneController
     class AddBorneButtonListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
-        {
-            
+        {        
             String nomBorne = administrationBorneFrame.getBorneNameTextField().getText();
             Double latitude = new Double(
                     administrationBorneFrame.getBorneXPosTextField().getText());
@@ -74,7 +69,6 @@ class AdministrationBorneController
             borne = new Borne(0, nomBorne);
             borne.setLatitude(latitude);
             borne.setLongitude(longitude);
-
             borne = borneDAO.create(borne);
         }
     }
@@ -82,18 +76,13 @@ class AdministrationBorneController
     {
         public void actionPerformed(ActionEvent e)
         {
-
             Long idBorne = administrationBorneFrame.getBorneFromInput();
             bornettes = bornetteDAO.findAll(idBorne);
             borne = borneDAO.find(idBorne);
             
-            long numero = bornettes.length+1;
-
+            long numero = bornettes.length+1; //On compte le nb de bornettes et on fait +1 pour la nouvelle
             bornette = new Bornette(0, numero, borne, null);
-
             bornette = bornetteDAO.create(bornette);
-
-
         }
     }
    
@@ -101,21 +90,15 @@ class AdministrationBorneController
     {
         public void actionPerformed(ActionEvent e)
         {
-
             velo = new Velo (0, true);
-
             VeloDAO veloDAO = new VeloDAO();
             BornetteDAO bornetteDAO = new BornetteDAO();
-
             velo = veloDAO.create(velo);
 
             Long idBornette = administrationBorneFrame.getBornetteFromInput();
-            System.out.println(idBornette);
             bornette = bornetteDAO.find(idBornette);
             bornette.setVelo(velo);
-            
             bornette = bornetteDAO.update(bornette);            
-
         }
     }
 }
