@@ -137,6 +137,7 @@ public class VeloDAO extends DAO<Velo>
         catch (SQLException e)
         {
 	  e.printStackTrace();
+          obj = null;
 	}
         return obj;
     }

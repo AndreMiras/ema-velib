@@ -173,6 +173,7 @@ public class LocationDAO extends DAO<Location>
         catch (SQLException e)
         {
 	  e.printStackTrace();
+          obj = null;
 	}
         return obj;
     }

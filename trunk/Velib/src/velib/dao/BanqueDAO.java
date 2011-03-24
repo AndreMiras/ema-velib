@@ -119,6 +119,7 @@ public class BanqueDAO extends DAO<Bank>
         catch (SQLException e)
         {
 	  e.printStackTrace();
+          obj=null;
 	}
         return obj;
     }
