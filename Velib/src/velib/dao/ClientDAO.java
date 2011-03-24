@@ -149,6 +149,50 @@ public class ClientDAO extends DAO<Client>
             return client;
 	}
 
+        public Client findByName(String lastname, String firstname)
+        {
+            String clientTable = tableNames[0];
+            Client client = null;
+            UserDAO userDAO = new UserDAO();
+            BanqueDAO banqueDAO = new BanqueDAO();
+            User user;
+            Bank banque;
+
+            try
+            {
+                ResultSet result = this .connect
+                                        .createStatement(
+                                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                            ResultSet.CONCUR_READ_ONLY
+                                         ).executeQuery(
+                                            "SELECT * FROM "
+                                            + clientTable
+                                            + " WHERE firstname = '" + firstname + "'"
+                                            + " AND lastname = '" + lastname + "'"
+                                         );
+                if(result.first())
+                {
+                    user = userDAO.find(result.getLong("iduser"));
+                    banque = banqueDAO.find(result.getLong("idbanque"));
+                    client = new Client(
+                                        result.getLong("idclient"),
+                                        result.getString("firstname"),
+                                        result.getString("lastname"), user);
+                    client.setAdresse(result.getString("adresse"));
+                    client.setVille(result.getString("ville"));
+                    client.setDateNaissance(result.getTimestamp("Datenaissance"));
+                    client.setCodePostal(result.getLong("codepostal"));
+                    client.setBanque(banque);
+                }
+
+            }
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
+            return client;
+	}
+
         public Client find(User user)
         {
             return findByUser(user);
@@ -191,47 +235,7 @@ public class ClientDAO extends DAO<Client>
 
         }
 
-        public Client[] findAllClient ()
-        {
-            String clientTable = tableNames[0];
-            Vector<Client> clientVector = new Vector<Client>();
-            Client client;
-            User user;
-            UserDAO userDAO = new UserDAO();
-            Bank banque;
-            BanqueDAO banqueDAO = new BanqueDAO();
-
-            try
-            {
-                ResultSet result = this.connect.createStatement(
-                                        ResultSet.TYPE_SCROLL_INSENSITIVE,
-                                        ResultSet.CONCUR_READ_ONLY
-                                         ).executeQuery(
-                                        "SELECT * FROM "+clientTable
-                                        );
-                while (result.next())
-                {
-                    user = userDAO.find(result.getLong("iduser"));
-                    banque = banqueDAO.find(result.getLong("idbanque"));
-                    client = new Client(
-                                        result.getLong("idclient"),
-                                        result.getString("firstname"),
-                                        result.getString("lastname"), user);
-                    client.setAdresse(result.getString("adresse"));
-                    client.setVille(result.getString("ville"));
-                    client.setDateNaissance(result.getTimestamp("Datenaissance"));
-                    client.setCodePostal(result.getLong("codepostal"));
-                    client.setBanque(banque);
-                    clientVector.add(client);
-                }
-            }
-            catch (SQLException e)
-            {
-                e.printStackTrace();
-            }
-
-            return clientVector.toArray(new Client[clientVector.size()]);
-        }
+        
 
 	public Client update(Client obj)
         {
