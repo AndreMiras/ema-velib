@@ -28,11 +28,14 @@ public class ListeClientFrame extends javax.swing.JFrame {
     }
 
 
-
-
     public void addClientValiderButtonListener(ActionListener al)
     {
         validerButton.addActionListener(al);
+    }
+
+    public void addShowActivitiesButtonListener(ActionListener al)
+    {
+        differentActivitiesjButton.addActionListener(al);
     }
 
 
@@ -72,7 +75,7 @@ public class ListeClientFrame extends javax.swing.JFrame {
         validerButton = new javax.swing.JButton();
         adresseLabel = new java.awt.Label();
         adresseLabelFilup = new java.awt.Label();
-        DifferentActivitiesjButton = new javax.swing.JButton();
+        differentActivitiesjButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,7 +99,7 @@ public class ListeClientFrame extends javax.swing.JFrame {
 
         adresseLabelFilup.setText("adresse");
 
-        DifferentActivitiesjButton.setText("Voir différentes activitées");
+        differentActivitiesjButton.setText("Voir différentes activitées");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,7 +134,7 @@ public class ListeClientFrame extends javax.swing.JFrame {
                             .addComponent(adresseLabelFilup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DifferentActivitiesjButton)
+                    .addComponent(differentActivitiesjButton)
                     .addComponent(validerButton))
                 .addGap(53, 53, 53))
         );
@@ -160,7 +163,7 @@ public class ListeClientFrame extends javax.swing.JFrame {
                     .addComponent(adresseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(adresseLabelFilup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(62, 62, 62)
-                .addComponent(DifferentActivitiesjButton)
+                .addComponent(differentActivitiesjButton)
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
@@ -179,9 +182,9 @@ public class ListeClientFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton DifferentActivitiesjButton;
     private java.awt.Label adresseLabel;
     private java.awt.Label adresseLabelFilup;
+    private javax.swing.JButton differentActivitiesjButton;
     private java.awt.Label firstNameLabel;
     private java.awt.Label firstNameLabelFillUp;
     private javax.swing.JTextField firstNamejTextField;
