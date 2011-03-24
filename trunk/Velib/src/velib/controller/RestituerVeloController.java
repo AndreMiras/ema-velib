@@ -8,6 +8,8 @@ package velib.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import velib.model.Client;
+import velib.model.Location;
+import velib.view.DeclarerProblemPanel;
 import velib.view.MainWindowFrame;
 import velib.view.RestituerVeloPanel;
 
@@ -19,14 +21,16 @@ public class RestituerVeloController extends AbstractMainWindowController
 {
     private RestituerVeloPanel restituerVeloPanel;
     private Client client;
+    private Location location;
 
     public RestituerVeloController(MainWindowController mainWindowController,
-            RestituerVeloPanel restituerVeloPanel, Client client)
+            RestituerVeloPanel restituerVeloPanel, Client client, Location location)
     {
         super(mainWindowController);
         
         this.restituerVeloPanel = restituerVeloPanel;
         this.client = client;
+        this.location=location;
 
         addListeners();
     }
@@ -43,8 +47,14 @@ public class RestituerVeloController extends AbstractMainWindowController
     {
         public void actionPerformed(ActionEvent e)
         {
-            System.out.println("TODO: Create a Probleme object in the DB using the DAO");
-
+            //velos = veloDAO.findVeloPanne();
+            System.out.println("Je suis la");
+            DeclarerProblemPanel declarerProblemPanel = new DeclarerProblemPanel(client);
+            DeclarerProblemController declarerProblemController =
+                    new DeclarerProblemController(mainWindowController, 
+                    declarerProblemPanel, client, location);
+             setMainWindowContentPanel(declarerProblemPanel);
+            //declarerProblemPanel.setVisible(true);
         }
     }
 

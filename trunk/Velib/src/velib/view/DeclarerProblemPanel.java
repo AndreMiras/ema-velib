@@ -11,15 +11,26 @@
 
 package velib.view;
 
+import java.awt.event.ActionListener;
+import velib.model.Client;
+
 /**
  *
  * @author fteysseire
  */
 public class DeclarerProblemPanel extends javax.swing.JPanel {
 
+    Client client;
+
     /** Creates new form DeclarerProblemPanel */
     public DeclarerProblemPanel() {
         initComponents();
+    }
+
+    public DeclarerProblemPanel(Client client)
+    {
+        this();
+        this.client = client;
     }
 
     /** This method is called from within the constructor to
@@ -33,8 +44,8 @@ public class DeclarerProblemPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        annulerJButton = new javax.swing.JButton();
+        validerJButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -42,21 +53,11 @@ public class DeclarerProblemPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Cette page vous premet de déclarer un problème sur le matériel du réseau NémoVélo.");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("Annuler");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        annulerJButton.setFont(new java.awt.Font("Tahoma", 1, 14));
+        annulerJButton.setText("Annuler");
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setText("Valider");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        validerJButton.setFont(new java.awt.Font("Tahoma", 1, 14));
+        validerJButton.setText("Valider");
 
         jLabel2.setText("En cliquant sur Valider, un technicien sera informé d'un problème sur le matériel restitué.");
 
@@ -70,9 +71,9 @@ public class DeclarerProblemPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(annulerJButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 369, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(validerJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
                     .addComponent(jLabel3))
@@ -89,8 +90,8 @@ public class DeclarerProblemPanel extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
+                    .addComponent(annulerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(validerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -112,22 +113,23 @@ public class DeclarerProblemPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_jButton1ActionPerformed
+    public void addValiderButtonListener(ActionListener al)
+    {
+        this.validerJButton.addActionListener(al);
+    }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_jButton2ActionPerformed
-
+    public void addAnnulerButtonListener(ActionListener al)
+    {
+        this.annulerJButton.addActionListener(al);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton annulerJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton validerJButton;
     // End of variables declaration//GEN-END:variables
 
 }

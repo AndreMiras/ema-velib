@@ -101,20 +101,18 @@ public class VeloDAO extends DAO<Velo>
                                         "SELECT * FROM velos WHERE idvelo = " + id
                                      );
                 if(result.first())
-                {
-                              
+                {                              
                     long idvelo = result.getLong("idvelo");
                     boolean etat = result.getBoolean("etat");
                     velo = new Velo(idvelo, etat);
-
                 }
 
             }
         catch (SQLException e)
         {
             e.printStackTrace();
+            velo = null;
         }
-
         return velo;
     }
 
@@ -128,10 +126,9 @@ public class VeloDAO extends DAO<Velo>
                      ).executeUpdate(
                     	"UPDATE " +
                         veloTable +
-                        " SET etat = '" + obj.getEtat()+ "',"+
+                        " SET etat = '" + obj.getEtat()+ "'"+
                         " WHERE idvelo = " + obj.getId()
                      );
-
 	obj = this.find(obj.getId());
 	    }
         catch (SQLException e)

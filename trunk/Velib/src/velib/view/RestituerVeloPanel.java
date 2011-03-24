@@ -34,7 +34,6 @@ public class RestituerVeloPanel extends javax.swing.JPanel {
         this();
         this.client = client;
         this.bornette = bornette;
-
         setUp();
     }
 
