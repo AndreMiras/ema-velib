@@ -78,6 +78,10 @@ public class BornesDAO  extends DAO<Borne>{
                 Long id = result.getLong("idborne");
                 String nom = result.getString("nomBorne");
                 borne = new Borne(id, nom);
+                borne.setLatLong(
+                        result.getDouble("latitude"),
+                        result.getDouble("longitude"));
+
                 borneVector.add(borne);
                 
             }
@@ -116,6 +120,7 @@ public class BornesDAO  extends DAO<Borne>{
         catch (SQLException e)
         {
             e.printStackTrace();
+            borne = null;
         }
 
         return borne;
