@@ -33,38 +33,40 @@ public class AbonnementDAO extends DAO<Abonnement> {
             TypeAbonnementDAO typeAbonnementDAO = new TypeAbonnementDAO();
             obj.setType(typeAbonnementDAO.create(obj.getType()));
         }
-         try {
+         try
+         {
              ResultSet result = this.connect.createStatement(
                                 ResultSet.TYPE_SCROLL_INSENSITIVE,
                       		ResultSet.CONCUR_UPDATABLE
                                     ).executeQuery(
                                        "CALL NEXT VALUE FOR sequence_abonnements"
                                     );
-            if(result.first()){
-            long id = result.getLong(1);
-            System.out.println("id :" + id);
-            PreparedStatement prepare = this.connect.prepareStatement(
-                                                    	"INSERT INTO "
-                                                        + abonnementTable
-                                                        + "(idabonnement,"
-                                                        + "datedebut,"
-                                                        + "datefin,"
-                                                        // + "idclient,"
-                                                        + "idtype) "
-                                                        + "VALUES(?, ?, ?, ?)"
-                                                    );
-				prepare.setLong(1, id);
-                                prepare.setDate(2,
-                                        new java.sql.Date(
-                                            obj.getDateDebut().getTime()));
-                                prepare.setDate(3,
-                                        new java.sql.Date(
-                                            obj.getDateFin().getTime()));
-                                // prepare.setLong(4, obj.getClient().getClientId());
-                                prepare.setLong(4, obj.getType().getId());
-				prepare.executeUpdate();
-				obj = this.find(id);
-			}
+            if(result.first())
+            {
+                long id = result.getLong(1);
+                System.out.println("id :" + id);
+                PreparedStatement prepare = this.connect.prepareStatement(
+                        "INSERT INTO "
+                        + abonnementTable
+                        + "(idabonnement,"
+                        + "datedebut,"
+                        + "datefin,"
+                        // + "idclient,"
+                        + "idtype) "
+                        + "VALUES(?, ?, ?, ?)"
+                    );
+                        prepare.setLong(1, id);
+                        prepare.setDate(2,
+                                new java.sql.Date(
+                                    obj.getDateDebut().getTime()));
+                        prepare.setDate(3,
+                                new java.sql.Date(
+                                    obj.getDateFin().getTime()));
+                        // prepare.setLong(4, obj.getClient().getClientId());
+                        prepare.setLong(4, obj.getType().getId());
+                        prepare.executeUpdate();
+                        obj = this.find(id);
+                }
 	    }
             catch (SQLException e) {
 	            e.printStackTrace();
