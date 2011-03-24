@@ -18,7 +18,8 @@ import velib.model.User;
  *
  * @author andre
  */
-public class ClientDAOTest {
+public class ClientDAOTest
+{
 
     public ClientDAOTest() {
     }
