@@ -67,7 +67,8 @@ import java.util.Date;
     @Override
     public String toString()
     {
-        return client + " utilise : " + velo;
+        return client + " utilise : " + velo + " de : " + dateDebutLocation +
+                " à : " + dateFinLocation;
     }
 
 }

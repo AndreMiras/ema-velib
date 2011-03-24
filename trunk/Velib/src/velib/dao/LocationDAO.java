@@ -89,7 +89,7 @@ public class LocationDAO extends DAO<Location>
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
                                     "SELECT * FROM " +
-                                    locationsTable
+                                    locationsTable + " WHERE datefinlocation IS NULL"
                                     );
             while (result.next())
             {
@@ -97,6 +97,8 @@ public class LocationDAO extends DAO<Location>
                 client = clientDAO.find(result.getLong("idclient"));
                 velo = veloDAO.find(result.getLong("idvelo"));
                 location = new Location(id, client, velo);
+                location.setDateDebutLocation(result.getTimestamp("DateDebutLocation"));
+                location.setDateFinLocation(result.getTimestamp("DateFinLocation"));
                 locationVector.add(location);
             }
         }
@@ -108,6 +110,44 @@ public class LocationDAO extends DAO<Location>
         return locationVector.toArray(new Location[locationVector.size()]);
     }
     
+     public Location[] findAllLocationByClient (Client client)
+    {
+        String locationsTable = tableNames[0];
+
+        Vector<Location> locationVector = new Vector<Location>();
+        Location location;
+        Velo velo;
+        ClientDAO clientDAO = new ClientDAO();
+        VeloDAO veloDAO = new VeloDAO();
+
+	try
+        {
+            ResultSet result = this.connect.createStatement(
+                                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                    ResultSet.CONCUR_READ_ONLY
+                                     ).executeQuery(
+                                    "SELECT * FROM " +
+                                    locationsTable + " WHERE idClient = "
+                                    + client.getClientId()
+                                    );
+            while (result.next())
+            {
+                Long id = result.getLong("idlocation");
+                velo = veloDAO.find(result.getLong("idvelo"));
+                location = new Location(id, client, velo);
+                location.setDateDebutLocation(result.getTimestamp("DateDebutLocation"));
+                location.setDateFinLocation(result.getTimestamp("DateFinLocation"));
+                locationVector.add(location);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return locationVector.toArray(new Location[locationVector.size()]);
+    }
+
     public Location find (Client client)
     {
         String locationsTable = tableNames[0];
