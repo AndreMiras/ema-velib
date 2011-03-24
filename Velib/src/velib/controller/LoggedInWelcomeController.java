@@ -61,11 +61,10 @@ class LoggedInWelcomeController extends AbstractMainWindowController
             BornetteDAO bornetteDAO = new BornetteDAO();
             LocationDAO locationDAO = new LocationDAO();
             bornettesOccupe = bornetteDAO.findOccupeAll(idBorne);
-            
-            location = locationDAO.find(client);
- 
-            if (bornettesOccupe.length != 0)
+                      
+             if (bornettesOccupe.length != 0)
             {
+                 location = locationDAO.find(client);
                 if (location==null)
                 {
                     Bornette bornette = bornetteDAO.findOccupe(idBorne);
@@ -96,40 +95,51 @@ class LoggedInWelcomeController extends AbstractMainWindowController
     {
         public void actionPerformed(ActionEvent e)
         {
+            long idBorne = BorneSingleton.getInstance().getIdBorne();
+
             Bornette bornette;
             Velo bike;
-            Location location;            
+            Location location;
+            Bornette[] bornettesLibre;
+
             LocationDAO locationDAO = new LocationDAO();
             BornetteDAO bornetteDAO = new BornetteDAO();
-            
-            location = locationDAO.find(client);
-
-            if (location != null)
+            bornettesLibre = bornetteDAO.findLibreAll(idBorne);
+            System.out.println("La taille du tableau est : " + bornettesLibre.length);
+            if(bornettesLibre.length != 0)
             {
-            Date dateFinLocation = new Date();
-            location.setDateFinLocation(dateFinLocation);
-            bike = location.getVelo();
-            bornette = bornetteDAO.findLibreOne(
-                    BorneSingleton.getInstance().getIdBorne());
-            // attaching the bike to the stand
-            bornette.setVelo(bike);
-            // hitting the database
-            bornetteDAO.update(bornette);
+                location = locationDAO.find(client);
+
+                if (location != null)
+                {
+                    Date dateFinLocation = new Date();
+                    location.setDateFinLocation(dateFinLocation);
+                    bike = location.getVelo();
+                    bornette = bornetteDAO.findLibreOne(idBorne);
+                    // attaching the bike to the stand
+                    bornette.setVelo(bike);
+                    // hitting the database
+                    bornetteDAO.update(bornette);
             
-            locationDAO.update(location);
+                    locationDAO.update(location);
 
 
-            // TODO: screen when given bike back
-            RestituerVeloPanel restituerVeloPanel =
-                    new RestituerVeloPanel(client, bornette);
-            RestituerVeloController restituerVeloController =
-                    new RestituerVeloController(
-                    mainWindowController, restituerVeloPanel, client);
-            setMainWindowContentPanel(restituerVeloPanel);
+                    // TODO: screen when given bike back
+                    RestituerVeloPanel restituerVeloPanel =
+                            new RestituerVeloPanel(client, bornette);
+                    RestituerVeloController restituerVeloController =
+                            new RestituerVeloController(
+                            mainWindowController, restituerVeloPanel, client);
+                    setMainWindowContentPanel(restituerVeloPanel);
+                }
+                else
+                {
+                    loggedInWelcomePanel.restituionErrorPopup();
+                }
             }
             else
             {
-                loggedInWelcomePanel.restituionErrorPopup();
+                loggedInWelcomePanel.bornetteErrorPopup();
             }
            
         }

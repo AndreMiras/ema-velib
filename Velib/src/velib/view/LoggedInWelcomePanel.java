@@ -64,7 +64,13 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel
     }
     public void veloErrorPopup()
     {
-        JOptionPane.showMessageDialog(this, "Il n'y a plus de vélo disponible dans cette station");
+        JOptionPane.showMessageDialog(this, "Il n'y a plus de vélos disponibles dans cette station");
+    }
+        public void bornetteErrorPopup()
+    {
+        JOptionPane.showMessageDialog(this, "Il n'y a plus de bornettes disponible dans cette station. "
+                + "Merci de vous rendre dans une autre station pour rendre votre "
+                + "vélo");
     }
 
     /*
