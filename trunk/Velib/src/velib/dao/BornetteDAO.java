@@ -176,6 +176,43 @@ public class BornetteDAO extends DAO<Bornette>
         return bornette;
     }
 
+     public Bornette[] findOccupeAll(long idBorne)
+    {
+        String bornetteTable = tableNames[0];
+        Vector<Bornette> bornetteVector = new Vector<Bornette>();
+        Bornette bornette;
+        Borne borne;
+        BornesDAO borneDAO = new BornesDAO();
+        Velo velo;
+        VeloDAO veloDAO = new VeloDAO();
+
+	try
+        {
+            ResultSet result = this.connect.createStatement(
+                                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                    ResultSet.CONCUR_READ_ONLY
+                                     ).executeQuery(
+                                    "SELECT * FROM "+bornetteTable+" WHERE "
+                                    + "idvelo is not null AND idborne='" + idBorne + "'"
+                                    );
+            while (result.next())
+            {
+                long id = result.getLong("idbornette");
+                long numero = result.getLong("numero");
+                borne = borneDAO.find(result.getLong("idborne"));
+                velo = veloDAO.find(result.getLong("idvelo"));
+                bornette = new Bornette(id, numero, borne, velo);
+                bornetteVector.add(bornette);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return bornetteVector.toArray(new Bornette[bornetteVector.size()]);
+    }
+
     
     @Override
     public Bornette update(Bornette obj)

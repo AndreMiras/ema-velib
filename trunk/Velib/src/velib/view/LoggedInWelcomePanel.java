@@ -62,6 +62,10 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel
     {
         JOptionPane.showMessageDialog(this, "Vous avez déjà un vélo en location");
     }
+    public void veloErrorPopup()
+    {
+        JOptionPane.showMessageDialog(this, "Il n'y a plus de vélo disponible dans cette station");
+    }
 
     /*
      * Setup the window based on user model values

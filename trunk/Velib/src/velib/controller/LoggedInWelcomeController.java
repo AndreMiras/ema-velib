@@ -56,26 +56,35 @@ class LoggedInWelcomeController extends AbstractMainWindowController
         {
             long idBorne = BorneSingleton.getInstance().getIdBorne();
             Location location;
+            Bornette[] bornettesOccupe;
 
             BornetteDAO bornetteDAO = new BornetteDAO();
             LocationDAO locationDAO = new LocationDAO();
+            bornettesOccupe = bornetteDAO.findOccupeAll(idBorne);
+            
             location = locationDAO.find(client);
-
-            if (location==null)
+ 
+            if (bornettesOccupe.length != 0)
             {
-                Bornette bornette = bornetteDAO.findOccupe(new Long(1));
+                if (location==null)
+                {
+                    Bornette bornette = bornetteDAO.findOccupe(idBorne);
 
-
-                LouerVeloPanel louerVeloPanel =
-                    new LouerVeloPanel(client, bornette);
-                LouerVeloController louerVeloController =
-                    new LouerVeloController(
-                    mainWindowController, client, bornette, louerVeloPanel);
-                setMainWindowContentPanel(louerVeloPanel);
+                    LouerVeloPanel louerVeloPanel =
+                        new LouerVeloPanel(client, bornette);
+                    LouerVeloController louerVeloController =
+                        new LouerVeloController(
+                            mainWindowController, client, bornette, louerVeloPanel);
+                    setMainWindowContentPanel(louerVeloPanel);
+                }
+                else
+                {
+                    loggedInWelcomePanel.locationErrorPopup();
+                }
             }
             else
             {
-                loggedInWelcomePanel.locationErrorPopup();
+                loggedInWelcomePanel.veloErrorPopup();
             }
         }
     }
