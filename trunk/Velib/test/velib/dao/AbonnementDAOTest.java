@@ -5,6 +5,8 @@
 
 package velib.dao;
 
+import java.util.Calendar;
+import java.util.Date;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -105,16 +107,39 @@ public class AbonnementDAOTest {
 
     /**
      * Test of update method, of class AbonnementDAO.
+     * TODO: change/add date
+     * http://www.rgagnon.com/javadetails/java-0101.html
+     * http://stackoverflow.com/questions/428918/how-can-i-increment-a-date-by-one-day-in-java
      */
     @Test
     public void testUpdate()
     {
         System.out.println("update");
-        Abonnement obj = null;
-        AbonnementDAO instance = new AbonnementDAO();
-        Abonnement expResult = null;
-        Abonnement result = instance.update(obj);
-        assertEquals(expResult, result);
+        Date yesterday, today, tomorrow, dateDebut, dateFin;
+        Abonnement abonnementBeforeUpdate, abonnementAfterUpdate;
+        AbonnementDAO abonnementDAO = new AbonnementDAO();
+        dateFin = new Date();
+        today = new Date();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(today);
+        calendar.add(Calendar.DATE, 1); // adding a day to today
+        tomorrow = calendar.getTime();
+
+        calendar.setTime(today);
+        calendar.add(Calendar.DATE, -1); // removing a day to today
+        yesterday = calendar.getTime();
+
+        abonnementBeforeUpdate = abonnementDAO.find(1);
+        abonnementBeforeUpdate.setDateDebut(yesterday);
+        abonnementBeforeUpdate.setDateFin(tomorrow);
+
+        // updating
+        abonnementAfterUpdate = abonnementDAO.update(abonnementBeforeUpdate);
+
+        // the dates should be as
+        assertEquals(yesterday, abonnementAfterUpdate.getDateDebut());
+        assertEquals(tomorrow, abonnementAfterUpdate.getDateFin());
     }
 
     /**
