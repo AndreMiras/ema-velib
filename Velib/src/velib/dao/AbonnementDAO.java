@@ -113,13 +113,57 @@ public class AbonnementDAO extends DAO<Abonnement> {
     @Override
     public Abonnement update(Abonnement obj)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String clientTable = tableNames[0];
+        try
+        {
+            System.out.println("Je suis dans l'update");
+                  this.connect.createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE
+         ).executeUpdate(
+         //TODO remove that shit, man (something else, you say firstname = obj.getLastname and lastname = obj.getFirstname ???)
+                "UPDATE "
+                + clientTable
+                + " SET idtype = '" + obj.getType().getId() + "',"
+                + " datedebut = '" + new java.sql.Timestamp(obj.getDateDebut().getTime()) + "',"
+                + " datefin = '" + new java.sql.Timestamp(obj.getDateFin().getTime()) + "',"
+                //+ " codepostal = '" + obj.getCodePostal() + "',"
+                + " WHERE idabonnement = " + obj.getId()
+         );
+
+            obj = this.find(obj.getId());
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+            obj = null;
+        }
+
+        return obj;
     }
 
     @Override
     public void delete(Abonnement obj)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String abonnementTable = tableNames[0];
+        try
+        {
+
+            this.connect.createStatement(
+                ResultSet.TYPE_SCROLL_INSENSITIVE,
+                ResultSet.CONCUR_UPDATABLE
+         ).executeUpdate(
+         //TODO remove that shit, man
+                "DELETE FROM "
+                 + abonnementTable
+                 + " WHERE idabonnement = " + obj.getId()
+         );
+
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     @Override
