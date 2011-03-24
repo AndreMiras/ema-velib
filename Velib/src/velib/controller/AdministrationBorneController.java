@@ -24,7 +24,6 @@ class AdministrationBorneController
 {
 
     private AdministrationBorneFrame administrationBorneFrame;
-    private BornetteDAO bornetteDAO;
 
     public AdministrationBorneController(AdministrationBorneFrame administrationBorneFrame)
     {
@@ -34,47 +33,25 @@ class AdministrationBorneController
 
     private void addListeners()
     {
-        administrationBorneFrame.addAddBornetteButtonListener(
-                new AddBornetteButtonListener());
+        administrationBorneFrame.addAddBikeButtonListener(
+                new AddBikeButtonListener());
+        administrationBorneFrame.addBorneListe2jComboBoxListener(
+                new BorneListe2jComboBoxListener());
     }
-/*
-        class GeneralManagementButtonListener implements ActionListener
+
+    class BorneListe2jComboBoxListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-
-            borneDAO = new BornesDAO();
-            Borne[] bornes;
-            bornes = borneDAO.findAllBorne();
-            bornetteDAO = new BornetteDAO();
-            Bornette[] bornettes;
-            //bornettes = bornetteDAO.findLibre(BorneSingleton.);
-            administrationBorneFrame = new AdministrationBorneFrame(bornes, bornettes);
-            administrationBorneController = new AdministrationBorneController(administrationBorneFrame);
-            administrationBorneFrame.setVisible(true);
+            administrationBorneFrame.setUpAdministrationBornetteFrame();
         }
     }
-
-    */
-    
-    class AddBornetteButtonListener implements ActionListener
+   
+    class AddBikeButtonListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-            Borne oldBorne, newBorne;
-            BornesDAO bornesDAO = new BornesDAO();
 
-            oldBorne = BorneSingleton.getInstance();
-            newBorne = administrationBorneFrame.getBorneFromInput();
-            System.out.println("Setting new borne singleton to: "
-                    + newBorne);
-            BorneSingleton.setBorne(newBorne);
-
-            /* updating the station, setting it up to used in the DB */
-            oldBorne.setDisponible(true);
-            newBorne.setDisponible(false);
-            bornesDAO.update(oldBorne);
-            bornesDAO.update(newBorne);
         }
     }
 }
