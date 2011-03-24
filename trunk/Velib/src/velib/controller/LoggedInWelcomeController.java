@@ -57,18 +57,33 @@ class LoggedInWelcomeController extends AbstractMainWindowController
             long idBorne = BorneSingleton.getInstance().getIdBorne();
             Location location;
             Bornette[] bornettesOccupe;
+            Bornette bornette;
+
+            Boolean etatVelo;
+            long idBornette=0;
 
             BornetteDAO bornetteDAO = new BornetteDAO();
             LocationDAO locationDAO = new LocationDAO();
             bornettesOccupe = bornetteDAO.findOccupeAll(idBorne);
-                      
-             if (bornettesOccupe.length != 0)
-            {
-                 location = locationDAO.find(client);
-                if (location==null)
-                {
-                    Bornette bornette = bornetteDAO.findOccupe(idBorne);
 
+            location = locationDAO.find(client);
+
+            for (int i=0; i<bornettesOccupe.length; i++)
+            {
+                 etatVelo = bornettesOccupe[i].getVelo().getEtat();
+                 if (etatVelo == true)
+                 {
+                     idBornette=bornettesOccupe[i].getId();
+                     i=bornettesOccupe.length;
+                 }
+             }
+
+            if (location==null)
+            {
+                if (bornettesOccupe.length != 0 && idBornette != 0 )
+                {
+                bornette=bornetteDAO.find(idBornette);                
+                
                     LouerVeloPanel louerVeloPanel =
                         new LouerVeloPanel(client, bornette);
                     LouerVeloController louerVeloController =
@@ -78,12 +93,12 @@ class LoggedInWelcomeController extends AbstractMainWindowController
                 }
                 else
                 {
-                    loggedInWelcomePanel.locationErrorPopup();
+                    loggedInWelcomePanel.veloErrorPopup();
                 }
             }
             else
             {
-                loggedInWelcomePanel.veloErrorPopup();
+                loggedInWelcomePanel.locationErrorPopup();
             }
         }
     }
@@ -105,7 +120,6 @@ class LoggedInWelcomeController extends AbstractMainWindowController
             LocationDAO locationDAO = new LocationDAO();
             BornetteDAO bornetteDAO = new BornetteDAO();
             bornettesLibre = bornetteDAO.findLibreAll(idBorne);
-            System.out.println("La taille du tableau est : " + bornettesLibre.length);
             if(bornettesLibre.length != 0)
             {
                 location = locationDAO.find(client);
@@ -115,6 +129,7 @@ class LoggedInWelcomeController extends AbstractMainWindowController
                     Date dateFinLocation = new Date();
                     location.setDateFinLocation(dateFinLocation);
                     bike = location.getVelo();
+
                     bornette = bornetteDAO.findLibreOne(idBorne);
                     // attaching the bike to the stand
                     bornette.setVelo(bike);

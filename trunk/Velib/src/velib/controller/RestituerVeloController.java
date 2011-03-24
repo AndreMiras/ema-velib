@@ -48,8 +48,7 @@ public class RestituerVeloController extends AbstractMainWindowController
         public void actionPerformed(ActionEvent e)
         {
             //velos = veloDAO.findVeloPanne();
-            System.out.println("Je suis la");
-            DeclarerProblemPanel declarerProblemPanel = new DeclarerProblemPanel(client);
+             DeclarerProblemPanel declarerProblemPanel = new DeclarerProblemPanel(client);
             DeclarerProblemController declarerProblemController =
                     new DeclarerProblemController(mainWindowController, 
                     declarerProblemPanel, client, location);
