@@ -115,8 +115,6 @@ public class AbonnementDAOTest {
         Abonnement expResult = null;
         Abonnement result = instance.update(obj);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -126,11 +124,15 @@ public class AbonnementDAOTest {
     public void testDelete()
     {
         System.out.println("delete");
-        Abonnement obj = null;
-        AbonnementDAO instance = new AbonnementDAO();
-        instance.delete(obj);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        AbonnementDAO abonnementDAO = new AbonnementDAO();
+
+        Abonnement abonnement = abonnementDAO.find(1);
+        abonnementDAO.delete(abonnement);
+        assertEquals(1, abonnement.getId());
+
+        // after deleting, the find should return null
+        abonnement = abonnementDAO.find(1);
+        assertEquals(null, abonnement);
     }
 
     /**
