@@ -44,7 +44,6 @@ public class AbonnementDAO extends DAO<Abonnement> {
             if(result.first())
             {
                 long id = result.getLong(1);
-                System.out.println("id :" + id);
                 PreparedStatement prepare = this.connect.prepareStatement(
                         "INSERT INTO "
                         + abonnementTable
@@ -118,7 +117,6 @@ public class AbonnementDAO extends DAO<Abonnement> {
         String clientTable = tableNames[0];
         try
         {
-            System.out.println("Je suis dans l'update");
                   this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE

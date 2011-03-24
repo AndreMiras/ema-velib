@@ -135,7 +135,6 @@ public class BornesDAO  extends DAO<Borne>{
             if(result.first())
             {
             long id = result.getLong(1);
-            System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
                                                     	"INSERT INTO " +
                                                         borneTable +

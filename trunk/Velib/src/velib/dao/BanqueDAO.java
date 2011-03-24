@@ -40,7 +40,6 @@ public class BanqueDAO extends DAO<Bank>
                                     );
             if(result.first()){
             long id = result.getLong(1);
-            System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
                                          "INSERT INTO banques "
                                          + "(idbanque, numero, identifiant, "
@@ -87,8 +86,6 @@ public class BanqueDAO extends DAO<Bank>
                 //Date date = result.getDate("dateexpiration");
                 String codeVerif = result.getString("codeVerif");
                
-                System.out.println("id =" + id);
-
                compteBanque = new Bank(id, numero, identifiant, codeVerif);
             }
         }

@@ -37,7 +37,6 @@ public class BornetteDAO extends DAO<Bornette>
             if(result.first())
             {
             long id = result.getLong(1);
-            System.out.println("id :" + id);
             PreparedStatement prepare = this.connect.prepareStatement(
                                                     	"INSERT INTO " +
                                                         bornetteTable +
@@ -199,7 +198,6 @@ public class BornetteDAO extends DAO<Bornette>
                         " idvelo = " + idvelo+
                     	" WHERE idbornette = " + obj.getId();
 
-            System.out.println("La requête a effectué est la suivante : " + sql);
 
             this .connect.createStatement(
                     	ResultSet.TYPE_SCROLL_INSENSITIVE,
