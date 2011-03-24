@@ -104,7 +104,7 @@ public class VeloDAO extends DAO<Velo>
                 if(result.first())
                 {
                               
-                    Long idvelo = result.getLong("idvelo");
+                    long idvelo = result.getLong("idvelo");
                     boolean etat = result.getBoolean("etat");
                     velo = new Velo(idvelo, etat);
 
