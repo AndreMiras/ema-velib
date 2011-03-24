@@ -56,11 +56,11 @@ public class AbonnementDAO extends DAO<Abonnement> {
                         + "VALUES(?, ?, ?, ?)"
                     );
                         prepare.setLong(1, id);
-                        prepare.setDate(2,
-                                new java.sql.Date(
+                        prepare.setTimestamp(2,
+                                new java.sql.Timestamp(
                                     obj.getDateDebut().getTime()));
-                        prepare.setDate(3,
-                                new java.sql.Date(
+                        prepare.setTimestamp(3,
+                                new java.sql.Timestamp(
                                     obj.getDateFin().getTime()));
                         // prepare.setLong(4, obj.getClient().getClientId());
                         prepare.setLong(4, obj.getType().getId());
@@ -100,8 +100,8 @@ public class AbonnementDAO extends DAO<Abonnement> {
                 abonnement =
                         new Abonnement(
                         result.getLong("idabonnement"), typeAbonnement);
-                abonnement.setDateDebut(result.getDate("datedebut"));
-                abonnement.setDateFin(result.getDate("datefin"));
+                abonnement.setDateDebut(result.getTimestamp("datedebut"));
+                abonnement.setDateFin(result.getTimestamp("datefin"));
             }
 
         }

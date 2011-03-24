@@ -127,7 +127,6 @@ public class ClientDAO extends DAO<Client>
                                          );
                 if(result.first())
                 {
-                    
                     user = userDAO.find(result.getLong("iduser"));
                     banque = banqueDAO.find(result.getLong("idbanque"));
                     client = new Client(
@@ -195,10 +194,9 @@ public class ClientDAO extends DAO<Client>
             String clientTable = tableNames[0];
             try
             {
-                System.out.println("Je suis dans l'update");
-                      this.connect.createStatement(
-                        ResultSet.TYPE_SCROLL_INSENSITIVE,
-                        ResultSet.CONCUR_UPDATABLE
+                  this.connect.createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE
              ).executeUpdate(
              //TODO remove that shit, man (something else, you say firstname = obj.getLastname and lastname = obj.getFirstname ???)
                     "UPDATE "
