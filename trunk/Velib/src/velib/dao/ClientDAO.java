@@ -13,6 +13,7 @@ package velib.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
 import velib.model.Bank;
 
 import velib.model.Client;
@@ -188,6 +189,48 @@ public class ClientDAO extends DAO<Client>
 
         return client;
 
+        }
+
+        public Client[] findAllClient ()
+        {
+            String clientTable = tableNames[0];
+            Vector<Client> clientVector = new Vector<Client>();
+            Client client;
+            User user;
+            UserDAO userDAO = new UserDAO();
+            Bank banque;
+            BanqueDAO banqueDAO = new BanqueDAO();
+
+            try
+            {
+                ResultSet result = this.connect.createStatement(
+                                        ResultSet.TYPE_SCROLL_INSENSITIVE,
+                                        ResultSet.CONCUR_READ_ONLY
+                                         ).executeQuery(
+                                        "SELECT * FROM "+clientTable
+                                        );
+                while (result.next())
+                {
+                    user = userDAO.find(result.getLong("iduser"));
+                    banque = banqueDAO.find(result.getLong("idbanque"));
+                    client = new Client(
+                                        result.getLong("idclient"),
+                                        result.getString("firstname"),
+                                        result.getString("lastname"), user);
+                    client.setAdresse(result.getString("adresse"));
+                    client.setVille(result.getString("ville"));
+                    client.setDateNaissance(result.getTimestamp("Datenaissance"));
+                    client.setCodePostal(result.getLong("codepostal"));
+                    client.setBanque(banque);
+                    clientVector.add(client);
+                }
+            }
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
+
+            return clientVector.toArray(new Client[clientVector.size()]);
         }
 
 	public Client update(Client obj)
