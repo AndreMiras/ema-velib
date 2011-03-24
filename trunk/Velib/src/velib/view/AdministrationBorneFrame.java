@@ -55,9 +55,9 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
         }
     }
 
-    private void setUpAdministrationBornetteFrame()
+    public void setUpAdministrationBornetteFrame()
     {
-        // TODO: that should never ever be done in the view
+        // TODO: that should not be done in the view
         BornetteDAO bornetteDAO = new BornetteDAO();
         long idBORNE;
         idBORNE = (Long) borneListe2jComboBox.getSelectedItem();
@@ -66,7 +66,6 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
         bornetteListjComboBox.removeAllItems();
         for (int i=0; i<bornettes.length; i++)
         {
-            System.out.println(bornettes[i].getId());
             bornetteListjComboBox.addItem(bornettes[i].getId());
         }
     }
@@ -76,6 +75,21 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
         addBornetteButton.addActionListener(al);
     }
 
+    public void addAddBorneButtonListener(ActionListener al)
+    {
+        addBorneButton.addActionListener(al);
+    }
+
+    public void addAddBikeButtonListener(ActionListener al)
+    {
+        addBikeButton.addActionListener(al);
+    }
+
+    public void addBorneListe2jComboBoxListener(ActionListener al)
+    {
+        borneListe2jComboBox.addActionListener(al);
+    }
+
     public Borne getBorneFromInput()
     {
         Borne selectedBorne;
@@ -83,8 +97,6 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
         return selectedBorne;
     }
 
-    /** -------------------------------
-     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -197,12 +209,6 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
 
         jLabel7.setText("ID de la Bornette parent");
 
-        borneListe2jComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                borneListe2jComboBoxActionPerformed(evt);
-            }
-        });
-
         jLabel8.setText("ID de la Borne parent");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -273,11 +279,6 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void borneListe2jComboBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_borneListe2jComboBoxActionPerformed
-    {//GEN-HEADEREND:event_borneListe2jComboBoxActionPerformed
-        setUpAdministrationBornetteFrame();
-    }//GEN-LAST:event_borneListe2jComboBoxActionPerformed
 
     /**
     * @param args the command line arguments
