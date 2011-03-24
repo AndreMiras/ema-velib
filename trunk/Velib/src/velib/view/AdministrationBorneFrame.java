@@ -50,29 +50,24 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
     {
         for (int i=0; i<bornes.length; i++)
         {
-            borneListejComboBox.addItem(bornes[i]);
-            borneListe2jComboBox.addItem(bornes[i]);
+            borneListejComboBox.addItem(bornes[i].getIdBorne());
+            borneListe2jComboBox.addItem(bornes[i].getIdBorne());
         }
     }
 
     private void setUpAdministrationBornetteFrame()
     {
         // TODO: that should never ever be done in the view
-        //Borne.station;
-        BornesDAO stationDAO = new BornesDAO();
         BornetteDAO bornetteDAO = new BornetteDAO();
-        long idBORNE = 0;
-        //idBORNE = valueOf(borneListe2jComboBox.getSelectedItem());
-
-        //station = (Borne)borneListe2jComboBox.getSelectedItem();
-        //station = stationDAO.find(station.getIdBorne());
+        long idBORNE;
+        idBORNE = (Long) borneListe2jComboBox.getSelectedItem();
         bornettes = bornetteDAO.findLibreAll(idBORNE);
         
         for (int i=0; i<bornettes.length; i++)
         {
-            bornetteListjComboBox.addItem(bornes[i]);
+            System.out.println(bornettes[i].getId());
+            bornetteListjComboBox.addItem(bornettes[i].getId());
         }
-        System.out.println(idBORNE);
     }
 
     public void addAddBornetteButtonListener(ActionListener al)
@@ -280,7 +275,6 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
 
     private void borneListe2jComboBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_borneListe2jComboBoxActionPerformed
     {//GEN-HEADEREND:event_borneListe2jComboBoxActionPerformed
-        System.out.println("TEST");
         setUpAdministrationBornetteFrame();
     }//GEN-LAST:event_borneListe2jComboBoxActionPerformed
 
