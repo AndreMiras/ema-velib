@@ -72,8 +72,8 @@ public class BornetteDAOTest {
     {
         System.out.println("create Bornette");
 
-        Borne borne = new Borne(0, "Borne1");
-        Velo velo = new Velo(0, true);
+        Borne borne = new Borne(0L, "Borne1");
+        Velo velo = new Velo(0L, true);
         BornesDAO borneDAO = new BornesDAO();
         VeloDAO veloDAO = new VeloDAO();
          // set the id to 0, the db should give a correct one
