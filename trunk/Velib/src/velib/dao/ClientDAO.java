@@ -206,7 +206,7 @@ public class ClientDAO extends DAO<Client>
                     //+ " idabonnement = '" + obj.getAbonnement().getId() + "',"
                     + " firstname = '" + obj.getFirstname() + "',"
                     + " lastname = '" + obj.getLastname() + "',"
-                    + " datenaissance = '" + new java.sql.Timestamp(obj.getDateNaissance().getTime()) + "',"
+                    + " datenaissance = '" + new java.sql.Date(obj.getDateNaissance().getTime()) + "',"
                     + " adresse = '" + obj.getAdresse() + "',"
                     + " ville = '" + obj.getVille() + "'"
                     //+ " codepostal = '" + obj.getCodePostal() + "',"
