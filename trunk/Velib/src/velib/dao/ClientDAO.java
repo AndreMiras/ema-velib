@@ -171,12 +171,12 @@ public class ClientDAO extends DAO<Client>
             if(result.first())
             {
              
-                Long idClient = result.getLong("idclient");
+                /*Long idClient = result.getLong("idclient");
                 Long idUser = result.getLong("iduser");
                 String firstname = result.getString("firstname");
                 String lastname = result.getString("lastname");
-
-                client = new Client(idClient, firstname, lastname, user);
+                client = new Client(idClient, firstname, lastname, user);*/
+                client = find(result.getLong("idclient"));
             }
         }
         catch (SQLException e)
