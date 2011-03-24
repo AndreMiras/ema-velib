@@ -202,6 +202,8 @@ public class ClientDAO extends DAO<Client>
         {
             String clientTable = tableNames[0];
             Client client = new Client();
+            BanqueDAO banqueDAO = new BanqueDAO();
+            Bank banque;
 
             try
             {
@@ -223,6 +225,12 @@ public class ClientDAO extends DAO<Client>
                 String firstname = result.getString("firstname");
                 String lastname = result.getString("lastname");
                 client = new Client(idClient, firstname, lastname, user);
+                                    client.setAdresse(result.getString("adresse"));
+                client.setVille(result.getString("ville"));
+                client.setDateNaissance(result.getTimestamp("Datenaissance"));
+                client.setCodePostal(result.getLong("codepostal"));
+                banque = banqueDAO.find(result.getLong("idbanque"));
+                client.setBanque(banque);
                 //client = find(result.getLong("idclient"));
             }
         }

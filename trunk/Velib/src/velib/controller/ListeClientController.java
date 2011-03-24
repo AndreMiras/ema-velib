@@ -63,7 +63,6 @@ public class ListeClientController
         public void actionPerformed(ActionEvent e)
         {
             locations = locationDAO.findAllLocationByClient(client);
-            System.out.println("La taille du tableau est : " + locations.length);
             showActivitiesClientFrame = new ShowActivitiesClientFrame(client, locations);
             showActivitiesClientController = new ShowActivitiesClientController(showActivitiesClientFrame);
             showActivitiesClientFrame.setVisible(true);
