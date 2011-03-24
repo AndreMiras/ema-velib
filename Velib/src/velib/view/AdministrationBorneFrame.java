@@ -3,17 +3,10 @@
  * and open the template in the editor.
  */
 
-/*
- * AdministrationBorneFrame.java
- *
- * Created on 21 mars 2011, 15:49:17
- */
-
 package velib.view;
 
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
-import velib.dao.BornesDAO;
 import velib.dao.BornetteDAO;
 import velib.model.Borne;
 import velib.model.Bornette;
@@ -38,7 +31,6 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
     {
         this();
         this.bornes = bornes;
-        //this.bornettes = bornettes;
         setUpAdministrationBorneFrame();
     }
 
@@ -335,5 +327,4 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
-
 }
