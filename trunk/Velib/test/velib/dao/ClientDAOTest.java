@@ -158,13 +158,13 @@ public class ClientDAOTest {
 
         // before updating the city
         assertEquals(client.getFirstname(), "Andre");
-        assertEquals(client.getVille(), "Montpellier");
+
         System.out.println("Ville avant update " + client.getVille());
         
         // Updating ville to Nimes
         client.setVille("Nimes");
         client = clientDAO.update(client);
-        System.out.println("La ville après l'update" + client.getVille());
+
         assertEquals(client.getVille(), "Nimes");
     }
 
