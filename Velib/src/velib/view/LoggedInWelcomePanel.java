@@ -12,6 +12,7 @@
 package velib.view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import velib.model.Client;
 import velib.model.User;
 
@@ -37,6 +38,7 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel
         setUpLoggedInWelcomePanel();
     }
 
+
     public void addLouerUnVeloButtonListener(ActionListener al)
     {
         this.louerVeloButton.addActionListener(al);
@@ -50,6 +52,15 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel
     public void addRechargerButtonListener(ActionListener al)
     {
         this.rechargerButton.addActionListener(al);
+    }
+
+    public void restituionErrorPopup()
+    {
+        JOptionPane.showMessageDialog(this, "Vous n'avez pas de vélo en location");
+    }
+    public void locationErrorPopup()
+    {
+        JOptionPane.showMessageDialog(this, "Vous avez déjà un vélo en location");
     }
 
     /*

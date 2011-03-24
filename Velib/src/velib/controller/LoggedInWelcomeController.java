@@ -55,16 +55,28 @@ class LoggedInWelcomeController extends AbstractMainWindowController
         public void actionPerformed(ActionEvent e)
         {
             long idBorne = BorneSingleton.getInstance().getIdBorne();
+            Location location;
 
             BornetteDAO bornetteDAO = new BornetteDAO();
-            Bornette bornette = bornetteDAO.findOccupe(new Long(1));
-            
-            LouerVeloPanel louerVeloPanel =
+            LocationDAO locationDAO = new LocationDAO();
+            location = locationDAO.find(client);
+
+            if (location==null)
+            {
+                Bornette bornette = bornetteDAO.findOccupe(new Long(1));
+
+
+                LouerVeloPanel louerVeloPanel =
                     new LouerVeloPanel(client, bornette);
-            LouerVeloController louerVeloController =
+                LouerVeloController louerVeloController =
                     new LouerVeloController(
                     mainWindowController, client, bornette, louerVeloPanel);
-            setMainWindowContentPanel(louerVeloPanel);
+                setMainWindowContentPanel(louerVeloPanel);
+            }
+            else
+            {
+                loggedInWelcomePanel.locationErrorPopup();
+            }
         }
     }
 
@@ -82,7 +94,9 @@ class LoggedInWelcomeController extends AbstractMainWindowController
             BornetteDAO bornetteDAO = new BornetteDAO();
             
             location = locationDAO.find(client);
-           
+
+            if (location != null)
+            {
             Date dateFinLocation = new Date();
             location.setDateFinLocation(dateFinLocation);
             bike = location.getVelo();
@@ -103,6 +117,11 @@ class LoggedInWelcomeController extends AbstractMainWindowController
                     new RestituerVeloController(
                     mainWindowController, restituerVeloPanel, client);
             setMainWindowContentPanel(restituerVeloPanel);
+            }
+            else
+            {
+                loggedInWelcomePanel.restituionErrorPopup();
+            }
            
         }
     }
