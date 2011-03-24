@@ -121,13 +121,11 @@ public class AbonnementDAO extends DAO<Abonnement> {
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
          ).executeUpdate(
-         //TODO remove that shit, man (something else, you say firstname = obj.getLastname and lastname = obj.getFirstname ???)
                 "UPDATE "
                 + clientTable
                 + " SET idtype = '" + obj.getType().getId() + "',"
                 + " datedebut = '" + new java.sql.Timestamp(obj.getDateDebut().getTime()) + "',"
-                + " datefin = '" + new java.sql.Timestamp(obj.getDateFin().getTime()) + "',"
-                //+ " codepostal = '" + obj.getCodePostal() + "',"
+                + " datefin = '" + new java.sql.Timestamp(obj.getDateFin().getTime()) + "'"
                 + " WHERE idabonnement = " + obj.getId()
          );
 
@@ -175,8 +173,8 @@ public class AbonnementDAO extends DAO<Abonnement> {
         statementStrings[1] =
                     String.format("CREATE TABLE %s" +
                     "(idabonnement INTEGER, " +
-                    "datedebut DATE, " +
-                    "datefin DATE, " +
+                    "datedebut DATETIME, " +
+                    "datefin DATETIME, " +
                     // "idclient INTEGER, " +
                     "idtype INTEGER) " , tableNames[0]);
           statementStrings[2] =
