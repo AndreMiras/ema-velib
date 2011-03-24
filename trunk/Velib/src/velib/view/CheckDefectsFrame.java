@@ -15,7 +15,7 @@ public class CheckDefectsFrame extends javax.swing.JFrame
 {
     private Velo[] velos;
     private velib.view.CheckDefectsFrame checkDefectsFrame;
-    //private Velo[] velos;
+
     /** Creates new form CheckDefectsFrame */
     public CheckDefectsFrame()
     {
@@ -26,7 +26,7 @@ public class CheckDefectsFrame extends javax.swing.JFrame
     {
         this();
         this.velos = velos;
-        //fillUpJList();
+        fillUpJList();
     }
 
     public CheckDefectsFrame getCheckDefectsFrame()

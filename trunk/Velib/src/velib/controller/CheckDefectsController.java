@@ -17,6 +17,6 @@ public class CheckDefectsController
 
     public CheckDefectsController(CheckDefectsFrame checkDefectsFrame)
     {
-        this.checkDefectsFrame = checkDefectsFrame; //checkDefectsFrame();
+        this.checkDefectsFrame = checkDefectsFrame;
     }
 }

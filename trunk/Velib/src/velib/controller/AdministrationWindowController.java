@@ -22,14 +22,6 @@ import velib.model.Borne;
 import velib.dao.BornesDAO;
 
 
-import velib.model.IModel;
-import javax.swing.JPanel;
-import velib.dao.BorneSingleton;
-import velib.view.EditBornFrame;
-import velib.view.IView;
-import velib.view.MainWindowFrame;
-import velib.view.WelcomeScreenPanel;
-import velib.view.DBConnectionFrame;
 
 /**
  *
