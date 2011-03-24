@@ -12,6 +12,7 @@
 package velib.view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JTextField;
 import velib.dao.BornesDAO;
 import velib.dao.BornetteDAO;
 import velib.model.Borne;
@@ -25,6 +26,7 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
     private velib.view.AdministrationBorneFrame administrationBorneFrame;
     private Borne[] bornes;
     private Bornette[] bornettes;
+    BornetteDAO bornetteDAO = new BornetteDAO();
 
     /** Creates new form AdministrationBorneFrame */
     public AdministrationBorneFrame()
@@ -58,12 +60,11 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
     public void setUpAdministrationBornetteFrame()
     {
         // TODO: that should not be done in the view
-        BornetteDAO bornetteDAO = new BornetteDAO();
         long idBORNE;
         idBORNE = (Long) borneListe2jComboBox.getSelectedItem();
         bornettes = bornetteDAO.findLibreAll(idBORNE);
 
-        bornetteListjComboBox.removeAllItems();
+        bornetteListjComboBox.removeAllItems(); //Nettoyage de la liste avant nouvelle insertion
         for (int i=0; i<bornettes.length; i++)
         {
             bornetteListjComboBox.addItem(bornettes[i].getId());
@@ -90,11 +91,33 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
         borneListe2jComboBox.addActionListener(al);
     }
 
-    public Borne getBorneFromInput()
+    public Long getBorneFromInput()
     {
-        Borne selectedBorne;
-        selectedBorne = (Borne)borneListejComboBox.getSelectedItem();
+        Long selectedBorne;
+        selectedBorne = (Long)borneListejComboBox.getSelectedItem();
         return selectedBorne;
+    }
+
+    public Long getBornetteFromInput()
+    {
+        Long selectedBornette;
+        selectedBornette = (Long) bornetteListjComboBox.getSelectedItem();
+        return selectedBornette;
+    }
+
+    public JTextField getBorneNameTextField()
+    {
+        return BorneNameTextField;
+    }
+
+    public JTextField getBorneXPosTextField()
+    {
+        return BorneXPosTextField;
+    }
+
+    public JTextField getBorneYPosTextField()
+    {
+        return BorneYPosTextField;
     }
 
     @SuppressWarnings("unchecked")
