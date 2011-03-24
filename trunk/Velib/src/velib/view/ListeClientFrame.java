@@ -12,6 +12,7 @@
 package velib.view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JTextField;
 import velib.model.Client;
 
 /**
@@ -20,32 +21,37 @@ import velib.model.Client;
  */
 public class ListeClientFrame extends javax.swing.JFrame {
 
-    private Client[] clients;
-
+   
     /** Creates new form ListeClientFrame */
     public ListeClientFrame() {
         initComponents();
     }
 
-        public ListeClientFrame(Client[] clients)
+
+
+
+    public void addClientValiderButtonListener(ActionListener al)
     {
-        this();
-        this.clients = clients;
-        setUpListeClientFrame();
+        validerButton.addActionListener(al);
     }
 
-    private void setUpListeClientFrame()
+
+
+    public void setUpInfoClientFrame(Client client)
     {
-        for (int i=0; i<clients.length; i++)
-        {
-            listeClientsComboBox.addItem(clients[i].getFullName());
-        }
+      lastNameLabelFillup.setText(client.getLastname());
+      firstNameLabelFillUp.setText(client.getFirstname());
     }
 
-    public void addClientListeComboBoxListener(ActionListener al)
-    {
-        listeClientsComboBox.addActionListener(al);
+    public JTextField getFirstNamejTextField() {
+        return firstNamejTextField;
     }
+
+    public JTextField getLastNamejTextField() {
+        return lastNamejTextField;
+    }
+
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -57,24 +63,77 @@ public class ListeClientFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         listeClientLabel = new java.awt.Label();
-        listeClientsComboBox = new javax.swing.JComboBox();
+        lastNameLabel = new java.awt.Label();
+        firstNameLabel = new java.awt.Label();
+        lastNameLabelFillup = new java.awt.Label();
+        firstNameLabelFillUp = new java.awt.Label();
+        lastNamejTextField = new javax.swing.JTextField();
+        firstNamejTextField = new javax.swing.JTextField();
+        validerButton = new javax.swing.JButton();
+        adresseLabel = new java.awt.Label();
+        adresseLabelFilup = new java.awt.Label();
+        DifferentActivitiesjButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         listeClientLabel.setText("Informations clients");
 
+        lastNameLabel.setText("Nom :");
+
+        firstNameLabel.setText("Prénom :");
+
+        lastNameLabelFillup.setText("Lastname");
+
+        firstNameLabelFillUp.setText("FirstName");
+
+        lastNamejTextField.setText("Nom");
+
+        firstNamejTextField.setText("Prenom");
+
+        validerButton.setText("valider");
+
+        adresseLabel.setText("Adresse : ");
+
+        adresseLabelFilup.setText("adresse");
+
+        DifferentActivitiesjButton.setText("Voir différentes activitées");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(146, Short.MAX_VALUE)
-                .addComponent(listeClientLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(142, 142, 142))
             .addGroup(layout.createSequentialGroup()
-                .addGap(197, 197, 197)
-                .addComponent(listeClientsComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addGap(122, 122, 122)
+                .addComponent(listeClientLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(259, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lastNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(446, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(adresseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(424, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(lastNamejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(firstNamejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(firstNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lastNameLabelFillup, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(firstNameLabelFillUp, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(adresseLabelFilup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DifferentActivitiesjButton)
+                    .addComponent(validerButton))
+                .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,8 +141,27 @@ public class ListeClientFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(listeClientLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(listeClientsComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lastNamejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(validerButton)
+                    .addComponent(firstNamejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lastNameLabelFillup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(firstNameLabelFillUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lastNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(firstNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(adresseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adresseLabelFilup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(62, 62, 62)
+                .addComponent(DifferentActivitiesjButton)
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         pack();
@@ -101,8 +179,17 @@ public class ListeClientFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton DifferentActivitiesjButton;
+    private java.awt.Label adresseLabel;
+    private java.awt.Label adresseLabelFilup;
+    private java.awt.Label firstNameLabel;
+    private java.awt.Label firstNameLabelFillUp;
+    private javax.swing.JTextField firstNamejTextField;
+    private java.awt.Label lastNameLabel;
+    private java.awt.Label lastNameLabelFillup;
+    private javax.swing.JTextField lastNamejTextField;
     private java.awt.Label listeClientLabel;
-    private javax.swing.JComboBox listeClientsComboBox;
+    private javax.swing.JButton validerButton;
     // End of variables declaration//GEN-END:variables
 
 }

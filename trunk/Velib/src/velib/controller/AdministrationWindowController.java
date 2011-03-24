@@ -136,10 +136,8 @@ public class AdministrationWindowController
     {
         public void actionPerformed(ActionEvent e)
         {
-            clientDAO = new ClientDAO();
-            Client[] clients;
-            clients = clientDAO.findAllClient();
-            listeClientFrame = new ListeClientFrame(clients);
+
+            listeClientFrame = new ListeClientFrame();
             listeClientController = new ListeClientController(listeClientFrame
                     );
             listeClientFrame.setVisible(true);

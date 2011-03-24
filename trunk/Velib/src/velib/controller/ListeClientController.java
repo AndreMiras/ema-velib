@@ -7,9 +7,10 @@ package velib.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.text.DefaultEditorKit.InsertTabAction;
-import velib.dao.IDatabaseManagementDAO;
-import velib.view.DatabaseManagementFrame;
+import velib.dao.ClientDAO;
+
+import velib.model.Client;
+
 import velib.view.ListeClientFrame;
 
 /**
@@ -19,10 +20,10 @@ import velib.view.ListeClientFrame;
 public class ListeClientController
 {
 
-    private IDatabaseManagementDAO databaseManagement;
-    private DatabaseManagementFrame view;
 
     private ListeClientFrame listeClientFrame;
+    Client client;
+    ClientDAO clientDAO = new ClientDAO();
 
     public ListeClientController(ListeClientFrame listeClientFrame)
     {
@@ -32,7 +33,7 @@ public class ListeClientController
 
     private void addListeners()
     {
-        listeClientFrame.addClientListeComboBoxListener(
+        listeClientFrame.addClientValiderButtonListener(
                 new ClientListe2ComboBoxListener());
     }
 
@@ -40,6 +41,13 @@ public class ListeClientController
     {
         public void actionPerformed(ActionEvent e)
         {
+            String lastName = listeClientFrame.getLastNamejTextField().getText();
+            String firstName = listeClientFrame.getFirstNamejTextField().getText();
+            System.out.println("Lastname " + lastName);
+            System.out.println("Firstname " + firstName);
+             client = clientDAO.findByName(lastName, firstName);
+            System.out.println("Id du client " + client.getClientId());
+             listeClientFrame.setUpInfoClientFrame(client);
 
         }
     }
