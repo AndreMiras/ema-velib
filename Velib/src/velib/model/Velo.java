@@ -41,6 +41,13 @@ public class Velo
         return etat;
     }
 
+    public void setEtat(boolean etat)
+    {
+        this.etat = etat;
+    }
+
+    
+
     @Override
     public String toString()
     {

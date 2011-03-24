@@ -129,7 +129,7 @@ class LoggedInWelcomeController extends AbstractMainWindowController
                             new RestituerVeloPanel(client, bornette);
                     RestituerVeloController restituerVeloController =
                             new RestituerVeloController(
-                            mainWindowController, restituerVeloPanel, client);
+                            mainWindowController, restituerVeloPanel, client, location);
                     setMainWindowContentPanel(restituerVeloPanel);
                 }
                 else
