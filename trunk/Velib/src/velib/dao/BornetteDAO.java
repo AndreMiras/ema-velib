@@ -50,7 +50,15 @@ public class BornetteDAO extends DAO<Bornette>
 				prepare.setLong(1, id);
                                 prepare.setLong(2, obj.getNumero());                                
                                 prepare.setLong(3, obj.getBorne().getIdBorne());
-                                prepare.setLong(4, obj.getVelo().getId());
+                                if(obj.getVelo()==null)
+                                {
+                                    prepare.setNull(4, java.sql.Types.INTEGER);
+                                }
+                                else
+                                {
+                                    prepare.setLong(4, obj.getVelo().getId());
+                                }
+                                
 
 				prepare.executeUpdate();
 				obj = this.find(id);
@@ -62,7 +70,7 @@ public class BornetteDAO extends DAO<Bornette>
 	    return obj;
     }
 
-    public Bornette findLibreOne(Long idBorne)
+    public Bornette findLibreOne(long idBorne)
     {
         String bornetteTable = tableNames[0];
         Bornette bornette = new Bornette();
@@ -97,7 +105,7 @@ public class BornetteDAO extends DAO<Bornette>
         return bornette;
     }
 
-     public Bornette[] findLibreAll(Long idBorne)
+     public Bornette[] findLibreAll(long idBorne)
     {
         String bornetteTable = tableNames[0];
         Vector<Bornette> bornetteVector = new Vector<Bornette>();
@@ -134,7 +142,7 @@ public class BornetteDAO extends DAO<Bornette>
         return bornetteVector.toArray(new Bornette[bornetteVector.size()]);
     }
 
-    public Bornette findOccupe(Long idBorne)
+    public Bornette findOccupe(long idBorne)
     {
         String bornetteTable = tableNames[0];
         Bornette bornette = new Bornette();
@@ -205,6 +213,7 @@ public class BornetteDAO extends DAO<Bornette>
         catch (SQLException e)
         {
 	  e.printStackTrace();
+          obj = null;
 	}
         return obj;
     }
@@ -218,7 +227,7 @@ public class BornetteDAO extends DAO<Bornette>
     @Override
     public Bornette find(long id) {
         String bornettesTable = tableNames[0];
-        Bornette bornette = new Bornette();
+        Bornette bornette = null;
         Borne borne;
         BornesDAO borneDAO = new BornesDAO();
         Velo velo;
