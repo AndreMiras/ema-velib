@@ -135,6 +135,8 @@ public class ClientDAO extends DAO<Client>
                                         result.getString("lastname"), user);
                     client.setAdresse(result.getString("adresse"));
                     client.setVille(result.getString("ville"));
+                    client.setDateNaissance(result.getTimestamp("Datenaissance"));
+                    client.setCodePostal(result.getLong("codepostal"));
                     client.setBanque(banque);
                 }
 
