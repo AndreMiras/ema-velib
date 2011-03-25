@@ -8,6 +8,7 @@ package velib.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import velib.dao.ClientDAO;
+import velib.model.Abonnement;
 import velib.model.Client;
 import velib.view.CreateUserPasswordPanel;
 import velib.view.MainWindowFrame;
@@ -21,12 +22,14 @@ import velib.view.RegisterFormPanel;
 public class RegisterFormController extends AbstractMainWindowController
 {
     private RegisterFormPanel registerFormPanel;
+    private Abonnement subscription;
 
     RegisterFormController(MainWindowController mainWindowController,
-            RegisterFormPanel registerFormPanel)
+            Abonnement subscription, RegisterFormPanel registerFormPanel)
     {
         super(mainWindowController);
         this.registerFormPanel = registerFormPanel;
+        this.subscription = subscription;
 
         addListeners();
     }
@@ -38,10 +41,7 @@ public class RegisterFormController extends AbstractMainWindowController
     }
 
     /*
-     * TODO:
-     *  - payment process
-     *  - user/password creation
-     *  - congrat screen
+     * TODO: payment process
      */
     class OkButtonListener implements ActionListener
     {
@@ -51,8 +51,14 @@ public class RegisterFormController extends AbstractMainWindowController
             ClientDAO clientDAO = new ClientDAO();
 
             client = registerFormPanel.getClientFromInputs();
+
+            /* Adding the subscription object to the client */
+            client.setAbonnement(subscription);
+            
             client = clientDAO.create(client);
             System.out.println("Client created: " + client);
+
+
 
             /* Calling up the create CreateUserPassword  */
             CreateUserPasswordPanel createUserPasswordPanel =

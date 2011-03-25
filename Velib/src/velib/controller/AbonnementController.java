@@ -13,7 +13,6 @@ import velib.model.Abonnement;
 import velib.model.AbonnementType;
 import velib.model.TypeAbonnement;
 import velib.view.AbonnementPanel;
-import velib.view.MainWindowFrame;
 import velib.view.RegisterFormPanel;
 
 /**
@@ -46,10 +45,7 @@ public class AbonnementController extends AbstractMainWindowController
         {
             String actionCommand;
             AbonnementType abonnementType;
-            TypeAbonnement typeAbonnement;
             JButton clickedButton = (JButton)e.getSource();
-            Abonnement subscription;
-            AbonnementDAO subscriptionDAO = new AbonnementDAO();
 
             actionCommand = clickedButton.getActionCommand();
             abonnementType = AbonnementType.valueOf(actionCommand);
@@ -66,24 +62,18 @@ public class AbonnementController extends AbstractMainWindowController
                     
                 /* long subscription */
                 case ONE_WEEK:
-                    longSubscription();
+                    longSubscription(abonnementType);
                     break;
                 case ONE_MONTH:
-                    longSubscription();
+                    longSubscription(abonnementType);
                     break;
                 case ONE_YEAR:
-                    longSubscription();
+                    longSubscription(abonnementType);
                     break;
                 default:
                     System.out.println("Unknown");
                     break;
             }
-
-
-            typeAbonnement = new TypeAbonnement(0, abonnementType);
-            // Hit the database with the subscription object
-            subscription = new Abonnement(0, typeAbonnement);
-            subscriptionDAO.create(subscription);
         }
 
         /*
@@ -94,12 +84,28 @@ public class AbonnementController extends AbstractMainWindowController
             
         }
 
-        private void longSubscription()
+        private void longSubscription(AbonnementType abonnementType)
         {
+            TypeAbonnement typeAbonnement;
+            Abonnement subscription;
+            AbonnementDAO subscriptionDAO = new AbonnementDAO();
+            /*
+             * Create the subscription object and save it to the DB
+             */
+            typeAbonnement = new TypeAbonnement(0, abonnementType);
+            // Hit the database with the subscription object
+            subscription = new Abonnement(0, typeAbonnement);
+            subscriptionDAO.create(subscription);
+
+            
             RegisterFormPanel registerFormPanel = new RegisterFormPanel();
+            /*
+             * Passing the subscription object to the next controller
+             * so it will add it to the client object after creating it
+             */
             RegisterFormController registerFormController =
                     new RegisterFormController(mainWindowController,
-                    registerFormPanel);
+                    subscription, registerFormPanel);
             registerFormPanel.setVisible(true);
 
             setMainWindowContentPanel(registerFormPanel);
