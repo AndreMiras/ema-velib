@@ -74,7 +74,7 @@ public class ClientDAO extends DAO<Client>
                             + "idsubscription, "
                             + "iduser, "
                             + "idbanque) "
-                            + "VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+                            + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 prepare.setLong(1, id);
                 prepare.setString(2, obj.getFirstname());
                 prepare.setString(3, obj.getLastname());
