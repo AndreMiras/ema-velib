@@ -19,7 +19,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
 
     public AbonnementDAO()
     {
-        tableNames = new String[] { "abonnements" };
+        tableNames = new String[] { "subscriptions" };
     }
 
     public Abonnement create(Abonnement obj)
@@ -39,7 +39,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
                                 ResultSet.TYPE_SCROLL_INSENSITIVE,
                       		ResultSet.CONCUR_UPDATABLE
                                     ).executeQuery(
-                                       "CALL NEXT VALUE FOR sequence_abonnements"
+                                       "CALL NEXT VALUE FOR sequence_subscriptions"
                                     );
             if(result.first())
             {
@@ -47,7 +47,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
                 PreparedStatement prepare = this.connect.prepareStatement(
                         "INSERT INTO "
                         + abonnementTable
-                        + "(idabonnement,"
+                        + "(idsubscription,"
                         + "datedebut,"
                         + "datefin,"
                         // + "idclient,"
@@ -90,7 +90,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
                                      ).executeQuery(
                                         "SELECT * FROM "
                                         + typeAbonnementTable
-                                        + " WHERE idabonnement = '" + id + "'"
+                                        + " WHERE idsubscription = '" + id + "'"
                                      );
             if(result.first())
             {
@@ -98,7 +98,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
                         typeAbonnementDAO.find(result.getInt("idtype"));
                 abonnement =
                         new Abonnement(
-                        result.getLong("idabonnement"), typeAbonnement);
+                        result.getLong("idsubscription"), typeAbonnement);
                 abonnement.setDateDebut(result.getTimestamp("datedebut"));
                 abonnement.setDateFin(result.getTimestamp("datefin"));
             }
@@ -126,7 +126,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
                 + " SET idtype = '" + obj.getType().getId() + "',"
                 + " datedebut = '" + new java.sql.Timestamp(obj.getDateDebut().getTime()) + "',"
                 + " datefin = '" + new java.sql.Timestamp(obj.getDateFin().getTime()) + "'"
-                + " WHERE idabonnement = " + obj.getId()
+                + " WHERE idsubscription = " + obj.getId()
          );
 
             obj = this.find(obj.getId());
@@ -154,7 +154,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
          //TODO remove that shit, man
                 "DELETE FROM "
                  + abonnementTable
-                 + " WHERE idabonnement = " + obj.getId()
+                 + " WHERE idsubscription = " + obj.getId()
          );
 
         }
@@ -169,10 +169,10 @@ public class AbonnementDAO extends DAO<Abonnement> {
     {
         String[] statementStrings = new String[4];
         statementStrings[0] =
-                "CREATE SEQUENCE sequence_abonnements START WITH 1 INCREMENT BY 1";
+                "CREATE SEQUENCE sequence_subscriptions START WITH 1 INCREMENT BY 1";
         statementStrings[1] =
                     String.format("CREATE TABLE %s" +
-                    "(idabonnement INTEGER, " +
+                    "(idsubscription INTEGER, " +
                     "datedebut DATETIME, " +
                     "datefin DATETIME, " +
                     // "idclient INTEGER, " +
@@ -180,18 +180,18 @@ public class AbonnementDAO extends DAO<Abonnement> {
           statementStrings[2] =
                 "ALTER TABLE "
                 + tableNames[0]
-                + " ADD CONSTRAINT primary_key_abonnements PRIMARY KEY (idabonnement)";
+                + " ADD CONSTRAINT primary_key_subscriptions PRIMARY KEY (idsubscription)";
           /*
         statementStrings[3] =
                 "ALTER TABLE "
                 + tableNames[0]
-                + " ADD CONSTRAINT foreign_key_abonnements_clients FOREIGN KEY (idclient) REFERENCES clients (idclient)";
+                + " ADD CONSTRAINT foreign_key_subscriptions_clients FOREIGN KEY (idclient) REFERENCES clients (idclient)";
            * 
            */
         statementStrings[3] =
                 "ALTER TABLE "
                 + tableNames[0]
-                + " ADD CONSTRAINT foreign_key_abonnements_typeAbo FOREIGN KEY (idType) REFERENCES typeabonnement (idtype)";
+                + " ADD CONSTRAINT foreign_key_subscriptions_typeAbo FOREIGN KEY (idType) REFERENCES typeabonnement (idtype)";
         return statementStrings;
     }
 
