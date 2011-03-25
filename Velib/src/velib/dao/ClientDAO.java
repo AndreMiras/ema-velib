@@ -38,15 +38,11 @@ public class ClientDAO extends DAO<Client>
             UserDAO userDAO = new UserDAO();
             obj.setUser(userDAO.create(obj.getUser()));
         }
-        //Si l'abonnement n'existe pas
-        /*
         if(obj.getAbonnement().getId() == 0)
         {
             AbonnementDAO abonnementDAO = new AbonnementDAO();
             obj.setAbonnement(abonnementDAO.create(obj.getAbonnement()));
         }
-         * 
-         */
         //Si le compte en banque n'existe pas
         if(obj.getBanque().getId() == 0)
         {
@@ -75,7 +71,7 @@ public class ClientDAO extends DAO<Client>
                             + "adresse, "
                             + "ville, "
                             //+ "codepostal, "
-                            //+ "idabonnement, "
+                            + "idsubscription, "
                             + "iduser, "
                             + "idbanque) "
                             + "VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
@@ -88,9 +84,9 @@ public class ClientDAO extends DAO<Client>
                 prepare.setString(5, obj.getAdresse());
                 prepare.setString(6, obj.getVille());
                 //prepare.setLong(7, obj.getCodePostal());
-                //prepare.setLong(8, obj.getAbonnement().getId());
-                prepare.setLong(7, obj.getUserId());
-                prepare.setLong(8, obj.getBanque().getId());
+                prepare.setLong(7, obj.getAbonnement().getId());
+                prepare.setLong(8, obj.getUserId());
+                prepare.setLong(9, obj.getBanque().getId());
 
                 prepare.executeUpdate();
 
@@ -259,7 +255,7 @@ public class ClientDAO extends DAO<Client>
                     + clientTable
                     + " SET iduser = '" + obj.getUserId() + "',"
                     + " idbanque = '" + obj.getBanque().getId() + "',"
-                    //+ " idabonnement = '" + obj.getAbonnement().getId() + "',"
+                    + " idsubscription = '" + obj.getAbonnement().getId() + "',"
                     + " firstname = '" + obj.getFirstname() + "',"
                     + " lastname = '" + obj.getLastname() + "',"
                     + " datenaissance = '" + new java.sql.Date(obj.getDateNaissance().getTime()) + "',"
@@ -322,10 +318,9 @@ public class ClientDAO extends DAO<Client>
             "adresse VARCHAR(200), " +
             "ville VARCHAR(40), " +
             "codepostal VARCHAR(40), " +
-            // TODO: to me this should be part of the user model, not the client
-            "idabonnement INTEGER, " + // TODO: to be foreign key
-            "iduser INTEGER, " + // TODO: to be foreign key
-            "idbanque INTEGER) " , tableNames[0]); // TODO: foreign key
+            "idsubscription INTEGER, " +
+            "iduser INTEGER, " +
+            "idbanque INTEGER) " , tableNames[0]);
          statementStrings[2] =
                  "ALTER TABLE "
                  + tableNames[0]
@@ -337,7 +332,7 @@ public class ClientDAO extends DAO<Client>
          statementStrings[4] =
                  "ALTER TABLE "
                  + tableNames[0]
-                 + " ADD CONSTRAINT foreign_key_clients_abonnement FOREIGN KEY (idabonnement) REFERENCES abonnements (idabonnement)";
+                 + " ADD CONSTRAINT foreign_key_clients_subscription FOREIGN KEY (idsubscription) REFERENCES subscriptions (idsubscription)";
          statementStrings[5] =
                  "ALTER TABLE "
                  + tableNames[0]
