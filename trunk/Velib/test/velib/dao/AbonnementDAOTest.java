@@ -15,7 +15,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import velib.model.Abonnement;
 import velib.model.AbonnementType;
+import velib.model.Client;
 import velib.model.TypeAbonnement;
+import velib.model.User;
 
 /**
  *
@@ -70,8 +72,12 @@ public class AbonnementDAOTest {
     {
         System.out.println("create");
         TypeAbonnement typeAbonnement;
-        Abonnement abonnementFromDAO;
+        Abonnement subscriptionFromDAO;
+        Abonnement subscription;
+        AbonnementDAO subscriptionDAO;
         Date today, tomorrow;
+        Client client;
+        ClientDAO clientDAO;
 
         today = new Date();
         Calendar calendar = Calendar.getInstance();
@@ -80,22 +86,38 @@ public class AbonnementDAOTest {
         tomorrow = calendar.getTime();
 
         typeAbonnement = new TypeAbonnement(0, AbonnementType.HALF_DAY);
-        Abonnement abonnement = new Abonnement(0, typeAbonnement);
-        abonnement.setDateDebut(today);
-        abonnement.setDateFin(tomorrow);
+        subscription = new Abonnement(0, typeAbonnement);
+        subscription.setDateDebut(today);
+        subscription.setDateFin(tomorrow);
         
         AbonnementDAO abonnementDAO = new AbonnementDAO();
-        abonnementFromDAO = abonnementDAO.create(abonnement);
+        subscriptionFromDAO = abonnementDAO.create(subscription);
 
         // the abonnement object shouldn't have an id
-        assertEquals(0, abonnement.getId());
-        assertEquals(today, abonnement.getDateDebut());
-        assertEquals(tomorrow, abonnement.getDateFin());
+        assertEquals(0, subscription.getId());
+        assertEquals(today, subscription.getDateDebut());
+        assertEquals(tomorrow, subscription.getDateFin());
 
         // until it's being created by the DAO
-        assertEquals(1, abonnementFromDAO.getId());
-        assertEquals(today, abonnementFromDAO.getDateDebut());
-        assertEquals(tomorrow, abonnementFromDAO.getDateFin());
+        assertEquals(1, subscriptionFromDAO.getId());
+        assertEquals(today, subscriptionFromDAO.getDateDebut());
+        assertEquals(tomorrow, subscriptionFromDAO.getDateFin());
+
+
+        /* Now trying to create a subscription object just by adding it
+         * to an user and performing an userDAO.create()
+         */
+        clientDAO = new ClientDAO();
+        client = new Client(0, "firstname", "lastname", new User());
+        typeAbonnement = new TypeAbonnement(0, AbonnementType.ONE_MONTH);
+        subscription = new Abonnement(0, typeAbonnement);
+        client.setAbonnement(subscription);
+        clientDAO.create(client);
+        /*
+         * The subscription object should have been written in the DB
+         */
+        client = clientDAO.findByName("lastname", "firstname");
+        assertTrue(client.getAbonnement().getId() != 0);
     }
 
     /**
