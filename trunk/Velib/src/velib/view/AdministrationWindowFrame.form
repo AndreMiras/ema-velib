@@ -90,21 +90,18 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="editDatabaseButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Edit Database"/>
+        <Property name="text" type="java.lang.String" value="Gestion de la BDD"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="generalManagementButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="General Management"/>
+        <Property name="text" type="java.lang.String" value="Management g&#xe9;n&#xe9;ral"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="usersListButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Liste des utilisateurs actifs"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="usersListButtonActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>

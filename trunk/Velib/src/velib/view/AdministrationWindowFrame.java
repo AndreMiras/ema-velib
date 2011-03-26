@@ -74,16 +74,11 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Administration Nemo Velo");
 
-        editDatabaseButton.setText("Edit Database");
+        editDatabaseButton.setText("Gestion de la BDD");
 
-        generalManagementButton.setText("General Management");
+        generalManagementButton.setText("Management général");
 
         usersListButton.setText("Liste des utilisateurs actifs");
-        usersListButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usersListButtonActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("Toutes les fonctions de manipulation de la base de données.");
 
@@ -158,11 +153,6 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void usersListButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_usersListButtonActionPerformed
-    {//GEN-HEADEREND:event_usersListButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usersListButtonActionPerformed
 
     /**
     * @param args the command line arguments
