@@ -7,7 +7,6 @@ package velib.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import velib.dao.LocationDAO;
 import velib.dao.VeloDAO;
 import velib.view.DeclarerProblemPanel;
 import velib.model.Client;
@@ -24,7 +23,6 @@ public class DeclarerProblemController extends AbstractMainWindowController
     private Client client;
     private Location location;
     private Velo velo;
-    //LocationDAO locationDAO = new LocationDAO();
     VeloDAO veloDAO = new VeloDAO();
 
     public DeclarerProblemController(MainWindowController mainWindowController,
@@ -35,7 +33,6 @@ public class DeclarerProblemController extends AbstractMainWindowController
         this.declarerProblemPanel = declarerProblemPanel;
         this.client = client;
         this.location = location;
-
         addListeners();
     }
 
@@ -51,11 +48,11 @@ public class DeclarerProblemController extends AbstractMainWindowController
     {
         public void actionPerformed(ActionEvent e)
         {
-            long idVelo = location.getVelo().getId();
+            long idVelo = location.getVelo().getId();   //On récupère les ID des vélos en location
             velo = veloDAO.find(idVelo);
             velo.setEtat(false);
-            velo = veloDAO.update(velo);
-            initMainWindow();
+            velo = veloDAO.update(velo); //On changé l'état du vélo en "en panne"
+            initMainWindow();   //On le met à jour dans la BDD
         }
     }
 

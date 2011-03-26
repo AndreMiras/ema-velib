@@ -7,7 +7,6 @@ package velib.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.text.DefaultEditorKit.InsertTabAction;
 import velib.dao.IDatabaseManagementDAO;
 import velib.view.DatabaseManagementFrame;
 
@@ -25,7 +24,6 @@ public class DatabaseManagementController
     {
         this.databaseManagement = databaseManagement;
         this.view = view;
-
         addListeners();
     }
 
@@ -48,6 +46,7 @@ public class DatabaseManagementController
         
     }
 
+    /* Les fonctions suivantes sont directement éxecutées par la DAO databaseManagement */
 
     class CreateDatabaseButtonListener implements ActionListener
     {

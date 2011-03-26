@@ -25,7 +25,7 @@ public class DatabaseManagementFrame extends javax.swing.JFrame {
         initComponents();
     }
 
-    //La page ne contient que des bouttons le controlleur contient les fonctions
+    //La page ne contient que des bouttons le controlleur contient les fonctions (en réalité la DAO)
 
     public void addCreateDatabaseButtonListener(ActionListener al)
     {
