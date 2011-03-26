@@ -72,6 +72,7 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Administration Nemo Velo");
 
         editDatabaseButton.setText("Edit Database");
 
@@ -99,7 +100,7 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
 
         clientJButton.setText("Liste des clients");
 
-        jLabel6.setText("Liste des clients");
+        jLabel6.setText("Liste les clients et permet une visualisation de leur historique.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
