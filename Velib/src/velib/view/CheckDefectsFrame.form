@@ -98,7 +98,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Pour remettre un v&#xe9;lo en service, s&#xe9;lectionnez le dans la liste ci-dessous:"/>
+        <Property name="text" type="java.lang.String" value="Pour remettre un v&#xe9;lo en service, s&#xe9;lectionnez le dans la liste ci-dessous, puis cliquez sur activer :"/>
       </Properties>
     </Component>
   </SubComponents>

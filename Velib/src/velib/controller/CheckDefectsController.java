@@ -20,17 +20,20 @@ import velib.view.CheckDefectsFrame;
 public class CheckDefectsController
 {
     Velo velo;
+    Velo veloOk;
     BornetteDAO bornetteDAO = new BornetteDAO();
     VeloDAO veloDAO = new VeloDAO();
     Bornette bornette;
+    Long idVelo;
     private CheckDefectsFrame checkDefectsFrame;
 
     public CheckDefectsController(CheckDefectsFrame checkDefectsFrame)
     {
-        //this.checkDefectsFrame = checkDefectsFrame;
+        this.checkDefectsFrame = checkDefectsFrame;
+        addListeners();
     }
 
-    private void addListeners()
+    private void addListeners()                                     //On ajoute les écouteurs
     {
         checkDefectsFrame.addActivateButtonButtonListener(new ActivateButtonButtonListener());
     }
@@ -39,17 +42,13 @@ public class CheckDefectsController
     {
         public void actionPerformed(ActionEvent e)
         {
-            System.out.println(" TOOTO");
-            /*
-            Long idVelo = checkDefectsFrame.getIDVeloFromInput();         
-            velo = new Velo (idVelo, true);
-            velo = veloDAO.create(velo);
-
-            bornette = bornetteDAO.find(idVelo);
+            idVelo = checkDefectsFrame.getIDVeloFromInput();        //Récuperation de ID velo de la liste
+            velo = new Velo (idVelo, true);                         //On change l'état du vélo
+            velo = veloDAO.update(velo);            //On met à jour l'état du vélo
+            bornette = bornetteDAO.find(idVelo);    //On cherche la bornette à laquelle est attaché le vélo en panne
             bornette.setVelo(velo);
-            bornette = bornetteDAO.update(bornette);
-            checkDefectsFrame.fillUpJList(); //Rafraichit la liste des vélos en panne.
-            */
+            bornette = bornetteDAO.update(bornette);//On met à jour la bornette (dévérouille)
+            checkDefectsFrame.fillUpJList();        //Rafraichit la liste des vélos en panne.
         }
     }
 
