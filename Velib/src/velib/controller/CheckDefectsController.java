@@ -27,13 +27,12 @@ public class CheckDefectsController
 
     public CheckDefectsController(CheckDefectsFrame checkDefectsFrame)
     {
-        this.checkDefectsFrame = checkDefectsFrame;
+        //this.checkDefectsFrame = checkDefectsFrame;
     }
 
     private void addListeners()
     {
-        checkDefectsFrame.addActivateButtonButtonListener(
-                new ActivateButtonButtonListener());
+        checkDefectsFrame.addActivateButtonButtonListener(new ActivateButtonButtonListener());
     }
 
     class ActivateButtonButtonListener implements ActionListener
