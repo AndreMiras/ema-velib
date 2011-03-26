@@ -16,6 +16,7 @@ public class CheckDefectsFrame extends javax.swing.JFrame
 {
     private Velo[] velos;
     private velib.view.CheckDefectsFrame checkDefectsFrame;
+    Long idVelo;
 
     /** Creates new form CheckDefectsFrame */
     public CheckDefectsFrame()
@@ -60,7 +61,7 @@ public class CheckDefectsFrame extends javax.swing.JFrame
 
     public Long getIDVeloFromInput()
     {
-        Long idVelo;
+
         idVelo = (Long) defectListjComboBox.getSelectedItem();
         return idVelo;
     }
@@ -90,7 +91,7 @@ public class CheckDefectsFrame extends javax.swing.JFrame
 
         activateButton.setText("Activer");
 
-        jLabel1.setText("Pour remettre un vélo en service, sélectionnez le dans la liste ci-dessous:");
+        jLabel1.setText("Pour remettre un vélo en service, sélectionnez le dans la liste ci-dessous, puis cliquez sur activer :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
