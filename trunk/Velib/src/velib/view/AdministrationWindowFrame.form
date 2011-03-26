@@ -31,12 +31,12 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="clientJButton" max="32767" attributes="1"/>
                           <Component id="checkDefectsButton" alignment="0" max="32767" attributes="1"/>
                           <Component id="usersListButton" alignment="1" max="32767" attributes="1"/>
                           <Component id="editDatabaseButton" alignment="1" max="32767" attributes="1"/>
                           <Component id="generalManagementButton" alignment="0" max="32767" attributes="1"/>
-                          <Component id="clientJButton" alignment="0" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -78,11 +78,11 @@
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="clientJButton" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="clientJButton" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -136,14 +136,14 @@
         <Property name="text" type="java.lang.String" value="Panneau g&#xe9;n&#xe9;ral d&apos;administration"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="clientJButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Liste des clients"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="text" type="java.lang.String" value="Liste les clients et permet une visualisation de leur historique."/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="clientJButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Liste des clients"/>
       </Properties>
     </Component>
   </SubComponents>
