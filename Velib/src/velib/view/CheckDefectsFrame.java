@@ -28,7 +28,7 @@ public class CheckDefectsFrame extends javax.swing.JFrame
     {
         this();
         this.velos = velos;
-        fillUpJList();
+        fillUpJList();                  // Fonction de remplissage de tableau et liste
     }
 
     public CheckDefectsFrame getCheckDefectsFrame()
@@ -43,17 +43,17 @@ public class CheckDefectsFrame extends javax.swing.JFrame
 
     public void fillUpJList()
     {
-        jScrollPane1.setViewportView(null); //Nettoyage de la liste avant nouvelle insertion
-        defectBikejList.setModel(new javax.swing.AbstractListModel()
+        jScrollPane1.setViewportView(null); //Nettoyage du tableau avant nouvelle insertion
+        defectBikejList.setModel(new javax.swing.AbstractListModel() // On construit le conteneur
         {
-            public int getSize() { return velos.length; }
-            public Object getElementAt(int i) { return velos[i]; }
+            public int getSize() { return velos.length; }           //On compte le nombre d'éléments
+            public Object getElementAt(int i) { return velos[i]; }  //On reécupère les éléments
         });
-        jScrollPane1.setViewportView(defectBikejList);
+        jScrollPane1.setViewportView(defectBikejList);              //On insère le tout dans le tableau
 
 
-        defectListjComboBox.removeAllItems(); //Nettoyage de la liste avant nouvelle insertion
-        for (int i=0; i<velos.length; i++)
+        defectListjComboBox.removeAllItems();   //Nettoyage de la liste avant nouvelle insertion
+        for (int i=0; i<velos.length; i++)      //On insère les éléments dans la liste
         {
             defectListjComboBox.addItem(velos[i].getId());
         }
@@ -62,7 +62,7 @@ public class CheckDefectsFrame extends javax.swing.JFrame
     public Long getIDVeloFromInput()
     {
 
-        idVelo = (Long) defectListjComboBox.getSelectedItem();
+        idVelo = (Long) defectListjComboBox.getSelectedItem();  //On récupère l'élément sélectionné dans le menu déroulant
         return idVelo;
     }
     
