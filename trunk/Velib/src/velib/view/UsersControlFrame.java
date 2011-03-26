@@ -25,7 +25,7 @@ public class UsersControlFrame extends javax.swing.JFrame
     {
         this();
         this.locations = locations;
-        fillUpJList();
+        fillUpJList();  //On rempli les éléments de la page
     }
 
     /** This method is called from within the constructor to
@@ -39,10 +39,9 @@ public class UsersControlFrame extends javax.swing.JFrame
         return usersControlFrame;
     }
 
-     // Fills the combo box with bornes objects
+    //On rempli la liste avec les utilisateurs ayant le statut actif (location en cours)
     private void fillUpJList()
     {
-        // polygonsScrollPanel
         usersjList.setModel(new javax.swing.AbstractListModel()
         {
             public int getSize() { return locations.length; }
@@ -50,7 +49,7 @@ public class UsersControlFrame extends javax.swing.JFrame
         });
         jScrollPane1.setViewportView(usersjList);
     }
-
+    //On affiche le tout dans le tableau (jList)
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

@@ -17,14 +17,14 @@ package velib.view;
  */
 public class EditBornFrame extends javax.swing.JFrame
 {
-    /** Creates new form EditBornFrame */
+    private velib.view.EditBornFrame editBornFrame;
+    
     public EditBornFrame()
     {
         initComponents();
     }
 
-    // TODO: cleaning
-    public EditBornFrame getEditBornFrame()
+    public EditBornFrame getEditBornFrame() //On déclare la frame à utiliser
     {
         return editBornFrame;
     }
@@ -60,11 +60,6 @@ public class EditBornFrame extends javax.swing.JFrame
         jLabel1.setText("Afin de visualiser les problèmes déclarés par les utilisateurs, cliquez sur le bouton ci-dessous.");
 
         showProblemsButton.setText("Visualiser");
-        showProblemsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showProblemsButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -95,12 +90,6 @@ public class EditBornFrame extends javax.swing.JFrame
         AddUserButton.setText("Ajouter");
 
         DelUserButton.setText("Supprimer");
-
-        AddUserTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddUserTextFieldActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -203,16 +192,6 @@ public class EditBornFrame extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void showProblemsButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_showProblemsButtonActionPerformed
-    {//GEN-HEADEREND:event_showProblemsButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_showProblemsButtonActionPerformed
-
-    private void AddUserTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_AddUserTextFieldActionPerformed
-    {//GEN-HEADEREND:event_AddUserTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddUserTextFieldActionPerformed
-
     /**
     * @param args the command line arguments
     */
@@ -227,7 +206,6 @@ public class EditBornFrame extends javax.swing.JFrame
         });
     }
 
-    private velib.view.EditBornFrame editBornFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton AddBikeButton;
     private javax.swing.JTextField AddBikeTextField;

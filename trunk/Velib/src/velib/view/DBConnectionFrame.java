@@ -40,8 +40,13 @@ public class DBConnectionFrame extends javax.swing.JFrame
         return dBConnectionFrame;
     }
 
-     // Fills the combo box with bornes objects 
-    private void setUpDBConnectionFrame()
+    public void addConnexionButtonListener(ActionListener al)
+    {
+        connexionButton.addActionListener(al);
+    }
+
+     //On rempli la combobox aves des objets bornes
+    private void setUpDBConnectionFrame()   //On insere les bornes libres dans le menu éroulant
     {
         for (int i=0; i<bornes.length; i++)
         {
@@ -49,15 +54,7 @@ public class DBConnectionFrame extends javax.swing.JFrame
         }
     }
 
-    public void addConnexionButtonListener(ActionListener al)
-    {
-        connexionButton.addActionListener(al);
-    }
-
-    /*
-     * Returns the selected borne object
-     */
-    public Borne getBorneFromInput()
+    public Borne getBorneFromInput()    //On récupère la valeur sélectionnée dans le menu déroulant
     {
         Borne selectedBorne;
         selectedBorne = (Borne)listeBorneComboBox.getSelectedItem();

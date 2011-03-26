@@ -70,7 +70,7 @@ public class AdministrationWindowController
         addListeners();
     }
 
-    private void addListeners()
+    private void addListeners() //Déclaration des écouteurs
     {
         administrationWindowFrame.addEditDatabaseButtonListener(
                 new EditDatabaseButtonListener());
@@ -84,7 +84,9 @@ public class AdministrationWindowController
                 new ClientButtonListener ());
     }
 
-    class CheckDefectsButtonListener implements ActionListener
+    /* A partir d'ici les fonctions servent à ouvrir des frame, en uilisant (ou non) les paramteres utilisées par celle-ci */
+
+    class CheckDefectsButtonListener implements ActionListener  //Ouverture de la frame affichant les vélos défectueux
     {
         public void actionPerformed(ActionEvent e)
         {
@@ -95,7 +97,7 @@ public class AdministrationWindowController
         }
     }
 
-    class UsersListButtonListener implements ActionListener
+    class UsersListButtonListener implements ActionListener     //Ouverture de la frame affichant les utilisateurs et locations
     {
         public void actionPerformed(ActionEvent e)
         {
@@ -106,7 +108,7 @@ public class AdministrationWindowController
         }
     }
 
-    class GeneralManagementButtonListener implements ActionListener
+    class GeneralManagementButtonListener implements ActionListener //Ouverture frame ajout d'éléments borne/bornette/vélo
     {
         public void actionPerformed(ActionEvent e)
         {
@@ -120,7 +122,7 @@ public class AdministrationWindowController
         }
     }
 
-    class EditDatabaseButtonListener implements ActionListener
+    class EditDatabaseButtonListener implements ActionListener  //Ouverture de la frame d'édition de la BDD
     {
         public void actionPerformed(ActionEvent e)
         {
@@ -132,14 +134,13 @@ public class AdministrationWindowController
         }
     }
 
-        class ClientButtonListener implements ActionListener
+        class ClientButtonListener implements ActionListener    //Ouverture de la frame d'affichage des clients
     {
         public void actionPerformed(ActionEvent e)
         {
 
             listeClientFrame = new ListeClientFrame();
-            listeClientController = new ListeClientController(listeClientFrame
-                    );
+            listeClientController = new ListeClientController(listeClientFrame);
             listeClientFrame.setVisible(true);
         }
     }

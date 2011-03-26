@@ -111,9 +111,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Visualiser"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showProblemsButtonActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -171,9 +168,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="AddUserTextField">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddUserTextFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="DelUserTextField">
         </Component>
