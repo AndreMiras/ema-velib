@@ -32,11 +32,11 @@ class AdministrationBorneController
 
     public AdministrationBorneController(AdministrationBorneFrame administrationBorneFrame)
     {
-        this.administrationBorneFrame = administrationBorneFrame;
+        this.administrationBorneFrame = administrationBorneFrame; //On déclare la Frame à utiliser
         addListeners();
     }
 
-    private void addListeners()
+    private void addListeners() //On déclare les écouteurs (pour les actions réalisés sur la frame)
     {
         administrationBorneFrame.addAddBikeButtonListener(
                 new AddBikeButtonListener());
@@ -53,6 +53,7 @@ class AdministrationBorneController
         public void actionPerformed(ActionEvent e)
         {
             administrationBorneFrame.setUpAdministrationBornetteFrame();
+            //Si la valeur du menu déroulant bornette est modifié alors on charge le contenu correspondant dans le second menu déroulant.
         }
     }
 
@@ -61,15 +62,19 @@ class AdministrationBorneController
         public void actionPerformed(ActionEvent e)
         {        
             String nomBorne = administrationBorneFrame.getBorneNameTextField().getText();
+            // On récupere le nom que l'on souhaite donner à la borne dans le champ nom
             Double latitude = new Double(
                     administrationBorneFrame.getBorneXPosTextField().getText());
+            //On récupère la lattitude
             Double longitude = new Double(
                     administrationBorneFrame.getBorneYPosTextField().getText());
+            //On récupère la longitude
 
             borne = new Borne(0, nomBorne);
             borne.setLatitude(latitude);
             borne.setLongitude(longitude);
             borne = borneDAO.create(borne);
+            //On crée la borne avec les parametres du dessus, puis on l'integre à la BDD
         }
     }
     class AddBornetteButtonListener implements ActionListener
@@ -79,10 +84,12 @@ class AdministrationBorneController
             Long idBorne = administrationBorneFrame.getBorneFromInput();
             bornettes = bornetteDAO.findAll(idBorne);
             borne = borneDAO.find(idBorne);
+            //On cherche la borne ayant l'ID affichée dans le menu déroulant.
             
             long numero = bornettes.length+1; //On compte le nb de bornettes et on fait +1 pour la nouvelle
             bornette = new Bornette(0, numero, borne, null);
             bornette = bornetteDAO.create(bornette);
+            //On crée la bornette, on lui affecte une borne parent, puis on l'enregistre dans la BDD.
         }
     }
    
@@ -94,11 +101,11 @@ class AdministrationBorneController
             VeloDAO veloDAO = new VeloDAO();
             BornetteDAO bornetteDAO = new BornetteDAO();
             velo = veloDAO.create(velo);
-
+            //On crée un vélo fonctionnel (true).
             Long idBornette = administrationBorneFrame.getBornetteFromInput();
-            bornette = bornetteDAO.find(idBornette);
-            bornette.setVelo(velo);
-            bornette = bornetteDAO.update(bornette);            
+            bornette = bornetteDAO.find(idBornette);    //On cherhce la bornette correpondante.
+            bornette.setVelo(velo);     //On acroche le vélo à la bornette sélectionnée
+            bornette = bornetteDAO.update(bornette);  //Dans la BDD
         }
     }
 }
