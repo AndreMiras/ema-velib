@@ -19,6 +19,7 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
     private velib.view.AdministrationBorneFrame administrationBorneFrame;
     private Borne[] bornes;
     private Bornette[] bornettes;
+    long idBORNE;
     BornetteDAO bornetteDAO = new BornetteDAO();
 
     /** Creates new form AdministrationBorneFrame */
@@ -31,7 +32,7 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
     {
         this();
         this.bornes = bornes;
-        setUpAdministrationBorneFrame();
+        setUpAdministrationBorneFrame();    //On rempli les menus lors de l'ouverture de la page.
     }
 
     public AdministrationBorneFrame getAdministrationBorneFrame()
@@ -39,27 +40,26 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
         return administrationBorneFrame;
     }
 
-     // Fills the combo box with bornes objects
+    //On rempli le menu déroulant avec les ID des différentes bornes
     private void setUpAdministrationBorneFrame()
     {
         for (int i=0; i<bornes.length; i++)
         {
-            borneListejComboBox.addItem(bornes[i].getIdBorne());
-            borneListe2jComboBox.addItem(bornes[i].getIdBorne());
+            borneListejComboBox.addItem(bornes[i].getIdBorne()); //Menu déroulant 1
+            borneListe2jComboBox.addItem(bornes[i].getIdBorne()); //Menu déroulant 2
         }
     }
 
     public void setUpAdministrationBornetteFrame()
     {
-        // TODO: that should not be done in the view
-        long idBORNE;
-        idBORNE = (Long) borneListe2jComboBox.getSelectedItem();
-        bornettes = bornetteDAO.findLibreAll(idBORNE);
+        idBORNE = (Long) borneListe2jComboBox.getSelectedItem(); //ON récupere les ID affichés dans la liste
+        bornettes = bornetteDAO.findLibreAll(idBORNE); //On récupere les ID des bornes libres
 
         bornetteListjComboBox.removeAllItems(); //Nettoyage de la liste avant nouvelle insertion
         for (int i=0; i<bornettes.length; i++)
         {
             bornetteListjComboBox.addItem(bornettes[i].getId());
+            //On affiche la liste des bornettes correspondantes à la borne du menu ci-dessus
         }
     }
 
@@ -83,31 +83,31 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
         borneListe2jComboBox.addActionListener(al);
     }
 
-    public Long getBorneFromInput()
+    public Long getBorneFromInput() //Récuperation des valeurs du menu déroulant
     {
         Long selectedBorne;
         selectedBorne = (Long)borneListejComboBox.getSelectedItem();
         return selectedBorne;
     }
 
-    public Long getBornetteFromInput()
+    public Long getBornetteFromInput() //Récuperation des valeurs du menu déroulant
     {
         Long selectedBornette;
         selectedBornette = (Long) bornetteListjComboBox.getSelectedItem();
         return selectedBornette;
     }
 
-    public JTextField getBorneNameTextField()
+    public JTextField getBorneNameTextField() //Récuperation de la valeur dans le champ de saisie
     {
         return BorneNameTextField;
     }
 
-    public JTextField getBorneXPosTextField()
+    public JTextField getBorneXPosTextField() //Récuperation de la valeur dans le champ de saisie
     {
         return BorneXPosTextField;
     }
 
-    public JTextField getBorneYPosTextField()
+    public JTextField getBorneYPosTextField() //Récuperation de la valeur dans le champ de saisie
     {
         return BorneYPosTextField;
     }
