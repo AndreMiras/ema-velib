@@ -9,16 +9,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import velib.dao.ClientDAO;
 import velib.dao.LocationDAO;
-
 import velib.model.Client;
 import velib.model.Location;
-
 import velib.view.ListeClientFrame;
 import velib.view.ShowActivitiesClientFrame;
 
 /**
  *
- * @author andre
+ * @author
  */
 public class ListeClientController
 {
@@ -52,8 +50,10 @@ public class ListeClientController
         {
             String lastName = listeClientFrame.getLastNamejTextField().getText();
             String firstName = listeClientFrame.getFirstNamejTextField().getText();
+            //On récupère le nom et prénom saisis dans les champs de la frame
             client = clientDAO.findByName(lastName, firstName);
             listeClientFrame.setUpInfoClientFrame(client);
+            //On recherhce le client correspondant, puis on affiche ses inofrmations sur la frame
 
         }
     }
@@ -63,10 +63,11 @@ public class ListeClientController
         public void actionPerformed(ActionEvent e)
         {
             locations = locationDAO.findAllLocationByClient(client);
+            //On récupère l'ensemble des locations éffectuées par le client
             showActivitiesClientFrame = new ShowActivitiesClientFrame(client, locations);
             showActivitiesClientController = new ShowActivitiesClientController(showActivitiesClientFrame);
             showActivitiesClientFrame.setVisible(true);
-
+            //Puis on les affiche dans la liste (tableau de la page)
         }
     }
 

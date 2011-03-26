@@ -6,7 +6,6 @@
 package velib.controller;
 
 import velib.view.ShowActivitiesClientFrame;
-import velib.view.UsersControlFrame;
 
 /**
  *
