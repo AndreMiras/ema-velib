@@ -49,14 +49,14 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="annulerJButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="369" max="32767" attributes="0"/>
-                          <Component id="validerJButton" min="-2" pref="79" max="-2" attributes="0"/>
-                      </Group>
                       <Component id="jLabel1" alignment="0" min="-2" pref="421" max="-2" attributes="0"/>
-                      <Component id="jLabel2" alignment="1" pref="535" max="32767" attributes="0"/>
+                      <Component id="jLabel2" alignment="1" pref="499" max="32767" attributes="0"/>
                       <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="annulerJButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="325" max="32767" attributes="0"/>
+                          <Component id="validerJButton" min="-2" pref="87" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -72,9 +72,9 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="annulerJButton" pref="42" max="32767" attributes="0"/>
-                      <Component id="validerJButton" alignment="0" pref="42" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="annulerJButton" alignment="3" pref="42" max="32767" attributes="0"/>
+                      <Component id="validerJButton" alignment="3" pref="42" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -84,7 +84,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cette page vous premet de d&#xe9;clarer un probl&#xe8;me sur le mat&#xe9;riel du r&#xe9;seau N&#xe9;moV&#xe9;lo."/>
+            <Property name="text" type="java.lang.String" value="Cette page vous premet de d&#xe9;clarer un probl&#xe8;me sur le mat&#xe9;riel."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="annulerJButton">
