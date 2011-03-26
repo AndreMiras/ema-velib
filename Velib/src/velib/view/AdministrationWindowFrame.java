@@ -20,7 +20,7 @@ import java.awt.event.ActionListener;
 public class AdministrationWindowFrame extends javax.swing.JFrame
 {
 
-    /** Creates new form AdministrationWindowFrame */
+    /** Cette frame ne sert qu'à afficher les bouttons pour ouvrir d'autres frame */
     public AdministrationWindowFrame()
     {
         initComponents();

@@ -11,7 +11,6 @@ import velib.dao.BorneSingleton;
 import velib.dao.BornesDAO;
 import velib.model.Borne;
 import velib.view.DBConnectionFrame;
-import velib.view.MainWindowFrame;
 
 /**
  *
@@ -27,7 +26,7 @@ public class DBConnectionController
         addListeners();
     }
 
-    private void addListeners()
+    private void addListeners() //On declare les écouteurs
     {
         dBConnectionPanel.addConnexionButtonListener(
                 new ConnexionButtonListener());
@@ -40,13 +39,16 @@ public class DBConnectionController
             Borne oldBorne, newBorne;
             BornesDAO bornesDAO = new BornesDAO();
 
+            /*On crée deux bornes, la premiere affectée au démarrage sera
+             déclarée comme libre si changement fait (ID disponible),
+             la nouvelle borne avec l'ID sélectionné est déclarée comme occupée*/
             oldBorne = BorneSingleton.getInstance();
             newBorne = dBConnectionPanel.getBorneFromInput();
             System.out.println("Setting new borne singleton to: "
                     + newBorne);
             BorneSingleton.setBorne(newBorne);
 
-            /* updating the station, setting it up to used in the DB */
+            /* On met à jour les bornes dans la BDD (ID utilisés ou libres)*/
             oldBorne.setDisponible(true);
             newBorne.setDisponible(false);
             bornesDAO.update(oldBorne);

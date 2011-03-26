@@ -20,10 +20,12 @@ import java.awt.event.ActionListener;
 public class DatabaseManagementFrame extends javax.swing.JFrame {
 
     /** Creates new form DatabaseManagementFrame */
-    public DatabaseManagementFrame() {
+    public DatabaseManagementFrame()
+    {
         initComponents();
     }
 
+    //La page ne contient que des bouttons le controlleur contient les fonctions
 
     public void addCreateDatabaseButtonListener(ActionListener al)
     {
