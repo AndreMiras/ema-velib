@@ -12,6 +12,7 @@
 package velib.view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import velib.model.Client;
 
@@ -39,6 +40,11 @@ public class ListeClientFrame extends javax.swing.JFrame {
     public void addShowActivitiesButtonListener(ActionListener al)
     {
         differentActivitiesjButton.addActionListener(al);
+    }
+
+    public void clientErrorPopup()
+    {
+        JOptionPane.showMessageDialog(this, "Ce client n'existe pas dans la base de données");
     }
 
     public void setUpInfoClientFrame(Client client)
