@@ -51,9 +51,16 @@ public class ListeClientController
             String lastName = listeClientFrame.getLastNamejTextField().getText();
             String firstName = listeClientFrame.getFirstNamejTextField().getText();
             //On récupère le nom et prénom saisis dans les champs de la frame
+             //On recherhce le client correspondant, puis on affiche ses inofrmations sur la frame
             client = clientDAO.findByName(lastName, firstName);
-            listeClientFrame.setUpInfoClientFrame(client);
-            //On recherhce le client correspondant, puis on affiche ses inofrmations sur la frame
+            if(client==null)
+            {
+               listeClientFrame.clientErrorPopup();
+            }
+            else
+            {
+                listeClientFrame.setUpInfoClientFrame(client);
+            }
 
         }
     }
