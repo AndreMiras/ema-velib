@@ -17,8 +17,7 @@ import velib.view.LouerVeloPanel;
 import velib.view.MainWindowFrame;
 
 /**
- * TODO:
- * dispose when the velo is taken or when the time out is reached
+ * TODO: dispose when the velo is taken or when the time out is reached
  */
 public class LouerVeloController extends AbstractMainWindowController
 {
