@@ -16,19 +16,26 @@ package velib.model;
 public enum SubscriptionTypeEnum
 {
     // long
-    HALF_DAY(1),
-    ONE_DAY(2),
+    HALF_DAY(1,
+    12),
+    ONE_DAY(2,
+    24),
             
     // short
-    ONE_WEEK(3),
-    ONE_MONTH(4),
-    ONE_YEAR(5);
+    ONE_WEEK(3,
+    7*24),
+    ONE_MONTH(4,
+    30*24),
+    ONE_YEAR(5,
+    365*24);
     
     private long id;
+    private long duration; // in hours
 
-    private SubscriptionTypeEnum(long id)
+    private SubscriptionTypeEnum(long id, long duration)
     {
         this.id = id;
+        this.duration = duration;
     }
 
 
@@ -37,7 +44,10 @@ public enum SubscriptionTypeEnum
         return id;
     }
 
-    
+    public long getDuration()
+    {
+        return duration;
+    }
 
     @Override public String toString()
     {
