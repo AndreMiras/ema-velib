@@ -37,6 +37,7 @@ public class ClientDAOTest
         databaseManagementDAO.dropDatabase();
 
         databaseManagementDAO.createTables();
+        databaseManagementDAO.fillUpSubscriptionTypeTable();
     }
 
     //Méthode effectuée à la fin du test

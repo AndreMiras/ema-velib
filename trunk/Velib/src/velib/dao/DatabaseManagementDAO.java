@@ -16,10 +16,7 @@ import velib.model.SubscriptionTypeEnum;
 import velib.model.User;
 import velib.model.Velo;
 
-/**
- *
- * @author andre
- */
+
 public class DatabaseManagementDAO implements IDatabaseManagementDAO
 {
 
@@ -168,7 +165,7 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
     /*
      * Adds default subscription types
      */
-    private void fillUpSubscriptionTypeTable()
+    public void fillUpSubscriptionTypeTable()
     {
         SubscriptionTypeDAO subscriptionTypeDAO =
                 new SubscriptionTypeDAO();
@@ -185,6 +182,10 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
 
         subscriptionType =
                 new SubscriptionType(SubscriptionTypeEnum.ONE_DAY);
+        subscriptionTypeDAO.create(subscriptionType);
+
+        subscriptionType =
+                new SubscriptionType(SubscriptionTypeEnum.HALF_DAY);
         subscriptionTypeDAO.create(subscriptionType);
     }
 

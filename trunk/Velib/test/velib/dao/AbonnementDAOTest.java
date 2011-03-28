@@ -41,6 +41,7 @@ public class AbonnementDAOTest {
         databaseManagementDAO.dropDatabase();
 
         databaseManagementDAO.createTables();
+        databaseManagementDAO.fillUpSubscriptionTypeTable();
     }
 
     // after the test
