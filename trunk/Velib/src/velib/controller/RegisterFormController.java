@@ -43,11 +43,11 @@ public class RegisterFormController extends AbstractMainWindowController
             client = registerFormPanel.getClientFromInputs();
 
             /* Adding the subscription object to the client */
+            // finally hit the database with the subscription object
             client.setAbonnement(subscription);
             
             client = clientDAO.create(client);
             System.out.println("Client created: " + client);
-
 
 
             /* Calling up the create CreateUserPassword  */

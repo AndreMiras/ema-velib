@@ -80,10 +80,7 @@ public class AbonnementController extends AbstractMainWindowController
              * TODO: this is to be redone
              */
             typeAbonnement = new SubscriptionType(abonnementType);
-            // Hit the database with the subscription object
             subscription = new Subscription(0, typeAbonnement);
-            subscriptionDAO.create(subscription);
-
             
             RegisterFormPanel registerFormPanel = new RegisterFormPanel();
             /*
