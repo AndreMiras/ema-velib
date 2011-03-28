@@ -66,7 +66,7 @@ public class SubscriptionTypeDAO extends DAO<SubscriptionType> {
                         + "prix) "
                         + "VALUES(?, ?, ?)");
             prepare.setLong(1, idtype);
-            prepare.setInt(2, obj.getDuration());
+            prepare.setLong(2, obj.getDuration());
             prepare.setFloat(3, obj.getPrice());
 
             prepare.executeUpdate();
