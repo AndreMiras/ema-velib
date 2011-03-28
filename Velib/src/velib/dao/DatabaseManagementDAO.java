@@ -114,8 +114,8 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
     }
     private void createTypeAbonnementTable()
     {
-       SubscriptionTypeDAO typeAbonnementDAO = new SubscriptionTypeDAO();
-       typeAbonnementDAO.createTables();
+       SubscriptionTypeDAO subscriptionTypeDAO = new SubscriptionTypeDAO();
+       subscriptionTypeDAO.createTables();
     }
     private void createVeloTable()
     {
@@ -171,10 +171,18 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
      */
     private void fillUpSubscriptionTypeTable()
     {
+        SubscriptionTypeDAO subscriptionTypeDAO =
+                new SubscriptionTypeDAO();
         // TODO: this is hardcoded at the moment but should be done
         // using iterate
         SubscriptionType subscriptionType =
                 new SubscriptionType(SubscriptionTypeEnum.ONE_WEEK);
+        subscriptionTypeDAO.create(subscriptionType);
+
+        // and a second one (TODO: to be removed later)
+        subscriptionType =
+                new SubscriptionType(SubscriptionTypeEnum.ONE_MONTH);
+        subscriptionTypeDAO.create(subscriptionType);
     }
 
 

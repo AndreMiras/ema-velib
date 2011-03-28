@@ -102,7 +102,7 @@ public class SubscriptionTypeDAO extends DAO<SubscriptionType> {
     @Override
     public String[] createTablesStatementStrings()
     {
-        String[] statementStrings = new String[3];
+        String[] statementStrings = new String[2];
         statementStrings[0] =
                     String.format("CREATE TABLE %s" +
                     "(idtype INTEGER, " +
