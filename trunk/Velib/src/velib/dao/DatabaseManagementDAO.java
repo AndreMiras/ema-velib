@@ -151,17 +151,17 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
            borne.setLatLong(latlongs[i][0], latlongs[i][1]);
            borne = borneDAO.create(borne);
 
-           veloDAO = new VeloDAO();
-           velo = new Velo (id);
-           velo = veloDAO.create(velo);
+           for (int j=0; j<5; j++)
+           {
+               veloDAO = new VeloDAO();
+               velo = new Velo (id);
+               velo = veloDAO.create(velo);
 
-           numero = i+1;
-           bornetteDAO = new BornetteDAO();
-           bornette = new Bornette(id, numero, borne, velo);
-           bornette = bornetteDAO.create(bornette);
-
-           System.out.println("created borne: " + borne);
-           System.out.println("created bornette: " + bornette);
+               numero = j+1;
+               bornetteDAO = new BornetteDAO();
+               bornette = new Bornette(id, numero, borne, velo);
+               bornette = bornetteDAO.create(bornette);
+           }
        }
     }
 
