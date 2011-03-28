@@ -22,7 +22,7 @@
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="399" max="32767" attributes="0"/>
+              <EmptySpace pref="401" max="32767" attributes="0"/>
               <Component id="okButton" min="-2" pref="60" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -137,9 +137,6 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="firstNameTextField">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameTextFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
@@ -178,9 +175,6 @@
         <Component class="javax.swing.JTextField" name="addressLine1TextField">
         </Component>
         <Component class="javax.swing.JTextField" name="lastNameTextField">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lastNameTextFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="com.toedter.calendar.JDateChooser" name="dateChooser">
         </Component>
