@@ -15,9 +15,9 @@ import velib.model.SubscriptionTypeEnum;
  *
  * @author Nicolas
  */
-public class TypeAbonnementDAO extends DAO<SubscriptionType> {
+public class SubscriptionTypeDAO extends DAO<SubscriptionType> {
 
-    public TypeAbonnementDAO()
+    public SubscriptionTypeDAO()
     {
         tableNames = new String[] { "typeabonnement" };
     }

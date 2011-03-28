@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import velib.model.Borne;
 import velib.model.Bornette;
 import velib.model.Client;
+import velib.model.SubscriptionType;
+import velib.model.SubscriptionTypeEnum;
 import velib.model.User;
 import velib.model.Velo;
 
@@ -112,7 +114,7 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
     }
     private void createTypeAbonnementTable()
     {
-       TypeAbonnementDAO typeAbonnementDAO = new TypeAbonnementDAO();
+       SubscriptionTypeDAO typeAbonnementDAO = new SubscriptionTypeDAO();
        typeAbonnementDAO.createTables();
     }
     private void createVeloTable()
@@ -169,7 +171,10 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
      */
     private void fillUpSubscriptionTypeTable()
     {
-        
+        // TODO: this is hardcoded at the moment but should be done
+        // using iterate
+        SubscriptionType subscriptionType =
+                new SubscriptionType(SubscriptionTypeEnum.ONE_WEEK);
     }
 
 
