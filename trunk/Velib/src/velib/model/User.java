@@ -73,10 +73,21 @@ public class User implements IModel {
         return questionSecrete;
     }
 
+    public void setQuestionSecrete(String questionSecrete) {
+        this.questionSecrete = questionSecrete;
+    }
+
+
     public String getReponseSecrete()
     {
         return reponseSecrete;
     }
+
+    public void setReponseSecrete(String reponseSecrete) {
+        this.reponseSecrete = reponseSecrete;
+    }
+
+    
 
 
 }
