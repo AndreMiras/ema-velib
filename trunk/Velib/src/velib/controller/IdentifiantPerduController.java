@@ -37,6 +37,8 @@ public class IdentifiantPerduController extends AbstractMainWindowController
                 new OkButtonListener());
         identifiantPerduPanel.addOk2ButtonListener(
             new Ok2ButtonListener());
+        identifiantPerduPanel.addOk3ButtonListener(
+            new Ok3ButtonListener());
     }
 
     class OkButtonListener implements ActionListener
@@ -71,6 +73,14 @@ public class IdentifiantPerduController extends AbstractMainWindowController
             {
                 identifiantPerduPanel.reponseErrorPopup();
             }
+        }
+    }
+
+    class Ok3ButtonListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            initMainWindow();
         }
     }
 
