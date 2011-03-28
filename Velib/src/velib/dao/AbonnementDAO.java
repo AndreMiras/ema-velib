@@ -26,8 +26,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
     {
         String abonnementTable = tableNames[0];
 
-        //Si l'abonnement n'existe pas
-        
+        // Si l'abonnement n'existe pas
         if(obj.getType().getId() == 0)
         {
             TypeAbonnementDAO typeAbonnementDAO = new TypeAbonnementDAO();
@@ -50,7 +49,6 @@ public class AbonnementDAO extends DAO<Abonnement> {
                         + "(idsubscription,"
                         + "datedebut,"
                         + "datefin,"
-                        // + "idclient,"
                         + "idtype) "
                         + "VALUES(?, ?, ?, ?)"
                     );
@@ -61,7 +59,6 @@ public class AbonnementDAO extends DAO<Abonnement> {
                         prepare.setTimestamp(3,
                                 new java.sql.Timestamp(
                                     obj.getDateFin().getTime()));
-                        // prepare.setLong(4, obj.getClient().getClientId());
                         prepare.setLong(4, obj.getType().getId());
                         prepare.executeUpdate();
                         obj = this.find(id);

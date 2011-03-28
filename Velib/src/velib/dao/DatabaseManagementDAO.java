@@ -8,8 +8,6 @@ package velib.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import velib.model.Borne;
 import velib.model.Bornette;
 import velib.model.Client;

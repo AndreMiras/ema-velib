@@ -154,7 +154,6 @@ public class ClientDAOTest
         // checking that the client was actually created in the DB
         System.out.println("Id du client après création : " + client.getClientId());
          assertTrue(client.getClientId() != 0);
-         System.out.println("Ville avant update " + client.getVille());
 
         // before updating the city
         assertEquals(client.getFirstname(), "Andre");
