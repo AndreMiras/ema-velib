@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package velib.view;
 
 import java.awt.event.ActionListener;
@@ -10,10 +5,7 @@ import javax.swing.JTextField;
 import velib.dao.BornetteDAO;
 import velib.model.Borne;
 import velib.model.Bornette;
-/**
- *
- * @author G
- */
+
 public class AdministrationBorneFrame extends javax.swing.JFrame
 {
     private velib.view.AdministrationBorneFrame administrationBorneFrame;
@@ -295,9 +287,6 @@ public class AdministrationBorneFrame extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-    * @param args the command line arguments
-    */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
