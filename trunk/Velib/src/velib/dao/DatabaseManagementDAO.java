@@ -196,10 +196,10 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
        };
 
        String[] addresses = {
-       "5 rue torrino, Nimes",
-       "34 rue de tulipe, Arraz",
-       "6 avenue de la chips, Valence",
-       "89 rue delpine, Montpeliz"
+       "5 rue torrino",
+       "34 rue de tulipe",
+       "6 avenue de la chips",
+       "89 rue delpine"
        };
 
        String[] cities = {
