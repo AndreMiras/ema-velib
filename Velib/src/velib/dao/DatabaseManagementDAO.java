@@ -178,11 +178,11 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
        ClientDAO clientDAO;
        int id = 0;
        long idUser = 0; // TODO: I think this shoulnd't have to be providen
-
-       String firstname;
-       String lastname;
                
        System.out.println("Filling up clients table");
+       
+       String firstname;
+       String lastname;
        for (int i=0; i<3; i++)
        {
            firstname = "firstname" + i;
@@ -198,6 +198,45 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
 
            System.out.println("created client: " + client);
        }
+       
+
+       /*
+       String firstname;
+       String lastname;
+       String firstname1;
+       String lastname1;
+       String firstname2;
+       String lastname2;
+       String firstname3;
+       String lastname3;
+       String firstname4;
+       String lastname4;
+
+       for (int i=1; i<5; i++)
+       {
+       firstname1="Jean";
+       lastname1="Dujardin";
+       firstname2="Maurice";
+       lastname2="Lebreton";
+       firstname3="Ives";
+       lastname3="Legaragiste";
+       firstname4="Jean";
+       lastname4="Desbois";
+
+       firstname = "irstname"+i;
+
+           userDAO = new UserDAO();
+           user = new User(id, "user", "pwd");
+           user = userDAO.create(user);
+
+           client = new Client(id, firstname, lastname, user);
+           clientDAO = new ClientDAO();
+           client = clientDAO.create(client);
+
+           System.out.println("created client: " + client);
+       }
+       
+        */
     }
 
     private void dropUserTable()
