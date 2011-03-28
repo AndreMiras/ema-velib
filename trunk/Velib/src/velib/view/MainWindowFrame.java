@@ -1,9 +1,7 @@
 package velib.view;
 
-import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.util.Vector;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -13,7 +11,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     // Register middleContentPanels ref for previous button
     // TODO: this is public at the moment for testing purpose only
     // We actually might move all of this to the dedicated controller
-    public Vector<JPanel> middleContentPanelsVector;
+    private Vector<JPanel> middleContentPanelsVector;
 
     /** Creates new form MainWindow */
     public MainWindowFrame()
@@ -26,7 +24,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     /*
      * Set up the first screen which is the WelcomeScreen
      */
-    public void initMainWindow()
+    public final void initMainWindow()
     {
         middleContentPanel.removeAll();
         middleContentPanelsVector = new Vector<JPanel>();
