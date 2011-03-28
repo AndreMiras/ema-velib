@@ -4,6 +4,7 @@
  */
 package velib.model;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -31,12 +32,37 @@ public class Subscription
         dateDebut = new Date();
         dateFin = new Date();
         this.subscriptionType = subscriptionType;
+        
+        setEndDateFromDuration();
 
         /*
          * TODO: set dateDebut based on type
          */
         // TODO: this.dateFin = new Date();
     }
+
+    /*
+     * Sets the end date from the subscriptionType duration
+     * Adds duration (in hours) to today date
+     */
+    private void setEndDateFromDuration()
+    {
+        Date today = new Date();
+        dateFin = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(today);
+        
+        // adding X hours to today
+        calendar.add(Calendar.HOUR,
+                (int)subscriptionType.getSubscriptionTypeEnum().getDuration());
+    }
+    
+    public void reloadSubscription()
+    {
+        setEndDateFromDuration();
+    }
+
+
 
     public long getId()
     {
