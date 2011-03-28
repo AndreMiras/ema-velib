@@ -82,7 +82,7 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="1 Journee"/>
             <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="velib.model.AbonnementTypeEnum.ONE_DAY.value()" type="code"/>
+              <Connection code="velib.model.SubscriptionTypeEnum.ONE_DAY.value()" type="code"/>
             </Property>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
@@ -96,7 +96,7 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="1/2 Journee"/>
             <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="velib.model.AbonnementTypeEnum.HALF_DAY.value()" type="code"/>
+              <Connection code="velib.model.SubscriptionTypeEnum.HALF_DAY.value()" type="code"/>
             </Property>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
@@ -147,7 +147,7 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="1 Semaine"/>
             <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="velib.model.AbonnementTypeEnum.ONE_WEEK.value()" type="code"/>
+              <Connection code="velib.model.SubscriptionTypeEnum.ONE_WEEK.value()" type="code"/>
             </Property>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
@@ -158,7 +158,7 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="1 Mois"/>
             <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="velib.model.AbonnementTypeEnum.ONE_MONTH.value()" type="code"/>
+              <Connection code="velib.model.SubscriptionTypeEnum.ONE_MONTH.value()" type="code"/>
             </Property>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
@@ -175,7 +175,7 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="1 An"/>
             <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="velib.model.AbonnementTypeEnum.ONE_YEAR.value()" type="code"/>
+              <Connection code="velib.model.SubscriptionTypeEnum.ONE_YEAR.value()" type="code"/>
             </Property>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>

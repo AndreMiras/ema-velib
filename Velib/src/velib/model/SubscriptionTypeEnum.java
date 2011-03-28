@@ -13,7 +13,7 @@ package velib.model;
 /*
  * List of supported abonnements types
  */
-public enum AbonnementTypeEnum
+public enum SubscriptionTypeEnum
 {
     // long
     HALF_DAY,

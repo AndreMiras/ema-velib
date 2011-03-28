@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import velib.dao.AbonnementDAO;
 import velib.model.Subscription;
-import velib.model.AbonnementTypeEnum;
+import velib.model.SubscriptionTypeEnum;
 import velib.model.TypeAbonnement;
 import velib.view.AbonnementPanel;
 import velib.view.RegisterFormPanel;
@@ -44,11 +44,11 @@ public class AbonnementController extends AbstractMainWindowController
         public void actionPerformed(ActionEvent e)
         {
             String actionCommand;
-            AbonnementTypeEnum abonnementType;
+            SubscriptionTypeEnum abonnementType;
             JButton clickedButton = (JButton)e.getSource();
 
             actionCommand = clickedButton.getActionCommand();
-            abonnementType = AbonnementTypeEnum.valueOf(actionCommand);
+            abonnementType = SubscriptionTypeEnum.valueOf(actionCommand);
             
             switch(abonnementType)
             {
@@ -84,7 +84,7 @@ public class AbonnementController extends AbstractMainWindowController
             
         }
 
-        private void longSubscription(AbonnementTypeEnum abonnementType)
+        private void longSubscription(SubscriptionTypeEnum abonnementType)
         {
             TypeAbonnement typeAbonnement;
             Subscription subscription;
