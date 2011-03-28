@@ -66,7 +66,7 @@ public class TypeAbonnementDAO extends DAO<TypeAbonnement> {
             ResultSet result = connect.createStatement(
             ResultSet.TYPE_SCROLL_INSENSITIVE,
             ResultSet.CONCUR_UPDATABLE).executeQuery(
-                "CALL NEXT VALUE FOR sequence_clients");
+                "CALL NEXT VALUE FOR sequence_type_subscription");
 
             if(result.first())
             {
@@ -111,7 +111,7 @@ public class TypeAbonnementDAO extends DAO<TypeAbonnement> {
     {
         String[] statementStrings = new String[3];
         statementStrings[0] =
-                "CREATE SEQUENCE sequence_typeabonnement START WITH 1 INCREMENT BY 1";
+                "CREATE SEQUENCE sequence_type_subscription START WITH 1 INCREMENT BY 1";
         statementStrings[1] =
                     String.format("CREATE TABLE %s" +
                     "(idtype INTEGER, " +
