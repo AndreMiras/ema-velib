@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import velib.model.Client;
 import velib.model.Location;
 import velib.view.DeclarerProblemPanel;
-import velib.view.MainWindowFrame;
 import velib.view.RestituerVeloPanel;
 
 public class RestituerVeloController extends AbstractMainWindowController

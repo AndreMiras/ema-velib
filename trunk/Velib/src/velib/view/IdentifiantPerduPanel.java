@@ -6,10 +6,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import velib.model.Client;
 
-/**
- *
- * @author Nicolas
- */
 
 public class IdentifiantPerduPanel extends javax.swing.JPanel {
 

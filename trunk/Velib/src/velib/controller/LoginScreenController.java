@@ -10,7 +10,7 @@ import velib.model.User;
 import velib.view.IdentifiantPerduPanel;
 import velib.view.LoggedInWelcomePanel;
 import velib.view.LoginScreenPanel;
-import velib.view.MainWindowFrame;
+
 
 public class LoginScreenController extends AbstractMainWindowController
 {

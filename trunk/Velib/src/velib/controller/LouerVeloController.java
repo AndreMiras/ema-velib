@@ -3,18 +3,14 @@ package velib.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.security.Timestamp;
 import java.util.Date;
-import velib.dao.AbonnementDAO;
-import velib.dao.BorneSingleton;
 import velib.dao.BornetteDAO;
 import velib.dao.LocationDAO;
-import velib.model.Subscription;
 import velib.model.Bornette;
 import velib.model.Client;
 import velib.model.Location;
 import velib.view.LouerVeloPanel;
-import velib.view.MainWindowFrame;
+
 
 /**
  * TODO: dispose when the velo is taken or when the time out is reached
