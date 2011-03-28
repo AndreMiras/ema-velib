@@ -75,7 +75,7 @@ public class MainWindowController // extends AbstractMainWindowController implem
         Connection connect = ConnectionHSQL.getDebugInstance();
         DatabaseMetaData dbm = connect.getMetaData();
 
-        ResultSet tables = dbm.getTables(null, null, "employee", null);
+        ResultSet tables = dbm.getTables(null, null, "bornes", null);
         if (tables.next()) {
         // Table exists
         }
