@@ -12,6 +12,7 @@
 package velib.view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import velib.model.Borne;
 
 /**
@@ -50,6 +51,7 @@ public class WelcomeScreenPanel extends javax.swing.JPanel {
     {
         aideButton.addActionListener(al);
     }
+
     
     /** This method is called from within the constructor to
      * initialize the form.

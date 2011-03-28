@@ -7,8 +7,14 @@ package velib.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JPanel;
 import velib.dao.BornesDAO;
+import velib.dao.ConnectionHSQL;
+import velib.dao.DatabaseManagementDAO;
 import velib.dao.IDatabaseManagementDAO;
 import velib.model.Borne;
 import velib.model.IModel;
@@ -52,7 +58,7 @@ public class MainWindowController // extends AbstractMainWindowController implem
     private UsersControlController usersControlController;
 
     public MainWindowController(IModel model,
-            MainWindowFrame mainWindowFrame)
+            MainWindowFrame mainWindowFrame) throws SQLException
     {
         // super(null);
         this.model = model;
@@ -61,12 +67,35 @@ public class MainWindowController // extends AbstractMainWindowController implem
         mainWindowFrameSetup();
         addListeners();
     }
+    
+    //Fonction qui regarde si les tables sont crées, sinon les crées et les rempli
+    //au lancement de l'application
+    private void testAndCreateDB() throws SQLException
+    {
+        Connection connect = ConnectionHSQL.getDebugInstance();
+        DatabaseMetaData dbm = connect.getMetaData();
+
+        ResultSet tables = dbm.getTables(null, null, "employee", null);
+        if (tables.next()) {
+        // Table exists
+        }
+        else {
+        // Table does not exist
+            BornesDAO borneDAO = new BornesDAO();
+
+            DatabaseManagementDAO databaseManagement = new DatabaseManagementDAO();
+            databaseManagement.createTables();
+            databaseManagement.fillUpTables();
+            mainWindowFrame.creationDBPopup();
+        }
+    }
 
     /*
      * Add first WelcomeScreenPanel and register associated controller
      */
-    public final void mainWindowFrameSetup()
+    public final void mainWindowFrameSetup() throws SQLException
     {
+        testAndCreateDB();
         mainWindowFrame.initMainWindow();
         welcomeScreenPanel = new WelcomeScreenPanel();
         welcomeScreenController = new WelcomeScreenController(
