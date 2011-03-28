@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package velib.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,10 +6,7 @@ import java.util.Vector;
 import velib.model.Borne;
 import velib.model.Bornette;
 import velib.model.Velo;
-/**
- *
- * @author Nicolas
- */
+
 // TODO: finish up
 public class BornetteDAO extends DAO<Bornette>
 {

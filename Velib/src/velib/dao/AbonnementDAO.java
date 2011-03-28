@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package velib.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,10 +5,6 @@ import java.sql.SQLException;
 import velib.model.Subscription;
 import velib.model.SubscriptionType;
 
-/**
- *
- * @author andre
- */
 // TODO: finish up
 public class AbonnementDAO extends DAO<Subscription> {
 
