@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import velib.dao.BornesDAO;
 import velib.dao.ConnectionHSQL;
@@ -70,30 +72,35 @@ public class MainWindowController // extends AbstractMainWindowController implem
     
     //Fonction qui regarde si les tables sont crées, sinon les crées et les rempli
     //au lancement de l'application
-    private void testAndCreateDB() throws SQLException
+    private void testAndCreateDB()
     {
-        Connection connect = ConnectionHSQL.getDebugInstance();
-        DatabaseMetaData dbm = connect.getMetaData();
-
-        ResultSet tables = dbm.getTables(null, null, "bornes", null);
-        if (tables.next()) {
-        // Table exists
-        }
-        else {
-        // Table does not exist
-            BornesDAO borneDAO = new BornesDAO();
-
-            DatabaseManagementDAO databaseManagement = new DatabaseManagementDAO();
-            databaseManagement.createTables();
-            databaseManagement.fillUpTables();
-            mainWindowFrame.creationDBPopup();
+        try
+        {
+            Connection connect = ConnectionHSQL.getDebugInstance();
+            DatabaseMetaData dbm = connect.getMetaData();
+            ResultSet tables = dbm.getTables(null, null, "bornes", null);
+            if (tables.next())
+            {
+                // Table exists
+            } else
+            {
+                // Table does not exist
+                BornesDAO borneDAO = new BornesDAO();
+                DatabaseManagementDAO databaseManagement = new DatabaseManagementDAO();
+                databaseManagement.createTables();
+                databaseManagement.fillUpTables();
+                mainWindowFrame.creationDBPopup();
+            }
+        } catch (SQLException ex)
+        {
+            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     /*
      * Add first WelcomeScreenPanel and register associated controller
      */
-    public final void mainWindowFrameSetup() throws SQLException
+    public final void mainWindowFrameSetup()
     {
         //testAndCreateDB();
         mainWindowFrame.initMainWindow();

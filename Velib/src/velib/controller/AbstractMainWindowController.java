@@ -1,17 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package velib.controller;
 
+import java.sql.SQLException;
 import javax.swing.JPanel;
 
-
-/**
- *
- * @author andre
- */
 public class AbstractMainWindowController
 {
     public MainWindowController mainWindowController;

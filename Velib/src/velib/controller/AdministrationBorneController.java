@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package velib.controller;
 
@@ -15,10 +11,6 @@ import velib.dao.VeloDAO;
 import velib.model.Velo;
 import velib.view.AdministrationBorneFrame;
 
-/**
- *
- * @author G
- */
 class AdministrationBorneController
 {
     Bornette [] bornettes;

@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package velib.controller;
 
 import java.awt.event.ActionEvent;
@@ -21,17 +16,9 @@ import velib.model.Velo;
 import velib.model.Borne;
 import velib.dao.BornesDAO;
 import velib.dao.ClientDAO;
-import velib.model.Client;
 import velib.view.ListeClientFrame;
 import velib.view.StatusBorneFrame;
 
-
-
-
-/**
- *
- * @author G
- */
 public class AdministrationWindowController
 {
         // Database Management mvc

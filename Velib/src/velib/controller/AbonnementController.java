@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package velib.controller;
 
 import java.awt.event.ActionEvent;
@@ -15,10 +10,6 @@ import velib.model.SubscriptionType;
 import velib.view.AbonnementPanel;
 import velib.view.RegisterFormPanel;
 
-/**
- *
- * @author andre
- */
 public class AbonnementController extends AbstractMainWindowController
 {
     private AbonnementPanel abonnementPanel;
@@ -34,11 +25,6 @@ public class AbonnementController extends AbstractMainWindowController
                 new AbonnementTypeGroupButtonListener());
     }
 
-
-    /*
-     * Creates and displays the appropriated abonnement page
-     * based on clicked button
-     */
     class AbonnementTypeGroupButtonListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
