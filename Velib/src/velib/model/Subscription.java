@@ -31,6 +31,7 @@ public class Subscription
          */
         // TODO: this.dateFin = new Date();
     }
+    
 
     /*
      * Sets the end date from the subscriptionType duration
