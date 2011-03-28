@@ -53,6 +53,7 @@ public class LoginScreenController extends AbstractMainWindowController
     private void addListeners()
     {
         view.addValiderButtonListener(new ValidaterButtonListener());
+        view.addIdentifiantPerduButtonListener(new IdentifiantPerduListener());
     }
     
 
@@ -97,6 +98,14 @@ public class LoginScreenController extends AbstractMainWindowController
                 view.loginErrorPopup();
 
             }
+        }
+    }
+
+    class IdentifiantPerduListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            
         }
     }
 
