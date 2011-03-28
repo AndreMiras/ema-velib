@@ -143,9 +143,6 @@ public class AbonnementDAOTest {
 
     /**
      * Test of update method, of class AbonnementDAO.
-     * TODO: change/add date
-     * http://www.rgagnon.com/javadetails/java-0101.html
-     * http://stackoverflow.com/questions/428918/how-can-i-increment-a-date-by-one-day-in-java
      */
     @Test
     public void testUpdate()

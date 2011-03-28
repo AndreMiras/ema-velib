@@ -14,10 +14,7 @@ import static org.junit.Assert.*;
 import velib.model.Client;
 import velib.model.User;
 
-/**
- *
- * @author andre
- */
+
 public class ClientDAOTest
 {
 
@@ -92,7 +89,6 @@ public class ClientDAOTest
 
     /**
      * Test of find method, of class ClientDAO.
-     * TODO: comment these tests
      */
     @Test
     public void testFind_long()
@@ -123,7 +119,7 @@ public class ClientDAOTest
 
     /**
      * Test of findByUser method, of class ClientDAO.
-     * TODO: should we keep that one, same as above
+     * TODO: should we keep that one ? Same as above
      */
     @Test
     public void testFindByUser()
