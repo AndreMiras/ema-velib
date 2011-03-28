@@ -61,7 +61,7 @@ public class ShowActivitiesClientFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        TitleLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        TitleLabel.setFont(new java.awt.Font("Dialog", 0, 14));
         TitleLabel.setText("Historique des locations de : ");
 
         fullNameLabel.setText("nom/prenom");
@@ -83,10 +83,10 @@ public class ShowActivitiesClientFrame extends javax.swing.JFrame {
                         .addGap(23, 23, 23)
                         .addComponent(TitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fullNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE))
+                        .addComponent(fullNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
