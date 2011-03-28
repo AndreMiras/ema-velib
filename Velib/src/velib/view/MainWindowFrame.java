@@ -9,8 +9,6 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
 {
 
     // Register middleContentPanels ref for previous button
-    // TODO: this is public at the moment for testing purpose only
-    // We actually might move all of this to the dedicated controller
     private Vector<JPanel> middleContentPanelsVector;
 
     /** Creates new form MainWindow */
@@ -42,13 +40,8 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     }
 
 
-    // TODO: see CardLayout
-    // See http://stackoverflow.com/questions/218155/how-do-i-change-jpanel-inside-a-jframe-on-the-fly
-    //
     /*
      * Replaces the current content panel by the given one
-     * TODO: the previous panel content doesn't seem to cleanup with the
-     * removeAll()
      */
     public void setContentPanel(JPanel panel)
     {
@@ -81,14 +74,6 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     private void enableNextButton(boolean enable)
     {
         nextButton.setEnabled(enable);
-    }
-
-    /*
-     * TODO: might not be necessary
-     */
-    public void addPreviousButtonListener(ActionListener al)
-    {
-        previousButton.addActionListener(al);
     }
 
     public void addNextButtonListener(ActionListener al)
