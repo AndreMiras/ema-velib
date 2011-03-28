@@ -1,6 +1,5 @@
 package velib.controller;
 
-import java.sql.SQLException;
 import javax.swing.JPanel;
 
 public class AbstractMainWindowController
