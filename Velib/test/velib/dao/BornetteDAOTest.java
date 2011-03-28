@@ -215,7 +215,6 @@ public class BornetteDAOTest {
     }
     /**
      * Test of update method, of class ClientDAO.
-     * TODO: this tests isn't finished at all
      */
     @Test
     public void testUpdate()
