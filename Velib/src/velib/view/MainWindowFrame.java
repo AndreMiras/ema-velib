@@ -140,7 +140,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         jMenu2 = new javax.swing.JMenu();
         dbConnectionMenuItem = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("NemoVelo");
 
         middleContentPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Content"));
@@ -196,7 +196,7 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(middleContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+                    .addComponent(middleContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
                     .addComponent(footersPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
