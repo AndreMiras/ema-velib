@@ -59,7 +59,7 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
         bornesJButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Administration Nemo Velo");
 
         editDatabaseButton.setText("Gestion de la BDD");
@@ -78,7 +78,7 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
 
         jLabel4.setText("Liste les vélos ayant été déclarés comme ayant un problème.");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel5.setText("Panneau général d'administration");
 
         jLabel6.setText("Affiche un client particulier et permet une visualisation de son historique.");
