@@ -1,17 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package velib.model;
 
 import java.util.Date;
 
-/**
- *
- * @author Nicolas
- */
- public class Location {
+public class Location
+{
 
     private long id;
     private Client client;

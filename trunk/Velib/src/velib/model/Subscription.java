@@ -1,17 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package velib.model;
 
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- *
- * @author fteysseire
- * TODO: inherit a child class as specified cahier_charges_specifications.pdf
- */
 public class Subscription
 {
 

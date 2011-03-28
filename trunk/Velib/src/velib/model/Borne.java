@@ -1,15 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package velib.model;
 
-/**
- *
- * @author Nicolas
- */
-public class Borne {
+public class Borne
+{
 
     private long idBorne;
     private String nomBorne;
