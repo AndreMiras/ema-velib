@@ -16,6 +16,7 @@ public class Bank
         this.numero=numero;
         this.cardHolder=cardHolder;
         this.codeVerif=codeVerif;
+        this.dateExpiration=new Date();
     }
 
     public Bank()
