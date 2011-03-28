@@ -14,7 +14,7 @@ package velib.view;
 import java.awt.event.ActionListener;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
-import velib.model.AbonnementType;
+import velib.model.AbonnementTypeEnum;
 
 /**
  *
@@ -60,7 +60,7 @@ public class AbonnementPanel extends javax.swing.JPanel {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Courte duree"));
 
         oneDay.setText("1 Journee");
-        oneDay.setActionCommand(AbonnementType.ONE_DAY.value());
+        oneDay.setActionCommand(AbonnementTypeEnum.ONE_DAY.value());
         buttonGroup1.add(oneDay);
         oneDay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,7 +69,7 @@ public class AbonnementPanel extends javax.swing.JPanel {
         });
 
         halfDayButton.setText("1/2 Journee");
-        halfDayButton.setActionCommand(AbonnementType.HALF_DAY.value());
+        halfDayButton.setActionCommand(AbonnementTypeEnum.HALF_DAY.value());
         buttonGroup1.add(halfDayButton);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -96,17 +96,17 @@ public class AbonnementPanel extends javax.swing.JPanel {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Longue duree"));
 
         oneWeekButton.setText("1 Semaine");
-        oneWeekButton.setActionCommand(AbonnementType.ONE_WEEK.value());
+        oneWeekButton.setActionCommand(AbonnementTypeEnum.ONE_WEEK.value());
         buttonGroup1.add(oneWeekButton);
 
         oneMonthButton.setText("1 Mois");
-        oneMonthButton.setActionCommand(AbonnementType.ONE_MONTH.value());
+        oneMonthButton.setActionCommand(AbonnementTypeEnum.ONE_MONTH.value());
         buttonGroup1.add(oneMonthButton);
         oneMonthButton.setMaximumSize(new java.awt.Dimension(81, 23));
         oneMonthButton.setMinimumSize(new java.awt.Dimension(81, 23));
 
         oneYearButton.setText("1 An");
-        oneYearButton.setActionCommand(AbonnementType.ONE_YEAR.value());
+        oneYearButton.setActionCommand(AbonnementTypeEnum.ONE_YEAR.value());
         buttonGroup1.add(oneYearButton);
         oneYearButton.setMaximumSize(new java.awt.Dimension(81, 23));
         oneYearButton.setMinimumSize(new java.awt.Dimension(81, 23));
