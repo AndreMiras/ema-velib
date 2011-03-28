@@ -42,7 +42,7 @@ public class ShowActivitiesClientFrame extends javax.swing.JFrame {
             public int getSize() { return locations.length; }
             public Object getElementAt(int i) { return locations[i]; }
         });
-        jScrollPane1.setViewportView(locationjList); // On affiche le tou dans le tableau
+        jScrollPane1.setViewportView(locationjList); // On affiche le tout dans le tableau
     }
 
     /** This method is called from within the constructor to
