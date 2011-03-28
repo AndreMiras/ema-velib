@@ -4,12 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import velib.model.Client;
 import velib.view.ConfirmationAbonnementPanel;
-import velib.view.MainWindowFrame;
 
-/**
- *
- * @author andre
- */
+
 public class ConfirmationAbonnementController extends AbstractMainWindowController
 {
     private Client client;

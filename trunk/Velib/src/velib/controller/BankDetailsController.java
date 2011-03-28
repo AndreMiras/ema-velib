@@ -30,7 +30,7 @@ public class BankDetailsController extends AbstractMainWindowController
                 new ValiderButtonListener());
     }
 
-    // TODO: payment process
+    // TODO: payment process to finish up
     class ValiderButtonListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)

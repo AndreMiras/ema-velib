@@ -3,7 +3,6 @@ package velib.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Vector;
 import velib.model.Subscription;
 import velib.model.Bank;
 
