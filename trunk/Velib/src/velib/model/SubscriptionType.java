@@ -6,7 +6,7 @@ package velib.model;
 public class SubscriptionType
 {
     private float price;
-    private int duration; // TODO: what type should we use?
+    private long duration; // TODO: what type should we use?
     private SubscriptionTypeEnum subscriptionTypeEnum;
 
     public SubscriptionType()
@@ -21,7 +21,7 @@ public class SubscriptionType
          * TODO: set duree and price
          */
         this.subscriptionTypeEnum = subscriptionTypeEnum;
-        setPriceAndDureeFromType();
+        setPriceAndDurationFromType();
     }
 
     public SubscriptionTypeEnum getSubscriptionTypeEnum()
@@ -34,7 +34,7 @@ public class SubscriptionType
         return getSubscriptionTypeEnum().getId();
     }
 
-    public int getDuration()
+    public long getDuration()
     {
         return duration;
     }
@@ -54,36 +54,12 @@ public class SubscriptionType
         this.price = price;
     }
 
-    // TODO: duree -> to english
     // TODO: hardcoded price values
-    private void setPriceAndDureeFromType()
+    private void setPriceAndDurationFromType()
     {
         if (subscriptionTypeEnum != null)
         {
-            switch(subscriptionTypeEnum)
-            {
-                /* short subscription */
-                case HALF_DAY:
-                    price = 1;
-                    break;
-                case ONE_DAY:
-                    price = 2;
-                    break;
-
-                /* long subscription */
-                case ONE_WEEK:
-                    price = 10;
-                    break;
-                case ONE_MONTH:
-                    price = 20;
-                    break;
-                case ONE_YEAR:
-                    price = 30;
-                    break;
-                default:
-                    System.out.println("Unknown type");
-                    break;
-            }
+            duration = subscriptionTypeEnum.getDuration();
         }
     }
 
