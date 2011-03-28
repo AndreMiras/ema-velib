@@ -34,10 +34,6 @@ public class BankDetailsPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Invalid input");
     }
 
-    /*
-     * create and return a user object from the input
-     * TODO: add secret question/response
-     */
     public Bank getBankDetailsFromInputs()
     {
         Bank bankDetails;
