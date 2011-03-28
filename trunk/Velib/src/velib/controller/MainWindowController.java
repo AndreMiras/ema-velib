@@ -92,7 +92,7 @@ public class MainWindowController
      */
     public final void mainWindowFrameSetup()
     {
-        //testAndCreateDB();
+        testAndCreateDB();
         mainWindowFrame.initMainWindow();
         welcomeScreenPanel = new WelcomeScreenPanel();
         welcomeScreenController = new WelcomeScreenController(
