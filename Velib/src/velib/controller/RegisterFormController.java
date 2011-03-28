@@ -8,7 +8,7 @@ package velib.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import velib.dao.ClientDAO;
-import velib.model.Abonnement;
+import velib.model.Subscription;
 import velib.model.Client;
 import velib.view.CreateUserPasswordPanel;
 import velib.view.MainWindowFrame;
@@ -22,10 +22,10 @@ import velib.view.RegisterFormPanel;
 public class RegisterFormController extends AbstractMainWindowController
 {
     private RegisterFormPanel registerFormPanel;
-    private Abonnement subscription;
+    private Subscription subscription;
 
     RegisterFormController(MainWindowController mainWindowController,
-            Abonnement subscription, RegisterFormPanel registerFormPanel)
+            Subscription subscription, RegisterFormPanel registerFormPanel)
     {
         super(mainWindowController);
         this.registerFormPanel = registerFormPanel;

@@ -14,7 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
-import velib.model.Abonnement;
+import velib.model.Subscription;
 import velib.model.Bank;
 
 import velib.model.Client;
@@ -111,7 +111,7 @@ public class ClientDAO extends DAO<Client>
             AbonnementDAO abonnementDAO = new AbonnementDAO();
             User user;
             Bank banque;
-            Abonnement subscription;
+            Subscription subscription;
           
 
             try

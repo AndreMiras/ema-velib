@@ -20,7 +20,7 @@ public class Client extends User {
     private long codePostal;
     private String ville;
 
-    private Abonnement abonnement;
+    private Subscription abonnement;
 
     /*
      * plusieurs clients peuvent avoir la meme carte mais on considere qu'un
@@ -41,7 +41,7 @@ public class Client extends User {
         this.lastname = lastname;
         
         this.dateNaissance = new Date();
-        this.abonnement = new Abonnement();
+        this.abonnement = new Subscription();
         this.banque = new Bank();
     }
 
@@ -83,11 +83,11 @@ public class Client extends User {
     }
 
 
-    public Abonnement getAbonnement() {
+    public Subscription getAbonnement() {
         return abonnement;
     }
 
-    public void setAbonnement(Abonnement abonnement) {
+    public void setAbonnement(Subscription abonnement) {
         this.abonnement = abonnement;
     }
 

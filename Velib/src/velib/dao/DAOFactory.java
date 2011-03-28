@@ -5,7 +5,7 @@
 
 package velib.dao;
 import velib.model.Client;
-import velib.model.Abonnement;
+import velib.model.Subscription;
 
 /**
  *
@@ -18,7 +18,7 @@ public class DAOFactory extends AbstractDAOFactory
 		return new ClientDAO();
 	}
 
-	public DAO<Abonnement> getAbonnementDAO(){
+	public DAO<Subscription> getAbonnementDAO(){
 		return new AbonnementDAO();
 	}
 

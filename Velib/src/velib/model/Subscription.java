@@ -11,7 +11,7 @@ import java.util.Date;
  * @author fteysseire
  * TODO: inherit a child class as specified cahier_charges_specifications.pdf
  */
-public class Abonnement
+public class Subscription
 {
 
     private long id;
@@ -20,12 +20,12 @@ public class Abonnement
     private Client client;
     private TypeAbonnement type;
   
-    public Abonnement()
+    public Subscription()
     {
         this(0, new TypeAbonnement());
     }
 
-    public Abonnement(long id, TypeAbonnement type)
+    public Subscription(long id, TypeAbonnement type)
     {
         this.id = id;
         dateDebut = new Date();

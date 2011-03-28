@@ -7,7 +7,7 @@ package velib.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import velib.model.Abonnement;
+import velib.model.Subscription;
 import velib.model.TypeAbonnement;
 
 /**
@@ -15,14 +15,14 @@ import velib.model.TypeAbonnement;
  * @author andre
  */
 // TODO: finish up
-public class AbonnementDAO extends DAO<Abonnement> {
+public class AbonnementDAO extends DAO<Subscription> {
 
     public AbonnementDAO()
     {
         tableNames = new String[] { "subscriptions" };
     }
 
-    public Abonnement create(Abonnement obj)
+    public Subscription create(Subscription obj)
     {
         String abonnementTable = tableNames[0];
 
@@ -71,12 +71,12 @@ public class AbonnementDAO extends DAO<Abonnement> {
     }
 
     @Override
-    public Abonnement find(long id)
+    public Subscription find(long id)
     {
         String typeAbonnementTable = tableNames[0];
         TypeAbonnement typeAbonnement;
         TypeAbonnementDAO typeAbonnementDAO = new TypeAbonnementDAO();
-        Abonnement abonnement = null;
+        Subscription abonnement = null;
 
         try
         {
@@ -94,7 +94,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
                 typeAbonnement =
                         typeAbonnementDAO.find(result.getInt("idtype"));
                 abonnement =
-                        new Abonnement(
+                        new Subscription(
                         result.getLong("idsubscription"), typeAbonnement);
                 abonnement.setDateDebut(result.getTimestamp("datedebut"));
                 abonnement.setDateFin(result.getTimestamp("datefin"));
@@ -109,7 +109,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
     }
 
     @Override
-    public Abonnement update(Abonnement obj)
+    public Subscription update(Subscription obj)
     {
         String clientTable = tableNames[0];
         try
@@ -138,7 +138,7 @@ public class AbonnementDAO extends DAO<Abonnement> {
     }
 
     @Override
-    public void delete(Abonnement obj)
+    public void delete(Subscription obj)
     {
         String abonnementTable = tableNames[0];
         try
