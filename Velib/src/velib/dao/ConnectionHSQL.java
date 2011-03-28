@@ -20,7 +20,6 @@ public class ConnectionHSQL {
         {
             if(connect == null)
             {
-                
                 try
                 {
                     // http://www.willamaze.eu/2009/02/running-hsqldb-in-process-no-suitable-driver-found/
@@ -59,7 +58,7 @@ public class ConnectionHSQL {
         {
             if(connect == null)
             {
-              try
+                try
                 {
                     // http://www.willamaze.eu/2009/02/running-hsqldb-in-process-no-suitable-driver-found/
                     // comment/uncomment this line if you get errors on connect
