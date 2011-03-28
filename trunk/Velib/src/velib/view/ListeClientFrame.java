@@ -1,14 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * ListeClientFrame.java
- *
- * Created on 24 mars 2011, 22:23:43
- */
-
 package velib.view;
 
 import java.awt.event.ActionListener;
@@ -16,10 +5,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import velib.model.Client;
 
-/**
- *
- * @author Nicolas
- */
 public class ListeClientFrame extends javax.swing.JFrame {
 
    
@@ -225,9 +210,6 @@ public class ListeClientFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-    * @param args the command line arguments
-    */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

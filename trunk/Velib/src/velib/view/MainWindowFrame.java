@@ -1,14 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * MainWindow.java
- *
- * Created on Mar 15, 2011, 1:49:25 PM
- */
-
 package velib.view;
 
 import java.awt.Component;
@@ -18,10 +7,6 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-/**
- *
- * @author andre
- */
 public class MainWindowFrame extends javax.swing.JFrame implements IView
 {
 
