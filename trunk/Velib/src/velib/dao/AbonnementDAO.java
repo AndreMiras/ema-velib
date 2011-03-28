@@ -178,17 +178,12 @@ public class AbonnementDAO extends DAO<Subscription> {
                 "ALTER TABLE "
                 + tableNames[0]
                 + " ADD CONSTRAINT primary_key_subscriptions PRIMARY KEY (idsubscription)";
-          /*
+          
         statementStrings[3] =
                 "ALTER TABLE "
                 + tableNames[0]
-                + " ADD CONSTRAINT foreign_key_subscriptions_clients FOREIGN KEY (idclient) REFERENCES clients (idclient)";
-           * 
-           */
-        statementStrings[3] =
-                "ALTER TABLE "
-                + tableNames[0]
-                + " ADD CONSTRAINT foreign_key_subscriptions_typeAbo FOREIGN KEY (idType) REFERENCES typeabonnement (idtype)";
+                + " ADD CONSTRAINT foreign_key_subscriptions_typeAbo FOREIGN KEY "
+                + "(idType) REFERENCES typeabonnement (idtype)";
         return statementStrings;
     }
 

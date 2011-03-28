@@ -70,10 +70,9 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
      */
     public void fillUpTables()
     {
-        // fillUpUserTable();
+        fillUpSubscriptionTypeTable();
         fillUpClientTable();
         fillUpBorneTable();
-        fillUpSubscriptionTypeTable();
     }
 
     private void createUserTable()
@@ -182,6 +181,10 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
         // and a second one (TODO: to be removed later)
         subscriptionType =
                 new SubscriptionType(SubscriptionTypeEnum.ONE_MONTH);
+        subscriptionTypeDAO.create(subscriptionType);
+
+        subscriptionType =
+                new SubscriptionType(SubscriptionTypeEnum.ONE_DAY);
         subscriptionTypeDAO.create(subscriptionType);
     }
 
