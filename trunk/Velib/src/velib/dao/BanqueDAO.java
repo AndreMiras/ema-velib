@@ -19,6 +19,7 @@ public class BanqueDAO extends DAO<Bank>
         tableNames = new String[] { "banques" };
     }
 
+
     public Bank create(Bank obj)
     {
            
@@ -74,10 +75,10 @@ public class BanqueDAO extends DAO<Bank>
             {
                 String numero = result.getString("numero");
                 String identifiant = result.getString("identifiant");
-                //Date date = result.getDate("dateexpiration");
                 String codeVerif = result.getString("codeVerif");
                
                compteBanque = new Bank(id, numero, identifiant, codeVerif);
+               compteBanque.setDateExpiration(result.getTimestamp("dateexpiration"));
             }
         }
         catch (SQLException e)

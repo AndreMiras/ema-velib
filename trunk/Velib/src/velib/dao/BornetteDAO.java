@@ -7,7 +7,7 @@ import velib.model.Borne;
 import velib.model.Bornette;
 import velib.model.Velo;
 
-// TODO: finish up
+
 public class BornetteDAO extends DAO<Bornette>
 {
 

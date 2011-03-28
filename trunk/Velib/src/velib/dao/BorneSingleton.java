@@ -2,10 +2,7 @@ package velib.dao;
 
 import velib.model.Borne;
 
-/**
- * @author andre
- * TODO: ? with the associated controller save the Borne id within a file?
- */
+
 public class BorneSingleton
 {
 
