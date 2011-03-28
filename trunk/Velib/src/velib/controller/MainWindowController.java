@@ -95,7 +95,7 @@ public class MainWindowController // extends AbstractMainWindowController implem
      */
     public final void mainWindowFrameSetup() throws SQLException
     {
-        testAndCreateDB();
+        //testAndCreateDB();
         mainWindowFrame.initMainWindow();
         welcomeScreenPanel = new WelcomeScreenPanel();
         welcomeScreenController = new WelcomeScreenController(
