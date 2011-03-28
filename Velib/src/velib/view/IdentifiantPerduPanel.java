@@ -49,6 +49,11 @@ public class IdentifiantPerduPanel extends javax.swing.JPanel {
         ok2JButton.addActionListener(al);
     }
 
+    public void addOk3ButtonListener(ActionListener al)
+    {
+        ok3Button.addActionListener(al);
+    }
+
     public JTextField getLastNameTextField() {
         return lastNameTextField;
     }
@@ -87,7 +92,7 @@ public class IdentifiantPerduPanel extends javax.swing.JPanel {
         okButton = new javax.swing.JButton();
         questionSecreteJLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        ok3Button = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         jFormattedTextField1.setText("jFormattedTextField1");
@@ -112,7 +117,7 @@ public class IdentifiantPerduPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Veuillez saisir votre nom et prénom:");
 
-        jButton1.setText("OK");
+        ok3Button.setText("OK");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,15 +138,16 @@ public class IdentifiantPerduPanel extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(reponseSecreteJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ok2JButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, 0, 0, Short.MAX_VALUE))
-                        .addGap(30, 30, 30)
-                        .addComponent(passwordJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))))
+                            .addComponent(reponseSecreteJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(27, 27, 27)
+                                .addComponent(passwordJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ok2JButton)
+                            .addComponent(ok3Button)))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,7 +173,7 @@ public class IdentifiantPerduPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(passwordJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
                     .addComponent(jLabel3)
-                    .addComponent(jButton1))
+                    .addComponent(ok3Button))
                 .addContainerGap())
         );
 
@@ -181,7 +187,7 @@ public class IdentifiantPerduPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addContainerGap())
         );
@@ -203,7 +209,6 @@ public class IdentifiantPerduPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField firstNameTextField1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -213,6 +218,7 @@ public class IdentifiantPerduPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField lastNameTextField;
     private javax.swing.JButton ok2JButton;
+    private javax.swing.JButton ok3Button;
     private javax.swing.JButton okButton;
     private javax.swing.JLabel passwordJLabel;
     private javax.swing.JLabel questionSecreteJLabel;
