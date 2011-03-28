@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import velib.dao.AbonnementDAO;
 import velib.model.Subscription;
 import velib.model.SubscriptionTypeEnum;
-import velib.model.TypeAbonnement;
+import velib.model.SubscriptionType;
 import velib.view.AbonnementPanel;
 import velib.view.RegisterFormPanel;
 
@@ -86,13 +86,13 @@ public class AbonnementController extends AbstractMainWindowController
 
         private void longSubscription(SubscriptionTypeEnum abonnementType)
         {
-            TypeAbonnement typeAbonnement;
+            SubscriptionType typeAbonnement;
             Subscription subscription;
             AbonnementDAO subscriptionDAO = new AbonnementDAO();
             /*
              * Create the subscription object and save it to the DB
              */
-            typeAbonnement = new TypeAbonnement(0, abonnementType);
+            typeAbonnement = new SubscriptionType(0, abonnementType);
             // Hit the database with the subscription object
             subscription = new Subscription(0, typeAbonnement);
             subscriptionDAO.create(subscription);

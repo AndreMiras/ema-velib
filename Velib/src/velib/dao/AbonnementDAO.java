@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import velib.model.Subscription;
-import velib.model.TypeAbonnement;
+import velib.model.SubscriptionType;
 
 /**
  *
@@ -74,7 +74,7 @@ public class AbonnementDAO extends DAO<Subscription> {
     public Subscription find(long id)
     {
         String typeAbonnementTable = tableNames[0];
-        TypeAbonnement typeAbonnement;
+        SubscriptionType typeAbonnement;
         TypeAbonnementDAO typeAbonnementDAO = new TypeAbonnementDAO();
         Subscription abonnement = null;
 
