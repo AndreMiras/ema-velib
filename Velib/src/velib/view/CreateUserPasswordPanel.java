@@ -59,6 +59,8 @@ public User getUserFromInputs()
     int id;
     String identifiant;
     String password;
+    String questionSecrete;
+    String reponseSecrete;
 
     if (formIsValid())
     {
@@ -67,8 +69,12 @@ public User getUserFromInputs()
         id = 0;
         identifiant = identifiantTextfield.getText();
         password = motdepasseTextField.getText();
+        questionSecrete = questsecreteTextField.getText();
+        reponseSecrete = repSecreteTextField.getText();
 
         user = new User(0, identifiant, password);
+        user.setReponseSecrete(reponseSecrete);
+        user.setQuestionSecrete(questionSecrete);
     }
     else
     {
@@ -97,7 +103,7 @@ public User getUserFromInputs()
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        QuestsecreteTextField = new javax.swing.JTextField();
+        questsecreteTextField = new javax.swing.JTextField();
         repSecreteTextField = new javax.swing.JTextField();
         validerButton = new javax.swing.JButton();
         motdepasseTextField = new javax.swing.JPasswordField();
@@ -166,7 +172,7 @@ public User getUserFromInputs()
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(QuestsecreteTextField)))
+                                .addComponent(questsecreteTextField)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                         .addComponent(validerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -191,7 +197,7 @@ public User getUserFromInputs()
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(QuestsecreteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(questsecreteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -230,7 +236,6 @@ public User getUserFromInputs()
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField QuestsecreteTextField;
     private javax.swing.JTextField identifiantTextfield;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -241,6 +246,7 @@ public User getUserFromInputs()
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPasswordField motdepasseTextField;
+    private javax.swing.JTextField questsecreteTextField;
     private javax.swing.JTextField repSecreteTextField;
     private javax.swing.JButton validerButton;
     // End of variables declaration//GEN-END:variables
