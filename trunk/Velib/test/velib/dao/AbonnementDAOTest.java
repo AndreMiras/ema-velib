@@ -88,21 +88,21 @@ public class AbonnementDAOTest {
 
         typeAbonnement = new SubscriptionType(SubscriptionTypeEnum.HALF_DAY);
         subscription = new Subscription(0, typeAbonnement);
-        subscription.setDateDebut(today);
-        subscription.setDateFin(tomorrow);
+        subscription.setStartDate(today);
+        subscription.setEndDate(tomorrow);
         
         AbonnementDAO abonnementDAO = new AbonnementDAO();
         subscriptionFromDAO = abonnementDAO.create(subscription);
 
         // the abonnement object shouldn't have an id
         assertEquals(0, subscription.getId());
-        assertEquals(today, subscription.getDateDebut());
-        assertEquals(tomorrow, subscription.getDateFin());
+        assertEquals(today, subscription.getStartDate());
+        assertEquals(tomorrow, subscription.getEndDate());
 
         // until it's being created by the DAO
         assertEquals(1, subscriptionFromDAO.getId());
-        assertEquals(today, subscriptionFromDAO.getDateDebut());
-        assertEquals(tomorrow, subscriptionFromDAO.getDateFin());
+        assertEquals(today, subscriptionFromDAO.getStartDate());
+        assertEquals(tomorrow, subscriptionFromDAO.getEndDate());
 
 
         /* Now trying to create a subscription object just by adding it
@@ -167,15 +167,15 @@ public class AbonnementDAOTest {
         yesterday = calendar.getTime();
 
         abonnementBeforeUpdate = abonnementDAO.find(1);
-        abonnementBeforeUpdate.setDateDebut(yesterday);
-        abonnementBeforeUpdate.setDateFin(tomorrow);
+        abonnementBeforeUpdate.setStartDate(yesterday);
+        abonnementBeforeUpdate.setEndDate(tomorrow);
 
         // updating
         abonnementAfterUpdate = abonnementDAO.update(abonnementBeforeUpdate);
 
         // the dates should be as
-        assertEquals(yesterday, abonnementAfterUpdate.getDateDebut());
-        assertEquals(tomorrow, abonnementAfterUpdate.getDateFin());
+        assertEquals(yesterday, abonnementAfterUpdate.getStartDate());
+        assertEquals(tomorrow, abonnementAfterUpdate.getEndDate());
     }
 
     /**

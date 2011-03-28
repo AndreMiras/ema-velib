@@ -46,10 +46,10 @@ public class AbonnementDAO extends DAO<Subscription> {
                         prepare.setLong(1, id);
                         prepare.setTimestamp(2,
                                 new java.sql.Timestamp(
-                                    obj.getDateDebut().getTime()));
+                                    obj.getStartDate().getTime()));
                         prepare.setTimestamp(3,
                                 new java.sql.Timestamp(
-                                    obj.getDateFin().getTime()));
+                                    obj.getEndDate().getTime()));
                         prepare.setLong(4, obj.getType().getIdType());
                         prepare.executeUpdate();
                         obj = this.find(id);
@@ -87,8 +87,8 @@ public class AbonnementDAO extends DAO<Subscription> {
                 abonnement =
                         new Subscription(
                         result.getLong("idsubscription"), typeAbonnement);
-                abonnement.setDateDebut(result.getTimestamp("datedebut"));
-                abonnement.setDateFin(result.getTimestamp("datefin"));
+                abonnement.setStartDate(result.getTimestamp("datedebut"));
+                abonnement.setEndDate(result.getTimestamp("datefin"));
             }
 
         }
@@ -112,8 +112,8 @@ public class AbonnementDAO extends DAO<Subscription> {
                 "UPDATE "
                 + clientTable
                 + " SET idtype = '" + obj.getType().getIdType() + "',"
-                + " datedebut = '" + new java.sql.Timestamp(obj.getDateDebut().getTime()) + "',"
-                + " datefin = '" + new java.sql.Timestamp(obj.getDateFin().getTime()) + "'"
+                + " datedebut = '" + new java.sql.Timestamp(obj.getStartDate().getTime()) + "',"
+                + " datefin = '" + new java.sql.Timestamp(obj.getEndDate().getTime()) + "'"
                 + " WHERE idsubscription = " + obj.getId()
          );
 
