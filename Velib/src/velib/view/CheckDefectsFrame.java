@@ -1,17 +1,8 @@
-/*
- * CheckDefectsFrame.java
- *
- * Created on 22 mars 2011, 18:17:28
- */
-
 package velib.view;
 
 import java.awt.event.ActionListener;
 import velib.model.Velo;
-/**
- *
- * @author G
- */
+
 public class CheckDefectsFrame extends javax.swing.JFrame
 {
     private Velo[] velos;

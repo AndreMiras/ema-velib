@@ -1,22 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * DBConnexionPanel.java
- *
- * Created on 18 mars 2011, 17:50:12
- */
-
 package velib.view;
 
 import java.awt.event.ActionListener;
 import velib.model.Borne;
-/**
- *
- * @author G
- */
+
 public class DBConnectionFrame extends javax.swing.JFrame
 {
     private velib.view.DBConnectionFrame dBConnectionFrame;
