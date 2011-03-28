@@ -2,6 +2,7 @@ package velib.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import velib.model.Client;
 import velib.model.User;
 
 // TODO: finish up
@@ -129,7 +130,7 @@ public class UserDAO extends DAO<User>
     @Override
     public User find(long id)
     {
-        User user = new User();
+        User user = null;
         String usersTable = tableNames[0];
 
 	try
@@ -146,8 +147,10 @@ public class UserDAO extends DAO<User>
             {
                 String identifiantDB = result.getString("identifiant");
                 String passwordDB = result.getString("password");
-              
                 user = new User(id, identifiantDB, passwordDB);
+                System.out.println(result.getString("questionsecrete"));
+                user.setQuestionSecrete(result.getString("questionsecrete"));
+                user.setReponseSecrete(result.getString("reponsesecrete"));
             }
         }
         catch (SQLException e)
@@ -158,6 +161,7 @@ public class UserDAO extends DAO<User>
         return user;
     }
 
+   
     @Override
     public String[] createTablesStatementStrings()
     {
