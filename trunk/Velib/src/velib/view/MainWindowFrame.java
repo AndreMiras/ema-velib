@@ -146,7 +146,6 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
         previousButton = new javax.swing.JButton();
         nextButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         dbConnectionMenuItem = new javax.swing.JMenuItem();
 
@@ -188,9 +187,6 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
                     .addComponent(previousButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
 
@@ -245,7 +241,6 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem dbConnectionMenuItem;
     private javax.swing.JPanel footersPanel;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel middleContentPanel;
