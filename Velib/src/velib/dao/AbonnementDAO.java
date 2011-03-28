@@ -29,7 +29,7 @@ public class AbonnementDAO extends DAO<Subscription> {
         // Si l'abonnement n'existe pas
         if(obj.getType().getIdType() == 0)
         {
-            TypeAbonnementDAO typeAbonnementDAO = new TypeAbonnementDAO();
+            SubscriptionTypeDAO typeAbonnementDAO = new SubscriptionTypeDAO();
             obj.setType(typeAbonnementDAO.create(obj.getType()));
         }
          try
@@ -75,7 +75,7 @@ public class AbonnementDAO extends DAO<Subscription> {
     {
         String typeAbonnementTable = tableNames[0];
         SubscriptionType typeAbonnement;
-        TypeAbonnementDAO typeAbonnementDAO = new TypeAbonnementDAO();
+        SubscriptionTypeDAO typeAbonnementDAO = new SubscriptionTypeDAO();
         Subscription abonnement = null;
 
         try
