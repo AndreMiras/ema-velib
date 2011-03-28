@@ -58,7 +58,6 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
 
     /*
      * Data for testing purpose only.
-     * TODO: That won't be used in the final product
      */
     public void fillUpTables()
     {
@@ -164,13 +163,14 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
     {
         SubscriptionTypeDAO subscriptionTypeDAO =
                 new SubscriptionTypeDAO();
+        
         // TODO: this is hardcoded at the moment but should be done
         // using iterate
         SubscriptionType subscriptionType =
                 new SubscriptionType(SubscriptionTypeEnum.ONE_WEEK);
         subscriptionTypeDAO.create(subscriptionType);
 
-        // and a second one (TODO: to be removed later)
+        // and a second one
         subscriptionType =
                 new SubscriptionType(SubscriptionTypeEnum.ONE_MONTH);
         subscriptionTypeDAO.create(subscriptionType);
@@ -185,18 +185,13 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
     }
 
 
-    /*
-     * TODO: get it cleaner
-     */
     private void fillUpClientTable()
     {
-
        User user;
        Client client;
        UserDAO userDAO;
        ClientDAO clientDAO;
        int id = 0;
-       long idUser = 0; // TODO: I think this shoulnd't have to be providen
                
        System.out.println("Filling up clients table");
 
