@@ -18,6 +18,8 @@ public class SubscriptionType
 
     public SubscriptionType()
     {
+        // one day by default
+        this(SubscriptionTypeEnum.ONE_DAY);
     }
 
     public SubscriptionType(SubscriptionTypeEnum subscriptionTypeEnum)
