@@ -29,32 +29,17 @@ public class DatabaseManagementController
 
     private void addListeners()
     {
-        view.addCreateDatabaseButtonListener(
-                new CreateDatabaseButtonListener());
-
         view.addDropDatabaseButtonListener(
                 new DropDatabaseButtonListener());
 
         view.addCreateTablesButtonListener(
                 new CreateTablesButtonListener());
 
-        view.addDropTablesButtonListener(
-                new DropTablesButtonListener());
-
         view.addInsertTablesDataButtonListener(
                 new InsertTablesDataButtonListener());
-        
     }
 
     /* Les fonctions suivantes sont directement éxecutées par la DAO databaseManagement */
-
-    class CreateDatabaseButtonListener implements ActionListener
-    {
-        public void actionPerformed(ActionEvent e)
-        {
-            databaseManagement.createDatabase();
-        }
-    }
 
     class DropDatabaseButtonListener implements ActionListener
     {
@@ -69,14 +54,6 @@ public class DatabaseManagementController
         public void actionPerformed(ActionEvent e)
         {
             databaseManagement.createTables();
-        }
-    }
-
-    class DropTablesButtonListener implements ActionListener
-    {
-        public void actionPerformed(ActionEvent e)
-        {
-            databaseManagement.dropTables();
         }
     }
 
