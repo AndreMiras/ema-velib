@@ -109,7 +109,8 @@ public class BanqueDAO extends DAO<Bank>
                         banquesTable +
                         " SET numero = '" + obj.getNumero()+ "',"+
                         " identifiant = '" + obj.getIdentifiant() + "',"+
-                        " dateexpiration = '" + obj.getDateExpiration() + "',"+
+                        " dateexpiration = '" +
+                       new java.sql.Date(obj.getDateExpiration().getTime())+ "',"+
                         " codeverif = '" + obj.getCodeVerif() + "'"+
                     	" WHERE idbanque = " + obj.getId()
                      );
