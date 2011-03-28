@@ -23,6 +23,7 @@ import velib.dao.BornesDAO;
 import velib.dao.ClientDAO;
 import velib.model.Client;
 import velib.view.ListeClientFrame;
+import velib.view.StatusBorneFrame;
 
 
 
@@ -64,6 +65,11 @@ public class AdministrationWindowController
     private ListeClientController listeClientController;
     private ClientDAO clientDAO;
 
+        //Status Bornes
+    private StatusBorneFrame statusBorneFrame;
+    private StatusBorneController statusBorneController;
+    private Borne[] bornes;
+
     public AdministrationWindowController(AdministrationWindowFrame administrationWindowFrame)
     {
         this.administrationWindowFrame = administrationWindowFrame;
@@ -82,6 +88,8 @@ public class AdministrationWindowController
                 new CheckDefectsButtonListener());
         administrationWindowFrame.addClientButtonListener(
                 new ClientButtonListener ());
+        administrationWindowFrame.addBorneButtonListener(
+                new BorneButtonListener ());
     }
 
     /* A partir d'ici les fonctions servent à ouvrir des frame, en uilisant (ou non) les paramteres utilisées par celle-ci */
@@ -134,7 +142,7 @@ public class AdministrationWindowController
         }
     }
 
-        class ClientButtonListener implements ActionListener    //Ouverture de la frame d'affichage des clients
+    class ClientButtonListener implements ActionListener    //Ouverture de la frame d'affichage des clients
     {
         public void actionPerformed(ActionEvent e)
         {
@@ -142,6 +150,17 @@ public class AdministrationWindowController
             listeClientFrame = new ListeClientFrame();
             listeClientController = new ListeClientController(listeClientFrame);
             listeClientFrame.setVisible(true);
+        }
+    }
+
+    class BorneButtonListener implements ActionListener    //Ouverture de la frame d'affichage des bornes
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+
+            statusBorneFrame = new StatusBorneFrame();
+            statusBorneController = new StatusBorneController(statusBorneFrame);
+            statusBorneFrame.setVisible(true);
         }
     }
 }
