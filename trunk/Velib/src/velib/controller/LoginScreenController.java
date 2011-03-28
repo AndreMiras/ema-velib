@@ -7,6 +7,7 @@ import velib.dao.UserDAO;
 import velib.model.Client;
 import velib.model.IModel;
 import velib.model.User;
+import velib.view.IdentifiantPerduPanel;
 import velib.view.LoggedInWelcomePanel;
 import velib.view.LoginScreenPanel;
 import velib.view.MainWindowFrame;
@@ -96,7 +97,11 @@ public class LoginScreenController extends AbstractMainWindowController
     {
         public void actionPerformed(ActionEvent e)
         {
-            
+            IdentifiantPerduPanel identifiantPerduPanel = new IdentifiantPerduPanel();
+            IdentifiantPerduController identifiantPerduControler =
+                    new IdentifiantPerduController(mainWindowController,
+                    identifiantPerduPanel);
+            setMainWindowContentPanel(identifiantPerduPanel);
         }
     }
 

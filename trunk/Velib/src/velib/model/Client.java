@@ -27,6 +27,8 @@ public class Client extends User {
     public Client(long idClient, String firstname, String lastname, User user)
     {
         super(user.getUserId(), user.getIdentifiant(), user.getPassword());
+        this.setQuestionSecrete(user.getQuestionSecrete());
+        this.setReponseSecrete(user.getReponseSecrete());
         this.client_id = idClient;
         this.firstname = firstname;
         this.lastname = lastname;
