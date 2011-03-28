@@ -6,7 +6,6 @@ import velib.dao.ClientDAO;
 import velib.model.Subscription;
 import velib.model.Client;
 import velib.view.CreateUserPasswordPanel;
-import velib.view.MainWindowFrame;
 import velib.view.RegisterFormPanel;
 
 public class RegisterFormController extends AbstractMainWindowController
