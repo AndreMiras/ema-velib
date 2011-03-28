@@ -31,7 +31,7 @@ public class RegisterFormController extends AbstractMainWindowController
     }
 
     /*
-     * TODO: payment process
+     * TODO: payment process to finish up
      */
     class OkButtonListener implements ActionListener
     {
