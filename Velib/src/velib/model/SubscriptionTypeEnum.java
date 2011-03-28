@@ -24,17 +24,17 @@ public enum SubscriptionTypeEnum
     ONE_MONTH(4),
     ONE_YEAR(5);
     
-    private long intSubscriptionTypeEnum;
+    private long id;
 
-    private SubscriptionTypeEnum(long intSubscriptionTypeEnum)
+    private SubscriptionTypeEnum(long id)
     {
-        this.intSubscriptionTypeEnum = intSubscriptionTypeEnum;
+        this.id = id;
     }
 
 
-    public long getIntSubscriptionTypeEnum()
+    public long getId()
     {
-        return intSubscriptionTypeEnum;
+        return id;
     }
 
     
