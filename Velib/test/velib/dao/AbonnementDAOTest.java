@@ -14,7 +14,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import velib.model.Subscription;
-import velib.model.AbonnementType;
+import velib.model.AbonnementTypeEnum;
 import velib.model.Client;
 import velib.model.TypeAbonnement;
 import velib.model.User;
@@ -85,7 +85,7 @@ public class AbonnementDAOTest {
         calendar.add(Calendar.DATE, 1); // adding a day to today
         tomorrow = calendar.getTime();
 
-        typeAbonnement = new TypeAbonnement(0, AbonnementType.HALF_DAY);
+        typeAbonnement = new TypeAbonnement(0, AbonnementTypeEnum.HALF_DAY);
         subscription = new Subscription(0, typeAbonnement);
         subscription.setDateDebut(today);
         subscription.setDateFin(tomorrow);
@@ -109,7 +109,7 @@ public class AbonnementDAOTest {
          */
         clientDAO = new ClientDAO();
         client = new Client(0, "firstname", "lastname", new User());
-        typeAbonnement = new TypeAbonnement(0, AbonnementType.ONE_MONTH);
+        typeAbonnement = new TypeAbonnement(0, AbonnementTypeEnum.ONE_MONTH);
         subscription = new Subscription(0, typeAbonnement);
         client.setAbonnement(subscription);
         clientDAO.create(client);
