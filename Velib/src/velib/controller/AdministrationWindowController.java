@@ -157,8 +157,10 @@ public class AdministrationWindowController
     {
         public void actionPerformed(ActionEvent e)
         {
-
-            statusBorneFrame = new StatusBorneFrame();
+            borneDAO = new BornesDAO();
+            bornes = borneDAO.findAllBorne();
+            statusBorneFrame = new StatusBorneFrame(bornes);
+            //statusBorneFrame.fillUpNomBorne(bornes);
             statusBorneController = new StatusBorneController(statusBorneFrame);
             statusBorneFrame.setVisible(true);
         }

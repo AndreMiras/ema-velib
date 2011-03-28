@@ -14,7 +14,6 @@ import velib.model.Borne;
 import velib.model.IModel;
 import velib.view.DBConnectionFrame;
 import velib.view.DatabaseManagementFrame;
-import velib.view.EditBornFrame;
 import velib.view.IView;
 import velib.view.MainWindowFrame;
 import velib.view.WelcomeScreenPanel;
@@ -42,8 +41,7 @@ public class MainWindowController // extends AbstractMainWindowController implem
 
     private BornesDAO borneDAO;
 
-    // Born Management mvc
-    private EditBornFrame editBornFrame;
+
 
     // Database Connection
     private DBConnectionFrame dBConnectionFrame;

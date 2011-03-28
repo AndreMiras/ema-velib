@@ -28,7 +28,6 @@ public class BornesDAO  extends DAO<Borne>{
         String bornesTable = tableNames[0];
         Vector<Borne> borneVector = new Vector<Borne>();
         Borne borne;
-        int i=0;
 
 	try
         {
