@@ -99,12 +99,6 @@ public Client getClientFromInputs()
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Abonnement"));
 
-        firstNameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameTextFieldActionPerformed(evt);
-            }
-        });
-
         jLabel1.setText("Nom :");
 
         jLabel2.setText("Prenom :");
@@ -116,12 +110,6 @@ public Client getClientFromInputs()
         jLabel5.setText("Code Postal :");
 
         jLabel6.setText("Adresse");
-
-        lastNameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastNameTextFieldActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -189,7 +177,7 @@ public Client getClientFromInputs()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        okButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        okButton.setFont(new java.awt.Font("Tahoma", 1, 14));
         okButton.setText("OK");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -201,7 +189,7 @@ public Client getClientFromInputs()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(399, Short.MAX_VALUE)
+                .addContainerGap(401, Short.MAX_VALUE)
                 .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -215,14 +203,6 @@ public Client getClientFromInputs()
                 .addGap(11, 11, 11))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void firstNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTextFieldActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_firstNameTextFieldActionPerformed
-
-    private void lastNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lastNameTextFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
