@@ -10,7 +10,7 @@ package velib.model;
  * @author Nicolas
  * TODO: not used, to be removed
  */
-public class TypeAbonnement
+public class SubscriptionType
 {
 
     private long id;
@@ -18,11 +18,11 @@ public class TypeAbonnement
     private int duree; // TODO: what type should we use?
     private SubscriptionTypeEnum abonnementType;
 
-    public TypeAbonnement()
+    public SubscriptionType()
     {
     }
 
-    public TypeAbonnement(long id, SubscriptionTypeEnum abonnementType)
+    public SubscriptionType(long id, SubscriptionTypeEnum abonnementType)
     {
         /*
          * TODO: set duree and price

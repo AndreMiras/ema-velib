@@ -18,19 +18,19 @@ public class Subscription
     private Date dateDebut;
     private Date dateFin;
     private Client client;
-    private TypeAbonnement type;
+    private SubscriptionType subscriptionType;
   
     public Subscription()
     {
-        this(0, new TypeAbonnement());
+        this(0, new SubscriptionType());
     }
 
-    public Subscription(long id, TypeAbonnement type)
+    public Subscription(long id, SubscriptionType subscriptionType)
     {
         this.id = id;
         dateDebut = new Date();
         dateFin = new Date();
-        this.type = type;
+        this.subscriptionType = subscriptionType;
 
         /*
          * TODO: set dateDebut based on type
@@ -69,14 +69,14 @@ public class Subscription
         return client;
     }
 
-    public TypeAbonnement getType()
+    public SubscriptionType getType()
     {
-        return type;
+        return subscriptionType;
     }
 
-    public void setType(TypeAbonnement type)
+    public void setType(SubscriptionType type)
     {
-        this.type = type;
+        this.subscriptionType = type;
     }
     
 

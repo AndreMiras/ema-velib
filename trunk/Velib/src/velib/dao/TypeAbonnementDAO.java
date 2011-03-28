@@ -8,13 +8,13 @@ package velib.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import velib.model.TypeAbonnement;
+import velib.model.SubscriptionType;
 
 /**
  *
  * @author Nicolas
  */
-public class TypeAbonnementDAO extends DAO<TypeAbonnement> {
+public class TypeAbonnementDAO extends DAO<SubscriptionType> {
 
     public TypeAbonnementDAO()
     {
@@ -22,10 +22,10 @@ public class TypeAbonnementDAO extends DAO<TypeAbonnement> {
     }
 
     @Override
-    public TypeAbonnement find(long id)
+    public SubscriptionType find(long id)
     {
         String typeAbonnementTable = tableNames[0];
-        TypeAbonnement typeAbonnement = null;
+        SubscriptionType typeAbonnement = null;
 
         try
         {
@@ -41,7 +41,7 @@ public class TypeAbonnementDAO extends DAO<TypeAbonnement> {
             if(result.first())
             {
                 typeAbonnement =
-                        new TypeAbonnement(
+                        new SubscriptionType(
                         result.getLong("idtype"),
                         null); // I do not yet know how I will handle this
                 typeAbonnement.setDuree(result.getInt("duree"));
@@ -57,7 +57,7 @@ public class TypeAbonnementDAO extends DAO<TypeAbonnement> {
     }
 
     @Override
-    public TypeAbonnement create(TypeAbonnement obj)
+    public SubscriptionType create(SubscriptionType obj)
     {
         String typeAbonnementTable = tableNames[0];
 
@@ -97,12 +97,12 @@ public class TypeAbonnementDAO extends DAO<TypeAbonnement> {
     }
 
     @Override
-    public TypeAbonnement update(TypeAbonnement obj) {
+    public SubscriptionType update(SubscriptionType obj) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void delete(TypeAbonnement obj) {
+    public void delete(SubscriptionType obj) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
