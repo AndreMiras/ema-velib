@@ -70,11 +70,11 @@ public class ClientDAO extends DAO<Client>
                             + "datenaissance, "
                             + "adresse, "
                             + "ville, "
-                            //+ "codepostal, "
+                            + "codepostal, "
                             + "idsubscription, "
                             + "iduser, "
                             + "idbanque) "
-                            + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                            + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 prepare.setLong(1, id);
                 prepare.setString(2, obj.getFirstname());
                 prepare.setString(3, obj.getLastname());
@@ -83,10 +83,10 @@ public class ClientDAO extends DAO<Client>
                         obj.getDateNaissance().getTime()));
                 prepare.setString(5, obj.getAdresse());
                 prepare.setString(6, obj.getVille());
-                //prepare.setLong(7, obj.getCodePostal());
-                prepare.setLong(7, obj.getAbonnement().getId());
-                prepare.setLong(8, obj.getUserId());
-                prepare.setLong(9, obj.getBanque().getId());
+                prepare.setLong(7, obj.getCodePostal());
+                prepare.setLong(8, obj.getAbonnement().getId());
+                prepare.setLong(9, obj.getUserId());
+                prepare.setLong(10, obj.getBanque().getId());
 
                 prepare.executeUpdate();
 
