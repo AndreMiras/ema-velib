@@ -1,7 +1,6 @@
 package velib.view;
 
 import java.awt.event.ActionListener;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import velib.model.Client;
@@ -101,12 +100,6 @@ public class IdentifiantPerduPanel extends javax.swing.JPanel {
 
         ok2JButton.setText("OK");
 
-        reponseSecreteJTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reponseSecreteJTextFieldActionPerformed(evt);
-            }
-        });
-
         jLabel2.setText("Veuillez saisir votre réponse secrète:");
 
         okButton.setText("OK");
@@ -167,7 +160,7 @@ public class IdentifiantPerduPanel extends javax.swing.JPanel {
                     .addComponent(ok2JButton))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(passwordJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                    .addComponent(passwordJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                     .addComponent(jLabel3)
                     .addComponent(ok3Button))
                 .addContainerGap())
@@ -197,10 +190,6 @@ public class IdentifiantPerduPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void reponseSecreteJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reponseSecreteJTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_reponseSecreteJTextFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
