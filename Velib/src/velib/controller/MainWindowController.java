@@ -22,8 +22,7 @@ import velib.view.MainWindowFrame;
 import velib.view.WelcomeScreenPanel;
 import velib.view.UsersControlFrame;
 
-// TODO: to be renamed as MainWindowFrameController
-public class MainWindowController // extends AbstractMainWindowController implements IController
+public class MainWindowController
 {
   
     private IModel model;

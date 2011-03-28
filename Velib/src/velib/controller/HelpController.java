@@ -3,7 +3,6 @@ package velib.controller;
 
 import velib.model.IModel;
 import velib.view.HelpPanel;
-import velib.view.MainWindowFrame;
 
 public class HelpController extends AbstractMainWindowController
 {
