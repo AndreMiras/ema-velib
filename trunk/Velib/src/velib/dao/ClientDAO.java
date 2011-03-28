@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
+import velib.model.Abonnement;
 import velib.model.Bank;
 
 import velib.model.Client;
@@ -107,25 +108,28 @@ public class ClientDAO extends DAO<Client>
             Client client = null;
             UserDAO userDAO = new UserDAO();
             BanqueDAO banqueDAO = new BanqueDAO();
+            AbonnementDAO abonnementDAO = new AbonnementDAO();
             User user;
             Bank banque;
+            Abonnement subscription;
           
 
             try
             {
+                String sqlString =  "SELECT * FROM "
+                        + clientTable
+                        + " WHERE idclient = '" + id + "'";
                 ResultSet result = this .connect
                                         .createStatement(
                                             ResultSet.TYPE_SCROLL_INSENSITIVE,
                                             ResultSet.CONCUR_READ_ONLY
-                                         ).executeQuery(
-                                            "SELECT * FROM "
-                                            + clientTable
-                                            + " WHERE idclient = '" + id + "'"
-                                         );
+                                         ).executeQuery(sqlString);
                 if(result.first())
                 {
                     user = userDAO.find(result.getLong("iduser"));
                     banque = banqueDAO.find(result.getLong("idbanque"));
+                    subscription = abonnementDAO.find(
+                            result.getLong("idsubscription"));
                     client = new Client(
                                         result.getLong("idclient"),
                                         result.getString("firstname"),
@@ -135,6 +139,7 @@ public class ClientDAO extends DAO<Client>
                     client.setDateNaissance(result.getTimestamp("Datenaissance"));
                     client.setCodePostal(result.getLong("codepostal"));
                     client.setBanque(banque);
+                    client.setAbonnement(subscription);
                 }
 
             }
@@ -149,10 +154,6 @@ public class ClientDAO extends DAO<Client>
         {
             String clientTable = tableNames[0];
             Client client = null;
-            UserDAO userDAO = new UserDAO();
-            BanqueDAO banqueDAO = new BanqueDAO();
-            User user;
-            Bank banque;
 
             try
             {
@@ -161,24 +162,14 @@ public class ClientDAO extends DAO<Client>
                                             ResultSet.TYPE_SCROLL_INSENSITIVE,
                                             ResultSet.CONCUR_READ_ONLY
                                          ).executeQuery(
-                                            "SELECT * FROM "
+                                            "SELECT idclient FROM "
                                             + clientTable
                                             + " WHERE firstname = '" + firstname + "'"
                                             + " AND lastname = '" + lastname + "'"
                                          );
                 if(result.first())
                 {
-                    user = userDAO.find(result.getLong("iduser"));
-                    banque = banqueDAO.find(result.getLong("idbanque"));
-                    client = new Client(
-                                        result.getLong("idclient"),
-                                        result.getString("firstname"),
-                                        result.getString("lastname"), user);
-                    client.setAdresse(result.getString("adresse"));
-                    client.setVille(result.getString("ville"));
-                    client.setDateNaissance(result.getTimestamp("Datenaissance"));
-                    client.setCodePostal(result.getLong("codepostal"));
-                    client.setBanque(banque);
+                    client = find(result.getLong("idclient"));
                 }
 
             }
@@ -197,9 +188,7 @@ public class ClientDAO extends DAO<Client>
         public Client findByUser(User user)
         {
             String clientTable = tableNames[0];
-            Client client = new Client();
-            BanqueDAO banqueDAO = new BanqueDAO();
-            Bank banque;
+            Client client = null;
 
             try
             {
@@ -207,36 +196,23 @@ public class ClientDAO extends DAO<Client>
                                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                                     ResultSet.CONCUR_READ_ONLY
                                      ).executeQuery(
-                                    "SELECT * FROM "
+                                    "SELECT idclient FROM "
                                     +  clientTable
                                     + " WHERE iduser = '"
                                     + user.getUserId()
                                     + "'"
                                     );
-            if(result.first())
-            {
-             
-                Long idClient = result.getLong("idclient");
-                Long idUser = result.getLong("iduser");
-                String firstname = result.getString("firstname");
-                String lastname = result.getString("lastname");
-                client = new Client(idClient, firstname, lastname, user);
-                                    client.setAdresse(result.getString("adresse"));
-                client.setVille(result.getString("ville"));
-                client.setDateNaissance(result.getTimestamp("Datenaissance"));
-                client.setCodePostal(result.getLong("codepostal"));
-                banque = banqueDAO.find(result.getLong("idbanque"));
-                client.setBanque(banque);
-                //client = find(result.getLong("idclient"));
+                if(result.first())
+                {
+                    client = find(result.getLong("idclient"));
+                }
             }
-        }
-        catch (SQLException e)
-        {
-            e.printStackTrace();
-        }
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
 
-        return client;
-
+            return client;
         }
 
         
