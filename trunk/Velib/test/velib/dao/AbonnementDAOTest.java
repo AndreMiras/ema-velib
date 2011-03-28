@@ -13,7 +13,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import velib.model.Abonnement;
+import velib.model.Subscription;
 import velib.model.AbonnementType;
 import velib.model.Client;
 import velib.model.TypeAbonnement;
@@ -72,8 +72,8 @@ public class AbonnementDAOTest {
     {
         System.out.println("create");
         TypeAbonnement typeAbonnement;
-        Abonnement subscriptionFromDAO;
-        Abonnement subscription;
+        Subscription subscriptionFromDAO;
+        Subscription subscription;
         AbonnementDAO subscriptionDAO;
         Date today, tomorrow;
         Client client;
@@ -86,7 +86,7 @@ public class AbonnementDAOTest {
         tomorrow = calendar.getTime();
 
         typeAbonnement = new TypeAbonnement(0, AbonnementType.HALF_DAY);
-        subscription = new Abonnement(0, typeAbonnement);
+        subscription = new Subscription(0, typeAbonnement);
         subscription.setDateDebut(today);
         subscription.setDateFin(tomorrow);
         
@@ -110,7 +110,7 @@ public class AbonnementDAOTest {
         clientDAO = new ClientDAO();
         client = new Client(0, "firstname", "lastname", new User());
         typeAbonnement = new TypeAbonnement(0, AbonnementType.ONE_MONTH);
-        subscription = new Abonnement(0, typeAbonnement);
+        subscription = new Subscription(0, typeAbonnement);
         client.setAbonnement(subscription);
         clientDAO.create(client);
         /*
@@ -129,10 +129,10 @@ public class AbonnementDAOTest {
         System.out.println("find");
 
         AbonnementDAO instance = new AbonnementDAO();
-        Abonnement expResult = null;
+        Subscription expResult = null;
 
         // trying to find an non existing object
-        Abonnement result = instance.find(0);
+        Subscription result = instance.find(0);
         assertEquals(null, result);
 
         // trying to find an existing one
@@ -151,7 +151,7 @@ public class AbonnementDAOTest {
     {
         System.out.println("update");
         Date yesterday, today, tomorrow, dateDebut, dateFin;
-        Abonnement abonnementBeforeUpdate, abonnementAfterUpdate;
+        Subscription abonnementBeforeUpdate, abonnementAfterUpdate;
         AbonnementDAO abonnementDAO = new AbonnementDAO();
         dateFin = new Date();
         today = new Date();
@@ -186,7 +186,7 @@ public class AbonnementDAOTest {
         System.out.println("delete");
         AbonnementDAO abonnementDAO = new AbonnementDAO();
 
-        Abonnement abonnement = abonnementDAO.find(1);
+        Subscription abonnement = abonnementDAO.find(1);
         abonnementDAO.delete(abonnement);
         assertEquals(1, abonnement.getId());
 

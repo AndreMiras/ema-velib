@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import velib.dao.AbonnementDAO;
-import velib.model.Abonnement;
+import velib.model.Subscription;
 import velib.model.AbonnementType;
 import velib.model.TypeAbonnement;
 import velib.view.AbonnementPanel;
@@ -87,14 +87,14 @@ public class AbonnementController extends AbstractMainWindowController
         private void longSubscription(AbonnementType abonnementType)
         {
             TypeAbonnement typeAbonnement;
-            Abonnement subscription;
+            Subscription subscription;
             AbonnementDAO subscriptionDAO = new AbonnementDAO();
             /*
              * Create the subscription object and save it to the DB
              */
             typeAbonnement = new TypeAbonnement(0, abonnementType);
             // Hit the database with the subscription object
-            subscription = new Abonnement(0, typeAbonnement);
+            subscription = new Subscription(0, typeAbonnement);
             subscriptionDAO.create(subscription);
 
             

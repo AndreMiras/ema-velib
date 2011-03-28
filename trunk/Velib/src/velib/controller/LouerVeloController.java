@@ -13,7 +13,7 @@ import velib.dao.AbonnementDAO;
 import velib.dao.BorneSingleton;
 import velib.dao.BornetteDAO;
 import velib.dao.LocationDAO;
-import velib.model.Abonnement;
+import velib.model.Subscription;
 import velib.model.Bornette;
 import velib.model.Client;
 import velib.model.Location;
