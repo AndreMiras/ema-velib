@@ -22,8 +22,11 @@ public class BankDetailsPanel extends javax.swing.JPanel {
      */
     private boolean formIsValid()
     {
-        // TODO: finish up
-        return true;
+        return (
+                !(cardHolderTextField.getText().isEmpty())
+                &&
+                dateChooser.getDate() != null
+                );
     }
 
     /*
@@ -37,7 +40,6 @@ public class BankDetailsPanel extends javax.swing.JPanel {
     public Bank getBankDetailsFromInputs()
     {
         Bank bankDetails;
-        int id;
         String cardHolder;
         String creditCardNumber;
         String cardSecurityCode;
@@ -46,7 +48,6 @@ public class BankDetailsPanel extends javax.swing.JPanel {
 
         if (formIsValid())
         {
-            id = 0;
             cardHolder=cardHolderTextField.getText();
             creditCardNumber = ccNumTextField.getText();
             cardSecurityCode = cardSecurityCodeTextField.getText();

@@ -3,7 +3,6 @@ package velib.view;
 import java.awt.event.ActionListener;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
-import velib.model.SubscriptionTypeEnum;
 
 public class AbonnementPanel extends javax.swing.JPanel {
 
