@@ -8,10 +8,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 import velib.model.Borne;
 
-/**
- *
- * @author Nicolas
- */
+
 public class BornesDAO  extends DAO<Borne>{
 
     public BornesDAO()

@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import velib.model.Subscription;
 import velib.model.SubscriptionType;
 
-// TODO: finish up
+
 public class AbonnementDAO extends DAO<Subscription> {
 
     public AbonnementDAO()
@@ -139,7 +139,7 @@ public class AbonnementDAO extends DAO<Subscription> {
                 ResultSet.TYPE_SCROLL_INSENSITIVE,
                 ResultSet.CONCUR_UPDATABLE
          ).executeUpdate(
-         //TODO remove that shit, man
+        
                 "DELETE FROM "
                  + abonnementTable
                  + " WHERE idsubscription = " + obj.getId()
@@ -163,7 +163,6 @@ public class AbonnementDAO extends DAO<Subscription> {
                     "(idsubscription INTEGER, " +
                     "datedebut DATETIME, " +
                     "datefin DATETIME, " +
-                    // "idclient INTEGER, " +
                     "idtype INTEGER) " , tableNames[0]);
           statementStrings[2] =
                 "ALTER TABLE "

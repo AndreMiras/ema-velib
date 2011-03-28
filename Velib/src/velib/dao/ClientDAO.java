@@ -216,7 +216,7 @@ public class ClientDAO extends DAO<Client>
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
              ).executeUpdate(
-             //TODO remove that shit, man (something else, you say firstname = obj.getLastname and lastname = obj.getFirstname ???)
+             
                     "UPDATE "
                     + clientTable
                     + " SET iduser = '" + obj.getUserId() + "',"
@@ -253,7 +253,7 @@ public class ClientDAO extends DAO<Client>
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
              ).executeUpdate(
-             //TODO remove that shit, man
+             
                     "DELETE FROM "
                      + clientTable
                      + " WHERE idclient = " + obj.getClientId()
@@ -269,9 +269,6 @@ public class ClientDAO extends DAO<Client>
     @Override
     public String[] createTablesStatementStrings()
     {
-        /*
-         * TODO: see below
-         */
         String[] statementStrings = new String[6];
         statementStrings[0] =
                 "CREATE SEQUENCE sequence_clients START WITH 1 INCREMENT BY 1";

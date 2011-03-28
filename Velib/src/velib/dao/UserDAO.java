@@ -18,18 +18,6 @@ public class UserDAO extends DAO<User>
     {
         String usersTable = tableNames[0];
          try {
-             /*
-             ResultSet result = this.connect.createStatement(
-                                ResultSet.TYPE_SCROLL_INSENSITIVE,
-                      		ResultSet.CONCUR_UPDATABLE
-                                    ).executeQuery(
-                                       "SELECT NEXT VALUE FOR sequenceuser FROM " +
-                                       usersTable +
-                                       " as id"
-                                    );
-              *
-              */
-
              ResultSet result = this.connect.createStatement(
                                 ResultSet.TYPE_SCROLL_INSENSITIVE,
                       		ResultSet.CONCUR_UPDATABLE
