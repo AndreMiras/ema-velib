@@ -44,7 +44,7 @@ public class SubscriptionType
         return price;
     }
 
-    public void setDuree(int duration)
+    public void setDuration(long duration)
     {
         this.duration = duration;
     }
@@ -60,6 +60,7 @@ public class SubscriptionType
         if (subscriptionTypeEnum != null)
         {
             duration = subscriptionTypeEnum.getDuration();
+            price = subscriptionTypeEnum.getPrice();
         }
     }
 
