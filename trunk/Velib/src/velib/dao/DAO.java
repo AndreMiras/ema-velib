@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package velib.dao;
 
 
@@ -13,11 +8,6 @@ import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
-/**
- *
- * @author andre
- */
 public abstract class DAO<T> {
 
         // TODO shouln't this be protected?
