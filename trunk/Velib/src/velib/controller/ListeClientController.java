@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package velib.controller;
 
 import java.awt.event.ActionEvent;
@@ -14,10 +9,6 @@ import velib.model.Location;
 import velib.view.ListeClientFrame;
 import velib.view.ShowActivitiesClientFrame;
 
-/**
- *
- * @author
- */
 public class ListeClientController
 {
 

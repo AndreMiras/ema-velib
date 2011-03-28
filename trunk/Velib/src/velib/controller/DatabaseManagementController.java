@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package velib.controller;
 
@@ -10,10 +6,6 @@ import java.awt.event.ActionListener;
 import velib.dao.IDatabaseManagementDAO;
 import velib.view.DatabaseManagementFrame;
 
-/**
- *
- * @author andre
- */
 public class DatabaseManagementController
 {
 

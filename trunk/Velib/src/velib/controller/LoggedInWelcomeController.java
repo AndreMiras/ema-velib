@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package velib.controller;
 
@@ -19,10 +15,6 @@ import velib.view.LoggedInWelcomePanel;
 import velib.view.LouerVeloPanel;
 import velib.view.RestituerVeloPanel;
 
-/**
- *
- * @author andre
- */
 class LoggedInWelcomeController extends AbstractMainWindowController
 {
 

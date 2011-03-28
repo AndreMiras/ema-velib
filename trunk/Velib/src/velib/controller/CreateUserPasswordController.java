@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package velib.controller;
 
 import java.awt.event.ActionEvent;
@@ -14,10 +9,6 @@ import velib.model.User;
 import velib.view.BankDetailsPanel;
 import velib.view.CreateUserPasswordPanel;
 
-/**
- *
- * @author andre
- */
 public class CreateUserPasswordController extends AbstractMainWindowController
 {
     private Client client;

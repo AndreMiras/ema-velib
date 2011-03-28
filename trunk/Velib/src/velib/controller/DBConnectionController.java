@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package velib.controller;
 
@@ -12,10 +8,6 @@ import velib.dao.BornesDAO;
 import velib.model.Borne;
 import velib.view.DBConnectionFrame;
 
-/**
- *
- * @author G
- */
 public class DBConnectionController
 {
     private DBConnectionFrame dBConnectionPanel;

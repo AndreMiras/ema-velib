@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package velib.controller;
 
 import java.awt.event.ActionEvent;
@@ -27,10 +22,6 @@ import velib.view.MainWindowFrame;
 import velib.view.WelcomeScreenPanel;
 import velib.view.UsersControlFrame;
 
-/**
- *
- * @author andre
- */
 // TODO: to be renamed as MainWindowFrameController
 public class MainWindowController // extends AbstractMainWindowController implements IController
 {

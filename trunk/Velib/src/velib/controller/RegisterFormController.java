@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package velib.controller;
 
 import java.awt.event.ActionEvent;
@@ -14,11 +9,6 @@ import velib.view.CreateUserPasswordPanel;
 import velib.view.MainWindowFrame;
 import velib.view.RegisterFormPanel;
 
-/**
- *
- * @author andre
- * TODO: manage all three kind of long subscription
- */
 public class RegisterFormController extends AbstractMainWindowController
 {
     private RegisterFormPanel registerFormPanel;
