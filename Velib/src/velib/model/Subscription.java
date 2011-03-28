@@ -7,8 +7,8 @@ public class Subscription
 {
 
     private long id;
-    private Date dateDebut;
-    private Date dateFin;
+    private Date startDate;
+    private Date endDate;
     private Client client;
     private SubscriptionType subscriptionType;
   
@@ -20,8 +20,8 @@ public class Subscription
     public Subscription(long id, SubscriptionType subscriptionType)
     {
         this.id = id;
-        dateDebut = new Date();
-        dateFin = new Date();
+        startDate = new Date();
+        endDate = new Date();
         this.subscriptionType = subscriptionType;
         
         setEndDateFromDuration();
@@ -39,7 +39,7 @@ public class Subscription
     private void setEndDateFromDuration()
     {
         Date today = new Date();
-        dateFin = new Date();
+        endDate = new Date();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(today);
         
@@ -60,24 +60,24 @@ public class Subscription
         return id;
     }
 
-    public Date getDateDebut()
+    public Date getStartDate()
     {
-        return new Date(dateDebut.getTime());
+        return new Date(startDate.getTime());
     }
 
-    public Date getDateFin()
+    public Date getEndDate()
     {
-        return dateFin;
+        return endDate;
     }
 
-    public void setDateDebut(Date dateDebut)
+    public void setStartDate(Date startDate)
     {
-        this.dateDebut = dateDebut;
+        this.startDate = startDate;
     }
 
-    public void setDateFin(Date dateFin)
+    public void setEndDate(Date endDate)
     {
-        this.dateFin = dateFin;
+        this.endDate = endDate;
     }
 
 
