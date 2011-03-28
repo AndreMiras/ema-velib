@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 public abstract class DAO<T> {
 
-	protected Connection connect = ConnectionHSQL.getInstance();
+	protected Connection connect = ConnectionHSQL.getDebugInstance();
 
         /*
          * list of used tables for this object
