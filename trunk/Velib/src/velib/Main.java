@@ -5,6 +5,7 @@
 
 package velib;
 
+import java.sql.SQLException;
 import velib.controller.AdministrationWindowController;
 import velib.controller.MainWindowController;
 import velib.model.Client;
@@ -21,7 +22,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args)
+    public static void main(String[] args) throws SQLException
     {
        /* Borne */
         // Creating the main view

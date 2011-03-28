@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import velib.dao.BorneSingleton;
 import velib.dao.BornesDAO;
+import velib.dao.DatabaseManagementDAO;
 import velib.model.Borne;
 import velib.model.IModel;
 import velib.view.AbonnementPanel;
@@ -40,6 +41,9 @@ public class WelcomeScreenController extends AbstractMainWindowController
 
         setUpMapWidget();
         addListeners();
+
+
+
     }
 
     /*

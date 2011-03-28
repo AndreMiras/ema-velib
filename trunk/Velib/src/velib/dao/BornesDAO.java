@@ -96,7 +96,7 @@ public class BornesDAO  extends DAO<Borne>{
     public Borne find(long id) {
         
         String bornesTable = tableNames[0];
-        Borne borne = new Borne();
+        Borne borne = null;
 	try
         {
             ResultSet result = this.connect.createStatement(
@@ -119,7 +119,6 @@ public class BornesDAO  extends DAO<Borne>{
         catch (SQLException e)
         {
             e.printStackTrace();
-            borne = null;
         }
 
         return borne;

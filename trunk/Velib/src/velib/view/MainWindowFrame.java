@@ -53,6 +53,12 @@ public class MainWindowFrame extends javax.swing.JFrame implements IView
     }
 
 
+    public void creationDBPopup()
+    {
+        JOptionPane.showMessageDialog(this, "Aucune base de donnée n'a été trouvée. Une a été crée.");
+    }
+
+
     // TODO: see CardLayout
     // See http://stackoverflow.com/questions/218155/how-do-i-change-jpanel-inside-a-jframe-on-the-fly
     //
