@@ -71,6 +71,7 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
         // fillUpUserTable();
         fillUpClientTable();
         fillUpBorneTable();
+        fillUpSubscriptionTypeTable();
     }
 
     private void createUserTable()
@@ -161,6 +162,14 @@ public class DatabaseManagementDAO implements IDatabaseManagementDAO
                bornette = bornetteDAO.create(bornette);
            }
        }
+    }
+
+    /*
+     * Adds default subscription types
+     */
+    private void fillUpSubscriptionTypeTable()
+    {
+        
     }
 
 

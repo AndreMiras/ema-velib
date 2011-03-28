@@ -85,7 +85,7 @@ public class AbonnementDAOTest {
         calendar.add(Calendar.DATE, 1); // adding a day to today
         tomorrow = calendar.getTime();
 
-        typeAbonnement = new SubscriptionType(0, SubscriptionTypeEnum.HALF_DAY);
+        typeAbonnement = new SubscriptionType(SubscriptionTypeEnum.HALF_DAY);
         subscription = new Subscription(0, typeAbonnement);
         subscription.setDateDebut(today);
         subscription.setDateFin(tomorrow);
@@ -109,7 +109,7 @@ public class AbonnementDAOTest {
          */
         clientDAO = new ClientDAO();
         client = new Client(0, "firstname", "lastname", new User());
-        typeAbonnement = new SubscriptionType(0, SubscriptionTypeEnum.ONE_MONTH);
+        typeAbonnement = new SubscriptionType(SubscriptionTypeEnum.ONE_MONTH);
         subscription = new Subscription(0, typeAbonnement);
         client.setAbonnement(subscription);
         clientDAO.create(client);
