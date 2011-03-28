@@ -92,12 +92,6 @@ public User getUserFromInputs()
 
         jLabel3.setText("Mot de passe :");
 
-        identifiantTextfield.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                identifiantTextfieldActionPerformed(evt);
-            }
-        });
-
         jLabel4.setText("En cas de perte de vos identifiants :");
 
         jLabel5.setText("Question secrète :");
@@ -106,12 +100,6 @@ public User getUserFromInputs()
 
         validerButton.setFont(new java.awt.Font("Tahoma", 1, 14));
         validerButton.setText("Valider");
-
-        motdepasseTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                motdepasseTextFieldActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,7 +121,7 @@ public User getUserFromInputs()
                                 .addGap(18, 18, 18)
                                 .addComponent(identifiantTextfield)))))
                 .addContainerGap(174, Short.MAX_VALUE))
-            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
+            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +137,7 @@ public User getUserFromInputs()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(questsecreteTextField)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                         .addComponent(validerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -201,14 +189,6 @@ public User getUserFromInputs()
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void identifiantTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_identifiantTextfieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_identifiantTextfieldActionPerformed
-
-    private void motdepasseTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motdepasseTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_motdepasseTextFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
