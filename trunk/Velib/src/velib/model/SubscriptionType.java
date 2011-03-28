@@ -38,7 +38,7 @@ public class SubscriptionType
 
     public long getIdType()
     {
-        return getSubscriptionTypeEnum().getIntSubscriptionTypeEnum();
+        return getSubscriptionTypeEnum().getId();
     }
 
     public int getDuree()
