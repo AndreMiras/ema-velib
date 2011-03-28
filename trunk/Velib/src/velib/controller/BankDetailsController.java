@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package velib.controller;
 
 import java.awt.event.ActionEvent;
@@ -13,10 +8,6 @@ import velib.model.Client;
 import velib.view.BankDetailsPanel;
 import velib.view.ConfirmationAbonnementPanel;
 
-/**
- *
- * @author andre
- */
 public class BankDetailsController extends AbstractMainWindowController
 {
     private Client client;
