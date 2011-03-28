@@ -49,13 +49,8 @@ public class WelcomeScreenPanel extends javax.swing.JPanel {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        aideButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        aideButton.setFont(new java.awt.Font("Tahoma", 1, 14));
         aideButton.setText("Aide");
-        aideButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aideButtonActionPerformed(evt);
-            }
-        });
 
         abonnerButton.setFont(new java.awt.Font("Tahoma", 1, 14));
         abonnerButton.setText("S'abonner");
@@ -103,16 +98,11 @@ public class WelcomeScreenPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mapPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(mapPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void aideButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_aideButtonActionPerformed
-    {//GEN-HEADEREND:event_aideButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_aideButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
