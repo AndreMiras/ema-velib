@@ -134,19 +134,14 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel
                 .addContainerGap(148, Short.MAX_VALUE))
         );
 
-        rechargerButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        rechargerButton.setFont(new java.awt.Font("Tahoma", 1, 14));
         rechargerButton.setText("Recharger");
 
-        restituerVeloButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        restituerVeloButton.setFont(new java.awt.Font("Tahoma", 1, 14));
         restituerVeloButton.setText("Restituer");
 
-        louerVeloButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        louerVeloButton.setFont(new java.awt.Font("Tahoma", 1, 14));
         louerVeloButton.setText("Louer");
-        louerVeloButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                louerVeloButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -177,11 +172,6 @@ public class LoggedInWelcomePanel extends javax.swing.JPanel
                 .addContainerGap(53, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void louerVeloButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_louerVeloButtonActionPerformed
-    {//GEN-HEADEREND:event_louerVeloButtonActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_louerVeloButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
