@@ -91,8 +91,9 @@ public class AbonnementController extends AbstractMainWindowController
             AbonnementDAO subscriptionDAO = new AbonnementDAO();
             /*
              * Create the subscription object and save it to the DB
+             * TODO: this is to be redone
              */
-            typeAbonnement = new SubscriptionType(0, abonnementType);
+            typeAbonnement = new SubscriptionType(abonnementType);
             // Hit the database with the subscription object
             subscription = new Subscription(0, typeAbonnement);
             subscriptionDAO.create(subscription);

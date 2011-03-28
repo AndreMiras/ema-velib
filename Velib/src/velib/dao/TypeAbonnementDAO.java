@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import velib.model.SubscriptionType;
+import velib.model.SubscriptionTypeEnum;
 
 /**
  *
@@ -40,10 +41,10 @@ public class TypeAbonnementDAO extends DAO<SubscriptionType> {
                                      );
             if(result.first())
             {
+                // TODO: hardcoded value
                 typeAbonnement =
                         new SubscriptionType(
-                        result.getLong("idtype"),
-                        null); // I do not yet know how I will handle this
+                        SubscriptionTypeEnum.HALF_DAY);
                 typeAbonnement.setDuree(result.getInt("duree"));
                 typeAbonnement.setPrix(result.getFloat("prix"));
             }
@@ -67,27 +68,23 @@ public class TypeAbonnementDAO extends DAO<SubscriptionType> {
             ResultSet.TYPE_SCROLL_INSENSITIVE,
             ResultSet.CONCUR_UPDATABLE).executeQuery(
                 "CALL NEXT VALUE FOR sequence_type_subscription");
+            long idtype = obj.getIdType();
 
-            if(result.first())
-            {
-                long id = result.getLong(1);
+            PreparedStatement prepare =
+                    connect.prepareStatement(
+                        "INSERT INTO "
+                        + typeAbonnementTable
+                        + " (idtype, "
+                        + "duree, "
+                        + "prix) "
+                        + "VALUES(?, ?, ?)");
+            prepare.setLong(1, idtype);
+            prepare.setInt(2, obj.getDuree());
+            prepare.setFloat(3, obj.getPrix());
 
-                PreparedStatement prepare =
-                        connect.prepareStatement(
-                            "INSERT INTO "
-                            + typeAbonnementTable
-                            + " (idtype, "
-                            + "duree, "
-                            + "prix) "
-                            + "VALUES(?, ?, ?)");
-                prepare.setLong(1, id);
-                prepare.setInt(2, obj.getDuree());
-                prepare.setFloat(3, obj.getPrix());
+            prepare.executeUpdate();
 
-                prepare.executeUpdate();
-
-                obj = find(id);
-            }
+            obj = find(idtype);
         }
         catch (SQLException e)
         {
@@ -111,13 +108,11 @@ public class TypeAbonnementDAO extends DAO<SubscriptionType> {
     {
         String[] statementStrings = new String[3];
         statementStrings[0] =
-                "CREATE SEQUENCE sequence_type_subscription START WITH 1 INCREMENT BY 1";
-        statementStrings[1] =
                     String.format("CREATE TABLE %s" +
                     "(idtype INTEGER, " +
                     "duree INTEGER, " +
                     "prix INTEGER) " , tableNames[0]);
-      statementStrings[2] =
+      statementStrings[1] =
                 "ALTER TABLE "
                 + tableNames[0]
                 + " ADD CONSTRAINT primary_key_typeAbo PRIMARY KEY (idtype)";
