@@ -36,6 +36,9 @@ public enum SubscriptionTypeEnum
     
     private long id;
     private long duration; // in hours
+
+    // TODO: the price should either be defined in here
+    // or in the SubscriptionType class, not in both
     private long price; // in euros
 
     private SubscriptionTypeEnum(long id, long duration, long price)
