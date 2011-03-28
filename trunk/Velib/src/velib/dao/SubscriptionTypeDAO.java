@@ -37,7 +37,7 @@ public class SubscriptionTypeDAO extends DAO<SubscriptionType> {
                         new SubscriptionType(
                         SubscriptionTypeEnum.HALF_DAY);
                 typeAbonnement.setDuree(result.getInt("duree"));
-                typeAbonnement.setPrix(result.getFloat("prix"));
+                typeAbonnement.setPrice(result.getFloat("prix"));
             }
 
         }
@@ -66,8 +66,8 @@ public class SubscriptionTypeDAO extends DAO<SubscriptionType> {
                         + "prix) "
                         + "VALUES(?, ?, ?)");
             prepare.setLong(1, idtype);
-            prepare.setInt(2, obj.getDuree());
-            prepare.setFloat(3, obj.getPrix());
+            prepare.setInt(2, obj.getDuration());
+            prepare.setFloat(3, obj.getPrice());
 
             prepare.executeUpdate();
 
