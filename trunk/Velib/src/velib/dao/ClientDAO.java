@@ -226,7 +226,7 @@ public class ClientDAO extends DAO<Client>
                     + " lastname = '" + obj.getLastname() + "',"
                     + " datenaissance = '" + new java.sql.Date(obj.getDateNaissance().getTime()) + "',"
                     + " adresse = '" + obj.getAdresse() + "',"
-                    + " ville = '" + obj.getVille() + "'"
+                    + " ville = '" + obj.getVille() + "',"
                     + " codepostal = '" + obj.getCodePostal() + "',"
                     + " WHERE idclient = " + obj.getClientId()
              );
