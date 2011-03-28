@@ -64,10 +64,6 @@ public class TypeAbonnementDAO extends DAO<SubscriptionType> {
 
         try
         {
-            ResultSet result = connect.createStatement(
-            ResultSet.TYPE_SCROLL_INSENSITIVE,
-            ResultSet.CONCUR_UPDATABLE).executeQuery(
-                "CALL NEXT VALUE FOR sequence_type_subscription");
             long idtype = obj.getIdType();
 
             PreparedStatement prepare =
