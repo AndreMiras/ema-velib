@@ -1,18 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package velib.model;
 
 import java.util.Date;
-
-/**
- *
- * @author Nicolas
- * plusieurs clients peuvent avoir la meme carte mais on considere qu'un
- * client n'a qu'une carte
- */
 
 public class Bank
 {

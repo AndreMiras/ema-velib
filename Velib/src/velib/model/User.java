@@ -1,16 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package velib.model;
 
 import sun.security.util.Password;
 
-/**
- *
- * @author fteysseire
- */
 public class User implements IModel {
 
     private long user_id;
