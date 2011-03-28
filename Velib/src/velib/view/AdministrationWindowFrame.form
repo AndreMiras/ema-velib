@@ -26,7 +26,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="198" max="32767" attributes="0"/>
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -47,7 +47,7 @@
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="61" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -142,12 +142,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Liste les clients et permet une visualisation de leur historique."/>
+        <Property name="text" type="java.lang.String" value="Affiche un client particulier et permet une visualisation de son historique."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="clientJButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Liste des clients"/>
+        <Property name="text" type="java.lang.String" value="Affiche les clients"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="bornesJButton1">

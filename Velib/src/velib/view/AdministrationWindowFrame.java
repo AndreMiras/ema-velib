@@ -102,9 +102,9 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel5.setText("Panneau général d'administration");
 
-        jLabel6.setText("Liste les clients et permet une visualisation de leur historique.");
+        jLabel6.setText("Affiche un client particulier et permet une visualisation de son historique.");
 
-        clientJButton.setText("Liste des clients");
+        clientJButton.setText("Affiche les clients");
 
         bornesJButton1.setText("Statut des bornes");
 
@@ -117,7 +117,7 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(198, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addGap(174, 174, 174))
+                .addGap(178, 178, 178))
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -135,7 +135,7 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
                     .addComponent(jLabel1)
                     .addComponent(jLabel4)
                     .addComponent(jLabel7))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
