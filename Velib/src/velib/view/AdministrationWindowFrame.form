@@ -152,12 +152,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="bornesJButton1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Status Bornes"/>
+        <Property name="text" type="java.lang.String" value="Statut des bornes"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Affiche le status des bornes."/>
+        <Property name="text" type="java.lang.String" value="Affiche le statut des bornes."/>
       </Properties>
     </Component>
   </SubComponents>

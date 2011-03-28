@@ -106,9 +106,9 @@ public class AdministrationWindowFrame extends javax.swing.JFrame
 
         clientJButton.setText("Liste des clients");
 
-        bornesJButton1.setText("Status Bornes");
+        bornesJButton1.setText("Statut des bornes");
 
-        jLabel7.setText("Affiche le status des bornes.");
+        jLabel7.setText("Affiche le statut des bornes.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
