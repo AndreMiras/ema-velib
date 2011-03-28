@@ -16,13 +16,13 @@ public class TypeAbonnement
     private long id;
     private float prix;
     private int duree; // TODO: what type should we use?
-    private AbonnementTypeEnum abonnementType;
+    private SubscriptionTypeEnum abonnementType;
 
     public TypeAbonnement()
     {
     }
 
-    public TypeAbonnement(long id, AbonnementTypeEnum abonnementType)
+    public TypeAbonnement(long id, SubscriptionTypeEnum abonnementType)
     {
         /*
          * TODO: set duree and price
